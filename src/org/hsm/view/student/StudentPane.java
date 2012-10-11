@@ -56,5 +56,6 @@ public class StudentPane extends JSplitPane {
 		
 		classViewPane = new ClassViewPane();
 		setRightComponent(classViewPane);
+		setDividerLocation(150);
 	}
 }
