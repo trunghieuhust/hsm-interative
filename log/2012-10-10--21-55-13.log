@@ -1,0 +1,12 @@
+Oct 10, 2012 9:55:13 PM org.hsm.control.Control start
+INFO: System starts
+Oct 10, 2012 9:55:13 PM org.hsm.control.Control start
+INFO: Open login window
+Oct 10, 2012 9:55:14 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 10, 2012 9:55:15 PM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 10, 2012 9:55:15 PM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 10, 2012 9:55:21 PM org.hsm.control.Control fire
+INFO: System exits

@@ -1,0 +1,31 @@
+Oct 11, 2012 10:25:02 PM org.hsm.control.Control start
+INFO: System starts
+Oct 11, 2012 10:25:02 PM org.hsm.control.Control start
+INFO: Open login window
+Oct 11, 2012 10:25:04 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 11, 2012 10:25:04 PM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 11, 2012 10:25:04 PM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 11, 2012 10:25:04 PM org.hsm.service.CoreService query
+INFO: Execute query select "CL#", "Name" from "Class"
+Oct 11, 2012 10:25:04 PM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 11, 2012 10:25:06 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5A} class
+Oct 11, 2012 10:25:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" from "Student"
+Oct 11, 2012 10:25:06 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5A} class
+Oct 11, 2012 10:25:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" from "Student"
+Oct 11, 2012 10:25:08 PM org.hsm.control.Control getData
+INFO: Create new class
+Oct 11, 2012 10:25:08 PM org.hsm.service.CoreService query
+INFO: Execute query INSERT INTO "Class" DEFAULT VALUES RETURNING "CL#", "Name"
+Oct 11, 2012 10:25:08 PM org.hsm.service.CoreService query
+WARNING: ERROR: duplicate key value violates unique constraint "pk_class"
+  Detail: Key ("CL#")=(1) already exists.
+Oct 11, 2012 10:25:11 PM org.hsm.control.Control fire
+INFO: System exits

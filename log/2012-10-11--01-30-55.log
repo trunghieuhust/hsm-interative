@@ -1,0 +1,53 @@
+Oct 11, 2012 1:30:55 AM org.hsm.control.Control start
+INFO: System starts
+Oct 11, 2012 1:30:55 AM org.hsm.control.Control start
+INFO: Open login window
+Oct 11, 2012 1:30:56 AM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 11, 2012 1:30:56 AM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 11, 2012 1:30:57 AM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 11, 2012 1:30:57 AM org.hsm.service.CoreService query
+INFO: Execute query select "CL#", "Name" from "Class"
+Oct 11, 2012 1:30:57 AM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 11, 2012 1:30:59 AM org.hsm.control.Control getData
+INFO: Remove class with id = {1}, name = {Việt Nhật 5A}
+Oct 11, 2012 1:30:59 AM org.hsm.service.CoreService update
+INFO: Execute udpate
+Oct 11, 2012 1:30:59 AM org.hsm.service.CoreService update
+WARNING: ERROR: update or delete on table "Class" violates foreign key constraint "fk_class" on table "Student"
+  Detail: Key (CL#)=(1) is still referenced from table "Student".
+Oct 11, 2012 1:31:02 AM org.hsm.control.Control getData
+INFO: Remove class with id = {2}, name = {Việt Nhật 5B}
+Oct 11, 2012 1:31:02 AM org.hsm.service.CoreService update
+INFO: Execute udpate
+Oct 11, 2012 1:31:02 AM org.hsm.service.CoreService update
+WARNING: ERROR: update or delete on table "Class" violates foreign key constraint "fk_class" on table "Student"
+  Detail: Key (CL#)=(2) is still referenced from table "Student".
+Oct 11, 2012 1:31:06 AM org.hsm.control.Control getData
+INFO: Remove class with id = {3}, name = {Việt Nhật 5C}
+Oct 11, 2012 1:31:06 AM org.hsm.service.CoreService update
+INFO: Execute udpate
+Oct 11, 2012 1:31:06 AM org.hsm.service.CoreService update
+WARNING: ERROR: update or delete on table "Class" violates foreign key constraint "fk_class" on table "Student"
+  Detail: Key (CL#)=(3) is still referenced from table "Student".
+Oct 11, 2012 1:31:10 AM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 11, 2012 1:31:10 AM org.hsm.service.CoreService query
+INFO: Execute query select "CL#", "Name" from "Class"
+Oct 11, 2012 1:31:13 AM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 11, 2012 1:31:13 AM org.hsm.service.CoreService query
+INFO: Execute query select "CL#", "Name" from "Class"
+Oct 11, 2012 1:31:14 AM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 11, 2012 1:31:14 AM org.hsm.service.CoreService query
+INFO: Execute query select "CL#", "Name" from "Class"
+Oct 11, 2012 1:31:50 AM org.hsm.control.Control getData
+INFO: Create new class
+Oct 11, 2012 1:31:50 AM org.hsm.service.CoreService query
+INFO: Execute query INSERT INTO "Class"("Name") VALUES(default) RETURNING "CL#", "Name"
+Oct 11, 2012 1:32:13 AM org.hsm.control.Control fire
+INFO: System exits

@@ -1,0 +1,40 @@
+Oct 11, 2012 10:30:15 PM org.hsm.control.Control start
+INFO: System starts
+Oct 11, 2012 10:30:15 PM org.hsm.control.Control start
+INFO: Open login window
+Oct 11, 2012 10:30:16 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 11, 2012 10:30:16 PM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 11, 2012 10:30:16 PM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 11, 2012 10:30:16 PM org.hsm.service.CoreService query
+INFO: Execute query select "CL#", "Name" from "Class"
+Oct 11, 2012 10:30:16 PM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 11, 2012 10:30:18 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5A} class
+Oct 11, 2012 10:30:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student", "Class" WHERE "Student"."CL#" = "Class"."CL#"
+Oct 11, 2012 10:30:18 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5A} class
+Oct 11, 2012 10:30:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student", "Class" WHERE "Student"."CL#" = "Class"."CL#"
+Oct 11, 2012 10:30:19 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5B} class
+Oct 11, 2012 10:30:19 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student", "Class" WHERE "Student"."CL#" = "Class"."CL#"
+Oct 11, 2012 10:30:19 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5B} class
+Oct 11, 2012 10:30:19 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student", "Class" WHERE "Student"."CL#" = "Class"."CL#"
+Oct 11, 2012 10:30:27 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:30:27 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student", "Class" WHERE "Student"."CL#" = "Class"."CL#"
+Oct 11, 2012 10:30:27 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:30:27 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student", "Class" WHERE "Student"."CL#" = "Class"."CL#"
+Oct 11, 2012 10:30:29 PM org.hsm.control.Control fire
+INFO: System exits

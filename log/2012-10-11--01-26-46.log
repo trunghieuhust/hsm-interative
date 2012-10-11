@@ -1,0 +1,20 @@
+Oct 11, 2012 1:26:46 AM org.hsm.control.Control start
+INFO: System starts
+Oct 11, 2012 1:26:46 AM org.hsm.control.Control start
+INFO: Open login window
+Oct 11, 2012 1:26:48 AM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 11, 2012 1:26:48 AM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 11, 2012 1:26:48 AM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 11, 2012 1:26:48 AM org.hsm.service.CoreService query
+INFO: Execute query select "CL#", "Name" from "Class"
+Oct 11, 2012 1:26:48 AM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 11, 2012 1:26:53 AM org.hsm.control.Control getData
+INFO: Remove class with id = {5}, name = {}
+Oct 11, 2012 1:26:53 AM org.hsm.service.CoreService update
+INFO: Execute udpate
+Oct 11, 2012 1:27:01 AM org.hsm.control.Control fire
+INFO: System exits

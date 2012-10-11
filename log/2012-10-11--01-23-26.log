@@ -1,0 +1,52 @@
+Oct 11, 2012 1:23:26 AM org.hsm.control.Control start
+INFO: System starts
+Oct 11, 2012 1:23:26 AM org.hsm.control.Control start
+INFO: Open login window
+Oct 11, 2012 1:23:27 AM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 11, 2012 1:23:27 AM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 11, 2012 1:23:27 AM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 11, 2012 1:23:27 AM org.hsm.service.CoreService query
+INFO: Execute query select "CL#", "Name" from "Class"
+Oct 11, 2012 1:23:27 AM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 11, 2012 1:23:30 AM org.hsm.control.Control getData
+INFO: Remove class with id = {8}, name = {}
+Oct 11, 2012 1:23:30 AM org.hsm.service.CoreService update
+INFO: Execute many udpates
+Oct 11, 2012 1:23:51 AM org.hsm.control.Control getData
+INFO: Remove class with id = {1}, name = {Việt Nhật 5A}
+Oct 11, 2012 1:23:51 AM org.hsm.service.CoreService update
+INFO: Execute many udpates
+Oct 11, 2012 1:23:51 AM org.hsm.service.CoreService update
+SEVERE: ERROR: update or delete on table "Class" violates foreign key constraint "fk_class" on table "Student"
+  Detail: Key (CL#)=(1) is still referenced from table "Student".
+Oct 11, 2012 1:23:52 AM org.hsm.control.Control getData
+INFO: Remove class with id = {1}, name = {Việt Nhật 5A}
+Oct 11, 2012 1:23:52 AM org.hsm.service.CoreService update
+INFO: Execute many udpates
+Oct 11, 2012 1:23:52 AM org.hsm.service.CoreService update
+SEVERE: ERROR: update or delete on table "Class" violates foreign key constraint "fk_class" on table "Student"
+  Detail: Key (CL#)=(1) is still referenced from table "Student".
+Oct 11, 2012 1:23:53 AM org.hsm.control.Control getData
+INFO: Remove class with id = {1}, name = {Việt Nhật 5A}
+Oct 11, 2012 1:23:53 AM org.hsm.service.CoreService update
+INFO: Execute many udpates
+Oct 11, 2012 1:23:53 AM org.hsm.service.CoreService update
+SEVERE: ERROR: update or delete on table "Class" violates foreign key constraint "fk_class" on table "Student"
+  Detail: Key (CL#)=(1) is still referenced from table "Student".
+Oct 11, 2012 1:23:54 AM org.hsm.control.Control getData
+INFO: Remove class with id = {1}, name = {Việt Nhật 5A}
+Oct 11, 2012 1:23:54 AM org.hsm.service.CoreService update
+INFO: Execute many udpates
+Oct 11, 2012 1:23:54 AM org.hsm.service.CoreService update
+SEVERE: ERROR: update or delete on table "Class" violates foreign key constraint "fk_class" on table "Student"
+  Detail: Key (CL#)=(1) is still referenced from table "Student".
+Oct 11, 2012 1:23:58 AM org.hsm.control.Control getData
+INFO: Remove class with id = {7}, name = {}
+Oct 11, 2012 1:23:58 AM org.hsm.service.CoreService update
+INFO: Execute many udpates
+Oct 11, 2012 1:24:00 AM org.hsm.control.Control fire
+INFO: System exits

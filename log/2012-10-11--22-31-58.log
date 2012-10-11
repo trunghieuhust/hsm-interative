@@ -1,0 +1,243 @@
+Oct 11, 2012 10:31:59 PM org.hsm.control.Control start
+INFO: System starts
+Oct 11, 2012 10:31:59 PM org.hsm.control.Control start
+INFO: Open login window
+Oct 11, 2012 10:32:00 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 11, 2012 10:32:00 PM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 11, 2012 10:32:00 PM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 11, 2012 10:32:00 PM org.hsm.service.CoreService query
+INFO: Execute query select "CL#", "Name" from "Class"
+Oct 11, 2012 10:32:00 PM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 11, 2012 10:32:03 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5A} class
+Oct 11, 2012 10:32:03 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 1
+ ORDER BY "Last"
+Oct 11, 2012 10:32:03 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5A} class
+Oct 11, 2012 10:32:03 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 1
+ ORDER BY "Last"
+Oct 11, 2012 10:32:18 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5B} class
+Oct 11, 2012 10:32:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 2
+ ORDER BY "Last"
+Oct 11, 2012 10:32:18 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5B} class
+Oct 11, 2012 10:32:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 2
+ ORDER BY "Last"
+Oct 11, 2012 10:32:18 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5A} class
+Oct 11, 2012 10:32:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 1
+ ORDER BY "Last"
+Oct 11, 2012 10:32:18 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5A} class
+Oct 11, 2012 10:32:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 1
+ ORDER BY "Last"
+Oct 11, 2012 10:32:20 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5B} class
+Oct 11, 2012 10:32:20 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 2
+ ORDER BY "Last"
+Oct 11, 2012 10:32:21 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5B} class
+Oct 11, 2012 10:32:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 2
+ ORDER BY "Last"
+Oct 11, 2012 10:32:22 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5A} class
+Oct 11, 2012 10:32:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 1
+ ORDER BY "Last"
+Oct 11, 2012 10:32:22 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5A} class
+Oct 11, 2012 10:32:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 1
+ ORDER BY "Last"
+Oct 11, 2012 10:32:23 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5C} class
+Oct 11, 2012 10:32:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 3
+ ORDER BY "Last"
+Oct 11, 2012 10:32:23 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5C} class
+Oct 11, 2012 10:32:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 3
+ ORDER BY "Last"
+Oct 11, 2012 10:32:24 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:24 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 4
+ ORDER BY "Last"
+Oct 11, 2012 10:32:24 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:24 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 4
+ ORDER BY "Last"
+Oct 11, 2012 10:32:24 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:24 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 5
+ ORDER BY "Last"
+Oct 11, 2012 10:32:24 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:24 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 5
+ ORDER BY "Last"
+Oct 11, 2012 10:32:25 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:25 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 6
+ ORDER BY "Last"
+Oct 11, 2012 10:32:25 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:25 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 6
+ ORDER BY "Last"
+Oct 11, 2012 10:32:25 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:25 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 7
+ ORDER BY "Last"
+Oct 11, 2012 10:32:25 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:25 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 7
+ ORDER BY "Last"
+Oct 11, 2012 10:32:27 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:27 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 4
+ ORDER BY "Last"
+Oct 11, 2012 10:32:27 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:27 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 4
+ ORDER BY "Last"
+Oct 11, 2012 10:32:28 PM org.hsm.control.Control getData
+INFO: Remove class with id = {4}, name = {New class}
+Oct 11, 2012 10:32:28 PM org.hsm.service.CoreService update
+INFO: Execute udpate DELETE FROM "Class" WHERE "CL#" = 4
+Oct 11, 2012 10:32:30 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:30 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 6
+ ORDER BY "Last"
+Oct 11, 2012 10:32:30 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:30 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 6
+ ORDER BY "Last"
+Oct 11, 2012 10:32:31 PM org.hsm.control.Control getData
+INFO: Remove class with id = {6}, name = {New class}
+Oct 11, 2012 10:32:31 PM org.hsm.service.CoreService update
+INFO: Execute udpate DELETE FROM "Class" WHERE "CL#" = 6
+Oct 11, 2012 10:32:32 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:32 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 7
+ ORDER BY "Last"
+Oct 11, 2012 10:32:32 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:32 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 7
+ ORDER BY "Last"
+Oct 11, 2012 10:32:33 PM org.hsm.control.Control getData
+INFO: Remove class with id = {7}, name = {New class}
+Oct 11, 2012 10:32:33 PM org.hsm.service.CoreService update
+INFO: Execute udpate DELETE FROM "Class" WHERE "CL#" = 7
+Oct 11, 2012 10:32:35 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:35 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 5
+ ORDER BY "Last"
+Oct 11, 2012 10:32:35 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 11, 2012 10:32:35 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 5
+ ORDER BY "Last"
+Oct 11, 2012 10:32:37 PM org.hsm.control.Control getData
+INFO: Remove class with id = {5}, name = {New class}
+Oct 11, 2012 10:32:37 PM org.hsm.service.CoreService update
+INFO: Execute udpate DELETE FROM "Class" WHERE "CL#" = 5
+Oct 11, 2012 10:32:39 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5C} class
+Oct 11, 2012 10:32:39 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 3
+ ORDER BY "Last"
+Oct 11, 2012 10:32:39 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5C} class
+Oct 11, 2012 10:32:39 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 3
+ ORDER BY "Last"
+Oct 11, 2012 10:32:41 PM org.hsm.control.Control getData
+INFO: Remove class with id = {3}, name = {Việt Nhật 5C}
+Oct 11, 2012 10:32:41 PM org.hsm.service.CoreService update
+INFO: Execute udpate DELETE FROM "Class" WHERE "CL#" = 3
+Oct 11, 2012 10:32:41 PM org.hsm.service.CoreService update
+WARNING: ERROR: update or delete on table "Class" violates foreign key constraint "fk_class" on table "Student"
+  Detail: Key (CL#)=(3) is still referenced from table "Student".
+Oct 11, 2012 10:32:52 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5B} class
+Oct 11, 2012 10:32:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 2
+ ORDER BY "Last"
+Oct 11, 2012 10:32:52 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5B} class
+Oct 11, 2012 10:32:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 2
+ ORDER BY "Last"
+Oct 11, 2012 10:32:53 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5A} class
+Oct 11, 2012 10:32:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 1
+ ORDER BY "Last"
+Oct 11, 2012 10:32:53 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5A} class
+Oct 11, 2012 10:32:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 1
+ ORDER BY "Last"
+Oct 11, 2012 10:32:56 PM org.hsm.control.Control fire
+INFO: System exits
