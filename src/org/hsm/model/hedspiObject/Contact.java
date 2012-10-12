@@ -1,6 +1,5 @@
 package org.hsm.model.hedspiObject;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Contact extends HedspiObject {
@@ -8,15 +7,15 @@ public class Contact extends HedspiObject {
 	private String last;
 	private boolean isMale;
 	private Date dob;
-	private ArrayList<String> emails;
-	private ArrayList<String> phones;
+	private String[] emails;
+	private String[] phones;
 	private String note;
 	private String home;
 	private int district;
 
 	public Contact(int id, String first, String last,
-			boolean isMale, Date dob, ArrayList<String> emails,
-			ArrayList<String> phones, String note, String home, int district) {
+			boolean isMale, Date dob, String[] emails,
+			String[] phones, String note, String home, int district) {
 		super(id, first + " " + last);
 		this.first = first;
 		this.last = last;
@@ -45,11 +44,11 @@ public class Contact extends HedspiObject {
 		return dob;
 	}
 
-	public ArrayList<String> getEmails() {
+	public String[] getEmails() {
 		return emails;
 	}
 
-	public ArrayList<String> getPhones() {
+	public String[] getPhones() {
 		return phones;
 	}
 

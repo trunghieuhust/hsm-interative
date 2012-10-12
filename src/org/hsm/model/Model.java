@@ -4,8 +4,11 @@ import java.util.Properties;
 import java.util.logging.Level;
 
 import org.hsm.control.Control;
+import org.hsm.model.hedspiObject.Student;
+import org.hsm.service.CityService;
 import org.hsm.service.ClassService;
 import org.hsm.service.CoreService;
+import org.hsm.service.DistrictService;
 import org.hsm.service.StudentService;
 
 public class Model implements IModel {
@@ -24,6 +27,21 @@ public class Model implements IModel {
 	@Override
 	public Object getData(String command, Object... data) {
 		switch (command) {
+		case "getCityOfDistrict":
+			return DistrictService.getCityOfDistrict((int)data[0]);
+			
+		case "updateStudent":
+			return StudentService.updateStudent((int)data[0], (Student)data[1]);
+			
+		case "getDistricsList":
+			return DistrictService.getDistrictsList((int)data[0]);
+			
+		case "getCityList":
+			return CityService.getCitiesList();
+					
+		case "getClassList":
+			return ClassService.getClassesList();
+			
 		case "getFullStudentData":
 			return StudentService.getFullDataStudent((int)data[0]);
 			
@@ -45,7 +63,7 @@ public class Model implements IModel {
 		case "newClass":
 			return ClassService.newClass();
 		case "classList":
-			return ClassService.getClasses();
+			return ClassService.getClassesList();
 			
 		case "check-login":
 			Properties loginInfo = (Properties) data[0];

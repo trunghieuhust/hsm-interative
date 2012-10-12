@@ -4,7 +4,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 
 import org.hsm.control.Control;
-import org.hsm.model.hedspiObject.HedspiClass;
 import org.hsm.model.hedspiObject.HedspiObject;
 
 public class StudentPane extends JSplitPane {
@@ -31,8 +30,8 @@ public class StudentPane extends JSplitPane {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			HedspiClass newElement() {
-				return (HedspiClass)Control.getInstance().getData("newClass");
+			HedspiObject newElement() {
+				return (HedspiObject)Control.getInstance().getData("newClass");
 			}
 
 			@Override
@@ -41,15 +40,15 @@ public class StudentPane extends JSplitPane {
 			}
 
 			@Override
-			HedspiClass[] getRefresh() {
-				return (HedspiClass[]) Control.getInstance().getData("classList");
+			HedspiObject[] getRefresh() {
+				return (HedspiObject[]) Control.getInstance().getData("classList");
 			}
 
 			@Override
 			void selectValue(HedspiObject value) {
-				HedspiClass hedspiClass = new HedspiClass(value.getId(), value.toString());
-				if (hedspiClass != null)
-					classViewPane.setHedspiClass(hedspiClass);
+				HedspiObject HedspiObject = new HedspiObject(value.getId(), value.toString());
+				if (HedspiObject != null)
+					classViewPane.setHedspiObject(HedspiObject);
 			}
 
 		};

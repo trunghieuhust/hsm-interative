@@ -1,20 +1,20 @@
 package org.hsm.view.student;
 
-import javax.swing.JPanel;
-
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.factories.FormFactory;
-import com.jgoodies.forms.layout.RowSpec;
 import javax.swing.JLabel;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
+import javax.swing.JPanel;
 import javax.swing.JSpinner;
+import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
+import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
 import org.hsm.model.hedspiObject.Student;
+
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+import com.jgoodies.forms.factories.FormFactory;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.RowSpec;
 
 public class StudentOtherPane extends JPanel {
 
@@ -23,7 +23,7 @@ public class StudentOtherPane extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField textFieldMssv;
-	private JComboBox<HedspiObject> comboBoxClass;
+	private HedspiComboBox comboBoxClass;
 	private SpinnerNumberModel modelPoint;
 	private SpinnerNumberModel modelYear;
 
@@ -44,9 +44,7 @@ public class StudentOtherPane extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),}));
+				FormFactory.DEFAULT_ROWSPEC,}));
 		
 		JLabel lblMssv = DefaultComponentFactory.getInstance().createLabel("Student code");
 		add(lblMssv, "2, 2, right, default");
@@ -58,7 +56,17 @@ public class StudentOtherPane extends JPanel {
 		JLabel lblClass = DefaultComponentFactory.getInstance().createLabel("Class");
 		add(lblClass, "2, 4, right, default");
 		
-		comboBoxClass = new JComboBox<>();
+		comboBoxClass = new HedspiComboBox(){
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			HedspiObject[] getValues() {
+				return (HedspiObject[])Control.getInstance().getData("getClassList");
+			}};
 		add(comboBoxClass, "4, 4, fill, default");
 		
 		JLabel lblPoint = DefaultComponentFactory.getInstance().createLabel("Enroll point");
@@ -80,8 +88,24 @@ public class StudentOtherPane extends JPanel {
 
 	public void setStudent(Student student) {
 		textFieldMssv.setText(student.getMssv());
-		//TODO chưa set class
+		comboBoxClass.setSelectedValue(student.getHedspiClass());
 		modelPoint.setValue(student.getPoint());
 		modelYear.setValue(student.getYear());
+	}
+
+	public double getPoint() {
+		return modelPoint.getNumber().doubleValue();
+	}
+
+	public String getMssv() {
+		return textFieldMssv.getText();
+	}
+
+	public int getYear() {
+		return modelYear.getNumber().intValue();
+	}
+
+	public int getHedspiClass() {
+		return comboBoxClass.getSelectedValue();
 	}
 }

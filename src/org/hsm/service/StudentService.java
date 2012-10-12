@@ -77,17 +77,17 @@ public class StudentService {
 		if (dob == null)
 			dob = new Date();
 		
-		ArrayList<String> emails;
+		String[] emails;
 		String emailsStr = (String)ret.get("Emails");
 		if (emailsStr == null)
 			emailsStr = "";
-		emails = endlineStringToArrayList(emailsStr);
+		emails = endlineStringToArray(emailsStr);
 		
-		ArrayList<String> phones;
+		String[] phones;
 		String phonesStr = (String)ret.get("Phones");
 		if (phonesStr == null)
 			phonesStr = "";
-		phones = endlineStringToArrayList(phonesStr);
+		phones = endlineStringToArray(phonesStr);
 		
 		String note = (String)ret.get("Note");
 		if (note == null)
@@ -98,10 +98,10 @@ public class StudentService {
 			home = "";
 		
 		int district;
-		if (ret.get("District") == null)
+		if (ret.get("DT#") == null)
 			district = -1;
 		else
-			district = (int)ret.get("District");
+			district = (int)ret.get("DT#");
 		
 		double point;
 		if (ret.get("Point") == null)
@@ -128,13 +128,48 @@ public class StudentService {
 		return new Student(sid, first, last, isMale, dob, emails, phones, note, home, district, point, mssv, year, hedspiClass);
 	}
 
-	private static ArrayList<String> endlineStringToArrayList(String phonesStr) {
-		ArrayList<String> ret = new ArrayList<>();
-		for(String it : phonesStr.split("\n"))
-			ret.add(it);
-		return ret;
+	private static String[] endlineStringToArray(String phonesStr) {
+		return phonesStr.split("\n");
 	}
 	
-	
+	private static String arrayToEndlineString(String[] array){
+		String ret = "";
+		for(String it : array)
+			ret += it + "\n";
+		return ret;
+	}
 
+	public static String updateStudent(int id, Student student) {
+		String query = String.format("UPDATE \"Student\"\n" +
+				"SET\n" +
+				"\"First\" = '%s'\n" +
+				", \"Last\" = '%s'\n" +
+				", \"Sex\" = %s\n" +
+				", \"DOB\" = '%s'\n" +
+				", \"Emails\" = '%s'\n" +
+				", \"Phones\" = '%s'\n" +
+				", \"Note\" = '%s'\n" +
+				", \"Home\" = '%s'\n" +
+				", \"DT#\" = %d\n" +
+				", \"Point\" = %f\n" +
+				", \"CL#\" = %d\n" +
+				", \"MSSV\" = '%s'\n" +
+				", \"Year\" = %d\n" +
+				"WHERE \"CT#\" = %d", 
+				student.getFirst().replace("'", "''"),
+				student.getLast().replace("'", "''"),
+				student.isMale() ? "true" : "false",
+				student.getDob().toString(),
+				arrayToEndlineString(student.getEmails()).replace("'", "''"),
+				arrayToEndlineString(student.getPhones()).replace("'", "''"),
+				student.getNote().replace("'", "''"),
+				student.getHome().replace("'", "''"),
+				student.getDistrict(),
+				student.getPoint(),
+				student.getHedspiClass(),
+				student.getMssv().replace("'",  "''"),
+				student.getYear(),
+				id);
+		return CoreService.getInstance().update(query);
+	}
 }

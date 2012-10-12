@@ -138,18 +138,27 @@ public class CoreService {
 		return getUrl(loginInfo);
 	}
 
+	/**
+	 * Thực hiện truy vấn trả về kết quả.
+	 * @param queryStr	câu truy vấn có trả về kết quả.
+	 * Nếu một truy vấn không có kết quả được gọi, cảnh báo sẽ xuất hiện
+	 * trong file log.
+	 * @return	danh sách các bản ghi trả về, mỗi bản ghi là một map.
+	 * Trường hợp truy vấn lỗi sẽ trả về một danh sách rỗng.
+	 */
 	public ArrayList<HashMap<String, Object>> query(String queryStr) {
 		Control.getInstance().getLogger()
 				.log(Level.INFO, "Execute query {0}", queryStr);
+		ArrayList<HashMap<String, Object>> result = new ArrayList<>();
 
 		Connection conn = getConnection();
 		if (conn == null)
-			return null;
+			return result;
 
 		Statement stmt = getStatement(conn);
 		if (stmt == null) {
 			close(conn);
-			return null;
+			return result;
 		}
 
 		ResultSet rs = null;
@@ -159,15 +168,14 @@ public class CoreService {
 			Control.getInstance().getLogger().log(Level.WARNING, e.getMessage());
 			close(stmt);
 			close(conn);
-			return null;
+			return result;
 		}
 		if (rs == null) {
 			close(stmt);
 			close(conn);
-			return null;
+			return result;
 		}
 
-		ArrayList<HashMap<String, Object>> result = new ArrayList<>();
 		try {
 			int n = rs.getMetaData().getColumnCount();
 			while (rs.next()) {
@@ -190,40 +198,12 @@ public class CoreService {
 	}
 
 	/**
-	 * @param udpates
-	 *            update query list
-	 * @return number of success queries
+	 * Thực thi truy vấn cập nhật CSDL, sử dụng giống như {@link #query query} tuy nhiên
+	 * lệnh này sử dụng cho những câu truy vấn không trả về kết quả.
+	 * @param updateStr	câu truy vấn có thể không trả về kết quả
+	 * @return	trả về <code>null</code> nếu thành công, ngược lại sẽ trả về String chứa
+	 * thông báo lỗi.
 	 */
-	public int update(String[] udpates) {
-		Control.getInstance().getLogger()
-				.log(Level.INFO, "Execute many udpates");
-
-		Connection conn = getConnection();
-		if (conn == null)
-			return 0;
-
-		Statement stmt = getStatement(conn);
-		if (stmt == null) {
-			close(conn);
-			return 0;
-		}
-
-		int cnt = 0;
-		for (String queryStr : udpates) {
-			try {
-				stmt.executeUpdate(queryStr);
-				cnt++;
-			} catch (SQLException e) {
-				Control.getInstance().getLogger()
-						.log(Level.WARNING, e.getMessage());
-			}
-		}
-
-		close(stmt);
-		close(conn);
-		return cnt;
-	}
-	
 	public String update(String updateStr){
 		Control.getInstance().getLogger()
 		.log(Level.INFO, "Execute udpate " + updateStr);

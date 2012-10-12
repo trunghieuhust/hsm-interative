@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 
 import org.hsm.model.Model;
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.hsm.model.hedspiObject.Student;
 import org.hsm.service.CoreService;
 import org.hsm.view.IView;
 import org.hsm.view.login.LoginWindow;
@@ -148,14 +149,40 @@ public class Control implements IControl {
 			// show function list
 			mainWindow = new MainWindow();//AllFunction();
 			logger.log(Level.INFO, "Show main function window");
-			mainWindow.fire("set-visible", true);
+			mainWindow.setVisible(true);
 		}
 	}
 
 	@Override
 	public Object getData(String command, Object... data) {
 		HedspiObject obj;
+		Student student;
+		int id;
+		
 		switch(command){
+		case "getCityOfDistrict":
+			id = (int) data[0];
+			logger.log(Level.INFO, "Get id of city for district with id {" + id + "}");
+			return Model.getInstance().getData("getCityOfDistrict", id);
+			
+		case "updateStudent":
+			obj = (HedspiObject)data[0];
+			student = (Student)data[1];
+			return Model.getInstance().getData("updateStudent", obj.getId(), student);
+			
+		case "getDistricsList":
+			id = (int)data[0];
+			logger.log(Level.INFO, "Get list of districts in city having id {" + id + "}");
+			return Model.getInstance().getData("getDistricsList", id);
+			
+		case "getCityList":
+			logger.log(Level.INFO, "Get list of cities");
+			return Model.getInstance().getData("getCityList");
+			
+		case "getClassList":
+			logger.log(Level.INFO, "Get list of class");
+			return Model.getInstance().getData("getClassList");
+			
 		case "getFullStudentData":
 			obj = (HedspiObject)data[0];
 			logger.log(Level.INFO, "Get full data of student {" + obj.getName() + "}");

@@ -2,17 +2,15 @@ package org.hsm.view.main;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.logging.Level;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 
 import org.hsm.control.Control;
-import org.hsm.view.IView;
 
 
-public class MainWindow extends JFrame implements IView{
+public class MainWindow extends JFrame {
 
 	/**
 	 * 
@@ -40,27 +38,11 @@ public class MainWindow extends JFrame implements IView{
 		});
 		setTitle("Hedspi Student Manager");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 896, 570);
+		setBounds(100, 100, 896, 587);
 
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
 		setContentPane(new MainPane());
-	}
-
-	@Override
-	public void fire(String command, Object... data) {
-		switch (command) {
-		case "set-visible":
-			super.setVisible((boolean) data[0]);
-			break;
-		default:
-			Control.getInstance()
-			.getLogger()
-			.log(Level.WARNING,
-					"You have called FunctionWindow an operation that is not supported.\nCommand: {0}",
-					command);
-			break;
-		}
 	}
 }

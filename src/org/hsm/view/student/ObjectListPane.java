@@ -92,6 +92,8 @@ public abstract class ObjectListPane extends JPanel {
 				if (value != null){
 					model.addElement(value);
 					list.setSelectedValue(value, true);
+				} else {
+					JOptionPane.showMessageDialog(null, "Failed to create new element", "Failed to create new element", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
@@ -120,8 +122,9 @@ public abstract class ObjectListPane extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				HedspiObject[] arr = getRefresh();
-				if (arr == null)
+				if (arr == null){
 					return;
+				}
 				Arrays.sort(arr);
 				model.clear();
 				for(HedspiObject it : arr)
@@ -137,33 +140,35 @@ public abstract class ObjectListPane extends JPanel {
 		this();
 		lblClassList.setText(label);
 	}
-	
 
 	/**
-	 * Hàm này sẽ được gọi khi đối tượng được chọn thay đổi và khác null.
-	 * Tức khi gọi hàm đã luôn đảm bảo value != null.
-	 * @param value đối tượng được chọn, đảm bảo khác null.
+	 * Hàm này sẽ được gọi khi đối tượng được chọn thay đổi và khác <code>null</code>.
+	 * Tức khi gọi hàm đã luôn đảm bảo <code>value != null</code>.
+	 * @param value đối tượng được chọn, đảm bảo khác <code>null</code>.
 	 */
 	abstract void selectValue(HedspiObject value);
 	/**
-	 * Trả về đối tượng mới thêm vào, nếu lấy về không thành công thì trả về null.
-	 * Phần tử null sẽ không được thêm vào danh sách.
-	 * Phần tử khác null sẽ được thêm vào.
-	 * @return giá trị phần tử mới. null nếu không thành công.
+	 * Trả về đối tượng mới thêm vào, nếu lấy về không thành công thì trả về <code>null</code>.
+	 * Phần tử <code>null</code> sẽ không được thêm vào danh sách.
+	 * Phần tử khác <code>null</code> sẽ được thêm vào.
+	 * @return giá trị phần tử mới. <code>null</code> nếu không thành công.
 	 */
 	abstract HedspiObject newElement();
+	
 	/**
 	 * Hàm này được gọi khi người dùng xóa đối tượng.
-	 * @param value khi gọi hàm này đã đảm bảo cho value != null
-	 * @return trả về null nếu thành công. Ngược lại, hãy trả về thông báo lỗi.
+	 * @param value khi gọi hàm này đã đảm bảo cho <code>value != null</code>
+	 * @return trả về <code>null</code> nếu thành công. Ngược lại, hãy trả về thông báo lỗi.
 	 */
 	abstract String removeElement(HedspiObject value);
+	
 	/**
-	 * Reload CSDL. Ngoài ra, hàm này cũng được gọi khi khởi tạo instance.
-	 * @return danh sách các objects.
+	 * Reload CSDL. Ngoài ra, hàm này cũng được gọi khi {@link #ObjectListPane() khởi tạo} instance.
+	 * @return danh sách các objects, nếu lỗi thì trả về <code>null</code> sẽ có thông báo hiện lên
+	 * và danh sách không được cập nhật vào hiển thị. Lưu ý rằng <code>null</code> khác với danh
+	 * sách rỗng.
 	 */
 	abstract HedspiObject[] getRefresh();
-
 
 	public void refresh() {
 		btnRefresh.doClick();
