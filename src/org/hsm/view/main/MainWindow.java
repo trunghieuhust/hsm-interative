@@ -40,7 +40,7 @@ public class MainWindow extends JFrame implements IView{
 		});
 		setTitle("Hedspi Student Manager");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 864, 570);
+		setBounds(100, 100, 896, 570);
 
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);

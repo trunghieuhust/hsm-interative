@@ -24,6 +24,12 @@ public class Model implements IModel {
 	@Override
 	public Object getData(String command, Object... data) {
 		switch (command) {
+		case "getFullStudentData":
+			return StudentService.getFullDataStudent((int)data[0]);
+			
+		case "renameClass":
+			return ClassService.rename((int)data[0], (String)data[1]);
+			
 		case "getNewRawStudentInClass":
 			return StudentService.newRawStudentInClass((int)data[0]);
 			

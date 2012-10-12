@@ -15,6 +15,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.hsm.model.hedspiObject.Student;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import com.jgoodies.forms.factories.FormFactory;
@@ -31,6 +32,9 @@ public class ContactPane extends JPanel {
 	private JTextField textFieldFirst;
 	private JTextField textFieldLast;
 	private JTextField textFieldHome;
+	private JCheckBox checkBoxIsMale;
+	private SpinnerDateModel modelBirthday;
+	private JEditorPane editorPaneNote;
 
 	/**
 	 * Create the panel.
@@ -80,7 +84,7 @@ public class ContactPane extends JPanel {
 		JLabel lblIsMale = DefaultComponentFactory.getInstance().createLabel("Is male");
 		add(lblIsMale, "2, 6");
 		
-		JCheckBox checkBoxIsMale = new JCheckBox("");
+		checkBoxIsMale = new JCheckBox("");
 		checkBoxIsMale.setSelected(true);
 		add(checkBoxIsMale, "4, 6");
 		
@@ -88,7 +92,8 @@ public class ContactPane extends JPanel {
 		add(lblBirthday, "2, 8");
 		
 		JSpinner spinnerBirthday = new JSpinner();
-		spinnerBirthday.setModel(new SpinnerDateModel(new Date(1349974800000L), null, null, Calendar.DAY_OF_YEAR));
+		modelBirthday = new SpinnerDateModel(new Date(1349974800000L), null, null, Calendar.DAY_OF_YEAR);
+		spinnerBirthday.setModel(modelBirthday);
 		add(spinnerBirthday, "4, 8");
 		
 		JLabel lblCity = DefaultComponentFactory.getInstance().createLabel("City");
@@ -125,8 +130,19 @@ public class ContactPane extends JPanel {
 		JLabel lblNote = DefaultComponentFactory.getInstance().createLabel("Note");
 		add(lblNote, "2, 20");
 		
-		JEditorPane editorPaneNote = new JEditorPane();
+		editorPaneNote = new JEditorPane();
 		editorPaneNote.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		add(editorPaneNote, "4, 20, fill, fill");
+	}
+
+	public void setContact(Student student) {
+		textFieldFirst.setText(student.getFirst());
+		textFieldLast.setText(student.getLast());
+		checkBoxIsMale.setSelected(student.isMale());
+		modelBirthday.setValue(student.getDob());
+		//TODO chưa set district
+		textFieldHome.setText(student.getHome());
+		//TODO chưa set emails và phones
+		editorPaneNote.setText(student.getNote());
 	}
 }

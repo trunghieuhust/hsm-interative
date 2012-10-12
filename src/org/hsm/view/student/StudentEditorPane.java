@@ -7,6 +7,8 @@ import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
 import javax.swing.JButton;
 
+import org.hsm.model.hedspiObject.Student;
+
 
 
 public class StudentEditorPane extends JPanel {
@@ -15,6 +17,8 @@ public class StudentEditorPane extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private StudentOtherPane panelStudentOther;
+	private ContactPane panelContact;
 
 	/**
 	 * Create the panel.
@@ -30,7 +34,7 @@ public class StudentEditorPane extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
-		ContactPane panelContact = new ContactPane();
+		panelContact = new ContactPane();
 		add(panelContact, "2, 2, fill, fill");
 		
 		JPanel panel = new JPanel();
@@ -43,7 +47,7 @@ public class StudentEditorPane extends JPanel {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
-		StudentOtherPane panelStudentOther = new StudentOtherPane();
+		panelStudentOther = new StudentOtherPane();
 		panel.add(panelStudentOther, "2, 2, fill, fill");
 		
 		JPanel panelButton = new JPanel();
@@ -63,5 +67,10 @@ public class StudentEditorPane extends JPanel {
 		JButton btnReset = new JButton("Reset");
 		panelButton.add(btnReset, "4, 2");
 		
+	}
+
+	public void setStudent(Student student) {
+		panelContact.setContact(student);
+		panelStudentOther.setStudent(student);
 	}
 }

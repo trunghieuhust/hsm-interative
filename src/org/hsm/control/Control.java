@@ -156,6 +156,15 @@ public class Control implements IControl {
 	public Object getData(String command, Object... data) {
 		HedspiObject obj;
 		switch(command){
+		case "getFullStudentData":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Get full data of student {" + obj.getName() + "}");
+			return Model.getInstance().getData("getFullStudentData", obj.getId());
+		case "renameClass":
+			obj = (HedspiObject)data[0];
+			String name = (String)data[1];
+			logger.log(Level.INFO, "Change class's name from {" + obj.getName() + "} to {" + name + "}");
+			return Model.getInstance().getData("renameClass", obj.getId(), name);
 		case "getNewRawStudentInClass":
 			obj = (HedspiObject)data[0];
 			logger.log(Level.INFO, "Insert new student in class {" + obj.getName() + "}");

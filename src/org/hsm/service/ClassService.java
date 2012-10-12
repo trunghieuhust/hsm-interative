@@ -41,4 +41,11 @@ public class ClassService {
 		String query = "DELETE FROM \"Class\" WHERE \"CL#\" = " + cl;
 		return CoreService.getInstance().update(query);
 	}
+
+	public static String rename(int id, String name) {
+		String query = "UPDATE \"Class\"\n" +
+				" SET \"Name\" = '" + name.replace("'", "''") + "'\n" +
+				"WHERE \"CL#\" = " + id;
+		return CoreService.getInstance().update(query);
+	}
 }

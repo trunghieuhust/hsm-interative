@@ -48,7 +48,8 @@ public class StudentPane extends JSplitPane {
 			@Override
 			void selectValue(HedspiObject value) {
 				HedspiClass hedspiClass = new HedspiClass(value.getId(), value.toString());
-				classViewPane.setHedspiClass(hedspiClass);
+				if (hedspiClass != null)
+					classViewPane.setHedspiClass(hedspiClass);
 			}
 
 		};

@@ -14,6 +14,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.hsm.model.hedspiObject.Student;
 
 public class StudentOtherPane extends JPanel {
 
@@ -22,6 +23,9 @@ public class StudentOtherPane extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField textFieldMssv;
+	private JComboBox<HedspiObject> comboBoxClass;
+	private SpinnerNumberModel modelPoint;
+	private SpinnerNumberModel modelYear;
 
 	/**
 	 * Create the panel.
@@ -54,21 +58,30 @@ public class StudentOtherPane extends JPanel {
 		JLabel lblClass = DefaultComponentFactory.getInstance().createLabel("Class");
 		add(lblClass, "2, 4, right, default");
 		
-		JComboBox<HedspiObject> comboBoxClass = new JComboBox<>();
+		comboBoxClass = new JComboBox<>();
 		add(comboBoxClass, "4, 4, fill, default");
 		
 		JLabel lblPoint = DefaultComponentFactory.getInstance().createLabel("Enroll point");
 		add(lblPoint, "2, 6");
 		
 		JSpinner spinnerPoint = new JSpinner();
-		spinnerPoint.setModel(new SpinnerNumberModel(0.0, 0.0, 30.0, 1.0));
+		modelPoint = new SpinnerNumberModel(0.0, 0.0, 30.0, 1.0);
+		spinnerPoint.setModel(modelPoint);
 		add(spinnerPoint, "4, 6");
 		
 		JLabel lblYear = DefaultComponentFactory.getInstance().createLabel("Enroll year");
 		add(lblYear, "2, 8");
 		
+		modelYear = new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1));
 		JSpinner spinnerYear = new JSpinner();
-		spinnerYear.setModel(new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1)));
+		spinnerYear.setModel(modelYear);
 		add(spinnerYear, "4, 8");
+	}
+
+	public void setStudent(Student student) {
+		textFieldMssv.setText(student.getMssv());
+		//TODO chưa set class
+		modelPoint.setValue(student.getPoint());
+		modelYear.setValue(student.getYear());
 	}
 }
