@@ -20,7 +20,7 @@ public class ClassService {
 		return cla;
 	}
 
-	public static String removeClass(int cl){
+	public static String remove(int cl){
 		String query = "DELETE FROM \"Class\" WHERE \"CL#\" = " + cl;
 		return CoreService.getInstance().update(query);
 	}

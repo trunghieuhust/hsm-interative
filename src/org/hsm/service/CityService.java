@@ -23,4 +23,28 @@ public class CityService {
 		
 		return ret.toArray(new HedspiObject[ret.size()]);
 	}
+
+	public static HedspiObject getNew() {
+		String query = "INSERT INTO \"City\" DEFAULT VALUES RETURNING \"Name\", \"CY#\"";
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
+		if (rs.size() == 0)
+			return null;
+		int id = (int)rs.get(0).get("CY#");
+		String name = (String)rs.get(0).get("Name");
+		if (name == null)
+			name = "";
+		return new HedspiObject(id, name);
+	}
+
+	public static String remove(int id) {
+		String query = "DELETE FROM \"City\" WHERE \"CY#\" = " + id;
+		return CoreService.getInstance().update(query);
+	}
+
+	public static String rename(int i, String string) {
+		String query = "UPDATE \"City\"\n" +
+				"SET \"Name\" = '" + string.replace("'", "''") + "'\n" +
+						"WHERE \"CY#\" = " + i;
+		return CoreService.getInstance().update(query);
+	}
 }

@@ -26,7 +26,7 @@ public class ClassViewPane extends JSplitPane {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	HedspiObject HedspiObject;
+	HedspiObject hedspiClass;
 
 	private ObjectListPane studentListPane;
 	private JTextField textFieldClassName;
@@ -70,10 +70,12 @@ public class ClassViewPane extends JSplitPane {
 			public void actionPerformed(ActionEvent e) {
 				String name = textFieldClassName.getText();
 				String message;
-				if (HedspiObject != null && name != "" && !HedspiObject.getName().equals(name)){
-					message = (String) Control.getInstance().getData("renameClass", HedspiObject, name);
+				if (hedspiClass != null && !hedspiClass.getName().equals(name)){
+					message = (String) Control.getInstance().getData("renameClass", hedspiClass, name);
 					if (message != null)
 						JOptionPane.showMessageDialog(null, "Rename class name failed.\nMessage: " + message, "Rename failed", JOptionPane.ERROR_MESSAGE);
+					else
+						hedspiClass.setName(name);
 				}
 			}
 		});
@@ -92,6 +94,7 @@ public class ClassViewPane extends JSplitPane {
 			private static final long serialVersionUID = 1L;
 
 			@Override
+			public
 			void selectValue(HedspiObject value) {
 				Student student = (Student)Control.getInstance().getData("getFullStudentData", value);
 				if (student != null)
@@ -101,20 +104,23 @@ public class ClassViewPane extends JSplitPane {
 			}
 			
 			@Override
+			public
 			String removeElement(HedspiObject value) {
 				return (String)Control.getInstance().getData("removeStudent", value);
 			}
 			
 			@Override
+			public
 			HedspiObject newElement() {
-				return (HedspiObject)(Control.getInstance().getData("getNewRawStudentInClass", HedspiObject));
+				return (HedspiObject)(Control.getInstance().getData("getNewRawStudentInClass", hedspiClass));
 			}
 			
 			@Override
+			public
 			HedspiObject[] getRefresh() {
-				if (HedspiObject == null)
+				if (hedspiClass == null)
 					return null;
-				return (HedspiObject[])Control.getInstance().getData("getStudentRawListInClass", HedspiObject);
+				return (HedspiObject[])Control.getInstance().getData("getStudentRawListInClass", hedspiClass);
 			}
 		};
 		panel.add(studentListPane, "2, 4, fill, fill");
@@ -127,9 +133,9 @@ public class ClassViewPane extends JSplitPane {
 		setDividerLocation(150);
 	}
 
-	public void setHedspiObject(HedspiObject HedspiObject) {
-		this.HedspiObject = HedspiObject;
+	public void setHedspiClass(HedspiObject hedspiClass) {
+		this.hedspiClass = hedspiClass;
 		studentListPane.refresh();
-		textFieldClassName.setText(HedspiObject.getName());
+		textFieldClassName.setText(hedspiClass.getName());
 	}
 }

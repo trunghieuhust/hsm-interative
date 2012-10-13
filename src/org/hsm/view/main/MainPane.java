@@ -3,6 +3,7 @@ package org.hsm.view.main;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import org.hsm.view.district.DistrictMainPane;
 import org.hsm.view.student.StudentPane;
 
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -30,5 +31,8 @@ public class MainPane extends JPanel {
 		
 		StudentPane studentPanel = new StudentPane();
 		tabbedPane.addTab("Student", null, studentPanel, null);
+		
+		DistrictMainPane districtMainPane = new DistrictMainPane();
+		tabbedPane.addTab("Districts", null, districtMainPane, null);
 	}
 }

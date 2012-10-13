@@ -146,21 +146,21 @@ public abstract class ObjectListPane extends JPanel {
 	 * Tức khi gọi hàm đã luôn đảm bảo <code>value != null</code>.
 	 * @param value đối tượng được chọn, đảm bảo khác <code>null</code>.
 	 */
-	abstract void selectValue(HedspiObject value);
+	public abstract void selectValue(HedspiObject value);
 	/**
 	 * Trả về đối tượng mới thêm vào, nếu lấy về không thành công thì trả về <code>null</code>.
 	 * Phần tử <code>null</code> sẽ không được thêm vào danh sách.
 	 * Phần tử khác <code>null</code> sẽ được thêm vào.
 	 * @return giá trị phần tử mới. <code>null</code> nếu không thành công.
 	 */
-	abstract HedspiObject newElement();
+	public abstract HedspiObject newElement();
 	
 	/**
 	 * Hàm này được gọi khi người dùng xóa đối tượng.
 	 * @param value khi gọi hàm này đã đảm bảo cho <code>value != null</code>
 	 * @return trả về <code>null</code> nếu thành công. Ngược lại, hãy trả về thông báo lỗi.
 	 */
-	abstract String removeElement(HedspiObject value);
+	public abstract String removeElement(HedspiObject value);
 	
 	/**
 	 * Reload CSDL. Ngoài ra, hàm này cũng được gọi khi {@link #ObjectListPane() khởi tạo} instance.
@@ -168,7 +168,7 @@ public abstract class ObjectListPane extends JPanel {
 	 * và danh sách không được cập nhật vào hiển thị. Lưu ý rằng <code>null</code> khác với danh
 	 * sách rỗng.
 	 */
-	abstract HedspiObject[] getRefresh();
+	public abstract HedspiObject[] getRefresh();
 
 	public void refresh() {
 		btnRefresh.doClick();

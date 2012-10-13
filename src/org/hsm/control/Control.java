@@ -158,8 +158,54 @@ public class Control implements IControl {
 		HedspiObject obj;
 		Student student;
 		int id;
+		String name;
 		
 		switch(command){
+		case "saveCityName":
+			obj = (HedspiObject)data[0];
+			name= (String)data[1];
+			logger.log(Level.INFO, "Change name of city {" + obj.getName() + "} to {" + name + "}");
+			return Model.getInstance().getData("saveCityName", obj.getId(), name);
+			
+		case "getDistrictName":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Reload name of district {" + obj.getName() + "}");
+			return Model.getInstance().getData("getDistrictName", obj.getId());
+			
+		case "saveDistrictName":
+			obj = (HedspiObject)data[0];
+			name = (String)data[1];
+			logger.log(Level.INFO, "Change district name from {" + obj.getName() + "} into {" + name + "}");
+			return Model.getInstance().getData("saveDistrictName", obj.getId(), name);
+			
+		case "getDistrictsListInCity":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Get new district in city {" + obj.getName() + "}");
+			return Model.getInstance().getData("getDistricsList", obj.getId());
+			
+		case "removeDistrict":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Remove district {" + obj.getName() + "}");
+			return Model.getInstance().getData("removeDistrict", obj.getId());
+			
+		case "newDistrict":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Get new district of city {" + obj.getName() + "}");
+			return Model.getInstance().getData("newDistrict", obj.getId());
+			
+		case "getCitiesList":
+			logger.log(Level.INFO, "Get list of cities");
+			return Model.getInstance().getData("getCitiesList");
+			
+		case "removeCity":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Remove city {" + obj.getName() + "}");
+			return Model.getInstance().getData("removeCity", obj.getId());
+			
+		case "newCity":
+			logger.log(Level.INFO, "Get new city");
+			return Model.getInstance().getData("newCity");
+			
 		case "getCityOfDistrict":
 			id = (int) data[0];
 			logger.log(Level.INFO, "Get id of city for district with id {" + id + "}");
@@ -189,7 +235,7 @@ public class Control implements IControl {
 			return Model.getInstance().getData("getFullStudentData", obj.getId());
 		case "renameClass":
 			obj = (HedspiObject)data[0];
-			String name = (String)data[1];
+			name = (String)data[1];
 			logger.log(Level.INFO, "Change class's name from {" + obj.getName() + "} to {" + name + "}");
 			return Model.getInstance().getData("renameClass", obj.getId(), name);
 		case "getNewRawStudentInClass":

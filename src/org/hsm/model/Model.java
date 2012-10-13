@@ -27,11 +27,35 @@ public class Model implements IModel {
 	@Override
 	public Object getData(String command, Object... data) {
 		switch (command) {
+		case "saveCityName":
+			return CityService.rename((int)data[0], (String)data[1]);
+			
+		case "getDistrictName":
+			return DistrictService.getName((int)data[0]);
+			
+		case "saveDistrictName":
+			return DistrictService.rename((int)data[0], (String)data[1]);
+			
+		case "removeDistrict":
+			return DistrictService.remove((int)data[0]);
+			
+		case "newDistrict":
+			return DistrictService.getNewInCity((int)data[0]);
+			
+		case "getCitiesList":
+			return CityService.getCitiesList();
+			
+		case "removeCity":
+			return CityService.remove((int)data[0]);
+			
+		case "newCity":
+			return CityService.getNew();
+			
 		case "getCityOfDistrict":
 			return DistrictService.getCityOfDistrict((int)data[0]);
 			
 		case "updateStudent":
-			return StudentService.updateStudent((int)data[0], (Student)data[1]);
+			return StudentService.update((int)data[0], (Student)data[1]);
 			
 		case "getDistricsList":
 			return DistrictService.getDistrictsList((int)data[0]);
@@ -49,16 +73,16 @@ public class Model implements IModel {
 			return ClassService.rename((int)data[0], (String)data[1]);
 			
 		case "getNewRawStudentInClass":
-			return StudentService.newRawStudentInClass((int)data[0]);
+			return StudentService.newRawInClass((int)data[0]);
 			
 		case "removeStudent":
-			return StudentService.removeStudent((int)data[0]);
+			return StudentService.remove((int)data[0]);
 					
 		case "getStudentRawListInClass":
 			return StudentService.getRawStudentListInClass((int)data[0]);
 			
 		case "removeClass":
-			return ClassService.removeClass((int)data[0]);
+			return ClassService.remove((int)data[0]);
 			
 		case "newClass":
 			return ClassService.newClass();

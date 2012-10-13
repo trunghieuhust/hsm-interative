@@ -1,63 +1,65 @@
-package org.hsm.view.student;
+package org.hsm.view.district;
 
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.hsm.view.student.ObjectListPane;
 
-public class StudentPane extends JSplitPane {
+public class DistrictMainPane extends JSplitPane {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ClassViewPane classViewPane;
+	private CityViewPane cityViewPane;
 
 	/**
 	 * Create the panel.
 	 */
-	public StudentPane() {
+	public DistrictMainPane() {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		setLeftComponent(scrollPane);
 		
-		ObjectListPane classListPane = new ObjectListPane("Class list"){
+		ObjectListPane cityListPane = new ObjectListPane("Cities list"){
 
 			/**
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;
-
+			
 			@Override
 			public
 			HedspiObject newElement() {
-				return (HedspiObject)Control.getInstance().getData("newClass");
+				return (HedspiObject)Control.getInstance().getData("newCity");
 			}
 
 			@Override
 			public
 			String removeElement(HedspiObject value) {
-				return (String)Control.getInstance().getData("removeClass", value);
+				return (String)Control.getInstance().getData("removeCity", value);
 			}
 
 			@Override
 			public
 			HedspiObject[] getRefresh() {
-				return (HedspiObject[]) Control.getInstance().getData("classList");
+				return (HedspiObject[]) Control.getInstance().getData("getCitiesList");
 			}
 
 			@Override
 			public
 			void selectValue(HedspiObject value) {
-				classViewPane.setHedspiClass(value);
+				cityViewPane.setCity(value);
 			}
-
+	
 		};
-		scrollPane.setViewportView(classListPane);
+			
+		scrollPane.setViewportView(cityListPane);
 		
-		classViewPane = new ClassViewPane();
-		setRightComponent(classViewPane);
+		cityViewPane = new CityViewPane();
+		setRightComponent(cityViewPane);
 		setDividerLocation(150);
 	}
 }

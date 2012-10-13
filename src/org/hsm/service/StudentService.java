@@ -27,12 +27,12 @@ public class StudentService {
 		return ret.toArray(new HedspiObject[ret.size()]);
 	}
 
-	public static String removeStudent(int id) {
+	public static String remove(int id) {
 		String query = "DELETE FROM \"Student\" WHERE \"CT#\" = " + id;
 		return CoreService.getInstance().update(query);
 	}
 
-	public static HedspiObject newRawStudentInClass(int id) {
+	public static HedspiObject newRawInClass(int id) {
 		String query = "INSERT INTO \"Student\" (\"CL#\") VALUES ( " + id + ")\n" +
 				" RETURNING \"First\", \"Last\", \"CT#\"";
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
@@ -139,7 +139,7 @@ public class StudentService {
 		return ret;
 	}
 
-	public static String updateStudent(int id, Student student) {
+	public static String update(int id, Student student) {
 		String query = String.format("UPDATE \"Student\"\n" +
 				"SET\n" +
 				"\"First\" = '%s'\n" +
