@@ -1,0 +1,27 @@
+Oct 12, 2012 6:29:33 PM org.hsm.control.Control start
+INFO: System starts
+Oct 12, 2012 6:29:33 PM org.hsm.control.Control start
+INFO: Open login window
+Oct 12, 2012 6:29:34 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 12, 2012 6:29:34 PM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 12, 2012 6:29:35 PM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 12, 2012 6:29:35 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 12, 2012 6:29:36 PM org.hsm.control.Control getData
+WARNING: A view has fired Control an operation that is not supported.
+Command: getCityList
+Oct 12, 2012 6:29:36 PM org.hsm.control.Control getData
+INFO: Get list of class
+Oct 12, 2012 6:29:36 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+Oct 12, 2012 6:29:36 PM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 12, 2012 6:29:51 PM org.hsm.control.Control getData
+WARNING: A view has fired Control an operation that is not supported.
+Command: getCityList
+Oct 12, 2012 6:30:08 PM org.hsm.control.Control fire
+INFO: System exits

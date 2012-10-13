@@ -1,0 +1,1567 @@
+Oct 12, 2012 10:45:14 PM org.hsm.control.Control start
+INFO: System starts
+Oct 12, 2012 10:45:14 PM org.hsm.control.Control start
+INFO: Open login window
+Oct 12, 2012 10:45:17 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 12, 2012 10:45:18 PM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 12, 2012 10:45:18 PM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 12, 2012 10:45:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 12, 2012 10:45:18 PM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 12, 2012 10:45:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#", "Name" FROM "City"
+ORDER BY "Name"
+Oct 12, 2012 10:45:18 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {1}
+Oct 12, 2012 10:45:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 1
+ORDER BY "Name"
+Oct 12, 2012 10:45:18 PM org.hsm.control.Control getData
+INFO: Get list of class
+Oct 12, 2012 10:45:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 12, 2012 10:45:18 PM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 12, 2012 10:45:21 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 12, 2012 10:45:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 9
+ ORDER BY "Last"
+Oct 12, 2012 10:45:21 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 12, 2012 10:45:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 9
+ ORDER BY "Last"
+Oct 12, 2012 10:45:22 PM org.hsm.control.Control getData
+INFO: Get full data of student {No Namex}
+Oct 12, 2012 10:45:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 269
+Oct 12, 2012 10:45:22 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:22 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:22 PM org.hsm.control.Control getData
+INFO: Get full data of student {No Namex}
+Oct 12, 2012 10:45:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 269
+Oct 12, 2012 10:45:22 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:22 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:23 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {5}
+Oct 12, 2012 10:45:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 5
+ORDER BY "Name"
+Oct 12, 2012 10:45:23 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {5}
+Oct 12, 2012 10:45:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 5
+ORDER BY "Name"
+Oct 12, 2012 10:45:26 PM org.hsm.service.CoreService update
+INFO: Execute udpate UPDATE "Student"
+SET
+"First" = 'No'
+, "Last" = 'Namex'
+, "Sex" = true
+, "DOB" = 'Fri Oct 12 00:00:00 ICT 2012'
+, "Emails" = '
+'
+, "Phones" = ''
+, "Note" = ''
+, "Home" = ''
+, "DT#" = 265
+, "Point" = 0.000000
+, "CL#" = 9
+, "MSSV" = '        '
+, "Year" = 2012
+WHERE "CT#" = 269
+Oct 12, 2012 10:45:28 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5C} class
+Oct 12, 2012 10:45:28 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 3
+ ORDER BY "Last"
+Oct 12, 2012 10:45:28 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5C} class
+Oct 12, 2012 10:45:28 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 3
+ ORDER BY "Last"
+Oct 12, 2012 10:45:29 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Duy Công}
+Oct 12, 2012 10:45:29 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 137
+Oct 12, 2012 10:45:29 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:29 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:29 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:29 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Duy Công}
+Oct 12, 2012 10:45:29 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 137
+Oct 12, 2012 10:45:29 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:29 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:29 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:29 PM org.hsm.control.Control getData
+INFO: Get full data of student {Vũ Duy}
+Oct 12, 2012 10:45:29 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 155
+Oct 12, 2012 10:45:30 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:30 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:30 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:30 PM org.hsm.control.Control getData
+INFO: Get full data of student {Vũ Duy}
+Oct 12, 2012 10:45:30 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 155
+Oct 12, 2012 10:45:30 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:30 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:30 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:30 PM org.hsm.control.Control getData
+INFO: Get full data of student {Bùi Trung Hiếu}
+Oct 12, 2012 10:45:30 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 163
+Oct 12, 2012 10:45:30 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:30 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:30 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:30 PM org.hsm.control.Control getData
+INFO: Get full data of student {Bùi Trung Hiếu}
+Oct 12, 2012 10:45:30 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 163
+Oct 12, 2012 10:45:30 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:30 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:30 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:31 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 12, 2012 10:45:31 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 9
+ ORDER BY "Last"
+Oct 12, 2012 10:45:32 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 12, 2012 10:45:32 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 9
+ ORDER BY "Last"
+Oct 12, 2012 10:45:32 PM org.hsm.control.Control getData
+INFO: Get full data of student {No Namex}
+Oct 12, 2012 10:45:32 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 269
+Oct 12, 2012 10:45:32 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:32 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:32 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:33 PM org.hsm.control.Control getData
+INFO: Get full data of student {No Namex}
+Oct 12, 2012 10:45:33 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 269
+Oct 12, 2012 10:45:33 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:33 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:33 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:35 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {7}
+Oct 12, 2012 10:45:35 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 7
+ORDER BY "Name"
+Oct 12, 2012 10:45:35 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {7}
+Oct 12, 2012 10:45:35 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 7
+ORDER BY "Name"
+Oct 12, 2012 10:45:40 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5B} class
+Oct 12, 2012 10:45:40 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 2
+ ORDER BY "Last"
+Oct 12, 2012 10:45:40 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5B} class
+Oct 12, 2012 10:45:40 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 2
+ ORDER BY "Last"
+Oct 12, 2012 10:45:40 PM org.hsm.control.Control getData
+INFO: Get full data of student {Thạch Thọ Diên}
+Oct 12, 2012 10:45:40 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 144
+Oct 12, 2012 10:45:40 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:40 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:40 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:40 PM org.hsm.control.Control getData
+INFO: Get full data of student {Thạch Thọ Diên}
+Oct 12, 2012 10:45:40 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 144
+Oct 12, 2012 10:45:40 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:40 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:40 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:41 PM org.hsm.control.Control getData
+INFO: Get full data of student {Trần Đức Phong}
+Oct 12, 2012 10:45:41 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 189
+Oct 12, 2012 10:45:41 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:41 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:41 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:41 PM org.hsm.control.Control getData
+INFO: Get full data of student {Trần Đức Phong}
+Oct 12, 2012 10:45:41 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 189
+Oct 12, 2012 10:45:41 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:41 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:41 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:41 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Thành Đạo}
+Oct 12, 2012 10:45:41 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 140
+Oct 12, 2012 10:45:41 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:41 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:41 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:41 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Thành Đạo}
+Oct 12, 2012 10:45:41 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 140
+Oct 12, 2012 10:45:41 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:41 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:41 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:44 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Mạnh Hưng}
+Oct 12, 2012 10:45:44 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 168
+Oct 12, 2012 10:45:44 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:44 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:44 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:44 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Mạnh Hưng}
+Oct 12, 2012 10:45:44 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 168
+Oct 12, 2012 10:45:44 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:44 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:44 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:45 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 12, 2012 10:45:45 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 10
+ ORDER BY "Last"
+Oct 12, 2012 10:45:45 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 12, 2012 10:45:45 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 10
+ ORDER BY "Last"
+Oct 12, 2012 10:45:46 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5A} class
+Oct 12, 2012 10:45:46 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 1
+ ORDER BY "Last"
+Oct 12, 2012 10:45:46 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5A} class
+Oct 12, 2012 10:45:46 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 1
+ ORDER BY "Last"
+Oct 12, 2012 10:45:46 PM org.hsm.control.Control getData
+INFO: Get full data of student {Thái Sa Lem}
+Oct 12, 2012 10:45:46 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 174
+Oct 12, 2012 10:45:47 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:47 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:47 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:47 PM org.hsm.control.Control getData
+INFO: Get full data of student {Thái Sa Lem}
+Oct 12, 2012 10:45:47 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 174
+Oct 12, 2012 10:45:47 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:47 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:47 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:47 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Minh Giang}
+Oct 12, 2012 10:45:47 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 156
+Oct 12, 2012 10:45:47 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:47 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:47 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:47 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Minh Giang}
+Oct 12, 2012 10:45:47 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 156
+Oct 12, 2012 10:45:47 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:47 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:47 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:47 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Ngọc Mạnh}
+Oct 12, 2012 10:45:47 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 181
+Oct 12, 2012 10:45:47 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:47 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:47 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:48 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Ngọc Mạnh}
+Oct 12, 2012 10:45:48 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 181
+Oct 12, 2012 10:45:48 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:48 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:48 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:50 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Văn Đức}
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 148
+Oct 12, 2012 10:45:50 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:50 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Văn Đức}
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 148
+Oct 12, 2012 10:45:50 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:50 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Minh Hùng}
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 166
+Oct 12, 2012 10:45:50 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:50 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Minh Hùng}
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 166
+Oct 12, 2012 10:45:50 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:50 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Ngọc Mạnh}
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 181
+Oct 12, 2012 10:45:50 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:50 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:51 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Ngọc Mạnh}
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 181
+Oct 12, 2012 10:45:51 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:51 PM org.hsm.control.Control getData
+INFO: Get full data of student {Hoàng Công Thắng}
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 205
+Oct 12, 2012 10:45:51 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:51 PM org.hsm.control.Control getData
+INFO: Get full data of student {Hoàng Công Thắng}
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 205
+Oct 12, 2012 10:45:51 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:51 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Trường Thành}
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 210
+Oct 12, 2012 10:45:51 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:51 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Trường Thành}
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 210
+Oct 12, 2012 10:45:51 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:51 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:52 PM org.hsm.control.Control getData
+INFO: Get full data of student {Tạ Thị Thùy}
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 215
+Oct 12, 2012 10:45:52 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:52 PM org.hsm.control.Control getData
+INFO: Get full data of student {Tạ Thị Thùy}
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 215
+Oct 12, 2012 10:45:52 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:52 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Đình Minh}
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 184
+Oct 12, 2012 10:45:52 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:52 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Đình Minh}
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 184
+Oct 12, 2012 10:45:52 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:52 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Ngọc Long}
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 177
+Oct 12, 2012 10:45:52 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:52 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Ngọc Long}
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 177
+Oct 12, 2012 10:45:52 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:52 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:53 PM org.hsm.control.Control getData
+INFO: Get full data of student {Đổng Trọng Hùng}
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 165
+Oct 12, 2012 10:45:53 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:53 PM org.hsm.control.Control getData
+INFO: Get full data of student {Đổng Trọng Hùng}
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 165
+Oct 12, 2012 10:45:53 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:53 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Khắc Hải}
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 159
+Oct 12, 2012 10:45:53 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:53 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Khắc Hải}
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 159
+Oct 12, 2012 10:45:53 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:53 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Minh Giang}
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 156
+Oct 12, 2012 10:45:53 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:53 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Minh Giang}
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 156
+Oct 12, 2012 10:45:53 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:53 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:54 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Thành Đạt}
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 143
+Oct 12, 2012 10:45:54 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:54 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Thành Đạt}
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 143
+Oct 12, 2012 10:45:54 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:54 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Tiến Đạt}
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 141
+Oct 12, 2012 10:45:54 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:54 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Tiến Đạt}
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 141
+Oct 12, 2012 10:45:54 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:54 PM org.hsm.control.Control getData
+INFO: Get full data of student {Hà Ngọc Bình}
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 134
+Oct 12, 2012 10:45:54 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:54 PM org.hsm.control.Control getData
+INFO: Get full data of student {Hà Ngọc Bình}
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 134
+Oct 12, 2012 10:45:54 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:54 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:55 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Thành Đạt}
+Oct 12, 2012 10:45:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 143
+Oct 12, 2012 10:45:55 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:55 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:55 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Thành Đạt}
+Oct 12, 2012 10:45:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 143
+Oct 12, 2012 10:45:55 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:55 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:56 PM org.hsm.control.Control getData
+INFO: Get full data of student {Đổng Trọng Hùng}
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 165
+Oct 12, 2012 10:45:56 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:56 PM org.hsm.control.Control getData
+INFO: Get full data of student {Đổng Trọng Hùng}
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 165
+Oct 12, 2012 10:45:56 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:56 PM org.hsm.control.Control getData
+INFO: Get full data of student {Đồng Xuân Mạnh}
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 179
+Oct 12, 2012 10:45:56 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:56 PM org.hsm.control.Control getData
+INFO: Get full data of student {Đồng Xuân Mạnh}
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 179
+Oct 12, 2012 10:45:56 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:56 PM org.hsm.control.Control getData
+INFO: Get full data of student {Trần Doãn Tân}
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 204
+Oct 12, 2012 10:45:56 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:56 PM org.hsm.control.Control getData
+INFO: Get full data of student {Trần Doãn Tân}
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 204
+Oct 12, 2012 10:45:56 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:56 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:57 PM org.hsm.control.Control getData
+INFO: Get full data of student {Đinh Duy Thanh}
+Oct 12, 2012 10:45:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 207
+Oct 12, 2012 10:45:57 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:57 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:57 PM org.hsm.control.Control getData
+INFO: Get full data of student {Đinh Duy Thanh}
+Oct 12, 2012 10:45:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 207
+Oct 12, 2012 10:45:57 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:57 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:57 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Trường Thành}
+Oct 12, 2012 10:45:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 210
+Oct 12, 2012 10:45:57 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:57 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:58 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Trường Thành}
+Oct 12, 2012 10:45:58 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 210
+Oct 12, 2012 10:45:58 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:58 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:58 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:58 PM org.hsm.control.Control getData
+INFO: Get full data of student {Bùi Nguyễn Tất Thành}
+Oct 12, 2012 10:45:58 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 209
+Oct 12, 2012 10:45:58 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:58 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:58 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:58 PM org.hsm.control.Control getData
+INFO: Get full data of student {Đinh Duy Thanh}
+Oct 12, 2012 10:45:58 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 207
+Oct 12, 2012 10:45:58 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Hữu Thắng}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 206
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Hoàng Công Thắng}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 205
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Trần Doãn Tân}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 204
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Hoàng Minh Tân}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 203
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Hồng Sơn}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 202
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lý Ngọc Sáng}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 199
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Vĩnh Phú}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 191
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Hoài Nam}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 186
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Đình Minh}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 184
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Ngọc Mạnh}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 181
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Hồ Đức Mạnh}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 180
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Đồng Xuân Mạnh}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 179
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Ngọc Long}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 177
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Thái Sa Lem}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 174
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Hồ Thị Kim}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 173
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Văn Khánh}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 171
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Minh Hùng}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 166
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Đổng Trọng Hùng}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 165
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lý Văn Hiếu}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 164
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Khắc Hải}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 159
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phan Hà}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 158
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Minh Giang}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 156
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Ngô Văn Dương}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 151
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Văn Đức}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 148
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Thành Đạt}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 143
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Mạnh Đạt}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 142
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Tiến Đạt}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 141
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get full data of student {Hà Ngọc Bình}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 134
+Oct 12, 2012 10:45:59 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:45:59 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:46:01 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5B} class
+Oct 12, 2012 10:46:01 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 2
+ ORDER BY "Last"
+Oct 12, 2012 10:46:01 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5B} class
+Oct 12, 2012 10:46:01 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 2
+ ORDER BY "Last"
+Oct 12, 2012 10:46:03 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lưu Vĩnh Lộc}
+Oct 12, 2012 10:46:03 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 176
+Oct 12, 2012 10:46:03 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:46:03 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:46:03 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:46:03 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lưu Vĩnh Lộc}
+Oct 12, 2012 10:46:03 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 176
+Oct 12, 2012 10:46:03 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:46:03 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:46:03 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:46:06 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5C} class
+Oct 12, 2012 10:46:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 3
+ ORDER BY "Last"
+Oct 12, 2012 10:46:06 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5C} class
+Oct 12, 2012 10:46:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 3
+ ORDER BY "Last"
+Oct 12, 2012 10:46:06 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 12, 2012 10:46:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 9
+ ORDER BY "Last"
+Oct 12, 2012 10:46:07 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 12, 2012 10:46:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 9
+ ORDER BY "Last"
+Oct 12, 2012 10:46:07 PM org.hsm.control.Control getData
+INFO: Get full data of student {No Namex}
+Oct 12, 2012 10:46:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 269
+Oct 12, 2012 10:46:07 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:46:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:46:07 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:46:07 PM org.hsm.control.Control getData
+INFO: Get full data of student {No Namex}
+Oct 12, 2012 10:46:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 269
+Oct 12, 2012 10:46:07 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:46:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:46:07 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:46:16 PM org.hsm.control.Control getData
+INFO: Change class's name from {New class} to {ICT}
+Oct 12, 2012 10:46:16 PM org.hsm.service.CoreService update
+INFO: Execute udpate UPDATE "Class"
+ SET "Name" = 'ICT'
+WHERE "CL#" = 9
+Oct 12, 2012 10:46:18 PM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 12, 2012 10:46:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 12, 2012 10:46:24 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 12, 2012 10:46:24 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 10
+ ORDER BY "Last"
+Oct 12, 2012 10:46:24 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 12, 2012 10:46:24 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 10
+ ORDER BY "Last"
+Oct 12, 2012 10:46:28 PM org.hsm.control.Control getData
+INFO: Change class's name from {New class} to {BK02}
+Oct 12, 2012 10:46:28 PM org.hsm.service.CoreService update
+INFO: Execute udpate UPDATE "Class"
+ SET "Name" = 'BK02'
+WHERE "CL#" = 10
+Oct 12, 2012 10:46:29 PM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 12, 2012 10:46:29 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 12, 2012 10:46:33 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {ICT} class
+Oct 12, 2012 10:46:33 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 9
+ ORDER BY "Last"
+Oct 12, 2012 10:46:33 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {ICT} class
+Oct 12, 2012 10:46:33 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 9
+ ORDER BY "Last"
+Oct 12, 2012 10:46:34 PM org.hsm.control.Control getData
+INFO: Get full data of student {No Namex}
+Oct 12, 2012 10:46:34 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 269
+Oct 12, 2012 10:46:34 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:46:34 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:46:34 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:46:34 PM org.hsm.control.Control getData
+INFO: Get full data of student {No Namex}
+Oct 12, 2012 10:46:34 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 269
+Oct 12, 2012 10:46:34 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:46:34 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:46:34 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:46:36 PM org.hsm.control.Control getData
+INFO: Get list of class
+Oct 12, 2012 10:46:36 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 12, 2012 10:46:41 PM org.hsm.service.CoreService update
+INFO: Execute udpate UPDATE "Student"
+SET
+"First" = 'No'
+, "Last" = 'Namex'
+, "Sex" = true
+, "DOB" = 'Fri Oct 12 00:00:00 ICT 2012'
+, "Emails" = ''
+, "Phones" = ''
+, "Note" = ''
+, "Home" = ''
+, "DT#" = 17
+, "Point" = 0.000000
+, "CL#" = 10
+, "MSSV" = '        '
+, "Year" = 2012
+WHERE "CT#" = 269
+Oct 12, 2012 10:46:44 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {ICT} class
+Oct 12, 2012 10:46:44 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 9
+ ORDER BY "Last"
+Oct 12, 2012 10:46:46 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {BK02} class
+Oct 12, 2012 10:46:46 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 10
+ ORDER BY "Last"
+Oct 12, 2012 10:46:46 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {BK02} class
+Oct 12, 2012 10:46:46 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 10
+ ORDER BY "Last"
+Oct 12, 2012 10:46:47 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {BK02} class
+Oct 12, 2012 10:46:47 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 10
+ ORDER BY "Last"
+Oct 12, 2012 10:46:48 PM org.hsm.control.Control getData
+INFO: Get full data of student {No Namex}
+Oct 12, 2012 10:46:48 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 269
+Oct 12, 2012 10:46:48 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:46:48 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:46:48 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:46:48 PM org.hsm.control.Control getData
+INFO: Get full data of student {No Namex}
+Oct 12, 2012 10:46:48 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 269
+Oct 12, 2012 10:46:48 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:46:48 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:46:48 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:46:55 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {5}
+Oct 12, 2012 10:46:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 5
+ORDER BY "Name"
+Oct 12, 2012 10:46:55 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {5}
+Oct 12, 2012 10:46:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 5
+ORDER BY "Name"
+Oct 12, 2012 10:46:59 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {ICT} class
+Oct 12, 2012 10:46:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 9
+ ORDER BY "Last"
+Oct 12, 2012 10:46:59 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {ICT} class
+Oct 12, 2012 10:46:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 9
+ ORDER BY "Last"
+Oct 12, 2012 10:46:59 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {BK02} class
+Oct 12, 2012 10:46:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 10
+ ORDER BY "Last"
+Oct 12, 2012 10:47:00 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {BK02} class
+Oct 12, 2012 10:47:00 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 10
+ ORDER BY "Last"
+Oct 12, 2012 10:47:04 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5B} class
+Oct 12, 2012 10:47:04 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 2
+ ORDER BY "Last"
+Oct 12, 2012 10:47:04 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5B} class
+Oct 12, 2012 10:47:04 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 2
+ ORDER BY "Last"
+Oct 12, 2012 10:47:05 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5C} class
+Oct 12, 2012 10:47:05 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 3
+ ORDER BY "Last"
+Oct 12, 2012 10:47:05 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Việt Nhật 5C} class
+Oct 12, 2012 10:47:05 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 3
+ ORDER BY "Last"
+Oct 12, 2012 10:47:05 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Hải Dương}
+Oct 12, 2012 10:47:05 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 152
+Oct 12, 2012 10:47:05 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:47:05 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:47:05 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:47:06 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Hải Dương}
+Oct 12, 2012 10:47:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 152
+Oct 12, 2012 10:47:06 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:47:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:47:06 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:47:06 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phùng Nhật Huy}
+Oct 12, 2012 10:47:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 170
+Oct 12, 2012 10:47:06 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:47:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:47:06 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:47:06 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phùng Nhật Huy}
+Oct 12, 2012 10:47:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 170
+Oct 12, 2012 10:47:06 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:47:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:47:06 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:47:07 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Anh Phúc}
+Oct 12, 2012 10:47:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 193
+Oct 12, 2012 10:47:07 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:47:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:47:07 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:47:07 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Anh Phúc}
+Oct 12, 2012 10:47:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 193
+Oct 12, 2012 10:47:07 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:47:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:47:07 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:47:07 PM org.hsm.control.Control getData
+INFO: Get full data of student {Triệu Đức Phương}
+Oct 12, 2012 10:47:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 195
+Oct 12, 2012 10:47:07 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:47:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:47:07 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:47:07 PM org.hsm.control.Control getData
+INFO: Get full data of student {Triệu Đức Phương}
+Oct 12, 2012 10:47:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 195
+Oct 12, 2012 10:47:07 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:47:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:47:07 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:47:08 PM org.hsm.control.Control getData
+INFO: Get full data of student {Trần Đức}
+Oct 12, 2012 10:47:08 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 150
+Oct 12, 2012 10:47:08 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:47:08 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:47:08 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:47:08 PM org.hsm.control.Control getData
+INFO: Get full data of student {Trần Đức}
+Oct 12, 2012 10:47:08 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 150
+Oct 12, 2012 10:47:08 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {-1}
+Oct 12, 2012 10:47:08 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "Distrct" WHERE "DT#" = -1
+Oct 12, 2012 10:47:08 PM org.hsm.service.CoreService query
+WARNING: ERROR: relation "Distrct" does not exist
+  Position: 19
+Oct 12, 2012 10:47:12 PM org.hsm.control.Control fire
+INFO: System exits

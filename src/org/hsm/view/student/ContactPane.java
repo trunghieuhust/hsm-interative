@@ -16,8 +16,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 
 import org.hsm.control.Control;
+import org.hsm.model.hedspiObject.Contact;
 import org.hsm.model.hedspiObject.HedspiObject;
-import org.hsm.model.hedspiObject.Student;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import com.jgoodies.forms.factories.FormFactory;
@@ -110,6 +110,7 @@ public class ContactPane extends JPanel {
 			private static final long serialVersionUID = 1L;
 
 			@Override
+			public
 			HedspiObject[] getValues() {
 				return (HedspiObject[]) Control.getInstance().getData(
 						"getCityList");
@@ -136,6 +137,7 @@ public class ContactPane extends JPanel {
 			private static final long serialVersionUID = 1L;
 
 			@Override
+			public
 			HedspiObject[] getValues() {
 				int city = comboBoxCity.getSelectedValue();
 				if (city == -1)
@@ -178,15 +180,15 @@ public class ContactPane extends JPanel {
 		add(editorPaneNote, "4, 20, fill, fill");
 	}
 
-	public void setContact(Student student) {
-		textFieldFirst.setText(student.getFirst());
-		textFieldLast.setText(student.getLast());
-		checkBoxIsMale.setSelected(student.isMale());
-		modelBirthday.setValue(student.getDob());
-		updateDistrict(student.getDistrict());
-		textFieldHome.setText(student.getHome());
-		panelEmails.setValues(student.getEmails());
-		editorPaneNote.setText(student.getNote());
+	public void setContact(Contact contact) {
+		textFieldFirst.setText(contact.getFirst());
+		textFieldLast.setText(contact.getLast());
+		checkBoxIsMale.setSelected(contact.isMale());
+		modelBirthday.setValue(contact.getDob());
+		updateDistrict(contact.getDistrict());
+		textFieldHome.setText(contact.getHome());
+		panelEmails.setValues(contact.getEmails());
+		editorPaneNote.setText(contact.getNote());
 	}
 
 	private void updateDistrict(int district) {

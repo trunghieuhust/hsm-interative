@@ -1,0 +1,45 @@
+Oct 12, 2012 10:34:39 PM org.hsm.control.Control start
+INFO: System starts
+Oct 12, 2012 10:34:39 PM org.hsm.control.Control start
+INFO: Open login window
+Oct 12, 2012 10:34:41 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 12, 2012 10:34:42 PM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 12, 2012 10:34:42 PM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 12, 2012 10:34:42 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 12, 2012 10:34:43 PM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 12, 2012 10:34:43 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#", "Name" FROM "City"
+ORDER BY "Name"
+Oct 12, 2012 10:34:43 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {1}
+Oct 12, 2012 10:34:43 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 1
+ORDER BY "Name"
+Oct 12, 2012 10:34:43 PM org.hsm.control.Control getData
+INFO: Get list of class
+Oct 12, 2012 10:34:43 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 12, 2012 10:34:43 PM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 12, 2012 10:34:45 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 12, 2012 10:34:45 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 10
+ ORDER BY "Last"
+Oct 12, 2012 10:34:46 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 12, 2012 10:34:46 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 10
+ ORDER BY "Last"
+Oct 12, 2012 10:34:58 PM org.hsm.control.Control fire
+INFO: System exits

@@ -14,8 +14,6 @@ public class ClassService {
 				.query(query);
 		int cl = (int)rs.get(0).get("CL#");
 		String name = (String)rs.get(0).get("Name");
-		if (name == null)
-			name = "";
 		HedspiObject cla = new HedspiObject(cl, name);
 		return cla;
 	}

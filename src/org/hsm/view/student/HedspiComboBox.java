@@ -64,7 +64,7 @@ public abstract class HedspiComboBox extends JPanel {
 		refresh();
 	}
 
-	abstract HedspiObject[] getValues();
+	public abstract HedspiObject[] getValues();
 	
 	public void setSelectedValue(int id){
 		for(int i = 0; i < comboBoxModel.getSize(); i++)

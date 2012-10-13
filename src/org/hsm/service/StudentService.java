@@ -18,7 +18,11 @@ public class StudentService {
 		for(HashMap<String, Object>  it : rs){
 			int id = (int)it.get("CT#");
 			String fname = (String)it.get("First");
+			if (fname == null)
+				fname = "";
 			String lname = (String)it.get("Last");
+			if (lname == null)
+				lname = "";
 			String name = fname + " " + lname;
 			HedspiObject st = new HedspiObject(id, name);
 			ret.add(st);
@@ -128,11 +132,11 @@ public class StudentService {
 		return new Student(sid, first, last, isMale, dob, emails, phones, note, home, district, point, mssv, year, hedspiClass);
 	}
 
-	private static String[] endlineStringToArray(String phonesStr) {
+	public static String[] endlineStringToArray(String phonesStr) {
 		return phonesStr.split("\n");
 	}
 	
-	private static String arrayToEndlineString(String[] array){
+	public static String arrayToEndlineString(String[] array){
 		String ret = "";
 		for(String it : array)
 			ret += it + "\n";

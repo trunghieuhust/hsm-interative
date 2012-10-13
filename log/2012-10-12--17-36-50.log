@@ -1,0 +1,87 @@
+Oct 12, 2012 5:36:50 PM org.hsm.control.Control start
+INFO: System starts
+Oct 12, 2012 5:36:50 PM org.hsm.control.Control start
+INFO: Open login window
+Oct 12, 2012 5:36:52 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 12, 2012 5:36:52 PM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 12, 2012 5:36:52 PM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 12, 2012 5:36:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 12, 2012 5:36:52 PM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 12, 2012 5:36:55 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {N'x''''ezzzw class} class
+Oct 12, 2012 5:36:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 8
+ ORDER BY "Last"
+Oct 12, 2012 5:36:55 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {N'x''''ezzzw class} class
+Oct 12, 2012 5:36:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 8
+ ORDER BY "Last"
+Oct 12, 2012 5:37:01 PM org.hsm.control.Control getData
+INFO: Change class's name from {N'x''''ezzzw class} to {N'x''''exxxxxxzzzw class}
+Oct 12, 2012 5:37:01 PM org.hsm.service.CoreService update
+INFO: Execute udpate UPDATE "Class"
+ SET "Name" = 'N''x''''''''exxxxxxzzzw class'
+WHERE "CL#" = 8
+Oct 12, 2012 5:37:10 PM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 12, 2012 5:37:10 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 12, 2012 5:37:16 PM org.hsm.control.Control getData
+INFO: Change class's name from {N'x''''ezzzw class} to {N'x''''e}
+Oct 12, 2012 5:37:16 PM org.hsm.service.CoreService update
+INFO: Execute udpate UPDATE "Class"
+ SET "Name" = 'N''x''''''''e'
+WHERE "CL#" = 8
+Oct 12, 2012 5:37:18 PM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 12, 2012 5:37:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 12, 2012 5:37:22 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {N'x''''e} class
+Oct 12, 2012 5:37:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 8
+ ORDER BY "Last"
+Oct 12, 2012 5:37:22 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {N'x''''e} class
+Oct 12, 2012 5:37:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 8
+ ORDER BY "Last"
+Oct 12, 2012 5:37:24 PM org.hsm.control.Control getData
+INFO: Remove class with id = {8}, name = {N'x''''e}
+Oct 12, 2012 5:37:24 PM org.hsm.service.CoreService update
+INFO: Execute udpate DELETE FROM "Class" WHERE "CL#" = 8
+Oct 12, 2012 5:37:30 PM org.hsm.control.Control getData
+INFO: Create new class
+Oct 12, 2012 5:37:30 PM org.hsm.service.CoreService query
+INFO: Execute query INSERT INTO "Class" DEFAULT VALUES
+ RETURNING "CL#", "Name"
+Oct 12, 2012 5:37:30 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {New class} class
+Oct 12, 2012 5:37:30 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last" FROM "Student"
+ WHERE "Student"."CL#" = 9
+ ORDER BY "Last"
+Oct 12, 2012 5:37:36 PM org.hsm.control.Control getData
+INFO: Insert new student in class {New class}
+Oct 12, 2012 5:37:36 PM org.hsm.service.CoreService query
+INFO: Execute query INSERT INTO "Student" ("CL#") VALUES ( 9)
+ RETURNING "First", "Last", "CT#"
+Oct 12, 2012 5:37:36 PM org.hsm.control.Control getData
+INFO: Get full data of student {No Name}
+Oct 12, 2012 5:37:36 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Student" WHERE "CT#" = 269
+Oct 12, 2012 5:40:57 PM org.hsm.control.Control fire
+INFO: System exits

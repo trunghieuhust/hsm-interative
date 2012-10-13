@@ -119,7 +119,7 @@ public class ClassViewPane extends JSplitPane {
 			public
 			HedspiObject[] getRefresh() {
 				if (hedspiClass == null)
-					return null;
+					return new HedspiObject[0];
 				return (HedspiObject[])Control.getInstance().getData("getStudentRawListInClass", hedspiClass);
 			}
 		};

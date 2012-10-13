@@ -7,7 +7,7 @@ import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
 import org.hsm.view.student.ObjectListPane;
 
-public class DistrictMainPane extends JSplitPane {
+public class DistrictPane extends JSplitPane {
 
 	/**
 	 * 
@@ -18,7 +18,7 @@ public class DistrictMainPane extends JSplitPane {
 	/**
 	 * Create the panel.
 	 */
-	public DistrictMainPane() {
+	public DistrictPane() {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		setLeftComponent(scrollPane);

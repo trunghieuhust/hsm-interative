@@ -5,9 +5,16 @@ public class HedspiObject implements Comparable<HedspiObject> {
 	private int id;
 	private String name;
 	
+	/**
+	 * Tạo một hedspi object mới. Nếu name rỗng (<code>null</code>) thì sẽ tự động gán bằng xâu rỗng.
+	 * @param id chỉ số
+	 * @param name tên, có thể là <code>null</code>
+	 */
 	public HedspiObject(int id, String name) {
 		super();
 		this.id = id;
+		if (name == null)
+			name = "";
 		this.name = name;
 	}
 

@@ -1,0 +1,196 @@
+Oct 14, 2012 1:53:54 AM org.hsm.control.Control start
+INFO: System starts
+Oct 14, 2012 1:53:54 AM org.hsm.control.Control start
+INFO: Open login window
+Oct 14, 2012 1:53:55 AM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 14, 2012 1:53:55 AM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 14, 2012 1:53:56 AM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 14, 2012 1:53:56 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 14, 2012 1:53:56 AM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 14, 2012 1:53:56 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#", "Name" FROM "City"
+ORDER BY "Name"
+Oct 14, 2012 1:53:56 AM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {1}
+Oct 14, 2012 1:53:56 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 1
+ORDER BY "Name"
+Oct 14, 2012 1:53:56 AM org.hsm.control.Control getData
+INFO: Get list of class
+Oct 14, 2012 1:53:56 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 14, 2012 1:53:56 AM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 14, 2012 1:53:56 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#", "Name" FROM "City"
+ORDER BY "Name"
+Oct 14, 2012 1:53:56 AM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 14, 2012 1:53:59 AM org.hsm.control.Control getData
+INFO: Get new district in city {Bà Rịa - Vũng Tàu}
+Oct 14, 2012 1:53:59 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 2
+ORDER BY "Name"
+Oct 14, 2012 1:53:59 AM org.hsm.control.Control getData
+INFO: Get new district in city {Bà Rịa - Vũng Tàu}
+Oct 14, 2012 1:53:59 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 2
+ORDER BY "Name"
+Oct 14, 2012 1:54:01 AM org.hsm.control.Control getData
+INFO: Get new district in city {Bắc Ninh}
+Oct 14, 2012 1:54:01 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 6
+ORDER BY "Name"
+Oct 14, 2012 1:54:01 AM org.hsm.control.Control getData
+INFO: Get new district in city {Bắc Ninh}
+Oct 14, 2012 1:54:01 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 6
+ORDER BY "Name"
+Oct 14, 2012 1:54:01 AM org.hsm.control.Control getData
+INFO: Get new district in city {Đăk Lăk}
+Oct 14, 2012 1:54:01 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 16
+ORDER BY "Name"
+Oct 14, 2012 1:54:01 AM org.hsm.control.Control getData
+INFO: Get new district in city {Đăk Lăk}
+Oct 14, 2012 1:54:01 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 16
+ORDER BY "Name"
+Oct 14, 2012 1:54:02 AM org.hsm.control.Control getData
+INFO: Get new district in city {Gia Lai}
+Oct 14, 2012 1:54:02 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 21
+ORDER BY "Name"
+Oct 14, 2012 1:54:02 AM org.hsm.control.Control getData
+INFO: Get new district in city {Gia Lai}
+Oct 14, 2012 1:54:02 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 21
+ORDER BY "Name"
+Oct 14, 2012 1:54:07 AM org.hsm.control.Control getData
+INFO: Get new district in city {Hà Nam}
+Oct 14, 2012 1:54:07 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 23
+ORDER BY "Name"
+Oct 14, 2012 1:54:08 AM org.hsm.control.Control getData
+INFO: Get new district in city {Hà Nam}
+Oct 14, 2012 1:54:08 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 23
+ORDER BY "Name"
+Oct 14, 2012 1:54:08 AM org.hsm.control.Control getData
+INFO: Get new district in city {Hải Dương}
+Oct 14, 2012 1:54:08 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 26
+ORDER BY "Name"
+Oct 14, 2012 1:54:08 AM org.hsm.control.Control getData
+INFO: Get new district in city {Hải Dương}
+Oct 14, 2012 1:54:08 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 26
+ORDER BY "Name"
+Oct 14, 2012 1:54:09 AM org.hsm.control.Control getData
+INFO: Get new district in city {Ninh Thuận}
+Oct 14, 2012 1:54:09 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 42
+ORDER BY "Name"
+Oct 14, 2012 1:54:09 AM org.hsm.control.Control getData
+INFO: Get new district in city {Ninh Thuận}
+Oct 14, 2012 1:54:09 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 42
+ORDER BY "Name"
+Oct 14, 2012 1:54:09 AM org.hsm.control.Control getData
+INFO: Get new city
+Oct 14, 2012 1:54:09 AM org.hsm.service.CoreService query
+INFO: Execute query INSERT INTO "City" DEFAULT VALUES RETURNING "Name", "CY#"
+Oct 14, 2012 1:54:09 AM org.hsm.control.Control getData
+INFO: Get new district in city {New City}
+Oct 14, 2012 1:54:09 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 64
+ORDER BY "Name"
+Oct 14, 2012 1:54:18 AM org.hsm.control.Control getData
+INFO: Change name of city {New City} to {Tỉnh không tên}
+Oct 14, 2012 1:54:18 AM org.hsm.service.CoreService update
+INFO: Execute udpate UPDATE "City"
+SET "Name" = 'Tỉnh không tên'
+WHERE "CY#" = 64
+Oct 14, 2012 1:54:23 AM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 14, 2012 1:54:23 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#", "Name" FROM "City"
+ORDER BY "Name"
+Oct 14, 2012 1:54:24 AM org.hsm.control.Control getData
+INFO: Get new district in city {Tỉnh không tên}
+Oct 14, 2012 1:54:24 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 64
+ORDER BY "Name"
+Oct 14, 2012 1:54:24 AM org.hsm.control.Control getData
+INFO: Get new district in city {Tỉnh không tên}
+Oct 14, 2012 1:54:24 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 64
+ORDER BY "Name"
+Oct 14, 2012 1:54:29 AM org.hsm.control.Control getData
+INFO: Get new district of city {Tỉnh không tên}
+Oct 14, 2012 1:54:29 AM org.hsm.service.CoreService query
+INFO: Execute query INSERT INTO "District" ("CY#") VALUES (64) RETURNING "DT#", "Name"
+Oct 14, 2012 1:54:29 AM org.hsm.service.CoreService query
+WARNING: ERROR: duplicate key value violates unique constraint "pk_district"
+  Detail: Key ("DT#")=(1) already exists.
+Oct 14, 2012 1:54:33 AM org.hsm.control.Control getData
+INFO: Get new district of city {Tỉnh không tên}
+Oct 14, 2012 1:54:33 AM org.hsm.service.CoreService query
+INFO: Execute query INSERT INTO "District" ("CY#") VALUES (64) RETURNING "DT#", "Name"
+Oct 14, 2012 1:54:33 AM org.hsm.service.CoreService query
+WARNING: ERROR: duplicate key value violates unique constraint "pk_district"
+  Detail: Key ("DT#")=(2) already exists.
+Oct 14, 2012 1:54:34 AM org.hsm.control.Control getData
+INFO: Get new district of city {Tỉnh không tên}
+Oct 14, 2012 1:54:34 AM org.hsm.service.CoreService query
+INFO: Execute query INSERT INTO "District" ("CY#") VALUES (64) RETURNING "DT#", "Name"
+Oct 14, 2012 1:54:34 AM org.hsm.service.CoreService query
+WARNING: ERROR: duplicate key value violates unique constraint "pk_district"
+  Detail: Key ("DT#")=(3) already exists.
+Oct 14, 2012 1:55:07 AM org.hsm.control.Control getData
+INFO: Get new district of city {Tỉnh không tên}
+Oct 14, 2012 1:55:07 AM org.hsm.service.CoreService query
+INFO: Execute query INSERT INTO "District" ("CY#") VALUES (64) RETURNING "DT#", "Name"
+Oct 14, 2012 1:55:23 AM org.hsm.control.Control getData
+INFO: Change district name from {New district} into {Huyện không tên''}
+Oct 14, 2012 1:55:23 AM org.hsm.service.CoreService update
+INFO: Execute udpate UPDATE "District"
+SET "Name" = 'Huyện không tên'''''
+WHERE "DT#" = 699
+Oct 14, 2012 1:55:30 AM org.hsm.control.Control getData
+INFO: Get new district in city {Tỉnh không tên}
+Oct 14, 2012 1:55:30 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 64
+ORDER BY "Name"
+Oct 14, 2012 1:55:39 AM org.hsm.control.Control getData
+INFO: Reload name of district {New district}
+Oct 14, 2012 1:55:39 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "Name" FROM "District" WHERE "DT#" = 699
+Oct 14, 2012 1:55:53 AM org.hsm.control.Control fire
+INFO: System exits

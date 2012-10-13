@@ -9,6 +9,8 @@ import org.hsm.service.CityService;
 import org.hsm.service.ClassService;
 import org.hsm.service.CoreService;
 import org.hsm.service.DistrictService;
+import org.hsm.service.FacultyService;
+import org.hsm.service.LecturerService;
 import org.hsm.service.StudentService;
 
 public class Model implements IModel {
@@ -27,6 +29,30 @@ public class Model implements IModel {
 	@Override
 	public Object getData(String command, Object... data) {
 		switch (command) {
+		case "getFullDataLecturer":
+			return LecturerService.getFullData((int)data[0]);
+			
+		case "getLecturersListInFaculty":
+			return LecturerService.getLecturersInFaculty((int)data[0]);
+			
+		case "removeLecturer":
+			return LecturerService.remove((int)data[0]);
+			
+		case "newLecturer":
+			return LecturerService.getNewInFaculty((int)data[0]);
+			
+		case "renameFaculty":
+			return FacultyService.rename((int)data[0], (String)data[1]);
+			
+		case "getListOfFaculties":
+			return FacultyService.getFacutiesList();
+			
+		case "removeFaculty":
+			return FacultyService.remove((int)data[0]);
+			
+		case "newFaculty":
+			return FacultyService.getNew();
+			
 		case "saveCityName":
 			return CityService.rename((int)data[0], (String)data[1]);
 			

@@ -161,6 +161,45 @@ public class Control implements IControl {
 		String name;
 		
 		switch(command){
+		case "getFullDataLecturer":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Get full data of lecturer {" + obj.getName() + "}");
+			return Model.getInstance().getData("getFullDataLecturer", obj.getId());
+			
+		case "getLecturersListInFaculty":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Get lecturers in faculty {" + obj.getName() + "}");
+			return Model.getInstance().getData("getLecturersListInFaculty", obj.getId());
+			
+		case "removeLecturer":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Remove lecturer {" + obj.getName() + "}");
+			return Model.getInstance().getData("removeLecturer", obj.getId());
+			
+		case "newLecturer":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "New lecturer in faculty {" + obj.getName() + "}");
+			return Model.getInstance().getData("newLecturer", obj.getId());
+			
+		case "renameFaculty":
+			obj = (HedspiObject)data[0];
+			name = (String)data[1];
+			logger.log(Level.INFO, "Rename faculty {" + obj.getName() + "} into {" + name + "}");
+			return Model.getInstance().getData("renameFaculty", obj.getId(), name);
+			
+		case "getListOfFaculties":
+			logger.log(Level.INFO, "Get list of faculties");
+			return Model.getInstance().getData("getListOfFaculties");
+			
+		case "removeFaculty":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Remove faculty {" + obj.getName() + "}");
+			return Model.getInstance().getData("removeFaculty", obj.getId());
+			
+		case "newFaculty":
+			logger.log(Level.INFO, "Create new faculty");
+			return Model.getInstance().getData("newFaculty");
+			
 		case "saveCityName":
 			obj = (HedspiObject)data[0];
 			name= (String)data[1];

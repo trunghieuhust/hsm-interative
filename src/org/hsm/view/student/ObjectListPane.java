@@ -123,6 +123,7 @@ public abstract class ObjectListPane extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				HedspiObject[] arr = getRefresh();
 				if (arr == null){
+					JOptionPane.showConfirmDialog(null, "Cannot get list of objects", "Refresh failed", JOptionPane.WARNING_MESSAGE);
 					return;
 				}
 				Arrays.sort(arr);

@@ -64,6 +64,7 @@ public class StudentOtherPane extends JPanel {
 			private static final long serialVersionUID = 1L;
 
 			@Override
+			public
 			HedspiObject[] getValues() {
 				return (HedspiObject[])Control.getInstance().getData("getClassList");
 			}};

@@ -15,8 +15,6 @@ public class CityService {
 		for(HashMap<String, Object> it : rs){
 			int id = (int)it.get("CY#");
 			String name = (String)it.get("Name");
-			if (name == null)
-				name = "";
 			HedspiObject city = new HedspiObject(id, name);
 			ret.add(city);
 		}
@@ -31,8 +29,6 @@ public class CityService {
 			return null;
 		int id = (int)rs.get(0).get("CY#");
 		String name = (String)rs.get(0).get("Name");
-		if (name == null)
-			name = "";
 		return new HedspiObject(id, name);
 	}
 

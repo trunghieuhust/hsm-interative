@@ -106,7 +106,7 @@ public class CityViewPane extends JSplitPane {
 			@Override
 			public HedspiObject[] getRefresh() {
 				if (city == null)
-					return null;
+					return new HedspiObject[0];
 				return (HedspiObject[])Control.getInstance().getData("getDistrictsListInCity", city);
 			}};
 			panel.add(districtListPane, "2, 4, fill, fill");
