@@ -22,7 +22,7 @@ public class StudentViewPane extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private StudentOtherPane panelStudentOther;
+	private OtherInfoPane panelStudentOther;
 	private ContactPane panelContact;
 	private HedspiObject student;
 
@@ -52,19 +52,11 @@ public class StudentViewPane extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
-		panelStudentOther = new StudentOtherPane();
+		panelStudentOther = new OtherInfoPane();
 		panel.add(panelStudentOther, "1, 2, fill, fill");
 		
-		JPanel panelButton = new JPanel();
-		panel.add(panelButton, "1, 4, center, fill");
-		panelButton.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,},
-			new RowSpec[] {
-				FormFactory.DEFAULT_ROWSPEC,}));
-		
 		JButton btnSave = new JButton("Save");
+		panel.add(btnSave, "1, 4, center, default");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (student == null)
@@ -85,16 +77,14 @@ public class StudentViewPane extends JPanel {
 						panelStudentOther.getHedspiClass());
 				
 				String message = (String) Control.getInstance().getData("updateStudent", student, st);
-				if (message == null)
+				if (message == null){
 					JOptionPane.showMessageDialog(null, "Save student successful", "Save success", JOptionPane.INFORMATION_MESSAGE);
+					student.setName(st.getName());
+				}
 				else
-					JOptionPane.showMessageDialog(null, "Save student failed\nMessage: " + message, "Save failed", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Save student failed\nMessage: " + message, "Save failed", JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		panelButton.add(btnSave, "1, 1");
-		
-		JButton btnReset = new JButton("Reset");
-		panelButton.add(btnReset, "3, 1");
 		
 	}
 

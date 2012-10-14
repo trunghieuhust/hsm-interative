@@ -4,15 +4,18 @@ import java.util.Properties;
 import java.util.logging.Level;
 
 import org.hsm.control.Control;
+import org.hsm.model.hedspiObject.Course;
 import org.hsm.model.hedspiObject.Lecturer;
 import org.hsm.model.hedspiObject.Student;
 import org.hsm.service.CityService;
 import org.hsm.service.ClassService;
 import org.hsm.service.CoreService;
+import org.hsm.service.CourseService;
 import org.hsm.service.DegreeService;
 import org.hsm.service.DistrictService;
 import org.hsm.service.FacultyService;
 import org.hsm.service.LecturerService;
+import org.hsm.service.RoomService;
 import org.hsm.service.StudentService;
 
 public class Model implements IModel {
@@ -31,6 +34,35 @@ public class Model implements IModel {
 	@Override
 	public Object getData(String command, Object... data) {
 		switch (command) {
+		case "saveCourse":
+			return CourseService.save((int)data[0], (Course)data[1]);
+		case "getCoursesList":
+			return CourseService.getAll();
+			
+		case "newCourse":
+			return CourseService.getNew();
+			
+		case "removeCourse":
+			return CourseService.remove((int)data[0]);
+			
+		case "getFullDataCourse":
+			return CourseService.getFull((int)data[0]);
+			
+		case "saveRoomName":
+			return RoomService.rename((int)data[0], (String)data[1]);
+			
+		case "reloadRoomName":
+			return RoomService.getReloadName((int)data[0]);
+			
+		case "getRoomList":
+			return RoomService.getAll();
+			
+		case "newRoom":
+			return RoomService.getNew();
+			
+		case "removeRoom":
+			return RoomService.remove((int)data[0]);
+			
 		case "updateLecturer":
 			return LecturerService.save((int)data[0], (Lecturer)data[1]);
 			

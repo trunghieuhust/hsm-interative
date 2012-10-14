@@ -1,0 +1,286 @@
+Oct 14, 2012 8:48:47 AM org.hsm.control.Control start
+INFO: System starts
+Oct 14, 2012 8:48:47 AM org.hsm.control.Control start
+INFO: Open login window
+Oct 14, 2012 8:48:48 AM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 14, 2012 8:48:48 AM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 14, 2012 8:48:49 AM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 14, 2012 8:48:49 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 14, 2012 8:48:49 AM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 14, 2012 8:48:49 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#", "Name" FROM "City"
+ORDER BY "Name"
+Oct 14, 2012 8:48:49 AM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {1}
+Oct 14, 2012 8:48:49 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 1
+ORDER BY "Name"
+Oct 14, 2012 8:48:49 AM org.hsm.control.Control getData
+INFO: Get list of class
+Oct 14, 2012 8:48:49 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 14, 2012 8:48:49 AM org.hsm.control.Control getData
+INFO: Get list of faculties
+Oct 14, 2012 8:48:49 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "FC#", "Name" FROM "Faculty" ORDER BY "Name"
+Oct 14, 2012 8:48:50 AM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 14, 2012 8:48:50 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#", "Name" FROM "City"
+ORDER BY "Name"
+Oct 14, 2012 8:48:50 AM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {1}
+Oct 14, 2012 8:48:50 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 1
+ORDER BY "Name"
+Oct 14, 2012 8:48:50 AM org.hsm.control.Control getData
+INFO: Get list of faculties
+Oct 14, 2012 8:48:50 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "FC#", "Name" FROM "Faculty" ORDER BY "Name"
+Oct 14, 2012 8:48:50 AM org.hsm.control.Control getData
+INFO: Get list of degrees
+Oct 14, 2012 8:48:50 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DG#", "Name" FROM "Degree" ORDER BY "Name"
+Oct 14, 2012 8:48:50 AM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 14, 2012 8:48:50 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#", "Name" FROM "City"
+ORDER BY "Name"
+Oct 14, 2012 8:48:50 AM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 14, 2012 8:48:54 AM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {School of Electrical Engineering}
+Oct 14, 2012 8:48:54 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last"
+FROM "Lecturer"
+WHERE "FC#" = 24
+ORDER BY "Last"
+Oct 14, 2012 8:48:54 AM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {School of Electrical Engineering}
+Oct 14, 2012 8:48:54 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last"
+FROM "Lecturer"
+WHERE "FC#" = 24
+ORDER BY "Last"
+Oct 14, 2012 8:48:55 AM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {School of Electronics and Telecommunications}
+Oct 14, 2012 8:48:55 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last"
+FROM "Lecturer"
+WHERE "FC#" = 27
+ORDER BY "Last"
+Oct 14, 2012 8:48:55 AM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {School of Environmental Science and Technology}
+Oct 14, 2012 8:48:55 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last"
+FROM "Lecturer"
+WHERE "FC#" = 26
+ORDER BY "Last"
+Oct 14, 2012 8:48:55 AM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {School of Environmental Science and Technology}
+Oct 14, 2012 8:48:55 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last"
+FROM "Lecturer"
+WHERE "FC#" = 26
+ORDER BY "Last"
+Oct 14, 2012 8:48:56 AM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {School of Electrical Engineering}
+Oct 14, 2012 8:48:56 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last"
+FROM "Lecturer"
+WHERE "FC#" = 24
+ORDER BY "Last"
+Oct 14, 2012 8:48:56 AM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {School of Electrical Engineering}
+Oct 14, 2012 8:48:56 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last"
+FROM "Lecturer"
+WHERE "FC#" = 24
+ORDER BY "Last"
+Oct 14, 2012 8:48:57 AM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {School of Transportation Engineering}
+Oct 14, 2012 8:48:57 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last"
+FROM "Lecturer"
+WHERE "FC#" = 34
+ORDER BY "Last"
+Oct 14, 2012 8:48:57 AM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {School of Transportation Engineering}
+Oct 14, 2012 8:48:57 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last"
+FROM "Lecturer"
+WHERE "FC#" = 34
+ORDER BY "Last"
+Oct 14, 2012 8:48:58 AM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Computer center}
+Oct 14, 2012 8:48:58 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last"
+FROM "Lecturer"
+WHERE "FC#" = 41
+ORDER BY "Last"
+Oct 14, 2012 8:48:58 AM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Computer center}
+Oct 14, 2012 8:48:58 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CT#", "First", "Last"
+FROM "Lecturer"
+WHERE "FC#" = 41
+ORDER BY "Last"
+Oct 14, 2012 8:48:59 AM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Lê Huy Cường}
+Oct 14, 2012 8:48:59 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Lecturer" WHERE "CT#" = 9
+Oct 14, 2012 8:48:59 AM org.hsm.control.Control getData
+INFO: Get id of city for district with id {0}
+Oct 14, 2012 8:48:59 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "District" WHERE "DT#" = 0
+Oct 14, 2012 8:48:59 AM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {0}
+Oct 14, 2012 8:48:59 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 0
+ORDER BY "Name"
+Oct 14, 2012 8:48:59 AM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {0}
+Oct 14, 2012 8:48:59 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 0
+ORDER BY "Name"
+Oct 14, 2012 8:48:59 AM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Lê Huy Cường}
+Oct 14, 2012 8:48:59 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Lecturer" WHERE "CT#" = 9
+Oct 14, 2012 8:48:59 AM org.hsm.control.Control getData
+INFO: Get id of city for district with id {0}
+Oct 14, 2012 8:48:59 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "District" WHERE "DT#" = 0
+Oct 14, 2012 8:49:00 AM org.hsm.control.Control getData
+INFO: Save information of lecturer {Lê Huy Cường}
+Oct 14, 2012 8:49:00 AM org.hsm.service.CoreService update
+INFO: Execute udpate UPDATE "Lecturer"
+SET
+"First" = 'Lê Huy'
+, "Last" = 'Cường'
+, "Sex" = true
+, "DOB" = 'Thu Oct 11 00:00:00 ICT 2012'
+, "Emails" = '
+'
+, "Phones" = ''
+, "Note" = 'Cán bộ Trung tâm máy tinh Email : cuonglh'
+, "Home" = ''
+, "DT#" = 0
+, "FC#" = 41
+, "DG#" = 2
+WHERE "CT#" = 9
+Oct 14, 2012 8:49:04 AM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {59}
+Oct 14, 2012 8:49:04 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 59
+ORDER BY "Name"
+Oct 14, 2012 8:49:04 AM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {59}
+Oct 14, 2012 8:49:04 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 59
+ORDER BY "Name"
+Oct 14, 2012 8:49:08 AM org.hsm.control.Control getData
+INFO: Save information of lecturer {Lê Huy Cường}
+Oct 14, 2012 8:49:08 AM org.hsm.service.CoreService update
+INFO: Execute udpate UPDATE "Lecturer"
+SET
+"First" = 'Lê Huy'
+, "Last" = 'Cường'
+, "Sex" = true
+, "DOB" = 'Thu Oct 11 00:00:00 ICT 2012'
+, "Emails" = '
+'
+, "Phones" = ''
+, "Note" = 'Cán bộ Trung tâm máy tinh Email : cuonglh'
+, "Home" = ''
+, "DT#" = 607
+, "FC#" = 41
+, "DG#" = 2
+WHERE "CT#" = 9
+Oct 14, 2012 8:49:11 AM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Phạm Đức Khánh}
+Oct 14, 2012 8:49:11 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Lecturer" WHERE "CT#" = 10
+Oct 14, 2012 8:49:11 AM org.hsm.control.Control getData
+INFO: Get id of city for district with id {0}
+Oct 14, 2012 8:49:11 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "District" WHERE "DT#" = 0
+Oct 14, 2012 8:49:11 AM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {0}
+Oct 14, 2012 8:49:11 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 0
+ORDER BY "Name"
+Oct 14, 2012 8:49:11 AM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {0}
+Oct 14, 2012 8:49:11 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 0
+ORDER BY "Name"
+Oct 14, 2012 8:49:11 AM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Phạm Đức Khánh}
+Oct 14, 2012 8:49:11 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Lecturer" WHERE "CT#" = 10
+Oct 14, 2012 8:49:11 AM org.hsm.control.Control getData
+INFO: Get id of city for district with id {0}
+Oct 14, 2012 8:49:11 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "District" WHERE "DT#" = 0
+Oct 14, 2012 8:49:12 AM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Lê Huy Cường}
+Oct 14, 2012 8:49:12 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Lecturer" WHERE "CT#" = 9
+Oct 14, 2012 8:49:12 AM org.hsm.control.Control getData
+INFO: Get id of city for district with id {607}
+Oct 14, 2012 8:49:12 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "District" WHERE "DT#" = 607
+Oct 14, 2012 8:49:12 AM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {59}
+Oct 14, 2012 8:49:12 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 59
+ORDER BY "Name"
+Oct 14, 2012 8:49:12 AM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {59}
+Oct 14, 2012 8:49:12 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 59
+ORDER BY "Name"
+Oct 14, 2012 8:49:12 AM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Lê Huy Cường}
+Oct 14, 2012 8:49:12 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Lecturer" WHERE "CT#" = 9
+Oct 14, 2012 8:49:12 AM org.hsm.control.Control getData
+INFO: Get id of city for district with id {607}
+Oct 14, 2012 8:49:12 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "District" WHERE "DT#" = 607
+Oct 14, 2012 8:49:15 AM org.hsm.control.Control getData
+INFO: Get id of city for district with id {607}
+Oct 14, 2012 8:49:15 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "District" WHERE "DT#" = 607
+Oct 14, 2012 8:49:18 AM org.hsm.control.Control getData
+INFO: Get id of city for district with id {607}
+Oct 14, 2012 8:49:18 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "District" WHERE "DT#" = 607
+Oct 14, 2012 8:49:24 AM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Lê Huy Cường}
+Oct 14, 2012 8:49:24 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM "Lecturer" WHERE "CT#" = 9
+Oct 14, 2012 8:49:24 AM org.hsm.control.Control getData
+INFO: Get id of city for district with id {607}
+Oct 14, 2012 8:49:24 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#" FROM "District" WHERE "DT#" = 607
+Oct 14, 2012 8:49:28 AM org.hsm.control.Control fire
+INFO: System exits

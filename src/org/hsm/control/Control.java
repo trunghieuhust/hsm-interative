@@ -16,6 +16,7 @@ import java.util.logging.SimpleFormatter;
 import javax.swing.JOptionPane;
 
 import org.hsm.model.Model;
+import org.hsm.model.hedspiObject.Course;
 import org.hsm.model.hedspiObject.HedspiObject;
 import org.hsm.model.hedspiObject.Lecturer;
 import org.hsm.model.hedspiObject.Student;
@@ -161,8 +162,57 @@ public class Control implements IControl {
 		int id;
 		String name;
 		Lecturer lecturer;
+		Course course;
 		
 		switch(command){
+		case "saveCourse":
+			obj = (HedspiObject)data[0];
+			course = (Course)data[1];
+			logger.log(Level.INFO, "Save information of course {" + obj.getName() + "}");
+			return Model.getInstance().getData("saveCourse", obj.getId(), course);
+				
+		case "getCoursesList":
+			logger.log(Level.INFO, "Get courses list");
+			return Model.getInstance().getData("getCoursesList");
+			
+		case "newCourse":
+			logger.log(Level.INFO, "Get new course");
+			return Model.getInstance().getData("newCourse");
+			
+		case "removeCourse":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Remove course {" + obj.getName() + "}");
+			return Model.getInstance().getData("removeCourse", obj.getId());
+			
+		case "getFullDataCourse":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Get full data of course {" + obj.getName() + "}");
+			return Model.getInstance().getData("getFullDataCourse", obj.getId());
+			
+		case "saveRoomName":
+			obj = (HedspiObject)data[0];
+			name = (String)data[1];
+			logger.log(Level.INFO, "Change name of room {" + obj.getName() + "} into {" + name + "}");
+			return Model.getInstance().getData("saveRoomName", obj.getId(), name);
+			
+		case "reloadRoomName":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Reload name of room {" + obj.getName() + "}");
+			return Model.getInstance().getData("reloadRoomName", obj.getId());
+			
+		case "getRoomList":
+			logger.log(Level.INFO, "Get list of rooms");
+			return Model.getInstance().getData("getRoomList");
+			
+		case "newRoom":
+			logger.log(Level.INFO, "Get new room");
+			return Model.getInstance().getData("newRoom");
+			
+		case "removeRoom":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Remove room {" + obj.getName() + "}");
+			return Model.getInstance().getData("removeRoom", obj.getId());
+			
 		case "updateLecturer":
 			obj = (HedspiObject)data[0];
 			lecturer = (Lecturer)data[1];

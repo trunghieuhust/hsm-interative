@@ -32,54 +32,50 @@ public class CityViewPane extends JSplitPane {
 	 * Create the panel.
 	 */
 	public CityViewPane() {
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		setLeftComponent(scrollPane);
-		
+
 		JPanel panel = new JPanel();
 		scrollPane.setViewportView(panel);
 		panel.setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
+				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),}));
-		
+				RowSpec.decode("default:grow"), }));
+
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1, "2, 2, fill, top");
 		panel_1.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,}));
-		
+				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
+
 		JButton btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (city == null)
 					return;
 				String name = textField.getText();
-				if (!name.equals(city.getName())){
-					String message= (String)Control.getInstance().getData("saveCityName", city, name);
-					if (message == null)
-						city.setName(name);
-					else
-						JOptionPane.showMessageDialog(null, "Save city's name failed\nMessage: " + message, "Save name failed", JOptionPane.ERROR_MESSAGE);
-				}
+				String message = (String) Control.getInstance().getData(
+						"saveCityName", city, name);
+				if (message == null)
+					city.setName(name);
+				else
+					JOptionPane.showMessageDialog(null,
+							"Save city's name failed\nMessage: " + message,
+							"Save name failed", JOptionPane.ERROR_MESSAGE);
 			}
 		});
 		panel_1.add(btnSave, "2, 2");
-		
+
 		textField = new JTextField();
 		panel_1.add(textField, "4, 2, fill, default");
 		textField.setColumns(10);
-		
-		districtListPane = new ObjectListPane(){
+
+		districtListPane = new ObjectListPane() {
 
 			/**
 			 * 
@@ -95,25 +91,29 @@ public class CityViewPane extends JSplitPane {
 			public HedspiObject newElement() {
 				if (city == null)
 					return null;
-				return (HedspiObject)Control.getInstance().getData("newDistrict", city);
+				return (HedspiObject) Control.getInstance().getData(
+						"newDistrict", city);
 			}
 
 			@Override
 			public String removeElement(HedspiObject value) {
-				return (String)Control.getInstance().getData("removeDistrict", value);
+				return (String) Control.getInstance().getData("removeDistrict",
+						value);
 			}
 
 			@Override
 			public HedspiObject[] getRefresh() {
 				if (city == null)
 					return new HedspiObject[0];
-				return (HedspiObject[])Control.getInstance().getData("getDistrictsListInCity", city);
-			}};
-			panel.add(districtListPane, "2, 4, fill, fill");
-		
+				return (HedspiObject[]) Control.getInstance().getData(
+						"getDistrictsListInCity", city);
+			}
+		};
+		panel.add(districtListPane, "2, 4, fill, fill");
+
 		JScrollPane scrollPane_1 = new JScrollPane();
 		setRightComponent(scrollPane_1);
-		
+
 		districtViewPane = new DistrictViewPane();
 		scrollPane_1.setViewportView(districtViewPane);
 		setDividerLocation(150);
@@ -121,7 +121,7 @@ public class CityViewPane extends JSplitPane {
 
 	public void setCity(HedspiObject value) {
 		this.city = value;
-		if (value != null){
+		if (value != null) {
 			textField.setText(value.getName());
 			districtListPane.refresh();
 		}

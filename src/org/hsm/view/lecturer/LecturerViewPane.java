@@ -28,7 +28,7 @@ public class LecturerViewPane extends JPanel {
 	private ContactPane contactPane;
 	private HedspiComboBox comboBoxDegree;
 	private HedspiComboBox comboBoxFaculty;
-	private Lecturer lecturer;
+	private HedspiObject lecturer;
 
 	/**
 	 * Create the panel.
@@ -47,9 +47,11 @@ public class LecturerViewPane extends JPanel {
 
 		JPanel panel = new JPanel();
 		add(panel, "4, 2, fill, fill");
-		panel.setLayout(new FormLayout(new ColumnSpec[] { ColumnSpec
-				.decode("236px:grow"), }, new RowSpec[] {
-				RowSpec.decode("70px"), FormFactory.DEFAULT_ROWSPEC, }));
+		panel.setLayout(new FormLayout(new ColumnSpec[] {
+				ColumnSpec.decode("236px:grow"),},
+			new RowSpec[] {
+				RowSpec.decode("70px"),
+				FormFactory.DEFAULT_ROWSPEC,}));
 
 		JPanel otherPane = new JPanel();
 		panel.add(otherPane, "1, 1, fill, top");
@@ -102,19 +104,8 @@ public class LecturerViewPane extends JPanel {
 		};
 		otherPane.add(comboBoxDegree, "4, 4, fill, default");
 
-		JPanel panel_1 = new JPanel();
-		panel.add(panel_1, "1, 2, center, fill");
-		panel_1.setLayout(new FormLayout(
-				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC,
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC,
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] {
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.DEFAULT_ROWSPEC, }));
-
 		JButton btnSave = new JButton("Save");
+		panel.add(btnSave, "1, 2, center, default");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (lecturer == null)
@@ -126,42 +117,20 @@ public class LecturerViewPane extends JPanel {
 						.getNote(), contactPane.getHome(), contactPane
 						.getDistrict(), comboBoxDegree.getSelectedValue(),
 						comboBoxFaculty.getSelectedValue());
-				String message = (String)Control.getInstance().getData("updateLecturer", lecturer, newlt);
-				if (message == null){
+				String message = (String) Control.getInstance().getData(
+						"updateLecturer", lecturer, newlt);
+				if (message == null) {
 					lecturer.setName(newlt.getName());
-					JOptionPane.showMessageDialog(null, "Update lecturer's information success", "Update success", JOptionPane.INFORMATION_MESSAGE);
-				} else
-					JOptionPane.showMessageDialog(null, "Update lecturer's information failed\nMessage: " + message, "Update failed", JOptionPane.WARNING_MESSAGE);
-			}
-		});
-		panel_1.add(btnSave, "2, 2");
-
-		JButton btnReset = new JButton("Reset");
-		btnReset.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (lecturer != null) {
-					setLecturer(lecturer);
-				}
-			}
-		});
-		panel_1.add(btnReset, "4, 2");
-
-		JButton btnReload = new JButton("Reload");
-		btnReload.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (lecturer == null)
-					return;
-				lecturer = (Lecturer) Control.getInstance().getData(
-						"getFullDataLecturer", lecturer);
-				if (lecturer != null)
-					setLecturer(lecturer);
-				else
 					JOptionPane.showMessageDialog(null,
-							"Get data of lecturer failed", "Get data failed",
+							"Update lecturer's information success",
+							"Update success", JOptionPane.INFORMATION_MESSAGE);
+				} else
+					JOptionPane.showMessageDialog(null,
+							"Update lecturer's information failed\nMessage: "
+									+ message, "Update failed",
 							JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		panel_1.add(btnReload, "6, 2");
 	}
 
 	public void setLecturer(Lecturer lecturer) {

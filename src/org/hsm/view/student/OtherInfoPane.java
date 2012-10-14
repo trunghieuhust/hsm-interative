@@ -16,7 +16,7 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
-public class StudentOtherPane extends JPanel {
+public class OtherInfoPane extends JPanel {
 
 	/**
 	 * 
@@ -30,7 +30,7 @@ public class StudentOtherPane extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public StudentOtherPane() {
+	public OtherInfoPane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"),
@@ -75,7 +75,7 @@ public class StudentOtherPane extends JPanel {
 		
 		JSpinner spinnerPoint = new JSpinner();
 		modelPoint = new SpinnerNumberModel(0.0, 0.0, 30.0, 1.0);
-		spinnerPoint.setModel(modelPoint);
+		spinnerPoint.setModel(new SpinnerNumberModel(0.0, 0.0, 30.0, 0.0));
 		add(spinnerPoint, "4, 6");
 		
 		JLabel lblYear = DefaultComponentFactory.getInstance().createLabel("Enroll year");

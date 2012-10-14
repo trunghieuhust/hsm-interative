@@ -1,0 +1,117 @@
+Oct 14, 2012 10:04:35 AM org.hsm.control.Control start
+INFO: System starts
+Oct 14, 2012 10:04:35 AM org.hsm.control.Control start
+INFO: Open login window
+Oct 14, 2012 10:04:36 AM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 14, 2012 10:04:36 AM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 14, 2012 10:04:36 AM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 14, 2012 10:04:36 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 14, 2012 10:04:37 AM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 14, 2012 10:04:37 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#", "Name" FROM "City"
+ORDER BY "Name"
+Oct 14, 2012 10:04:37 AM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {1}
+Oct 14, 2012 10:04:37 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 1
+ORDER BY "Name"
+Oct 14, 2012 10:04:37 AM org.hsm.control.Control getData
+INFO: Get list of class
+Oct 14, 2012 10:04:37 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CL#", "Name" FROM "Class"
+ORDER BY "Name"
+Oct 14, 2012 10:04:37 AM org.hsm.control.Control getData
+INFO: Get list of faculties
+Oct 14, 2012 10:04:37 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "FC#", "Name" FROM "Faculty" ORDER BY "Name"
+Oct 14, 2012 10:04:37 AM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 14, 2012 10:04:37 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#", "Name" FROM "City"
+ORDER BY "Name"
+Oct 14, 2012 10:04:37 AM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {1}
+Oct 14, 2012 10:04:37 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DT#", "Name" FROM "District"
+WHERE "CY#" = 1
+ORDER BY "Name"
+Oct 14, 2012 10:04:37 AM org.hsm.control.Control getData
+INFO: Get list of faculties
+Oct 14, 2012 10:04:37 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "FC#", "Name" FROM "Faculty" ORDER BY "Name"
+Oct 14, 2012 10:04:37 AM org.hsm.control.Control getData
+INFO: Get list of degrees
+Oct 14, 2012 10:04:37 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "DG#", "Name" FROM "Degree" ORDER BY "Name"
+Oct 14, 2012 10:04:38 AM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 14, 2012 10:04:38 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "CY#", "Name" FROM "City"
+ORDER BY "Name"
+Oct 14, 2012 10:04:38 AM org.hsm.control.Control getData
+INFO: Get list of rooms
+Oct 14, 2012 10:04:38 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "RM#", "Name" FROM "Room" ORDER BY "Name"
+Oct 14, 2012 10:04:38 AM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 14, 2012 10:04:40 AM org.hsm.control.Control getData
+INFO: Get new room
+Oct 14, 2012 10:04:40 AM org.hsm.service.CoreService query
+INFO: Execute query INSERT INTO "Room" DEFAULT VALUES RETURNING "RM#", "Name"
+Oct 14, 2012 10:04:46 AM org.hsm.control.Control getData
+INFO: Change name of room {New room} into {401}
+Oct 14, 2012 10:04:46 AM org.hsm.service.CoreService update
+INFO: Execute udpate UPDATE "Room"
+SET "Name" = '401'
+WHERE "RM#" = 1
+Oct 14, 2012 10:04:49 AM org.hsm.control.Control getData
+INFO: Get list of rooms
+Oct 14, 2012 10:04:49 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "RM#", "Name" FROM "Room" ORDER BY "Name"
+Oct 14, 2012 10:04:50 AM org.hsm.control.Control getData
+INFO: Get new room
+Oct 14, 2012 10:04:50 AM org.hsm.service.CoreService query
+INFO: Execute query INSERT INTO "Room" DEFAULT VALUES RETURNING "RM#", "Name"
+Oct 14, 2012 10:05:05 AM org.hsm.control.Control getData
+INFO: Change name of room {New room} into {Giaos dục thể chất}
+Oct 14, 2012 10:05:05 AM org.hsm.service.CoreService update
+INFO: Execute udpate UPDATE "Room"
+SET "Name" = 'Giaos dục thể chất'
+WHERE "RM#" = 2
+Oct 14, 2012 10:05:07 AM org.hsm.control.Control getData
+INFO: Get new room
+Oct 14, 2012 10:05:07 AM org.hsm.service.CoreService query
+INFO: Execute query INSERT INTO "Room" DEFAULT VALUES RETURNING "RM#", "Name"
+Oct 14, 2012 10:05:12 AM org.hsm.control.Control getData
+INFO: Change name of room {New room} into {Sân vânj động}
+Oct 14, 2012 10:05:12 AM org.hsm.service.CoreService update
+INFO: Execute udpate UPDATE "Room"
+SET "Name" = 'Sân vânj động'
+WHERE "RM#" = 3
+Oct 14, 2012 10:05:14 AM org.hsm.control.Control getData
+INFO: Get new room
+Oct 14, 2012 10:05:14 AM org.hsm.service.CoreService query
+INFO: Execute query INSERT INTO "Room" DEFAULT VALUES RETURNING "RM#", "Name"
+Oct 14, 2012 10:05:22 AM org.hsm.control.Control getData
+INFO: Get new room
+Oct 14, 2012 10:05:22 AM org.hsm.service.CoreService query
+INFO: Execute query INSERT INTO "Room" DEFAULT VALUES RETURNING "RM#", "Name"
+Oct 14, 2012 10:05:31 AM org.hsm.control.Control getData
+INFO: Change name of room {New room} into {Phòng tập đa năng.}
+Oct 14, 2012 10:05:31 AM org.hsm.service.CoreService update
+INFO: Execute udpate UPDATE "Room"
+SET "Name" = 'Phòng tập đa năng.'
+WHERE "RM#" = 4
+Oct 14, 2012 10:05:33 AM org.hsm.control.Control getData
+INFO: Reload name of room {Phòng tập đa năng.}
+Oct 14, 2012 10:05:33 AM org.hsm.service.CoreService query
+INFO: Execute query SELECT "Name" FROM "Room" WHERE "RM#" = 4
+Oct 14, 2012 10:06:13 AM org.hsm.control.Control fire
+INFO: System exits
