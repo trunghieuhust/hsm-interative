@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Large Objects</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="up" href="ext.html" title="Chapter 9. PostgreSQL™ Extensions to the JDBC API"/><link rel="prev" href="geometric.html" title="Geometric Data Types"/><link rel="next" href="listennotify.html" title="Listen / Notify"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Large Objects</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="geometric.html">Prev</a> </td><th width="60%" align="center">Chapter 9. <span class="productname">PostgreSQL</span>™ Extensions to the
+    <acronym class="acronym">JDBC</acronym> <acronym class="acronym">API</acronym></th><td width="20%" align="right"> <a accesskey="n" href="listennotify.html">Next</a></td></tr></table><hr/></div><div class="sect1" title="Large Objects"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="largeobjects"/>Large Objects</h2></div></div></div><p>
+    Large objects are supported in the standard
+    <acronym class="acronym">JDBC</acronym> specification.  However, that interface is
+    limited, and the <acronym class="acronym">API</acronym> provided by <span class="productname">PostgreSQL</span>™ allows for random
+    access to the objects contents, as if it was a local file.
+   </p><p>
+    The org.postgresql.largeobject package provides to Java the <span class="application">libpq</span>
+    C interface's large object <acronym class="acronym">API</acronym>. It consists of
+    two classes, <code class="classname">LargeObjectManager</code>, which deals with creating,
+    opening and deleting large objects, and <code class="classname">LargeObject</code> which deals
+    with an individual object.  For an example usage of this <acronym class="acronym">API</acronym>,
+    please see <a class="xref" href="binary-data.html#binary-data-example" title="Example 7.1. Processing Binary Data in JDBC">Example 7.1, “Processing Binary Data in <acronym class="acronym">JDBC</acronym>”</a>.
+   </p></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="geometric.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ext.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="listennotify.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Geometric Data Types </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Listen / Notify</td></tr></table></div></body></html>

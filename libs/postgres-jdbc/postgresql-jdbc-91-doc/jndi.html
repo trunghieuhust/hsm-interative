@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Data Sources and JNDI</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="up" href="datasource.html" title="Chapter 11. Connection Pools and Data Sources"/><link rel="prev" href="tomcat.html" title="Tomcat setup"/><link rel="next" href="reading.html" title="Chapter 12. Further Reading"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Data Sources and <acronym class="acronym">JNDI</acronym></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tomcat.html">Prev</a> </td><th width="60%" align="center">Chapter 11. Connection Pools and Data Sources</th><td width="20%" align="right"> <a accesskey="n" href="reading.html">Next</a></td></tr></table><hr/></div><div class="sect1" title="Data Sources and JNDI"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="jndi"/>Data Sources and <acronym class="acronym">JNDI</acronym></h2></div></div></div><a id="d0e3174" class="indexterm"/><p>
+     All the <code class="literal">ConnectionPoolDataSource</code> and
+     <code class="literal">DataSource</code> implementations can be stored
+     in <acronym class="acronym">JNDI</acronym>.  In the case of the nonpooling
+     implementations, a new instance will be created every time the
+     object is retrieved from <acronym class="acronym">JNDI</acronym>, with the
+     same settings as the instance that was stored.  For the
+     pooling implementations, the same instance will be retrieved
+     as long as it is available (e.g., not a different
+     <acronym class="acronym">JVM</acronym> retrieving the pool from
+     <acronym class="acronym">JNDI</acronym>), or a new instance with the same
+     settings created otherwise.
+    </p><p>
+     In the application server environment, typically the
+     application server's <code class="literal">DataSource</code> instance
+     will be stored in <acronym class="acronym">JNDI</acronym>, instead of the
+     <span class="productname">PostgreSQL</span>™
+     <code class="literal">ConnectionPoolDataSource</code> implementation.
+    </p><p>
+     In an application environment, the application may store
+     the <code class="literal">DataSource</code> in <acronym class="acronym">JNDI</acronym>
+     so that it doesn't have to make a reference to the
+     <code class="literal">DataSource</code> available to all application
+     components that may need to use it.  An example of this is
+     shown in <a class="xref" href="jndi.html#ds-jndi" title="Example 11.2. DataSource JNDI Code Example">Example 11.2, “<code class="classname">DataSource</code> <acronym class="acronym">JNDI</acronym> Code Example”</a>.
+    </p><div class="example"><a id="ds-jndi"/><p class="title"><strong>Example 11.2. <code class="classname">DataSource</code> <acronym class="acronym">JNDI</acronym> Code Example</strong></p><div class="example-contents"><p>
+     Application code to initialize a pooling <code class="classname">DataSource</code> and add
+     it to <acronym class="acronym">JNDI</acronym> might look like this:
+</p><pre class="programlisting">
+PGPoolingDataSource source = new PGPoolingDataSource();
+source.setDataSourceName("A Data Source");
+source.setServerName("localhost");
+source.setDatabaseName("test");
+source.setUser("testuser");
+source.setPassword("testpassword");
+source.setMaxConnections(10);
+new InitialContext().rebind("DataSource", source);
+</pre><p>
+      Then code to use a connection from the pool might look
+      like this:
+</p><pre class="programlisting">
+Connection conn = null;
+try {
+    DataSource source = (DataSource)new InitialContext().lookup("DataSource");
+    conn = source.getConnection();
+    // use connection
+} catch (SQLException e) {
+    // log error
+} catch (NamingException e) {
+    // DataSource wasn't found in JNDI
+} finally {
+    if (con != null) {
+        try { conn.close(); } catch (SQLException e) {}
+    }
+}
+</pre><p>
+    </p></div></div><br class="example-break"/></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tomcat.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="datasource.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="reading.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Tomcat setup </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 12. Further Reading</td></tr></table></div></body></html>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 5. Issuing a Query and Processing the Result</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="up" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="prev" href="ssl-factory.html" title="Custom SSLSocketFactory"/><link rel="next" href="statement.html" title="Using the Statement or PreparedStatement Interface"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 5. Issuing a Query and Processing the Result</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ssl-factory.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="statement.html">Next</a></td></tr></table><hr/></div><div class="chapter" title="Chapter 5. Issuing a Query and Processing the Result"><div class="titlepage"><div><div><h2 class="title"><a id="query"/>Chapter 5. Issuing a Query and Processing the Result</h2></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="sect1"><a href="query.html#query-with-cursor">Getting results based on a cursor</a></span></dt><dt><span class="sect1"><a href="statement.html">Using the <code class="classname">Statement</code> or <code class="classname">PreparedStatement</code> Interface</a></span></dt><dt><span class="sect1"><a href="resultset.html">Using the <code class="classname">ResultSet</code> Interface</a></span></dt><dt><span class="sect1"><a href="update.html">Performing Updates</a></span></dt><dt><span class="sect1"><a href="ddl.html">Creating and Modifying Database Objects</a></span></dt></dl></div><a id="d0e1055" class="indexterm"/><a id="d0e1058" class="indexterm"/><a id="d0e1061" class="indexterm"/><p>
+    Any time you want to issue <acronym class="acronym">SQL</acronym> statements to
+    the database, you require a <code class="classname">Statement</code> or 
+    <code class="classname">PreparedStatement</code> instance. Once you have 
+    a <code class="classname">Statement</code> or 
+    <code class="classname">PreparedStatement</code>, you can use issue a
+    query. This will return a <code class="classname">ResultSet</code>
+    instance, which contains the entire result (see <a class="xref" href="query.html#query-with-cursor" title="Getting results based on a cursor">the section called “Getting results based on a cursor”</a>
+    here for how to alter this behaviour).
+    <a class="xref" href="query.html#query-example" title="Example 5.1. Processing a Simple Query in JDBC">Example 5.1, “Processing a Simple Query in <acronym class="acronym">JDBC</acronym>”</a> illustrates this process.
+   </p><div class="example"><a id="query-example"/><p class="title"><strong>Example 5.1. Processing a Simple Query in <acronym class="acronym">JDBC</acronym></strong></p><div class="example-contents"><p>
+     This example will issue a simple query and print out the first
+     column of each row using a <code class="classname">Statement</code>.
+</p><pre class="programlisting">
+Statement st = conn.createStatement();
+ResultSet rs = st.executeQuery("SELECT * FROM mytable WHERE columnfoo = 500");
+while (rs.next()) {
+    System.out.print("Column 1 returned ");
+    System.out.println(rs.getString(1));
+}
+rs.close();
+st.close();
+</pre><p>
+    </p><p>
+     This example issues the same query as before but uses
+     a <code class="classname">PreparedStatement</code>
+     and a bind value in the query.
+</p><pre class="programlisting">
+int foovalue = 500;
+PreparedStatement st = conn.prepareStatement("SELECT * FROM mytable WHERE columnfoo = ?");
+st.setInt(1, foovalue);
+ResultSet rs = st.executeQuery();
+while (rs.next()) {
+    System.out.print("Column 1 returned ");
+    System.out.println(rs.getString(1));
+}
+rs.close();
+st.close();
+</pre><p>
+    </p></div></div><br class="example-break"/><div class="sect1" title="Getting results based on a cursor"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="query-with-cursor"/>Getting results based on a cursor</h2></div></div></div><p>By default the driver collects all the results for the
+       query at once. This can be inconvenient for large data sets so
+       the <acronym class="acronym">JDBC</acronym> driver provides a means of basing
+       a <code class="classname">ResultSet</code> on a database cursor and
+       only fetching a small number of rows.</p><p>A small number of rows are cached on the
+       client side of the connection and when exhausted the next
+       block of rows is retrieved by repositioning the cursor.
+     </p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+       Cursor based <code class="classname">ResultSets</code> cannot be used in all
+       situations.  There a number of restrictions which will make the driver
+       silently fall back to fetching the whole <code class="classname">ResultSet</code>
+       at once.
+       </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+          The connection to the server must be using the V3 protocol.  This is the
+          default for (and is only supported by) server versions 7.4 and later.
+         </p></li><li class="listitem"><p>
+          The <code class="classname">Connection</code> must not be in autocommit
+          mode.  The backend closes cursors at the end of transactions, so in
+          autocommit mode the backend will have closed the cursor before anything
+          can be fetched from it.
+         </p></li><li class="listitem"><p>
+           The <code class="classname">Statement</code> must be created with
+           a <code class="classname">ResultSet</code> type of
+           <code class="literal">ResultSet.TYPE_FORWARD_ONLY</code>.
+           This is the default, so no code will need to be rewritten to take
+           advantage of this, but it also means that you cannot scroll
+           backwards or otherwise jump around in the
+          <code class="classname">ResultSet</code>.
+         </p></li><li class="listitem"><p>
+          The query given must be a single statement, not multiple statements
+          strung together with semicolons.
+         </p></li></ul></div><p>
+      </p></div><div class="example"><a id="fetchsize-example"/><p class="title"><strong>Example 5.2. Setting fetch size to turn cursors on and off.</strong></p><div class="example-contents"><p>Changing code to cursor mode is as simple as setting the
+       fetch size of the <code class="classname">Statement</code> to the
+       appropriate size. Setting the fetch size back to 0 will cause
+       all rows to be cached (the default behaviour).
+
+</p><pre class="programlisting">
+// make sure autocommit is off
+conn.setAutoCommit(false);
+Statement st = conn.createStatement();
+
+// Turn use of the cursor on.
+st.setFetchSize(50);
+ResultSet rs = st.executeQuery("SELECT * FROM mytable");
+while (rs.next()) {
+   System.out.print("a row was returned.");
+}
+rs.close();
+
+// Turn the cursor off.
+st.setFetchSize(0);
+rs = st.executeQuery("SELECT * FROM mytable");
+while (rs.next()) {
+   System.out.print("many rows were returned.");
+}
+rs.close();
+
+// Close the statement.
+st.close();
+</pre><p>
+     </p></div></div><br class="example-break"/></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ssl-factory.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="statement.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Custom SSLSocketFactory </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Using the <code class="classname">Statement</code> or <code class="classname">PreparedStatement</code> Interface</td></tr></table></div></body></html>

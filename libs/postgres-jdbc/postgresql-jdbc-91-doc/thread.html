@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 10. Using the Driver in a Multithreaded or a Servlet Environment</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="up" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="prev" href="server-prepare.html" title="Server Prepared Statements"/><link rel="next" href="datasource.html" title="Chapter 11. Connection Pools and Data Sources"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 10. Using the Driver in a Multithreaded or a Servlet Environment</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="server-prepare.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="datasource.html">Next</a></td></tr></table><hr/></div><div class="chapter" title="Chapter 10. Using the Driver in a Multithreaded or a Servlet Environment"><div class="titlepage"><div><div><h2 class="title"><a id="thread"/>Chapter 10. Using the Driver in a Multithreaded or a Servlet Environment</h2></div></div></div><a id="d0e2652" class="indexterm"/><p>
+   A problem with many <acronym class="acronym">JDBC</acronym> drivers is that only
+   one thread can use a <code class="classname">Connection</code> at any one
+   time --- otherwise a thread could send a query while another one is
+   receiving results, and this could cause severe confusion.
+  </p><p>
+   The <span class="productname">PostgreSQL</span>™ <acronym class="acronym">JDBC</acronym> driver
+   is thread safe.
+   Consequently, if your application uses multiple threads then you do
+   not have to worry about complex algorithms to ensure that only one thread
+   uses the database at a time.
+  </p><p>
+   If a thread attempts to use the connection while another one is
+   using it, it will wait until the other thread has finished its
+   current operation.  If the operation is a regular <acronym class="acronym">SQL</acronym>
+   statement, then the operation consists of sending the statement and
+   retrieving any <code class="classname">ResultSet</code> (in full).  If it
+   is a fast-path call (e.g., reading a block
+   from a large object) then it consists of
+   sending and retrieving the respective data.
+  </p><p>
+   This is fine for applications and applets but can cause a
+   performance problem with servlets.  If you have several threads
+   performing queries then each but one will pause.
+   To solve this, you are advised to create a pool of connections.
+   When ever a thread needs to use the database, it asks a manager
+   class for a <code class="classname">Connection</code> object. The manager
+   hands a free connection to the thread and marks it as busy. If a
+   free connection is not available, it opens one.  Once the thread
+   has finished using the connection, it returns it to the manager
+   which can then either close it or add it to the pool. The manager
+   would also check that the connection is still alive and remove it
+   from the pool if it is dead.  The down side of a connection pool is
+   that it increases the load on the server because a new session is
+   created for each <code class="classname">Connection</code> object.  It is
+   up to you and your applications' requirements.
+  </p></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="server-prepare.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="datasource.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Server Prepared Statements </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 11. Connection Pools and Data Sources</td></tr></table></div></body></html>

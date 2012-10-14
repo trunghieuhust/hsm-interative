@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Using the Statement or PreparedStatement Interface</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="up" href="query.html" title="Chapter 5. Issuing a Query and Processing the Result"/><link rel="prev" href="query.html" title="Chapter 5. Issuing a Query and Processing the Result"/><link rel="next" href="resultset.html" title="Using the ResultSet Interface"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Using the <code class="classname">Statement</code> or <code class="classname">PreparedStatement</code> Interface</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="query.html">Prev</a> </td><th width="60%" align="center">Chapter 5. Issuing a Query and Processing the Result</th><td width="20%" align="right"> <a accesskey="n" href="resultset.html">Next</a></td></tr></table><hr/></div><div class="sect1" title="Using the Statement or PreparedStatement Interface"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="statement"/>Using the <code class="classname">Statement</code> or <code class="classname">PreparedStatement</code> Interface</h2></div></div></div><p>
+     The following must be considered when using the
+     <code class="classname">Statement</code> or 
+     <code class="classname">PreparedStatement</code> interface:
+
+     </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+        You can use a single <code class="classname">Statement</code> instance
+        as many times as you want. You could create one as soon as you
+        open the connection and use it for the connection's
+        lifetime. But you have to remember that only one
+        <code class="classname">ResultSet</code> can exist per
+        <code class="classname">Statement</code> or 
+        <code class="classname">PreparedStatement</code> at a given time.
+       </p></li><li class="listitem"><p>
+        If you need to perform a query while processing a
+        <code class="classname">ResultSet</code>, you can simply create and
+        use another <code class="classname">Statement</code>.
+       </p></li><li class="listitem"><p>
+        If you are using threads, and several are using the database,
+        you must use a separate <code class="classname">Statement</code> for
+        each thread. Refer to <a class="xref" href="thread.html" title="Chapter 10. Using the Driver in a Multithreaded or a Servlet Environment">Chapter 10, <em>Using the Driver in a Multithreaded or a Servlet Environment</em></a> if you are
+        thinking of using threads, as it covers some important points.
+       </p></li><li class="listitem"><p>
+        When you are done using the <code class="classname">Statement</code>
+        or <code class="classname">PreparedStatement</code>
+        you should close it.
+       </p></li></ul></div><p>
+    </p></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="query.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="query.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="resultset.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 5. Issuing a Query and Processing the Result </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Using the <code class="classname">ResultSet</code> Interface</td></tr></table></div></body></html>

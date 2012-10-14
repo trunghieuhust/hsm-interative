@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 2. Setting up the JDBC Driver</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="up" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="prev" href="intro.html" title="Chapter 1. Introduction"/><link rel="next" href="classpath.html" title="Setting up the Class Path"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 2. Setting up the <acronym class="acronym">JDBC</acronym> Driver</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="intro.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="classpath.html">Next</a></td></tr></table><hr/></div><div class="chapter" title="Chapter 2. Setting up the JDBC Driver"><div class="titlepage"><div><div><h2 class="title"><a id="setup"/>Chapter 2. Setting up the <acronym class="acronym">JDBC</acronym> Driver</h2></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="sect1"><a href="setup.html#build">Getting the Driver</a></span></dt><dt><span class="sect1"><a href="classpath.html">Setting up the Class Path</a></span></dt><dt><span class="sect1"><a href="prepare.html">Preparing the Database Server for <acronym class="acronym">JDBC</acronym></a></span></dt><dt><span class="sect1"><a href="your-database.html">Creating a Database</a></span></dt></dl></div><p>
+   This section describes the steps you need to take before you can
+   write or run programs that use the <acronym class="acronym">JDBC</acronym> interface.
+  </p><div class="sect1" title="Getting the Driver"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="build"/>Getting the Driver</h2></div></div></div><p>
+    Precompiled versions of the driver can be downloaded from
+    the <a class="ulink" href="http://jdbc.postgresql.org" target="_top"><span class="productname">PostgreSQL</span>™
+    <acronym class="acronym">JDBC</acronym> web site</a>.
+   </p><p>
+    Alternatively you can build the driver from source, but you should
+    only need to do this if you are making changes to the source code.
+    To build the <acronym class="acronym">JDBC</acronym> driver, you need
+    <span class="application">Ant</span> 1.5 or higher and a <acronym class="acronym">JDK</acronym>.
+    <span class="application">Ant</span> is a special tool for building
+    Java-based packages.  It can be downloaded from the <a class="ulink" href="http://ant.apache.org/index.html" target="_top"><span class="application">Ant</span>
+    web site</a>.
+   </p><p>
+    If you have several Java compilers installed, it depends on the
+    Ant configuration which one gets used.  Precompiled
+    <span class="application">Ant</span> distributions are typically set up
+    to read a file <code class="filename">.antrc</code> in the current user's
+    home directory for configuration.  For example, to use a different
+    <acronym class="acronym">JDK</acronym> than the default, this may work:
+</p><pre class="programlisting">
+JAVA_HOME=/usr/local/jdk1.6.0_07
+JAVACMD=$JAVA_HOME/bin/java
+</pre><p>
+   </p><p>
+    To compile the driver simply run <span class="command"><strong>ant</strong></span> in the top level
+    directory.  The compiled driver will be placed in <code class="filename">jars/postgresql.jar</code>.
+    The resulting driver will be built for the version of Java you are
+    running.  If you build with a 1.4 or 1.5
+    <acronym class="acronym">JDK</acronym> you will build a version that supports the
+    <acronym class="acronym">JDBC</acronym> 3 specification and if you build
+    with a 1.6 or higher <acronym class="acronym">JDK</acronym> you will build a version that
+    supports the <acronym class="acronym">JDBC</acronym> 4 specification.
+   </p></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="intro.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="classpath.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 1. Introduction </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Setting up the Class Path</td></tr></table></div></body></html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Loading the Driver</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="up" href="use.html" title="Chapter 3. Initializing the Driver"/><link rel="prev" href="use.html" title="Chapter 3. Initializing the Driver"/><link rel="next" href="connect.html" title="Connecting to the Database"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Loading the Driver</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="use.html">Prev</a> </td><th width="60%" align="center">Chapter 3. Initializing the Driver</th><td width="20%" align="right"> <a accesskey="n" href="connect.html">Next</a></td></tr></table><hr/></div><div class="sect1" title="Loading the Driver"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="load"/>Loading the Driver</h2></div></div></div><p>
+    Before you can connect to a database, you need to load the
+    driver. There are two methods available, and it depends on your
+    code which is the best one to use.
+   </p><p>
+    In the first method, your code implicitly loads the driver using the
+    <code class="function">Class.forName()</code> method.
+    For <span class="productname">PostgreSQL</span>™, you would use:
+
+</p><pre class="programlisting">
+Class.forName("org.postgresql.Driver");
+</pre><p>
+
+    This will load the driver, and while loading, the driver will automatically
+    register itself with <acronym class="acronym">JDBC</acronym>.
+   </p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+      The <code class="function">forName()</code> method can throw a
+      <code class="classname">ClassNotFoundException</code> if the driver is
+      not available.
+     </p></div><p>
+    This is the most common method to use, but restricts your code to
+    use just <span class="productname">PostgreSQL</span>™.  If your code may
+    access another database system in the future, and you do not use
+    any <span class="productname">PostgreSQL</span>™-specific extensions, then
+    the second method is advisable.
+   </p><p>
+    The second method passes the driver as a parameter to the
+    <acronym class="acronym">JVM</acronym> as it starts, using the <code class="option">-D</code>
+    argument. Example:
+</p><pre class="programlisting">
+java -Djdbc.drivers=org.postgresql.Driver example.ImageViewer
+</pre><p>
+    In this example, the <acronym class="acronym">JVM</acronym> will attempt to load
+    the driver as part of its initialization. Once done, the
+    <code class="classname">ImageViewer</code> is started.
+   </p><p>
+    Now, this method is the better one to use because it allows your
+    code to be used with other database packages without recompiling
+    the code. The only thing that would also change is the connection
+    <acronym class="acronym">URL</acronym>, which is covered next.
+   </p><p>
+    One last thing: When your code then tries to open a
+    <code class="classname">Connection</code>, and you get a <span class="errorname">No
+    driver available</span> <code class="classname">SQLException</code>
+    being thrown, this is probably caused by the driver not being in
+    the class path, or the value in the parameter not being correct.
+   </p></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="use.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="use.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="connect.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 3. Initializing the Driver </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Connecting to the Database</td></tr></table></div></body></html>

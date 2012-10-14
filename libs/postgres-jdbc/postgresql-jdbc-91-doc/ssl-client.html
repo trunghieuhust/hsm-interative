@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Configuring the Client</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="up" href="ssl.html" title="Chapter 4. Using SSL"/><link rel="prev" href="ssl.html" title="Chapter 4. Using SSL"/><link rel="next" href="ssl-factory.html" title="Custom SSLSocketFactory"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Configuring the Client</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ssl.html">Prev</a> </td><th width="60%" align="center">Chapter 4. Using <acronym class="acronym">SSL</acronym></th><td width="20%" align="right"> <a accesskey="n" href="ssl-factory.html">Next</a></td></tr></table><hr/></div><div class="sect1" title="Configuring the Client"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="ssl-client"/>Configuring the Client</h2></div></div></div><p>
+     Unlike <span class="application">psql</span> and other
+     <span class="application">libpq</span> based programs the
+     <acronym class="acronym">JDBC</acronym> driver does server certificate
+     validation by default.  This means that when establishing a
+     <acronym class="acronym">SSL</acronym> connection the <acronym class="acronym">JDBC</acronym>
+     driver will validate the server's identity preventing
+     "man in the middle" attacks.  It does this by checking that
+     the server certificate is signed by a trusted authority.  If
+     you have a certificate signed by a global certificate authority
+     (<acronym class="acronym">CA</acronym>), there is nothing further to do
+     because Java comes with copies of the most common CA's certificates.
+     If you are dealing with a self-signed certificate though, you
+     need to make this available to the Java client to enable it
+     to validate the server's certificate.
+
+     </p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+       Only the <acronym class="acronym">JDBC</acronym> 3 driver supports
+       <acronym class="acronym">SSL</acronym>.  The 1.4 <acronym class="acronym">JDK</acronym>
+       was the first version to come bundled with <acronym class="acronym">SSL</acronym>
+       support.  Previous <acronym class="acronym">JDK</acronym> versions that wanted
+       to use <acronym class="acronym">SSL</acronym> could make use of the additional
+       <acronym class="acronym">JSSE</acronym> library, but it does not support the
+       full range of features utilized by the
+       <span class="productname">PostgreSQL</span>™ <acronym class="acronym">JDBC</acronym>
+       driver.
+      </p></div><p>
+    </p><p>
+     To make the server certificate available to Java, the first step
+     is to convert it to a form Java understands.
+
+</p><pre class="programlisting">
+openssl x509 -in server.crt -out server.crt.der -outform der
+</pre><p>
+
+     From here the easiest thing to do is import this certificate into Java's
+     system truststore.
+
+</p><pre class="programlisting">
+keytool -keystore $JAVA_HOME/lib/security/cacerts -alias postgresql -import -file server.crt.der
+</pre><p>
+
+     The default password for the cacerts keystore is <code class="literal">changeit</code>.  The alias to postgesql is not important and you may select any name you desire.
+    </p><p>
+     If you do not have access to the system cacerts truststore you can create your own truststore.
+
+</p><pre class="programlisting">
+keytool -keystore mystore -alias postgresql -import -file server.crt.der 
+</pre><p>
+
+     When starting your Java application you must specify this keystore and
+     password to use.
+
+</p><pre class="programlisting">
+java -Djavax.net.ssl.trustStore=mystore -Djavax.net.ssl.trustStorePassword=mypassword com.mycompany.MyApp
+</pre><p>
+
+     In the event of problems extra debugging information is available
+     by adding <code class="literal">-Djavax.net.debug=ssl</code> to your command
+     line.
+    </p><p>
+     To instruct the <acronym class="acronym">JDBC</acronym> driver to try and establish
+     a <acronym class="acronym">SSL</acronym> connection you must add the connection
+     <acronym class="acronym">URL</acronym> parameter <code class="literal">ssl=true</code>.
+    </p><div class="sect2" title="Using SSL without Certificate Validation"><div class="titlepage"><div><div><h3 class="title"><a id="nonvalidating"/>Using SSL without Certificate Validation</h3></div></div></div><p>
+      In some situations it may not be possible to configure your Java
+      environment to make the server certificate available, for example
+      in an applet.  For a large scale deployment it would be best to
+      get a certificate signed by recognized certificate authority, but
+      that is not always an option.  The <acronym class="acronym">JDBC</acronym> driver
+      provides an option to establish a <acronym class="acronym">SSL</acronym> connection
+      without doing any validation, but please understand the risk
+      involved before enabling this option.
+     </p><p>
+      A non-validating connection is established via a custom
+      <code class="classname">SSLSocketFactory</code> class that is provided with
+      the driver.  Setting the connection <acronym class="acronym">URL</acronym>
+      parameter
+      <code class="literal">sslfactory=org.postgresql.ssl.NonValidatingFactory</code>
+      will turn off all <acronym class="acronym">SSL</acronym> validation.
+     </p></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ssl.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ssl.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ssl-factory.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 4. Using <acronym class="acronym">SSL</acronym> </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Custom SSLSocketFactory</td></tr></table></div></body></html>

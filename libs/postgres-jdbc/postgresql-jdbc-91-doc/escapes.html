@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 8. JDBC escapes</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="up" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="prev" href="binary-data.html" title="Chapter 7. Storing Binary Data"/><link rel="next" href="outer-joins-escape.html" title="Escape for outer joins"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 8. <acronym class="acronym">JDBC</acronym> escapes</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="binary-data.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="outer-joins-escape.html">Next</a></td></tr></table><hr/></div><div class="chapter" title="Chapter 8. JDBC escapes"><div class="titlepage"><div><div><h2 class="title"><a id="escapes"/>Chapter 8. <acronym class="acronym">JDBC</acronym> escapes</h2></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="sect1"><a href="escapes.html#like-escape">Escape for like escape character</a></span></dt><dt><span class="sect1"><a href="outer-joins-escape.html">Escape for outer joins</a></span></dt><dt><span class="sect1"><a href="escapes-datetime.html">Date-time escapes</a></span></dt><dt><span class="sect1"><a href="escaped-functions.html">Escaped scalar functions</a></span></dt></dl></div><p>
+   The <acronym class="acronym">JDBC</acronym> specification (like the <acronym class="acronym">ODBC</acronym>
+   specification) acknowledges the fact that some vendor specific
+   <acronym class="acronym">SQL</acronym> may be required for certain <acronym class="acronym">RDBMS</acronym>
+   features.  To aid developers in writing portable <acronym class="acronym">JDBC</acronym>
+   applications across multiple database products, a special escape syntax is
+   used to specify the generic commands the developer wants to be run.  The
+   <acronym class="acronym">JDBC</acronym> driver translates these escape sequences into
+   native syntax for its specific database.
+   For more information consult the section 4.1.5 from the
+   <a class="ulink" href="http://java.sun.com/j2se/1.4.2/docs/guide/jdbc/getstart/statement.html#999472" target="_top"><acronym class="acronym">JDBC</acronym> Technology Guide</a>
+   (bundled with the <span class="productname">Sun</span>™ <acronym class="acronym">JRE</acronym>
+   documentation) and the section 13.4 from the
+   <a class="ulink" href="http://java.sun.com/products/jdbc/download.html#corespec30" target="_top"><acronym class="acronym">JDBC</acronym> 3.0 specification</a>.
+   </p><p>
+   The parsing of the sql statements for these escapes can be disabled using <code class="literal">Statement.setEscapeProcessing(false)</code>. 
+   </p><p>
+   <code class="literal">Connection.nativeSQL(String sql)</code> provides another way to have escapes processed.
+   It translates the given <acronym class="acronym">SQL</acronym> to a <acronym class="acronym">SQL</acronym> suitable for the <span class="productname">PostgreSQL</span>™ backend.
+   </p><div class="example"><a id="escape-use-example"/><p class="title"><strong>Example 8.1. Using jdbc escapes</strong></p><div class="example-contents"><p>
+   To use the <acronym class="acronym">JDBC</acronym> escapes, you simply write your <acronym class="acronym">SQL</acronym> replacing date/time literal
+   values, outer join and functions by the <acronym class="acronym">JDBC</acronym> escape syntax.
+   For example :
+</p><pre class="programlisting">
+ResultSet rs = st.executeQuery("SELECT {fn week({d '2005-01-24'})}");
+</pre><p>
+is the portable version for
+</p><pre class="programlisting">
+ResultSet rs = st.executeQuery("SELECT extract(week from DATE '2005-01-24')");
+</pre><p>
+  </p></div></div><br class="example-break"/><div class="sect1" title="Escape for like escape character"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="like-escape"/>Escape for like escape character</h2></div></div></div><p>
+    You can specify which escape character to use in strings comparison (with <code class="literal">LIKE</code>) to protect wildcards
+    characters ('%' and '_') by adding the following escape : <code class="literal">{escape 'escape-character'}</code>.
+    The driver supports this only at the end of the comparison expression.
+    </p><p>
+   For example, you can compare string values using '|' as escape character to protect '_' :
+</p><pre class="programlisting">
+rs = stmt.executeQuery("select str2 from comparisontest where str1 like '|_abcd' {escape '|'} ");
+</pre><p>
+   </p></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="binary-data.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="outer-joins-escape.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 7. Storing Binary Data </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Escape for outer joins</td></tr></table></div></body></html>

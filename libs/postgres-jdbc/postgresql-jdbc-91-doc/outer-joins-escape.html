@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Escape for outer joins</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="up" href="escapes.html" title="Chapter 8. JDBC escapes"/><link rel="prev" href="escapes.html" title="Chapter 8. JDBC escapes"/><link rel="next" href="escapes-datetime.html" title="Date-time escapes"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Escape for outer joins</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="escapes.html">Prev</a> </td><th width="60%" align="center">Chapter 8. <acronym class="acronym">JDBC</acronym> escapes</th><td width="20%" align="right"> <a accesskey="n" href="escapes-datetime.html">Next</a></td></tr></table><hr/></div><div class="sect1" title="Escape for outer joins"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="outer-joins-escape"/>Escape for outer joins</h2></div></div></div><p>
+    You can specify outer joins using the following syntax:
+    <code class="literal">{oj table (LEFT|RIGHT|FULL) OUTER JOIN (table | outer-join) 
+	ON search-condition  }</code>
+    </p><p>
+    For example :
+</p><pre class="programlisting">
+rs = stmt.executeQuery( "select * from {oj a left outer join b on (a.i=b.i)} ");
+</pre><p>
+    </p></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="escapes.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="escapes.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="escapes-datetime.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 8. <acronym class="acronym">JDBC</acronym> escapes </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Date-time escapes</td></tr></table></div></body></html>

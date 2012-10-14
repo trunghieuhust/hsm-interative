@@ -11,14 +11,12 @@ public class LecturerService {
 
 	public static HedspiObject getNewInFaculty(int i) {
 		String query  = "INSERT INTO \"Lecturer\" (\"FC#\") VALUES (" + i + ")\n" +
-				"RETURNING \"CT#\", \"First\", \"Last\"";
+				"RETURNING \"CT#\", concat(\"First\", ' ', \"Last\") as \"Name\"";
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
 		if (rs.isEmpty() || rs.get(0).get("CT#") == null)
 			return null;
 		int id = (int)rs.get(0).get("CT#");
-		String first= (String)rs.get(0).get("First");
-		String last = (String)rs.get(0).get("Last");
-		String name = first  + " " + last;
+		String name = (String)rs.get(0).get("Name");
 		return new HedspiObject(id, name);
 	}
 
@@ -29,7 +27,7 @@ public class LecturerService {
 
 	public static HedspiObject[] getLecturersInFaculty(int i) {
 		ArrayList<HedspiObject> ret = new ArrayList<>();
-		String query = "SELECT \"CT#\", \"First\", \"Last\"\n" +
+		String query = "SELECT \"CT#\", concat(\"First\", ' ', \"Last\") as \"Name\"\n" +
 				"FROM \"Lecturer\"\n" +
 				"WHERE \"FC#\" = " + i + "\n" +
 						"ORDER BY \"Last\"";
@@ -37,9 +35,7 @@ public class LecturerService {
 		for(HashMap<String, Object> it : rs)
 			if (it.get("CT#") != null){
 				int id = (int)it.get("CT#");
-				String first= (String)it.get("First");
-				String last = (String)it.get("Last");
-				String name = first + " " + last;
+				String name = (String)it.get("Name");
 				ret.add(new HedspiObject(id, name));
 			}
 		

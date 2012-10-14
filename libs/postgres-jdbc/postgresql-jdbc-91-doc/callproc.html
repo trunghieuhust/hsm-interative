@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 6. Calling Stored Functions</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="up" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="prev" href="ddl.html" title="Creating and Modifying Database Objects"/><link rel="next" href="binary-data.html" title="Chapter 7. Storing Binary Data"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 6. Calling Stored Functions</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ddl.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="binary-data.html">Next</a></td></tr></table><hr/></div><div class="chapter" title="Chapter 6. Calling Stored Functions"><div class="titlepage"><div><div><h2 class="title"><a id="callproc"/>Chapter 6. Calling Stored Functions</h2></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="sect1"><a href="callproc.html#callproc-resultset">Obtaining a <code class="classname">ResultSet</code> from a stored function</a></span></dt><dd><dl><dt><span class="sect2"><a href="callproc.html#callproc-resultset-setof">From a Function Returing <code class="literal">SETOF</code> type</a></span></dt><dt><span class="sect2"><a href="callproc.html#callproc-resultset-refcursor">From a Function Returing a <span class="type">refcursor</span></a></span></dt></dl></dd></dl></div><div class="example"><a id="call-function-example"/><p class="title"><strong>Example 6.1. Calling a built in stored function</strong></p><div class="example-contents"><p>This example shows how to call
+	a <span class="productname">PostgreSQL</span>™ built in
+	function, <code class="function">upper</code>, which simply converts the
+	supplied string argument to uppercase.
+
+</p><pre class="programlisting">
+CallableStatement upperProc = conn.prepareCall("{ ? = call upper( ? ) }");
+upperProc.registerOutParameter(1, Types.VARCHAR);
+upperProc.setString(2, "lowercase to uppercase");
+upperProc.execute();
+String upperCased = upperProc.getString(1);
+upperProc.close();
+</pre><p>
+      </p></div></div><br class="example-break"/><div class="sect1" title="Obtaining a ResultSet from a stored function"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="callproc-resultset"/>Obtaining a <code class="classname">ResultSet</code> from a stored function</h2></div></div></div><p><span class="productname">PostgreSQL's</span>™ stored functions
+	can return results in two different ways.  The function may return
+	either a <span class="type">refcursor</span> value or a <code class="literal">SETOF</code>
+	some datatype.  Depending on which of these return methods are used
+	determines how the function should be called.
+      </p><div class="sect2" title="From a Function Returing SETOF type"><div class="titlepage"><div><div><h3 class="title"><a id="callproc-resultset-setof"/>From a Function Returing <code class="literal">SETOF</code> type</h3></div></div></div><p>
+        Functions that return data as a set should not be called via the
+	<code class="classname">CallableStatement</code> interface, but instead should
+	use the normal <code class="classname">Statement</code> or
+	<code class="classname">PreparedStatement</code> interfaces.
+       </p><div class="example"><a id="setof-resultset"/><p class="title"><strong>Example 6.2. 
+	 Getting <code class="literal">SETOF</code> type values from a function
+	</strong></p><div class="example-contents"><pre class="programlisting">
+Statement stmt = conn.createStatement();
+stmt.execute("CREATE OR REPLACE FUNCTION setoffunc() RETURNS SETOF int AS "
+		+ "' SELECT 1 UNION SELECT 2;' LANGUAGE sql");
+ResultSet rs = stmt.executeQuery("SELECT * FROM setoffunc()");
+while (rs.next()) {
+    // do something
+}
+rs.close();
+stmt.close();
+</pre></div></div><br class="example-break"/></div><div class="sect2" title="From a Function Returing a refcursor"><div class="titlepage"><div><div><h3 class="title"><a id="callproc-resultset-refcursor"/>From a Function Returing a <span class="type">refcursor</span></h3></div></div></div><p>
+        When calling a function that returns
+	a <span class="type">refcursor</span> you must cast the return type
+	of <code class="function">getObject</code> to
+	a <code class="classname">ResultSet</code>
+
+	</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>
+	  One notable limitation of the current support for a
+	  <code class="classname">ResultSet</code> created from a
+	  <span class="type">refcursor</span> is that even though it is a cursor
+	  backed <code class="classname">ResultSet</code>, all data will be retrieved
+	  and cached on the client.  The <code class="classname">Statement</code>
+	  fetch size parameter described in
+	  <a class="xref" href="query.html#query-with-cursor" title="Getting results based on a cursor">the section called “Getting results based on a cursor”</a> is ignored.  This limitation
+	  is a deficiency of the <acronym class="acronym">JDBC</acronym> driver,
+	  not the server, and it is technically possible to remove it,
+	  we just haven't found the time.
+	 </p></div><p>
+       </p><div class="example"><a id="get-refcursor-from-function-call"/><p class="title"><strong>Example 6.3. 
+	 Getting <span class="type">refcursor</span> Value From a Function
+	</strong></p><div class="example-contents"><pre class="programlisting">
+// Setup function to call.
+Statement stmt = conn.createStatement();
+stmt.execute("CREATE OR REPLACE FUNCTION refcursorfunc() RETURNS refcursor AS '"
+		+ " DECLARE "
+		+ "    mycurs refcursor; "
+		+ " BEGIN "
+		+ "    OPEN mycurs FOR SELECT 1 UNION SELECT 2; "
+		+ "    RETURN mycurs; "
+		+ " END;' language plpgsql");
+stmt.close();
+
+// We must be inside a transaction for cursors to work.
+conn.setAutoCommit(false);
+
+// Procedure call.
+CallableStatement proc = conn.prepareCall("{ ? = call refcursorfunc() }");
+proc.registerOutParameter(1, Types.OTHER);
+proc.execute();
+ResultSet results = (ResultSet) proc.getObject(1);
+while (results.next()) {
+    // do something with the results...
+}
+results.close();
+proc.close();
+</pre></div></div><br class="example-break"/><p>It is also possible to treat the <span class="type">refcursor</span>
+       return value as a cursor name directly. To do this, use the
+       <code class="function">getString</code> of <code class="classname">ResultSet</code>.
+       With the underlying cursor name, you are free to directly use cursor
+       commands on it, such as <code class="literal">FETCH</code> and
+       <code class="literal">MOVE</code>.
+      </p><div class="example"><a id="refcursor-string-example"/><p class="title"><strong>Example 6.4. Treating <span class="type">refcursor</span> as a cursor name</strong></p><div class="example-contents"><pre class="programlisting">
+conn.setAutoCommit(false);
+CallableStatement proc = conn.prepareCall("{ ? = call refcursorfunc() }");
+proc.registerOutParameter(1, Types.OTHER);
+proc.execute();
+String cursorName = proc.getString(1);
+proc.close();
+</pre></div></div><br class="example-break"/></div></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ddl.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="binary-data.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Creating and Modifying Database Objects </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 7. Storing Binary Data</td></tr></table></div></body></html>

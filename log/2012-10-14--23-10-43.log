@@ -1,0 +1,8 @@
+Oct 14, 2012 11:10:43 PM org.hsm.control.Control start
+INFO: System starts
+Oct 14, 2012 11:10:43 PM org.hsm.control.Control start
+INFO: Open login window
+Oct 14, 2012 11:10:43 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 14, 2012 11:10:44 PM org.hsm.control.Control tryLogin
+INFO: Login success

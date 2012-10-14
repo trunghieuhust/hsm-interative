@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Setting up the Class Path</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="up" href="setup.html" title="Chapter 2. Setting up the JDBC Driver"/><link rel="prev" href="setup.html" title="Chapter 2. Setting up the JDBC Driver"/><link rel="next" href="prepare.html" title="Preparing the Database Server for JDBC"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Setting up the Class Path</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="setup.html">Prev</a> </td><th width="60%" align="center">Chapter 2. Setting up the <acronym class="acronym">JDBC</acronym> Driver</th><td width="20%" align="right"> <a accesskey="n" href="prepare.html">Next</a></td></tr></table><hr/></div><div class="sect1" title="Setting up the Class Path"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="classpath"/>Setting up the Class Path</h2></div></div></div><a id="d0e127" class="indexterm"/><a id="d0e130" class="indexterm"/><p>
+    To use the driver, the JAR archive (named
+    <code class="filename">postgresql.jar</code> if you built from source, otherwise
+    it will likely be named with the following convention:
+    <code class="filename">postgresql-<em class="replaceable"><code>[server version]</code></em>.<em class="replaceable"><code>[buildnumber]</code></em>.jdbc<em class="replaceable"><code>[JDBC version]</code></em>.jar</code>,
+    for example <code class="filename">postgresql-8.0-310.jdbc3.jar</code>)
+    needs to be included in the class path, either by putting it in the
+    <code class="envar">CLASSPATH</code> environment variable, or by using flags on the
+    <span class="command"><strong>java</strong></span> command line.
+   </p><p>
+    For instance, assume we have an application that uses the
+    <acronym class="acronym">JDBC</acronym> driver to access a database, and that
+    application is installed as
+    <code class="filename">/usr/local/lib/myapp.jar</code>.  The
+    <span class="productname">PostgreSQL</span>™ <acronym class="acronym">JDBC</acronym> driver installed as
+    <code class="filename">/usr/local/pgsql/share/java/postgresql.jar</code>.  To run
+    the application, we would use:
+</p><pre class="programlisting">
+export CLASSPATH=/usr/local/lib/myapp.jar:/usr/local/pgsql/share/java/postgresql.jar:.
+java MyApp
+</pre><p>
+    </p><p>
+     Loading the driver from within the application is covered in
+     <a class="xref" href="use.html" title="Chapter 3. Initializing the Driver">Chapter 3, <em>Initializing the Driver</em></a>.
+    </p></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="setup.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="setup.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="prepare.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 2. Setting up the <acronym class="acronym">JDBC</acronym> Driver </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Preparing the Database Server for <acronym class="acronym">JDBC</acronym></td></tr></table></div></body></html>

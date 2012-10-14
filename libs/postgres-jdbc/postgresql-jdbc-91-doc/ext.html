@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 9. PostgreSQL™ Extensions to the JDBC API</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"/><link rel="home" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="up" href="index.html" title="The PostgreSQL™ JDBC Interface"/><link rel="prev" href="escaped-functions.html" title="Escaped scalar functions"/><link rel="next" href="geometric.html" title="Geometric Data Types"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 9. <span class="productname">PostgreSQL</span>™ Extensions to the
+    <acronym class="acronym">JDBC</acronym> <acronym class="acronym">API</acronym></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="escaped-functions.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="geometric.html">Next</a></td></tr></table><hr/></div><div class="chapter" title="Chapter 9. PostgreSQL™ Extensions to the JDBC API"><div class="titlepage"><div><div><h2 class="title"><a id="ext"/>Chapter 9. <span class="productname">PostgreSQL</span>™ Extensions to the
+    <acronym class="acronym">JDBC</acronym> <acronym class="acronym">API</acronym></h2></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="sect1"><a href="ext.html#extensions">Accessing the Extensions</a></span></dt><dt><span class="sect1"><a href="geometric.html">Geometric Data Types</a></span></dt><dt><span class="sect1"><a href="largeobjects.html">Large Objects</a></span></dt><dt><span class="sect1"><a href="listennotify.html">Listen / Notify</a></span></dt><dt><span class="sect1"><a href="server-prepare.html">Server Prepared Statements</a></span></dt></dl></div><p>
+   <span class="productname">PostgreSQL</span>™ is an extensible database
+   system.  You can add your own functions to the server, which can
+   then be called from queries, or even add your own data types.  As
+   these are facilities unique to <span class="productname">PostgreSQL</span>™,
+   we support them from Java, with a set of extension
+   <acronym class="acronym">APIs</acronym>. Some features within the core of the
+   standard driver actually use these extensions to implement Large
+   Objects, etc.
+  </p><div class="sect1" title="Accessing the Extensions"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="extensions"/>Accessing the Extensions</h2></div></div></div><p>
+    To access some of the extensions, you need to use some extra
+    methods in the <code class="classname">org.postgresql.PGConnection</code>
+    class. In this case, you would need to case the return value of
+    <code class="function">Driver.getConnection()</code>.  For example:
+</p><pre class="programlisting">
+Connection db = Driver.getConnection(url, username, password);
+// ...
+// later on
+Fastpath fp = ((org.postgresql.PGConnection)db).getFastpathAPI();
+</pre><p>
+   </p></div></div><div class="navfooter"><hr/><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="escaped-functions.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="geometric.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Escaped scalar functions </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Geometric Data Types</td></tr></table></div></body></html>
