@@ -115,4 +115,35 @@ public class LecturerService {
 		return lecturer;
 	}
 
+	public static String save(int id, Lecturer lecturer) {
+		String query = String.format("UPDATE \"Lecturer\"\n" +
+				"SET\n" +
+				"\"First\" = '%s'\n" +
+				", \"Last\" = '%s'\n" +
+				", \"Sex\" = %s\n" +
+				", \"DOB\" = '%s'\n" +
+				", \"Emails\" = '%s'\n" +
+				", \"Phones\" = '%s'\n" +
+				", \"Note\" = '%s'\n" +
+				", \"Home\" = '%s'\n" +
+				", \"DT#\" = %d\n" +
+				", \"FC#\" = %d\n" +
+				", \"DG#\" = %d\n" +
+				"WHERE \"CT#\" = %d", 
+				lecturer.getFirst().replace("'", "''"),
+				lecturer.getLast().replace("'", "''"),
+				lecturer.isMale() ? "true" : "false",
+				lecturer.getDob().toString(),
+				StudentService.arrayToEndlineString(lecturer.getEmails()).replace("'", "''"),
+				StudentService.arrayToEndlineString(lecturer.getPhones()).replace("'", "''"),
+				lecturer.getNote().replace("'", "''"),
+				lecturer.getHome().replace("'", "''"),
+				lecturer.getDistrict(),
+				lecturer.getFaculty(),
+				lecturer.getDegree(),
+				id);
+
+		return CoreService.getInstance().update(query);
+	}
+
 }

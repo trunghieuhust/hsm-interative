@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 
 import org.hsm.model.Model;
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.hsm.model.hedspiObject.Lecturer;
 import org.hsm.model.hedspiObject.Student;
 import org.hsm.service.CoreService;
 import org.hsm.view.IView;
@@ -159,8 +160,19 @@ public class Control implements IControl {
 		Student student;
 		int id;
 		String name;
+		Lecturer lecturer;
 		
 		switch(command){
+		case "updateLecturer":
+			obj = (HedspiObject)data[0];
+			lecturer = (Lecturer)data[1];
+			logger.log(Level.INFO, "Save information of lecturer {" + obj.getName() + "}");
+			return Model.getInstance().getData("updateLecturer", obj.getId(), lecturer);
+			
+		case "getListOfDegrees":
+			logger.log(Level.INFO, "Get list of degrees");
+			return Model.getInstance().getData("getListOfDegrees");
+			
 		case "getFullDataLecturer":
 			obj = (HedspiObject)data[0];
 			logger.log(Level.INFO, "Get full data of lecturer {" + obj.getName() + "}");

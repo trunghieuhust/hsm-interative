@@ -31,7 +31,7 @@ public class ClassViewPane extends JSplitPane {
 	private ObjectListPane studentListPane;
 	private JTextField textFieldClassName;
 
-	private StudentEditorPane studentEditorPane;
+	private StudentViewPane studentViewPane;
 
 	/**
 	 * Create the panel.
@@ -98,7 +98,7 @@ public class ClassViewPane extends JSplitPane {
 			void selectValue(HedspiObject value) {
 				Student student = (Student)Control.getInstance().getData("getFullStudentData", value);
 				if (student != null)
-					studentEditorPane.setStudent(student);
+					studentViewPane.setStudent(student);
 				else
 					JOptionPane.showMessageDialog(null, "Failed to get student info", "Get data failed", JOptionPane.ERROR_MESSAGE);
 			}
@@ -128,8 +128,8 @@ public class ClassViewPane extends JSplitPane {
 		JScrollPane scrollPane_1 = new JScrollPane();
 		setRightComponent(scrollPane_1);
 		
-		studentEditorPane = new StudentEditorPane();
-		scrollPane_1.setViewportView(studentEditorPane);
+		studentViewPane = new StudentViewPane();
+		scrollPane_1.setViewportView(studentViewPane);
 		setDividerLocation(150);
 	}
 

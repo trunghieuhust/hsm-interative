@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 
 
 
-public class StudentEditorPane extends JPanel {
+public class StudentViewPane extends JPanel {
 
 	/**
 	 * 
@@ -29,7 +29,7 @@ public class StudentEditorPane extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public StudentEditorPane() {
+	public StudentViewPane() {
 		super();
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,

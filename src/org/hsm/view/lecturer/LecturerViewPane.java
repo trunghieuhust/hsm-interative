@@ -1,8 +1,10 @@
 package org.hsm.view.lecturer;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
 import org.hsm.model.hedspiObject.Lecturer;
 import org.hsm.view.student.ContactPane;
@@ -14,6 +16,8 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class LecturerViewPane extends JPanel {
 
@@ -22,7 +26,9 @@ public class LecturerViewPane extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private ContactPane contactPane;
-	private JPanel otherPane;
+	private HedspiComboBox comboBoxDegree;
+	private HedspiComboBox comboBoxFaculty;
+	private Lecturer lecturer;
 
 	/**
 	 * Create the panel.
@@ -32,59 +38,38 @@ public class LecturerViewPane extends JPanel {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("134dlu:grow"),
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
+				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),}));
-		
+				RowSpec.decode("default:grow"), }));
+
 		contactPane = new ContactPane();
 		add(contactPane, "2, 2, fill, fill");
-		
+
 		JPanel panel = new JPanel();
 		add(panel, "4, 2, fill, fill");
-		panel.setLayout(new FormLayout(new ColumnSpec[] {
-				ColumnSpec.decode("236px:grow"),},
-			new RowSpec[] {
-				RowSpec.decode("70px"),
-				FormFactory.DEFAULT_ROWSPEC,}));
-		
-		otherPane = new JPanel();
-		panel.add(otherPane, "1, 1, fill, top");
-		otherPane.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,}));
-		
-		JLabel lblFaculty = DefaultComponentFactory.getInstance().createLabel("Faculty");
-		otherPane.add(lblFaculty, "2, 2, right, default");
-		
-		HedspiComboBox comboBoxFaculty = new HedspiComboBox() {
-			
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
+		panel.setLayout(new FormLayout(new ColumnSpec[] { ColumnSpec
+				.decode("236px:grow"), }, new RowSpec[] {
+				RowSpec.decode("70px"), FormFactory.DEFAULT_ROWSPEC, }));
 
-			@Override
-			public
-			HedspiObject[] getValues() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-		};
-		otherPane.add(comboBoxFaculty, "4, 2, fill, default");
-		
-		JLabel lblDegree = DefaultComponentFactory.getInstance().createLabel("Degree");
-		otherPane.add(lblDegree, "2, 4, right, default");
-		
-		HedspiComboBox comboBoxDegree = new HedspiComboBox() {
-			
+		JPanel otherPane = new JPanel();
+		panel.add(otherPane, "1, 1, fill, top");
+		otherPane
+				.setLayout(new FormLayout(new ColumnSpec[] {
+						FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC,
+						FormFactory.RELATED_GAP_COLSPEC,
+						ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC, }));
+
+		JLabel lblFaculty = DefaultComponentFactory.getInstance().createLabel(
+				"Faculty");
+		otherPane.add(lblFaculty, "2, 2, right, default");
+
+		comboBoxFaculty = new HedspiComboBox() {
+
 			/**
 			 * 
 			 */
@@ -92,41 +77,100 @@ public class LecturerViewPane extends JPanel {
 
 			@Override
 			public HedspiObject[] getValues() {
-				// TODO Auto-generated method stub
-				return null;
+				return (HedspiObject[]) Control.getInstance().getData(
+						"getListOfFaculties");
+			}
+		};
+		otherPane.add(comboBoxFaculty, "4, 2, fill, default");
+
+		JLabel lblDegree = DefaultComponentFactory.getInstance().createLabel(
+				"Degree");
+		otherPane.add(lblDegree, "2, 4, right, default");
+
+		comboBoxDegree = new HedspiComboBox() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public HedspiObject[] getValues() {
+				return (HedspiObject[]) Control.getInstance().getData(
+						"getListOfDegrees");
 			}
 		};
 		otherPane.add(comboBoxDegree, "4, 4, fill, default");
-		
+
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1, "1, 2, center, fill");
-		panel_1.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,}));
-		
+		panel_1.setLayout(new FormLayout(
+				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC,
+						FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC,
+						FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] {
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC, }));
+
 		JButton btnSave = new JButton("Save");
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (lecturer == null)
+					return;
+				Lecturer newlt = new Lecturer(lecturer.getId(), contactPane
+						.getFirst(), contactPane.getLast(), contactPane
+						.isMale(), contactPane.getDob(), contactPane
+						.getEmails(), contactPane.getPhones(), contactPane
+						.getNote(), contactPane.getHome(), contactPane
+						.getDistrict(), comboBoxDegree.getSelectedValue(),
+						comboBoxFaculty.getSelectedValue());
+				String message = (String)Control.getInstance().getData("updateLecturer", lecturer, newlt);
+				if (message == null){
+					lecturer.setName(newlt.getName());
+					JOptionPane.showMessageDialog(null, "Update lecturer's information success", "Update success", JOptionPane.INFORMATION_MESSAGE);
+				} else
+					JOptionPane.showMessageDialog(null, "Update lecturer's information failed\nMessage: " + message, "Update failed", JOptionPane.WARNING_MESSAGE);
+			}
+		});
 		panel_1.add(btnSave, "2, 2");
-		
+
 		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (lecturer != null) {
+					setLecturer(lecturer);
+				}
+			}
+		});
 		panel_1.add(btnReset, "4, 2");
-		
+
 		JButton btnReload = new JButton("Reload");
+		btnReload.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (lecturer == null)
+					return;
+				lecturer = (Lecturer) Control.getInstance().getData(
+						"getFullDataLecturer", lecturer);
+				if (lecturer != null)
+					setLecturer(lecturer);
+				else
+					JOptionPane.showMessageDialog(null,
+							"Get data of lecturer failed", "Get data failed",
+							JOptionPane.WARNING_MESSAGE);
+			}
+		});
 		panel_1.add(btnReload, "6, 2");
 	}
 
 	public void setLecturer(Lecturer lecturer) {
-		if (lecturer != null){
+		if (lecturer != null) {
+			this.lecturer = lecturer;
 			contactPane.setContact(lecturer);
+			comboBoxDegree.setSelectedValue(lecturer.getDegree());
+			comboBoxFaculty.setSelectedValue(lecturer.getFaculty());
 		}
-		// TODO Auto-generated method stub
-		
 	}
 
 }

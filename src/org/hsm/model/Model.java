@@ -4,10 +4,12 @@ import java.util.Properties;
 import java.util.logging.Level;
 
 import org.hsm.control.Control;
+import org.hsm.model.hedspiObject.Lecturer;
 import org.hsm.model.hedspiObject.Student;
 import org.hsm.service.CityService;
 import org.hsm.service.ClassService;
 import org.hsm.service.CoreService;
+import org.hsm.service.DegreeService;
 import org.hsm.service.DistrictService;
 import org.hsm.service.FacultyService;
 import org.hsm.service.LecturerService;
@@ -29,6 +31,12 @@ public class Model implements IModel {
 	@Override
 	public Object getData(String command, Object... data) {
 		switch (command) {
+		case "updateLecturer":
+			return LecturerService.save((int)data[0], (Lecturer)data[1]);
+			
+		case "getListOfDegrees":
+			return DegreeService.getAll();
+			
 		case "getFullDataLecturer":
 			return LecturerService.getFullData((int)data[0]);
 			
