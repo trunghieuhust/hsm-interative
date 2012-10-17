@@ -8,14 +8,14 @@ import org.hsm.model.hedspiObject.HedspiObject;
 public class DistrictService {
 
 	public static HedspiObject[] getDistrictsList(int city) {
-		String query = "SELECT \"DT#\", \"Name\" FROM \"District\"\n"
-				+ "WHERE \"CY#\" = " + city + "\n" + "ORDER BY \"Name\"";
+		String query = "SELECT dt, name FROM district\n"
+				+ "WHERE cy = " + city + "\n" + "ORDER BY name";
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
 				.query(query);
 		ArrayList<HedspiObject> ret = new ArrayList<>();
 		for (HashMap<String, Object> it : rs) {
-			int id = (int) it.get("DT#");
-			String name = (String) it.get("Name");
+			int id = (int) it.get("dt");
+			String name = (String) it.get("name");
 			if (name == null)
 				name = "";
 			HedspiObject district = new HedspiObject(id, name);
@@ -25,46 +25,46 @@ public class DistrictService {
 	}
 
 	public static int getCityOfDistrict(int i) {
-		String query = "SELECT \"CY#\" FROM \"District\" WHERE \"DT#\" = " + i;
+		String query = "SELECT cy FROM district WHERE dt = " + i;
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
 				.query(query);
 		if (rs.size() == 0)
 			return -1;
-		if (rs.get(0).get("CY#") == null)
+		if (rs.get(0).get("cy") == null)
 			return -1;
-		return (int) rs.get(0).get("CY#");
+		return (int) rs.get(0).get("cy");
 	}
 
 	public static HedspiObject getNewInCity(int i) {
-		String query = "INSERT INTO \"District\" (\"CY#\") VALUES (" + i
-				+ ") RETURNING \"DT#\", \"Name\"";
+		String query = "INSERT INTO district (cy) VALUES (" + i
+				+ ") RETURNING dt, name";
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
 				.query(query);
 		if (rs.size() == 0)
 			return null;
-		int id = (int) rs.get(0).get("DT#");
-		String name = (String) rs.get(0).get("Name");
+		int id = (int) rs.get(0).get("dt");
+		String name = (String) rs.get(0).get("name");
 		return new HedspiObject(id, name);
 	}
 
 	public static String remove(int i) {
-		String query = "DELETE FROM \"District\" WHERE \"DT#\" = " + i;
+		String query = "DELETE FROM district WHERE dt = " + i;
 		return CoreService.getInstance().update(query);
 	}
 
 	public static String rename(int id, String name) {
-		String query = "UPDATE \"District\"\n" + "SET \"Name\" = '"
-				+ name.replace("'", "''") + "'\n" + "WHERE \"DT#\" = " + id;
+		String query = "UPDATE district\n" + "SET name = '"
+				+ name.replace("'", "''") + "'\n" + "WHERE dt = " + id;
 		return CoreService.getInstance().update(query);
 	}
 
 	public static String getName(int i) {
-		String query = "SELECT \"Name\" FROM \"District\" WHERE \"DT#\" = " + i;
+		String query = "SELECT name FROM district WHERE dt = " + i;
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
 				.query(query);
 		if (rs.size() == 0)
 			return null;
-		String name = (String) rs.get(0).get("Name");
+		String name = (String) rs.get(0).get("name");
 		if (name == null)
 			name = "";
 		return name;

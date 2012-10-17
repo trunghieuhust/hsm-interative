@@ -9,28 +9,28 @@ import org.hsm.model.hedspiObject.HedspiObject;
 public class CourseService {
 
 	public static Course getFull(int i) {
-		String query = "SELECT * FROM \"Course\" WHERE \"CE#\" = " + i;
+		String query = "SELECT * FROM course WHERE ce = " + i;
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
 		if (rs.isEmpty())
 			return null;
 		HashMap<String, Object> it = rs.get(0);
 		
-		int id = (int)it.get("CE#");
-		String name = (String)it.get("Name");
-		double nFees = (double)it.get("NFees");
-		int nCredits = (int)it.get("NCredits");
+		int id = (int)it.get("ce");
+		String name = (String)it.get("name");
+		double nFees = (double)it.get("nfees");
+		int nCredits = (int)it.get("ncredits");
 		
-		String topic = (String)it.get("Topic");
+		String topic = (String)it.get("topic");
 		if (topic == null)
 			topic = "";
 		
-		double time = (double)it.get("Time");
+		double time = (double)it.get("time");
 		
-		String note = (String)it.get("Note");
+		String note = (String)it.get("note");
 		if (note == null)
 			note = "";
 		
-		String code = (String)it.get("Code");
+		String code = (String)it.get("code");
 		if (code == null)
 			code = "";
 		
@@ -39,43 +39,43 @@ public class CourseService {
 	}
 
 	public static String remove(int i) {
-		String query = "DELETE FROM \"Course\" WHERE \"CE#\" = " + i;
+		String query = "DELETE FROM course WHERE ce = " + i;
 		return CoreService.getInstance().update(query);
 	}
 
 	public static HedspiObject getNew() {
-		String query = "INSERT INTO \"Course\" DEFAULT VALUES RETURNING \"CE#\", \"Name\"";
+		String query = "INSERT INTO course DEFAULT VALUES RETURNING ce, name";
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
 		if (rs.isEmpty())
 			return null;
-		int id = (int)rs.get(0).get("CE#");
-		String name = (String)rs.get(0).get("Name");
+		int id = (int)rs.get(0).get("ce");
+		String name = (String)rs.get(0).get("name");
 		return new HedspiObject(id, name);
 	}
 
 	public static HedspiObject[] getAll() {
 		ArrayList<HedspiObject> ret = new ArrayList<>();
-		String query = "SELECT \"CE#\", \"Name\" FROM \"Course\" ORDER BY \"Name\"";
+		String query = "SELECT ce, name FROM course ORDER BY name";
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
 		for(HashMap<String, Object> it : rs){
-			int id = (int)it.get("CE#");
-			String name = (String)it.get("Name");
+			int id = (int)it.get("ce");
+			String name = (String)it.get("name");
 			ret.add(new HedspiObject(id, name));
 		}
 		return ret.toArray(new HedspiObject[ret.size()]);
 	}
 
 	public static String save(int i, Course course) {
-		String query = String.format("UPDATE \"Course\"\n" +
+		String query = String.format("UPDATE course\n" +
 				"SET\n" +
-				"\"Name\" = '%s'\n" +
-				", \"NFees\" = '%f'\n" +
-				", \"NCredits\" = %d\n" +
-				", \"Topic\" = '%s'\n" +
-				", \"Time\" = '%f'\n" +
-				", \"Note\" = '%s'\n" +
-				", \"Code\" = '%s'\n" +
-				"WHERE \"CE#\" = %d", 
+				"name = '%s'\n" +
+				", nfees = '%f'\n" +
+				", ncredits = %d\n" +
+				", topic = '%s'\n" +
+				", time = '%f'\n" +
+				", note = '%s'\n" +
+				", code = '%s'\n" +
+				"WHERE ce = %d", 
 				course.getName().replace("'", "''"),
 				course.getNFees(),
 				course.getNCredits(),

@@ -11,13 +11,13 @@ public class StudentService {
 
 	public static HedspiObject[] getRawStudentListInClass(int classId) {
 		ArrayList<HedspiObject> ret = new ArrayList<HedspiObject>();
-		String query = "SELECT \"CT#\", concat(\"First\", ' ', \"Last\") as \"Name\" FROM \"Student\"\n" +
-				" WHERE \"Student\".\"CL#\" = " + classId + "\n" +
-				" ORDER BY \"Last\"";
+		String query = "SELECT ct, concat(first, ' ', last) as name FROM student\n" +
+				" WHERE student.cl = " + classId + "\n" +
+				" ORDER BY last";
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
 		for(HashMap<String, Object>  it : rs){
-			int id = (int)it.get("CT#");
-			String name = (String)it.get("Name");
+			int id = (int)it.get("ct");
+			String name = (String)it.get("name");
 			HedspiObject st = new HedspiObject(id, name);
 			ret.add(st);
 		}
@@ -26,19 +26,19 @@ public class StudentService {
 	}
 
 	public static String remove(int id) {
-		String query = "DELETE FROM \"Student\" WHERE \"CT#\" = " + id;
+		String query = "DELETE FROM student WHERE ct = " + id;
 		return CoreService.getInstance().update(query);
 	}
 
 	public static HedspiObject newRawInClass(int id) {
-		String query = "INSERT INTO \"Student\" (\"CL#\") VALUES ( " + id + ")\n" +
-				" RETURNING concat(\"First\", ' ', \"Last\") as \"Name\", \"CT#\"";
+		String query = "INSERT INTO student (cl) VALUES ( " + id + ")\n" +
+				" RETURNING concat(first, ' ', last) as name, ct";
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
 		HashMap<String, Object> it;
 		if (rs.size() > 0){
 			it = rs.get(0);
-			int stid = (int)it.get("CT#");
-			String name = (String)it.get("Name");
+			int stid = (int)it.get("ct");
+			String name = (String)it.get("name");
 			HedspiObject st = new HedspiObject(stid, name);
 			return st;
 		}
@@ -47,79 +47,79 @@ public class StudentService {
 	}
 
 	public static Student getFullDataStudent(int id) {
-		String query = "SELECT * FROM \"Student\" WHERE \"CT#\" = " + id;
+		String query = "SELECT * FROM student WHERE ct = " + id;
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
 		if (rs.isEmpty())
 			return null;
 		HashMap<String, Object> ret = rs.get(0);
 		
-		int sid = (int)ret.get("CT#");
+		int sid = (int)ret.get("ct");
 		
-		String first = (String)ret.get("First");
+		String first = (String)ret.get("first");
 		if (first == null)
 			first = "";
 		
-		String last = (String)ret.get("Last");
+		String last = (String)ret.get("last");
 		if (last == null)
 			last = "";
 		
 		boolean isMale;
-		if (ret.get("Sex") == null)
+		if (ret.get("sex") == null)
 			isMale = true;
 		else
-			isMale = (boolean)ret.get("Sex");
+			isMale = (boolean)ret.get("sex");
 		
-		Date dob = (Date)ret.get("DOB");
+		Date dob = (Date)ret.get("dob");
 		if (dob == null)
 			dob = new Date();
 		
 		String[] emails;
-		String emailsStr = (String)ret.get("Emails");
+		String emailsStr = (String)ret.get("emails");
 		if (emailsStr == null)
 			emailsStr = "";
 		emails = endlineStringToArray(emailsStr);
 		
 		String[] phones;
-		String phonesStr = (String)ret.get("Phones");
+		String phonesStr = (String)ret.get("phones");
 		if (phonesStr == null)
 			phonesStr = "";
 		phones = endlineStringToArray(phonesStr);
 		
-		String note = (String)ret.get("Note");
+		String note = (String)ret.get("note");
 		if (note == null)
 			note = "";
 		
-		String home = (String)ret.get("Home");
+		String home = (String)ret.get("home");
 		if (home == null)
 			home = "";
 		
 		int district;
-		if (ret.get("DT#") == null)
+		if (ret.get("dt") == null)
 			district = -1;
 		else
-			district = (int)ret.get("DT#");
+			district = (int)ret.get("dt");
 		
 		double point;
-		if (ret.get("Point") == null)
+		if (ret.get("point") == null)
 			point = 0;
 		else
-			point = (double)ret.get("Point");
+			point = (double)ret.get("point");
 		
-		String mssv = (String)ret.get("MSSV");
+		String mssv = (String)ret.get("mssv");
 		if (mssv == null)
 			mssv = "";
 		
 		int year;
-		if (ret.get("Year") == null)
+		if (ret.get("year") == null)
 			year = 0;
 		else
-			year = (int)ret.get("Year");
+			year = (int)ret.get("year");
 		
 		int hedspiClass;
-		if (ret.get("CL#")==null)
+		if (ret.get("cl")==null)
 			hedspiClass = 0;
 		else
-			hedspiClass = (int)ret.get("CL#");
+			hedspiClass = (int)ret.get("cl");
 		
 		return new Student(sid, first, last, isMale, dob, emails, phones, note, home, district, point, mssv, year, hedspiClass);
 	}
@@ -136,22 +136,22 @@ public class StudentService {
 	}
 
 	public static String update(int id, Student student) {
-		String query = String.format("UPDATE \"Student\"\n" +
+		String query = String.format("UPDATE student\n" +
 				"SET\n" +
-				"\"First\" = '%s'\n" +
-				", \"Last\" = '%s'\n" +
-				", \"Sex\" = %s\n" +
-				", \"DOB\" = '%s'\n" +
-				", \"Emails\" = '%s'\n" +
-				", \"Phones\" = '%s'\n" +
-				", \"Note\" = '%s'\n" +
-				", \"Home\" = '%s'\n" +
-				", \"DT#\" = %d\n" +
-				", \"Point\" = %f\n" +
-				", \"CL#\" = %d\n" +
-				", \"MSSV\" = '%s'\n" +
-				", \"Year\" = %d\n" +
-				"WHERE \"CT#\" = %d", 
+				"first = '%s'\n" +
+				", last = '%s'\n" +
+				", sex = %s\n" +
+				", dob = '%s'\n" +
+				", emails = '%s'\n" +
+				", phones = '%s'\n" +
+				", note = '%s'\n" +
+				", home = '%s'\n" +
+				", dt = %d\n" +
+				", point = %f\n" +
+				", cl = %d\n" +
+				", mssv = '%s'\n" +
+				", year = %d\n" +
+				"WHERE ct = %d", 
 				student.getFirst().replace("'", "''"),
 				student.getLast().replace("'", "''"),
 				student.isMale() ? "true" : "false",

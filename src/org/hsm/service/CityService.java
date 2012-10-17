@@ -9,12 +9,12 @@ public class CityService {
 
 	public static HedspiObject[] getCitiesList() {
 		ArrayList<HedspiObject> ret = new ArrayList<>();
-		String query = "SELECT \"CY#\", \"Name\" FROM \"City\"\n" +
-				"ORDER BY \"Name\"";
+		String query = "SELECT cy, name FROM city\n" +
+				"ORDER BY name";
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
 		for(HashMap<String, Object> it : rs){
-			int id = (int)it.get("CY#");
-			String name = (String)it.get("Name");
+			int id = (int)it.get("cy");
+			String name = (String)it.get("name");
 			HedspiObject city = new HedspiObject(id, name);
 			ret.add(city);
 		}
@@ -23,24 +23,24 @@ public class CityService {
 	}
 
 	public static HedspiObject getNew() {
-		String query = "INSERT INTO \"City\" DEFAULT VALUES RETURNING \"Name\", \"CY#\"";
+		String query = "INSERT INTO city DEFAULT VALUES RETURNING name, cy";
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
 		if (rs.size() == 0)
 			return null;
-		int id = (int)rs.get(0).get("CY#");
-		String name = (String)rs.get(0).get("Name");
+		int id = (int)rs.get(0).get("cy");
+		String name = (String)rs.get(0).get("name");
 		return new HedspiObject(id, name);
 	}
 
 	public static String remove(int id) {
-		String query = "DELETE FROM \"City\" WHERE \"CY#\" = " + id;
+		String query = "DELETE FROM city WHERE cy = " + id;
 		return CoreService.getInstance().update(query);
 	}
 
 	public static String rename(int i, String string) {
-		String query = "UPDATE \"City\"\n" +
-				"SET \"Name\" = '" + string.replace("'", "''") + "'\n" +
-						"WHERE \"CY#\" = " + i;
+		String query = "UPDATE City\n" +
+				"SET name = '" + string.replace("'", "''") + "'\n" +
+						"WHERE cy = " + i;
 		return CoreService.getInstance().update(query);
 	}
 }
