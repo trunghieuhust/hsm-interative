@@ -2,7 +2,6 @@ package org.hsm.view.student;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -11,6 +10,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -21,7 +21,6 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
-import javax.swing.ListSelectionModel;
 
 public abstract class ObjectListPane extends JPanel {
 
@@ -126,7 +125,6 @@ public abstract class ObjectListPane extends JPanel {
 					JOptionPane.showConfirmDialog(null, "Cannot get list of objects", "Refresh failed", JOptionPane.WARNING_MESSAGE);
 					return;
 				}
-				Arrays.sort(arr);
 				model.clear();
 				for(HedspiObject it : arr)
 					model.addElement(it);

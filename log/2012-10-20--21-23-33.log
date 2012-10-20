@@ -1,0 +1,527 @@
+Oct 20, 2012 9:23:33 PM org.hsm.control.Control start
+INFO: System starts
+Oct 20, 2012 9:23:33 PM org.hsm.control.Control start
+INFO: Open login window
+Oct 20, 2012 9:23:34 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 20, 2012 9:23:34 PM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 20, 2012 9:23:34 PM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 20, 2012 9:23:34 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cl, name FROM class
+ORDER BY name ASC
+Oct 20, 2012 9:23:35 PM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 20, 2012 9:23:35 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy, name FROM city
+ORDER BY name
+Oct 20, 2012 9:23:35 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {1}
+Oct 20, 2012 9:23:35 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 1
+ORDER BY name
+Oct 20, 2012 9:23:35 PM org.hsm.control.Control getData
+INFO: Get list of class
+Oct 20, 2012 9:23:35 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cl, name FROM class
+ORDER BY name ASC
+Oct 20, 2012 9:23:35 PM org.hsm.control.Control getData
+INFO: Get list of faculties
+Oct 20, 2012 9:23:35 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT fc, name FROM faculty ORDER BY name
+Oct 20, 2012 9:23:35 PM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 20, 2012 9:23:35 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy, name FROM city
+ORDER BY name
+Oct 20, 2012 9:23:35 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {1}
+Oct 20, 2012 9:23:35 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 1
+ORDER BY name
+Oct 20, 2012 9:23:35 PM org.hsm.control.Control getData
+INFO: Get list of faculties
+Oct 20, 2012 9:23:35 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT fc, name FROM faculty ORDER BY name
+Oct 20, 2012 9:23:35 PM org.hsm.control.Control getData
+INFO: Get list of degrees
+Oct 20, 2012 9:23:35 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT DG, Name FROM degree ORDER BY name
+Oct 20, 2012 9:23:36 PM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 20, 2012 9:23:36 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy, name FROM city
+ORDER BY name
+Oct 20, 2012 9:23:36 PM org.hsm.control.Control getData
+INFO: Get list of rooms
+Oct 20, 2012 9:23:36 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT rm, name FROM room ORDER BY name
+Oct 20, 2012 9:23:36 PM org.hsm.control.Control getData
+INFO: Get courses list
+Oct 20, 2012 9:23:36 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ce, name FROM course ORDER BY name
+Oct 20, 2012 9:23:36 PM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 20, 2012 9:23:46 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Điều khiển TĐ2} class
+Oct 20, 2012 9:23:46 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 525
+ ORDER BY last
+Oct 20, 2012 9:23:46 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Điều khiển TĐ2} class
+Oct 20, 2012 9:23:46 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 525
+ ORDER BY last
+Oct 20, 2012 9:23:47 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Điều khiên tự động - HTĐ(CTTT)} class
+Oct 20, 2012 9:23:47 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 801
+ ORDER BY last
+Oct 20, 2012 9:23:47 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Điều khiên tự động - HTĐ(CTTT)} class
+Oct 20, 2012 9:23:47 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 801
+ ORDER BY last
+Oct 20, 2012 9:23:50 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Điện tử-Viễn thông 06} class
+Oct 20, 2012 9:23:50 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 591
+ ORDER BY last
+Oct 20, 2012 9:23:50 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Điện tử-Viễn thông 06} class
+Oct 20, 2012 9:23:50 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 591
+ ORDER BY last
+Oct 20, 2012 9:23:52 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Điện - Điện tử1 (CTTT)} class
+Oct 20, 2012 9:23:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 795
+ ORDER BY last
+Oct 20, 2012 9:23:52 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Điện - Điện tử1 (CTTT)} class
+Oct 20, 2012 9:23:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 795
+ ORDER BY last
+Oct 20, 2012 9:23:53 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Cơ điện tử4 (C)} class
+Oct 20, 2012 9:23:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 399
+ ORDER BY last
+Oct 20, 2012 9:23:53 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {Cơ điện tử4 (C)} class
+Oct 20, 2012 9:23:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 399
+ ORDER BY last
+Oct 20, 2012 9:23:55 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {CN- Điều khiển & Tự động hóa 1} class
+Oct 20, 2012 9:23:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 507
+ ORDER BY last
+Oct 20, 2012 9:23:55 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {CN- Điều khiển & Tự động hóa 1} class
+Oct 20, 2012 9:23:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 507
+ ORDER BY last
+Oct 20, 2012 9:23:56 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {CN1.04} class
+Oct 20, 2012 9:23:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 762
+ ORDER BY last
+Oct 20, 2012 9:23:56 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {CN1.04} class
+Oct 20, 2012 9:23:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 762
+ ORDER BY last
+Oct 20, 2012 9:23:57 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {BK3.09} class
+Oct 20, 2012 9:23:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 743
+ ORDER BY last
+Oct 20, 2012 9:23:57 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {BK3.09} class
+Oct 20, 2012 9:23:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 743
+ ORDER BY last
+Oct 20, 2012 9:23:59 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {BK1.01} class
+Oct 20, 2012 9:23:59 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 683
+ ORDER BY last
+Oct 20, 2012 9:24:00 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {BK1.01} class
+Oct 20, 2012 9:24:00 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 683
+ ORDER BY last
+Oct 20, 2012 9:24:13 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Automation Research Centre (ARC)}
+Oct 20, 2012 9:24:13 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 3
+ORDER BY last
+Oct 20, 2012 9:24:13 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Automation Research Centre (ARC)}
+Oct 20, 2012 9:24:13 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 3
+ORDER BY last
+Oct 20, 2012 9:24:14 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Centre for Talents Training}
+Oct 20, 2012 9:24:14 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 13
+ORDER BY last
+Oct 20, 2012 9:24:14 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Centre for Talents Training}
+Oct 20, 2012 9:24:14 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 13
+ORDER BY last
+Oct 20, 2012 9:24:14 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Data communications and computer networks}
+Oct 20, 2012 9:24:14 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 40
+ORDER BY last
+Oct 20, 2012 9:24:14 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Data communications and computer networks}
+Oct 20, 2012 9:24:14 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 40
+ORDER BY last
+Oct 20, 2012 9:24:15 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Faculty of Foreign Languages}
+Oct 20, 2012 9:24:15 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 17
+ORDER BY last
+Oct 20, 2012 9:24:15 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Faculty of Foreign Languages}
+Oct 20, 2012 9:24:15 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 17
+ORDER BY last
+Oct 20, 2012 9:24:15 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Computer center}
+Oct 20, 2012 9:24:15 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 41
+ORDER BY last
+Oct 20, 2012 9:24:15 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Computer center}
+Oct 20, 2012 9:24:15 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 41
+ORDER BY last
+Oct 20, 2012 9:24:16 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Faculty of Defense Education}
+Oct 20, 2012 9:24:16 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 15
+ORDER BY last
+Oct 20, 2012 9:24:16 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Faculty of Defense Education}
+Oct 20, 2012 9:24:16 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 15
+ORDER BY last
+Oct 20, 2012 9:24:16 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Department of Political Theory}
+Oct 20, 2012 9:24:16 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 14
+ORDER BY last
+Oct 20, 2012 9:24:16 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Department of Political Theory}
+Oct 20, 2012 9:24:16 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 14
+ORDER BY last
+Oct 20, 2012 9:24:17 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Centre for Talents Training}
+Oct 20, 2012 9:24:17 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 13
+ORDER BY last
+Oct 20, 2012 9:24:17 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Centre for Talents Training}
+Oct 20, 2012 9:24:17 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 13
+ORDER BY last
+Oct 20, 2012 9:24:17 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Centre for Research and Consulting on Management}
+Oct 20, 2012 9:24:17 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 12
+ORDER BY last
+Oct 20, 2012 9:24:17 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Centre for Research and Consulting on Management}
+Oct 20, 2012 9:24:17 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 12
+ORDER BY last
+Oct 20, 2012 9:24:18 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Centre for Education and Development of Chromatography}
+Oct 20, 2012 9:24:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 8
+ORDER BY last
+Oct 20, 2012 9:24:18 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Centre for Education and Development of Chromatography}
+Oct 20, 2012 9:24:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 8
+ORDER BY last
+Oct 20, 2012 9:24:18 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Centre for Development and Application of Software for Industry (DASI)}
+Oct 20, 2012 9:24:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 7
+ORDER BY last
+Oct 20, 2012 9:24:18 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Centre for Development and Application of Software for Industry (DASI)}
+Oct 20, 2012 9:24:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 7
+ORDER BY last
+Oct 20, 2012 9:24:18 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Centre for Research and Consulting on Management}
+Oct 20, 2012 9:24:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 12
+ORDER BY last
+Oct 20, 2012 9:24:18 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Centre for Research and Consulting on Management}
+Oct 20, 2012 9:24:18 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 12
+ORDER BY last
+Oct 20, 2012 9:24:19 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Computer science}
+Oct 20, 2012 9:24:19 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 39
+ORDER BY last
+Oct 20, 2012 9:24:19 PM org.hsm.control.Control getData
+INFO: Get lecturers in faculty {Computer science}
+Oct 20, 2012 9:24:19 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name
+FROM lecturer
+WHERE fc = 39
+ORDER BY last
+Oct 20, 2012 9:24:20 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Dư Thanh Bình}
+Oct 20, 2012 9:24:20 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM lecturer WHERE ct = 49
+Oct 20, 2012 9:24:20 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {378}
+Oct 20, 2012 9:24:20 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 378
+Oct 20, 2012 9:24:20 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {60}
+Oct 20, 2012 9:24:20 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 60
+ORDER BY name
+Oct 20, 2012 9:24:20 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {60}
+Oct 20, 2012 9:24:20 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 60
+ORDER BY name
+Oct 20, 2012 9:24:20 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Dư Thanh Bình}
+Oct 20, 2012 9:24:20 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM lecturer WHERE ct = 49
+Oct 20, 2012 9:24:20 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {378}
+Oct 20, 2012 9:24:20 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 378
+Oct 20, 2012 9:24:21 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Trần Thị Thúy}
+Oct 20, 2012 9:24:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM lecturer WHERE ct = 31
+Oct 20, 2012 9:24:21 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {532}
+Oct 20, 2012 9:24:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 532
+Oct 20, 2012 9:24:21 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {40}
+Oct 20, 2012 9:24:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 40
+ORDER BY name
+Oct 20, 2012 9:24:21 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {40}
+Oct 20, 2012 9:24:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 40
+ORDER BY name
+Oct 20, 2012 9:24:21 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Trần Thị Thúy}
+Oct 20, 2012 9:24:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM lecturer WHERE ct = 31
+Oct 20, 2012 9:24:21 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {532}
+Oct 20, 2012 9:24:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 532
+Oct 20, 2012 9:24:21 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Đỗ Thị Thu Trang}
+Oct 20, 2012 9:24:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM lecturer WHERE ct = 39
+Oct 20, 2012 9:24:21 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {86}
+Oct 20, 2012 9:24:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 86
+Oct 20, 2012 9:24:21 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {26}
+Oct 20, 2012 9:24:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 26
+ORDER BY name
+Oct 20, 2012 9:24:21 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {26}
+Oct 20, 2012 9:24:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 26
+ORDER BY name
+Oct 20, 2012 9:24:21 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Đỗ Thị Thu Trang}
+Oct 20, 2012 9:24:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM lecturer WHERE ct = 39
+Oct 20, 2012 9:24:21 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {86}
+Oct 20, 2012 9:24:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 86
+Oct 20, 2012 9:24:22 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Trần Tuấn Vinh}
+Oct 20, 2012 9:24:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM lecturer WHERE ct = 35
+Oct 20, 2012 9:24:22 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {299}
+Oct 20, 2012 9:24:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 299
+Oct 20, 2012 9:24:22 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {33}
+Oct 20, 2012 9:24:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 33
+ORDER BY name
+Oct 20, 2012 9:24:22 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {33}
+Oct 20, 2012 9:24:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 33
+ORDER BY name
+Oct 20, 2012 9:24:22 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Trần Tuấn Vinh}
+Oct 20, 2012 9:24:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM lecturer WHERE ct = 35
+Oct 20, 2012 9:24:22 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {299}
+Oct 20, 2012 9:24:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 299
+Oct 20, 2012 9:24:23 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Nguyễn Hồng Quang}
+Oct 20, 2012 9:24:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM lecturer WHERE ct = 50
+Oct 20, 2012 9:24:23 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {544}
+Oct 20, 2012 9:24:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 544
+Oct 20, 2012 9:24:23 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {3}
+Oct 20, 2012 9:24:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 3
+ORDER BY name
+Oct 20, 2012 9:24:23 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {3}
+Oct 20, 2012 9:24:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 3
+ORDER BY name
+Oct 20, 2012 9:24:23 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Nguyễn Hồng Quang}
+Oct 20, 2012 9:24:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM lecturer WHERE ct = 50
+Oct 20, 2012 9:24:23 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {544}
+Oct 20, 2012 9:24:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 544
+Oct 20, 2012 9:24:23 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Nguyễn Hữu Nam Dương}
+Oct 20, 2012 9:24:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM lecturer WHERE ct = 33
+Oct 20, 2012 9:24:23 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {323}
+Oct 20, 2012 9:24:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 323
+Oct 20, 2012 9:24:23 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {35}
+Oct 20, 2012 9:24:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 35
+ORDER BY name
+Oct 20, 2012 9:24:23 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {35}
+Oct 20, 2012 9:24:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 35
+ORDER BY name
+Oct 20, 2012 9:24:23 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Nguyễn Hữu Nam Dương}
+Oct 20, 2012 9:24:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM lecturer WHERE ct = 33
+Oct 20, 2012 9:24:23 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {323}
+Oct 20, 2012 9:24:23 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 323
+Oct 20, 2012 9:24:34 PM org.hsm.control.Control fire
+INFO: System exits

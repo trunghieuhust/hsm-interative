@@ -8,12 +8,12 @@ import org.hsm.model.hedspiObject.HedspiObject;
 public class ClassService {
 
 	public static HedspiObject newClass() {
-		String query = "INSERT INTO Class DEFAULT VALUES\n" +
-				" RETURNING CL, Name";
+		String query = "INSERT INTO class DEFAULT VALUES\n" +
+				" RETURNING cl, name";
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
 				.query(query);
-		int cl = (int)rs.get(0).get("CL");
-		String name = (String)rs.get(0).get("Name");
+		int cl = (int)rs.get(0).get("cl");
+		String name = (String)rs.get(0).get("name");
 		HedspiObject cla = new HedspiObject(cl, name);
 		return cla;
 	}
@@ -32,7 +32,7 @@ public class ClassService {
 
 	public static HedspiObject[] getClassesList() {
 		String query = "SELECT cl, name FROM class\n" +
-				"ORDER BY name";
+				"ORDER BY name ASC";
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
 		ArrayList<HedspiObject> ret = new ArrayList<>();
 		for(HashMap<String, Object>  it : rs){
@@ -43,6 +43,8 @@ public class ClassService {
 			HedspiObject obj = new HedspiObject(id, name);
 			ret.add(obj);
 		}
-		return ret.toArray(new HedspiObject[ret.size()]);
+		
+		HedspiObject[] val = ret.toArray(new HedspiObject[ret.size()]);
+		return val;
 	}
 }

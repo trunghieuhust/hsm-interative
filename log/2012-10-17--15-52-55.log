@@ -1,0 +1,101 @@
+Oct 17, 2012 3:52:55 PM org.hsm.control.Control start
+INFO: System starts
+Oct 17, 2012 3:52:55 PM org.hsm.control.Control start
+INFO: Open login window
+Oct 17, 2012 3:52:56 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 17, 2012 3:52:56 PM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 17, 2012 3:52:56 PM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 17, 2012 3:52:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cl, name FROM class
+ORDER BY name
+Oct 17, 2012 3:52:56 PM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 17, 2012 3:52:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy, name FROM city
+ORDER BY name
+Oct 17, 2012 3:52:57 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {1}
+Oct 17, 2012 3:52:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 1
+ORDER BY name
+Oct 17, 2012 3:52:57 PM org.hsm.control.Control getData
+INFO: Get list of class
+Oct 17, 2012 3:52:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cl, name FROM class
+ORDER BY name
+Oct 17, 2012 3:52:57 PM org.hsm.control.Control getData
+INFO: Get list of faculties
+Oct 17, 2012 3:52:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT fc, name FROM faculty ORDER BY name
+Oct 17, 2012 3:52:57 PM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 17, 2012 3:52:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy, name FROM city
+ORDER BY name
+Oct 17, 2012 3:52:57 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {1}
+Oct 17, 2012 3:52:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 1
+ORDER BY name
+Oct 17, 2012 3:52:57 PM org.hsm.control.Control getData
+INFO: Get list of faculties
+Oct 17, 2012 3:52:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT fc, name FROM faculty ORDER BY name
+Oct 17, 2012 3:52:57 PM org.hsm.control.Control getData
+INFO: Get list of degrees
+Oct 17, 2012 3:52:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT DG, Name FROM degree ORDER BY name
+Oct 17, 2012 3:52:57 PM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 17, 2012 3:52:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy, name FROM city
+ORDER BY name
+Oct 17, 2012 3:52:58 PM org.hsm.control.Control getData
+INFO: Get list of rooms
+Oct 17, 2012 3:52:58 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT rm, name FROM room ORDER BY name
+Oct 17, 2012 3:52:58 PM org.hsm.control.Control getData
+INFO: Get courses list
+Oct 17, 2012 3:52:58 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ce, name FROM course ORDER BY name
+Oct 17, 2012 3:52:58 PM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 17, 2012 3:53:02 PM org.hsm.control.Control getData
+INFO: Get full data of course {New course}
+Oct 17, 2012 3:53:02 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM course WHERE ce = 2
+Oct 17, 2012 3:53:02 PM org.hsm.control.Control getData
+INFO: Get addable background courses of course {New course}
+Oct 17, 2012 3:53:02 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT name, ce FROM course WHERE ce != 2 AND NOT ce = ANY(SELECT get_background(2));
+Oct 17, 2012 3:53:02 PM org.hsm.control.Control getData
+INFO: Get full data of course {New course}
+Oct 17, 2012 3:53:02 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM course WHERE ce = 2
+Oct 17, 2012 3:53:03 PM org.hsm.control.Control getData
+INFO: Get addable background courses of course {New course}
+Oct 17, 2012 3:53:03 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT name, ce FROM course WHERE ce != 2 AND NOT ce = ANY(SELECT get_background(2));
+Oct 17, 2012 3:53:06 PM org.hsm.control.Control getData
+INFO: Get full data of course {New course}
+Oct 17, 2012 3:53:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM course WHERE ce = 1
+Oct 17, 2012 3:53:06 PM org.hsm.control.Control getData
+INFO: Get addable background courses of course {New course}
+Oct 17, 2012 3:53:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT name, ce FROM course WHERE ce != 1 AND NOT ce = ANY(SELECT get_background(1));
+Oct 17, 2012 3:53:06 PM org.hsm.control.Control getData
+INFO: Get full data of course {New course}
+Oct 17, 2012 3:53:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM course WHERE ce = 1
+Oct 17, 2012 3:53:06 PM org.hsm.control.Control getData
+INFO: Get addable background courses of course {New course}
+Oct 17, 2012 3:53:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT name, ce FROM course WHERE ce != 1 AND NOT ce = ANY(SELECT get_background(1));
+Oct 17, 2012 3:53:14 PM org.hsm.control.Control fire
+INFO: System exits

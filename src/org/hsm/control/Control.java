@@ -167,6 +167,7 @@ public class Control implements IControl {
 	 * <li>Gọi <code>(HashMap[])Control.getInstance().getData("getSuperFullStudents", offset, limit)</code> 
 	 * với <code>offset</code> là độ dịch vị, <code>limit</code> là giới hạn số lượng kết quả trả về</li>
 	 * <li>Nếu độ dài mảng trả về nhỏ hơn limit tức là dữ liệu lấy đã đạt giới</li>
+	 * <li>Thông tin mỗi sinh viên tương ứng một <code>HashMap</code></li>
 	 * <li>Các trường dữ liệu được lấy về đảm bảo không <code>null</code> tương ứng với 
 	 * các kiểu dữ liệu thường dùng và có <code>key</code> là: <code>first, last, 
 	 * district(String), city(String), class(String), phones(String[]), 

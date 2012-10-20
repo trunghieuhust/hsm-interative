@@ -1,0 +1,353 @@
+Oct 20, 2012 9:11:04 PM org.hsm.control.Control start
+INFO: System starts
+Oct 20, 2012 9:11:04 PM org.hsm.control.Control start
+INFO: Open login window
+Oct 20, 2012 9:11:05 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Oct 20, 2012 9:11:05 PM org.hsm.control.Control tryLogin
+INFO: Login success
+Oct 20, 2012 9:11:05 PM org.hsm.control.Control getData
+INFO: Fetch class list
+Oct 20, 2012 9:11:05 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cl, name FROM class
+ORDER BY name ASC
+Oct 20, 2012 9:11:06 PM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 20, 2012 9:11:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy, name FROM city
+ORDER BY name
+Oct 20, 2012 9:11:06 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {1}
+Oct 20, 2012 9:11:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 1
+ORDER BY name
+Oct 20, 2012 9:11:06 PM org.hsm.control.Control getData
+INFO: Get list of class
+Oct 20, 2012 9:11:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cl, name FROM class
+ORDER BY name ASC
+Oct 20, 2012 9:11:06 PM org.hsm.control.Control getData
+INFO: Get list of faculties
+Oct 20, 2012 9:11:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT fc, name FROM faculty ORDER BY name
+Oct 20, 2012 9:11:06 PM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 20, 2012 9:11:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy, name FROM city
+ORDER BY name
+Oct 20, 2012 9:11:06 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {1}
+Oct 20, 2012 9:11:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 1
+ORDER BY name
+Oct 20, 2012 9:11:06 PM org.hsm.control.Control getData
+INFO: Get list of faculties
+Oct 20, 2012 9:11:06 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT fc, name FROM faculty ORDER BY name
+Oct 20, 2012 9:11:07 PM org.hsm.control.Control getData
+INFO: Get list of degrees
+Oct 20, 2012 9:11:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT DG, Name FROM degree ORDER BY name
+Oct 20, 2012 9:11:07 PM org.hsm.control.Control getData
+INFO: Get list of cities
+Oct 20, 2012 9:11:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy, name FROM city
+ORDER BY name
+Oct 20, 2012 9:11:07 PM org.hsm.control.Control getData
+INFO: Get list of rooms
+Oct 20, 2012 9:11:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT rm, name FROM room ORDER BY name
+Oct 20, 2012 9:11:07 PM org.hsm.control.Control getData
+INFO: Get courses list
+Oct 20, 2012 9:11:07 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ce, name FROM course ORDER BY name
+Oct 20, 2012 9:11:07 PM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Oct 20, 2012 9:11:19 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {SPKT điện tử} class
+Oct 20, 2012 9:11:19 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 671
+ ORDER BY last
+Oct 20, 2012 9:11:19 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {SPKT điện tử} class
+Oct 20, 2012 9:11:19 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 671
+ ORDER BY last
+Oct 20, 2012 9:11:20 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {SPKT Điện} class
+Oct 20, 2012 9:11:20 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 668
+ ORDER BY last
+Oct 20, 2012 9:11:20 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {SPKT Điện} class
+Oct 20, 2012 9:11:20 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 668
+ ORDER BY last
+Oct 20, 2012 9:11:21 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {SPKT Điện tử} class
+Oct 20, 2012 9:11:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 670
+ ORDER BY last
+Oct 20, 2012 9:11:21 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {SPKT Điện tử} class
+Oct 20, 2012 9:11:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 670
+ ORDER BY last
+Oct 20, 2012 9:11:21 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {SPKT Điện tử(CH)} class
+Oct 20, 2012 9:11:21 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 669
+ ORDER BY last
+Oct 20, 2012 9:11:22 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {SPKT Điện tử(CH)} class
+Oct 20, 2012 9:11:22 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 669
+ ORDER BY last
+Oct 20, 2012 9:11:29 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {BK3.100} class
+Oct 20, 2012 9:11:29 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 745
+ ORDER BY last
+Oct 20, 2012 9:11:29 PM org.hsm.control.Control getData
+INFO: Get raw list of students in {BK3.100} class
+Oct 20, 2012 9:11:29 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT ct, concat(first, ' ', last) as name FROM student
+ WHERE student.cl = 745
+ ORDER BY last
+Oct 20, 2012 9:11:36 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Duy Hưng}
+Oct 20, 2012 9:11:36 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 41000
+Oct 20, 2012 9:11:36 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {396}
+Oct 20, 2012 9:11:36 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 396
+Oct 20, 2012 9:11:36 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {39}
+Oct 20, 2012 9:11:36 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 39
+ORDER BY name
+Oct 20, 2012 9:11:36 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {39}
+Oct 20, 2012 9:11:36 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 39
+ORDER BY name
+Oct 20, 2012 9:11:36 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Duy Hưng}
+Oct 20, 2012 9:11:36 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 41000
+Oct 20, 2012 9:11:36 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {396}
+Oct 20, 2012 9:11:36 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 396
+Oct 20, 2012 9:11:52 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Thanh Tùng}
+Oct 20, 2012 9:11:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 41017
+Oct 20, 2012 9:11:52 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {79}
+Oct 20, 2012 9:11:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 79
+Oct 20, 2012 9:11:52 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {14}
+Oct 20, 2012 9:11:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 14
+ORDER BY name
+Oct 20, 2012 9:11:52 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {14}
+Oct 20, 2012 9:11:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 14
+ORDER BY name
+Oct 20, 2012 9:11:52 PM org.hsm.control.Control getData
+INFO: Get full data of student {Phạm Thanh Tùng}
+Oct 20, 2012 9:11:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 41017
+Oct 20, 2012 9:11:52 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {79}
+Oct 20, 2012 9:11:52 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 79
+Oct 20, 2012 9:11:53 PM org.hsm.control.Control getData
+INFO: Get full data of student {Vương Đình Tuấn}
+Oct 20, 2012 9:11:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 41016
+Oct 20, 2012 9:11:53 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {590}
+Oct 20, 2012 9:11:53 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 590
+Oct 20, 2012 9:11:54 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {42}
+Oct 20, 2012 9:11:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 42
+ORDER BY name
+Oct 20, 2012 9:11:54 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {42}
+Oct 20, 2012 9:11:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 42
+ORDER BY name
+Oct 20, 2012 9:11:54 PM org.hsm.control.Control getData
+INFO: Get full data of student {Vương Đình Tuấn}
+Oct 20, 2012 9:11:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 41016
+Oct 20, 2012 9:11:54 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {590}
+Oct 20, 2012 9:11:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 590
+Oct 20, 2012 9:11:54 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Trọng Nhân}
+Oct 20, 2012 9:11:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 41007
+Oct 20, 2012 9:11:54 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {152}
+Oct 20, 2012 9:11:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 152
+Oct 20, 2012 9:11:54 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {35}
+Oct 20, 2012 9:11:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 35
+ORDER BY name
+Oct 20, 2012 9:11:54 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {35}
+Oct 20, 2012 9:11:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 35
+ORDER BY name
+Oct 20, 2012 9:11:54 PM org.hsm.control.Control getData
+INFO: Get full data of student {Lê Trọng Nhân}
+Oct 20, 2012 9:11:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 41007
+Oct 20, 2012 9:11:54 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {152}
+Oct 20, 2012 9:11:54 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 152
+Oct 20, 2012 9:11:55 PM org.hsm.control.Control getData
+INFO: Get full data of student {Đào Trung Hiếu}
+Oct 20, 2012 9:11:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 40998
+Oct 20, 2012 9:11:55 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {23}
+Oct 20, 2012 9:11:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 23
+Oct 20, 2012 9:11:55 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {27}
+Oct 20, 2012 9:11:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 27
+ORDER BY name
+Oct 20, 2012 9:11:55 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {27}
+Oct 20, 2012 9:11:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 27
+ORDER BY name
+Oct 20, 2012 9:11:55 PM org.hsm.control.Control getData
+INFO: Get full data of student {Đào Trung Hiếu}
+Oct 20, 2012 9:11:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 40998
+Oct 20, 2012 9:11:55 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {23}
+Oct 20, 2012 9:11:55 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 23
+Oct 20, 2012 9:11:56 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Văn Dậu}
+Oct 20, 2012 9:11:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 40991
+Oct 20, 2012 9:11:56 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {443}
+Oct 20, 2012 9:11:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 443
+Oct 20, 2012 9:11:56 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {8}
+Oct 20, 2012 9:11:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 8
+ORDER BY name
+Oct 20, 2012 9:11:56 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {8}
+Oct 20, 2012 9:11:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 8
+ORDER BY name
+Oct 20, 2012 9:11:56 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Văn Dậu}
+Oct 20, 2012 9:11:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 40991
+Oct 20, 2012 9:11:56 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {443}
+Oct 20, 2012 9:11:56 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 443
+Oct 20, 2012 9:11:57 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Công Cường}
+Oct 20, 2012 9:11:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 40989
+Oct 20, 2012 9:11:57 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {389}
+Oct 20, 2012 9:11:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 389
+Oct 20, 2012 9:11:57 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {28}
+Oct 20, 2012 9:11:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 28
+ORDER BY name
+Oct 20, 2012 9:11:57 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {28}
+Oct 20, 2012 9:11:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 28
+ORDER BY name
+Oct 20, 2012 9:11:57 PM org.hsm.control.Control getData
+INFO: Get full data of student {Nguyễn Công Cường}
+Oct 20, 2012 9:11:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 40989
+Oct 20, 2012 9:11:57 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {389}
+Oct 20, 2012 9:11:57 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 389
+Oct 20, 2012 9:11:57 PM org.hsm.control.Control getData
+INFO: Get full data of student {Hoàng Tiến Nam}
+Oct 20, 2012 9:11:58 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 40987
+Oct 20, 2012 9:11:58 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {567}
+Oct 20, 2012 9:11:58 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 567
+Oct 20, 2012 9:11:58 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {26}
+Oct 20, 2012 9:11:58 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 26
+ORDER BY name
+Oct 20, 2012 9:11:58 PM org.hsm.control.Control getData
+INFO: Get list of districts in city having id {26}
+Oct 20, 2012 9:11:58 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT dt, name FROM district
+WHERE cy = 26
+ORDER BY name
+Oct 20, 2012 9:11:58 PM org.hsm.control.Control getData
+INFO: Get full data of student {Hoàng Tiến Nam}
+Oct 20, 2012 9:11:58 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT * FROM student WHERE ct = 40987
+Oct 20, 2012 9:11:58 PM org.hsm.control.Control getData
+INFO: Get id of city for district with id {567}
+Oct 20, 2012 9:11:58 PM org.hsm.service.CoreService query
+INFO: Execute query SELECT cy FROM district WHERE dt = 567
+Oct 20, 2012 9:12:05 PM org.hsm.control.Control fire
+INFO: System exits
