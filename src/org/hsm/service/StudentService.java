@@ -3,7 +3,9 @@ package org.hsm.service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
+import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
 import org.hsm.model.hedspiObject.Student;
 
@@ -167,5 +169,47 @@ public class StudentService {
 				student.getYear(),
 				id);
 		return CoreService.getInstance().update(query);
+	}
+
+	public static HashMap<String, Object>[] getSuperFullStudents(int offset, int limit) {
+		String query = "SELECT \n" + 
+				"  student.first, \n" + 
+				"  student.last, \n" + 
+				"  student.sex, \n" + 
+				"  student.dob, \n" + 
+				"  student.emails, \n" + 
+				"  student.phones, \n" + 
+				"  student.note, \n" + 
+				"  student.home, \n" + 
+				"  student.point, \n" + 
+				"  student.mssv, \n" + 
+				"  student.year, \n" + 
+				"  district.name AS district, \n" + 
+				"  city.name AS city, \n" + 
+				"  class.name AS class\n" + 
+				"FROM \n" + 
+				"  public.student, \n" + 
+				"  public.district, \n" + 
+				"  public.class, \n" + 
+				"  public.city\n" + 
+				"WHERE \n" + 
+				"  student.ct = district.dt AND\n" + 
+				"  student.cl = class.cl AND\n" + 
+				"  district.cy = city.cy\n" +
+				"ORDER BY \n" +
+				"  student.last ASC" +
+				"OFFSET " + offset + "\n" +
+				"LIMIT " + limit;
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
+		for(HashMap<String, Object> it : rs){
+			for(Entry<String, Object> jt : it.entrySet()){
+				if (jt.getKey() == null)
+					jt.setValue("");
+			}
+			it.put("emails", endlineStringToArray((String) it.get("emails")));
+			it.put("phones", endlineStringToArray((String) it.get("phones")));
+		}
+		
+		return rs.toArray(new HashMap[rs.size()]);
 	}
 }

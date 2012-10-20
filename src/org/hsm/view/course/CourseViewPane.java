@@ -38,6 +38,7 @@ public class CourseViewPane extends JPanel {
 	private SpinnerNumberModel modelNFees;
 	private SpinnerNumberModel modelNCredits;
 	private SpinnerNumberModel modelTime;
+	private DependencesListEditor dependencesListEditor;
 
 	/**
 	 * Create the panel.
@@ -53,18 +54,27 @@ public class CourseViewPane extends JPanel {
 		JPanel panel = new JPanel();
 		add(panel, "2, 2, fill, fill");
 		panel.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),
 				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"), }));
+				RowSpec.decode("default:grow"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),}));
 
 		JLabel lblName = DefaultComponentFactory.getInstance().createLabel(
 				"Name");
@@ -119,14 +129,20 @@ public class CourseViewPane extends JPanel {
 		editorPaneTopic = new JEditorPane();
 		editorPaneTopic.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel.add(editorPaneTopic, "4, 12, fill, fill");
+		
+		JLabel lblDependanciesList = DefaultComponentFactory.getInstance().createLabel("Dependancies list");
+		panel.add(lblDependanciesList, "2, 14");
+		
+		dependencesListEditor = new DependencesListEditor();
+		panel.add(dependencesListEditor, "4, 14, fill, fill");
 
 		JLabel lblNote = DefaultComponentFactory.getInstance().createLabel(
 				"Note");
-		panel.add(lblNote, "2, 14");
+		panel.add(lblNote, "2, 16");
 
 		editorPaneNote = new JEditorPane();
 		editorPaneNote.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.add(editorPaneNote, "4, 14, fill, fill");
+		panel.add(editorPaneNote, "4, 16, fill, fill");
 
 		JButton btnSave = new JButton("Save");
 		add(btnSave, "2, 4, center, default");
@@ -160,6 +176,7 @@ public class CourseViewPane extends JPanel {
 			modelTime.setValue(course.getTime());
 			modelNCredits.setValue(course.getNCredits());
 			modelNFees.setValue(course.getNFees());
+			dependencesListEditor.setCourse(course);
 		}
 	}
 }

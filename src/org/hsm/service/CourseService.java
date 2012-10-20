@@ -87,4 +87,16 @@ public class CourseService {
 		return CoreService.getInstance().update(query);
 	}
 
+	public static HedspiObject[] getAddableBackground(int i) {
+		String query = "SELECT name, ce FROM course WHERE ce != " + i + " AND NOT ce = ANY(SELECT get_background(" + i + "));";
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
+		ArrayList<HedspiObject> ret = new ArrayList<>();
+		for(HashMap<String, Object> it : rs){
+			String name = (String) it.get("name");
+			int id = (int)it.get("ce");
+			ret.add(new HedspiObject(id, name));
+		}
+		return ret.toArray(new HedspiObject[ret.size()]);
+	}
+
 }

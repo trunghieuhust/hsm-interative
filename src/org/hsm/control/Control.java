@@ -155,6 +155,27 @@ public class Control implements IControl {
 		}
 	}
 
+	/**
+	 * Hàm chính của <code>Control</code>, thực hiện chức năng quản lý toàn phần mềm, các giao dịch dữ liệu,...
+	 * Hàm thực hiện rất nhiều chức năng, các chức năng chủ yếu là ghi log, gọi 
+	 * {@link org.hsm.model.Model.getInstance()#getData(String, Object...) Model.getData}
+	 * bằng cách chuyển trực tiếp câu lệnh cho <code>Model.getData</code>.
+	 * <p>
+	 * Lệnh huydt yêu cầu: lấy toàn bộ thông tin đầy đủ của sinh viên.
+	 * <ul>
+	 * <li>Lấy toàn bộ mang rất nhiều nghĩa, ở đây tôi chỉ lấy thông tin cơ bản.</li>
+	 * <li>Gọi <code>(HashMap[])Control.getInstance().getData("getSuperFullStudents", offset, limit)</code> 
+	 * với <code>offset</code> là độ dịch vị, <code>limit</code> là giới hạn số lượng kết quả trả về</li>
+	 * <li>Nếu độ dài mảng trả về nhỏ hơn limit tức là dữ liệu lấy đã đạt giới</li>
+	 * <li>Các trường dữ liệu được lấy về đảm bảo không <code>null</code> tương ứng với 
+	 * các kiểu dữ liệu thường dùng và có <code>key</code> là: <code>first, last, 
+	 * district(String), city(String), class(String), phones(String[]), 
+	 * emails(String[]),... </code> </li>
+	 * </ul> 
+	 * @see org.hsm.control.IControl#getData(java.lang.String, java.lang.Object[])
+	 * @param command lệnh truyền cho control.
+	 * @param data danh sách các tham số (optional)
+	 */
 	@Override
 	public Object getData(String command, Object... data) {
 		HedspiObject obj;
@@ -163,8 +184,20 @@ public class Control implements IControl {
 		String name;
 		Lecturer lecturer;
 		Course course;
+		int offset, limit;
 		
 		switch(command){
+		case "getSuperFullStudents":
+			offset = (int)data[0];
+			limit = (int)data[1];
+			logger.log(Level.INFO, "Get full data of students from " + offset + " to {1}" + (offset + limit - 1));
+			return Model.getInstance().getData("getSuperFullStudents", offset, limit);
+			
+		case "getAddableBackgroundCourse":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Get addable background courses of course {" + obj.getName() + "}");
+			return Model.getInstance().getData("getAddableBackgroundCourse", obj.getId());
+			
 		case "saveCourse":
 			obj = (HedspiObject)data[0];
 			course = (Course)data[1];
