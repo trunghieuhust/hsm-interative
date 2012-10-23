@@ -59,8 +59,10 @@ public class DistrictViewPane extends JPanel {
 				String name = textField.getText();
 				if (district != null){
 					message = (String)Control.getInstance().getData("saveDistrictName", district, name);
-					if (message == null)
+					if (message == null){
+						district.setName(name);
 						JOptionPane.showMessageDialog(null, "Save district's information successful", "Save successed", JOptionPane.INFORMATION_MESSAGE);
+					}
 					else{
 						JOptionPane.showMessageDialog(null, "Save district's information failed\nMessage: " + message, "Save failed", JOptionPane.ERROR_MESSAGE);
 						district.setName(name);

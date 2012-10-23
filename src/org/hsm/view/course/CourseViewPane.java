@@ -34,7 +34,7 @@ public class CourseViewPane extends JPanel {
 	private JTextField textFieldCode;
 	private JEditorPane editorPaneTopic;
 	private JEditorPane editorPaneNote;
-	private HedspiObject course;
+	private HedspiObject hedspiObject;
 	private SpinnerNumberModel modelNFees;
 	private SpinnerNumberModel modelNCredits;
 	private SpinnerNumberModel modelTime;
@@ -148,35 +148,38 @@ public class CourseViewPane extends JPanel {
 		add(btnSave, "2, 4, center, default");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (course == null)
+				if (hedspiObject == null)
 					return;
-				Course cou = new Course(course.getId(),
+				Course cou = new Course(hedspiObject.getId(),
 						textFieldName.getText(), modelNFees.getNumber()
 								.doubleValue(), modelNCredits.getNumber()
 								.intValue(), editorPaneTopic.getText(),
 						modelTime.getNumber().doubleValue(), editorPaneNote
 								.getText(), textFieldCode.getText());
-				String message = (String)Control.getInstance().getData("saveCourse", course, cou);
+				String message = (String)Control.getInstance().getData("saveCourse", hedspiObject, cou);
 				if (message == null){
 					JOptionPane.showMessageDialog(null, "Save course ok", "Save ok", JOptionPane.INFORMATION_MESSAGE);
-					course.setName(cou.getName());
+					hedspiObject.setName(cou.getName());
 				} else
 					JOptionPane.showMessageDialog(null, "Save course failed\nMessage: " + message, "Save failed", JOptionPane.WARNING_MESSAGE);
 			}
 		});
 	}
 
-	public void setCourse(Course course) {
-		if (course != null) {
-			this.course = course;
-			textFieldCode.setText(course.getCode());
-			textFieldName.setText(course.getName());
-			editorPaneNote.setText(course.getNote());
-			editorPaneTopic.setText(course.getTopic());
-			modelTime.setValue(course.getTime());
-			modelNCredits.setValue(course.getNCredits());
-			modelNFees.setValue(course.getNFees());
-			dependencesListEditor.setCourse(course);
-		}
+	public void setInfo(Course course) {
+		if (course == null)
+			return;
+		textFieldCode.setText(course.getCode());
+		textFieldName.setText(course.getName());
+		editorPaneNote.setText(course.getNote());
+		editorPaneTopic.setText(course.getTopic());
+		modelTime.setValue(course.getTime());
+		modelNCredits.setValue(course.getNCredits());
+		modelNFees.setValue(course.getNFees());
+		dependencesListEditor.setCourse(course);
+	}
+
+	public void setHedspiObject(HedspiObject hedspiObject) {
+		this.hedspiObject = hedspiObject;
 	}
 }

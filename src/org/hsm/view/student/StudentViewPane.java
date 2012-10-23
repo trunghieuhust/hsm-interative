@@ -24,7 +24,7 @@ public class StudentViewPane extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private OtherInfoPane panelStudentOther;
 	private ContactPane panelContact;
-	private HedspiObject student;
+	private HedspiObject hedspiObject;
 
 	/**
 	 * Create the panel.
@@ -59,9 +59,9 @@ public class StudentViewPane extends JPanel {
 		panel.add(btnSave, "1, 4, center, default");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (student == null)
+				if (hedspiObject == null)
 					return;
-				Student st = new Student(student.getId(),
+				Student st = new Student(hedspiObject.getId(),
 						panelContact.getFirst(),
 						panelContact.getLast(),
 						panelContact.isMale(),
@@ -76,10 +76,10 @@ public class StudentViewPane extends JPanel {
 						panelStudentOther.getYear(),
 						panelStudentOther.getHedspiClass());
 				
-				String message = (String) Control.getInstance().getData("updateStudent", student, st);
+				String message = (String) Control.getInstance().getData("updateStudent", hedspiObject, st);
 				if (message == null){
 					JOptionPane.showMessageDialog(null, "Save student successful", "Save success", JOptionPane.INFORMATION_MESSAGE);
-					student.setName(st.getName());
+					hedspiObject.setName(st.getName());
 				}
 				else
 					JOptionPane.showMessageDialog(null, "Save student failed\nMessage: " + message, "Save failed", JOptionPane.WARNING_MESSAGE);
@@ -88,9 +88,12 @@ public class StudentViewPane extends JPanel {
 		
 	}
 
-	public void setStudent(Student student) {
-		this.student = student;
+	public void setInfo(Student student) {
 		panelContact.setContact(student);
 		panelStudentOther.setStudent(student);
+	}
+
+	public void setHedspiObject(HedspiObject hedspiObject) {
+		this.hedspiObject = hedspiObject;
 	}
 }

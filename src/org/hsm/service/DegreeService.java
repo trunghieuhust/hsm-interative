@@ -9,11 +9,10 @@ public class DegreeService {
 
 	public static HedspiObject[] getAll() {
 		ArrayList<HedspiObject> ret = new ArrayList<>();
-		String query = "SELECT DG, Name FROM degree ORDER BY name";
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_degree_list");
 		for(HashMap<String, Object> it : rs)
-			if (it.get("dg") != null){
-				int id = (int)it.get("dg");
+			if (it.get("id") != null){
+				int id = (int)it.get("id");
 				String name = (String)it.get("name");
 				ret.add(new HedspiObject(id, name));
 			}

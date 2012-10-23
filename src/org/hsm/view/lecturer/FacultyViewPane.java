@@ -92,8 +92,10 @@ public class FacultyViewPane extends JSplitPane {
 			public void selectValue(HedspiObject value) {
 				Lecturer lecturer = (Lecturer) Control.getInstance().getData(
 						"getFullDataLecturer", value);
-				if (lecturer != null)
-					lecturerViewPane.setLecturer(lecturer);
+				if (lecturer != null){
+					lecturerViewPane.setHedspiObject(value);
+					lecturerViewPane.setInfo(lecturer);
+				}
 				else
 					JOptionPane.showMessageDialog(null,
 							"Get data of lecturer failed", "Get data failed",

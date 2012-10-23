@@ -28,7 +28,7 @@ public class LecturerViewPane extends JPanel {
 	private ContactPane contactPane;
 	private HedspiComboBox comboBoxDegree;
 	private HedspiComboBox comboBoxFaculty;
-	private HedspiObject lecturer;
+	private HedspiObject hedspiObject;
 
 	/**
 	 * Create the panel.
@@ -108,9 +108,9 @@ public class LecturerViewPane extends JPanel {
 		panel.add(btnSave, "1, 2, center, default");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (lecturer == null)
+				if (hedspiObject == null)
 					return;
-				Lecturer newlt = new Lecturer(lecturer.getId(), contactPane
+				Lecturer newlt = new Lecturer(hedspiObject.getId(), contactPane
 						.getFirst(), contactPane.getLast(), contactPane
 						.isMale(), contactPane.getDob(), contactPane
 						.getEmails(), contactPane.getPhones(), contactPane
@@ -118,9 +118,9 @@ public class LecturerViewPane extends JPanel {
 						.getDistrict(), comboBoxDegree.getSelectedValue(),
 						comboBoxFaculty.getSelectedValue());
 				String message = (String) Control.getInstance().getData(
-						"updateLecturer", lecturer, newlt);
+						"updateLecturer", hedspiObject, newlt);
 				if (message == null) {
-					lecturer.setName(newlt.getName());
+					hedspiObject.setName(newlt.getName());
 					JOptionPane.showMessageDialog(null,
 							"Update lecturer's information success",
 							"Update success", JOptionPane.INFORMATION_MESSAGE);
@@ -133,13 +133,16 @@ public class LecturerViewPane extends JPanel {
 		});
 	}
 
-	public void setLecturer(Lecturer lecturer) {
+	public void setInfo(Lecturer lecturer) {
 		if (lecturer != null) {
-			this.lecturer = lecturer;
 			contactPane.setContact(lecturer);
 			comboBoxDegree.setSelectedValue(lecturer.getDegree());
 			comboBoxFaculty.setSelectedValue(lecturer.getFaculty());
 		}
+	}
+
+	public void setHedspiObject(HedspiObject hedspiObject) {
+		this.hedspiObject = hedspiObject;
 	}
 
 }

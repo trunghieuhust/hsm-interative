@@ -8,35 +8,27 @@ import org.hsm.model.hedspiObject.HedspiObject;
 public class ClassService {
 
 	public static HedspiObject newClass() {
-		String query = "INSERT INTO class DEFAULT VALUES\n" +
-				" RETURNING cl, name";
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
-				.query(query);
-		int cl = (int)rs.get(0).get("cl");
+				.doQueryFunction("get_new_class");
+		int cl = (int)rs.get(0).get("id");
 		String name = (String)rs.get(0).get("name");
 		HedspiObject cla = new HedspiObject(cl, name);
 		return cla;
 	}
 
 	public static String remove(int cl){
-		String query = "DELETE FROM class WHERE cl = " + cl;
-		return CoreService.getInstance().update(query);
+		return CoreService.getInstance().doUpdateFunction("delete_class", cl);
 	}
 
 	public static String rename(int id, String name) {
-		String query = "UPDATE class\n" +
-				" SET name = '" + name.replace("'", "''") + "'\n" +
-				"WHERE cl = " + id;
-		return CoreService.getInstance().update(query);
+		return CoreService.getInstance().doUpdateFunction("update_class", id, name);
 	}
 
 	public static HedspiObject[] getClassesList() {
-		String query = "SELECT cl, name FROM class\n" +
-				"ORDER BY name ASC";
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_class_list");
 		ArrayList<HedspiObject> ret = new ArrayList<>();
 		for(HashMap<String, Object>  it : rs){
-			int id = (int)it.get("cl");
+			int id = (int)it.get("id");
 			String name = (String)it.get("name");
 			if (name == null)
 				name = "";

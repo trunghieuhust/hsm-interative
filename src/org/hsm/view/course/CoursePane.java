@@ -38,8 +38,10 @@ public class CoursePane extends JSplitPane {
 				if (course == null){
 					JOptionPane.showMessageDialog(null, "Get information of course failed", "Load data failed", JOptionPane.WARNING_MESSAGE);
 				}
-				else
-					courseViewPane.setCourse(course);
+				else{
+					courseViewPane.setHedspiObject(value);
+					courseViewPane.setInfo(course);
+				}
 					
 			}
 			

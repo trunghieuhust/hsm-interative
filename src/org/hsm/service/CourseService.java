@@ -9,8 +9,7 @@ import org.hsm.model.hedspiObject.HedspiObject;
 public class CourseService {
 
 	public static Course getFull(int i) {
-		String query = "SELECT * FROM course WHERE ce = " + i;
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_course_data", i);
 		if (rs.isEmpty())
 			return null;
 		HashMap<String, Object> it = rs.get(0);
@@ -39,26 +38,23 @@ public class CourseService {
 	}
 
 	public static String remove(int i) {
-		String query = "DELETE FROM course WHERE ce = " + i;
-		return CoreService.getInstance().update(query);
+		return CoreService.getInstance().doUpdateFunction("delete_course", i);
 	}
 
 	public static HedspiObject getNew() {
-		String query = "INSERT INTO course DEFAULT VALUES RETURNING ce, name";
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_new_course");
 		if (rs.isEmpty())
 			return null;
-		int id = (int)rs.get(0).get("ce");
+		int id = (int)rs.get(0).get("id");
 		String name = (String)rs.get(0).get("name");
 		return new HedspiObject(id, name);
 	}
 
 	public static HedspiObject[] getAll() {
 		ArrayList<HedspiObject> ret = new ArrayList<>();
-		String query = "SELECT ce, name FROM course ORDER BY name";
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_raw_courses_list");
 		for(HashMap<String, Object> it : rs){
-			int id = (int)it.get("ce");
+			int id = (int)it.get("id");
 			String name = (String)it.get("name");
 			ret.add(new HedspiObject(id, name));
 		}
@@ -66,34 +62,23 @@ public class CourseService {
 	}
 
 	public static String save(int i, Course course) {
-		String query = String.format("UPDATE course\n" +
-				"SET\n" +
-				"name = '%s'\n" +
-				", nfees = '%f'\n" +
-				", ncredits = %d\n" +
-				", topic = '%s'\n" +
-				", time = '%f'\n" +
-				", note = '%s'\n" +
-				", code = '%s'\n" +
-				"WHERE ce = %d", 
-				course.getName().replace("'", "''"),
+		return CoreService.getInstance().doUpdateFunction("update_course",
+				course.getName(),
 				course.getNFees(),
 				course.getNCredits(),
-				course.getTopic().replace("'", "''"),
+				course.getTopic(),
 				course.getTime(),
-				course.getNote().replace("'", "''"),
-				course.getCode().replace("'", "''"),
+				course.getNote(),
+				course.getCode(),
 				i);
-		return CoreService.getInstance().update(query);
 	}
 
 	public static HedspiObject[] getAddableBackground(int i) {
-		String query = "SELECT name, ce FROM course WHERE ce != " + i + " AND NOT ce = ANY(SELECT get_background(" + i + "));";
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().query(query);
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_addable_background", i);
 		ArrayList<HedspiObject> ret = new ArrayList<>();
 		for(HashMap<String, Object> it : rs){
 			String name = (String) it.get("name");
-			int id = (int)it.get("ce");
+			int id = (int)it.get("id");
 			ret.add(new HedspiObject(id, name));
 		}
 		return ret.toArray(new HedspiObject[ret.size()]);

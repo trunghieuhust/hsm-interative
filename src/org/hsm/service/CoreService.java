@@ -147,18 +147,22 @@ public class CoreService {
 	 * Trường hợp truy vấn lỗi sẽ trả về một danh sách rỗng.
 	 */
 	public ArrayList<HashMap<String, Object>> query(String queryStr) {
+		return queryFull(queryStr).getT1();
+	}
+
+	private Pair<ArrayList<HashMap<String, Object>>, String> queryFull(String queryStr) {
 		Control.getInstance().getLogger()
 				.log(Level.INFO, "Execute query {0}", queryStr);
 		ArrayList<HashMap<String, Object>> result = new ArrayList<>();
 
 		Connection conn = getConnection();
 		if (conn == null)
-			return result;
+			return new Pair<>(result, "Cannot create connection");
 
 		Statement stmt = getStatement(conn);
 		if (stmt == null) {
 			close(conn);
-			return result;
+			return new Pair<>(result, "Cannot create query (statement)");
 		}
 
 		ResultSet rs = null;
@@ -168,12 +172,12 @@ public class CoreService {
 			Control.getInstance().getLogger().log(Level.WARNING, e.getMessage());
 			close(stmt);
 			close(conn);
-			return result;
+			return new Pair<>(result, e.getMessage());
 		}
 		if (rs == null) {
 			close(stmt);
 			close(conn);
-			return result;
+			return new Pair<>(result, "Query failed");
 		}
 
 		try {
@@ -194,7 +198,7 @@ public class CoreService {
 			close(stmt);
 			close(conn);
 		}
-		return result;
+		return new Pair<>(result, null);
 	}
 
 	/**
@@ -233,5 +237,50 @@ public class CoreService {
 
 	public void setLoginInfo(Properties loginInfo) {
 		this.loginInfo = loginInfo;
+	}
+	
+	private String getFullFunctionCaller(String func, Object[] args){
+		String query = func + "(";
+		for(int i = 0; i < args.length; i++){
+			String arg = args[i] instanceof String ? ("'" + args[i].toString().replace("'", "''") + "'::text") : args[i].toString();
+			if (args[i] instanceof Boolean)
+				arg = (Boolean)args[i] ? "true" : "false"; 
+			if (args[i] instanceof Double)
+				arg = args[i].toString() + "::double precision";
+			query += (i > 0 ? ", " : "") + arg;
+		}
+		query += ")";
+		return query;
+	}
+
+	public ArrayList<HashMap<String, Object>> doQueryFunction(String func,
+			Object ... args) {
+		String queryStr = "SELECT * FROM " + getFullFunctionCaller(func, args);
+		return query(queryStr);
+	}
+	
+	/**
+	 * Sử dụng để gọi các hàm trên server. Mặc định hàm đó phải trả về text 
+	 * Trong đó cần trả về xâu rỗng nếu thành công, ngược lại trả về thông báo lỗi.
+	 * @param func tên hàm
+	 * @param args danh sách các tham số, nếu là <code>String</code>, sẽ tự động được
+	 * thay thế kí tự <code>'</code> bởi <code>''</code>
+	 * @return xem {@link #update update}
+	 */
+	public String doUpdateFunction(String func, Object ... args){
+		final String RESULT_LABEL = "result";
+		String updateStr = "SELECT " + getFullFunctionCaller(func, args) + " AS " + RESULT_LABEL;
+		Pair<ArrayList<HashMap<String, Object>>, String> rs = queryFull(updateStr);
+		if (rs.getT2() != null)
+			return rs.getT2();
+		if (!rs.getT1().isEmpty()){
+			if (rs.getT1().get(0).get(RESULT_LABEL) == null)
+				return "Server function {" + func + "} did not return expected result";
+			if (rs.getT1().get(0).get(RESULT_LABEL).equals(""))
+				return null;
+			else
+				return (String)rs.getT1().get(0).get(RESULT_LABEL);
+		}
+		return "Query {" + func + "} failed";
 	}
 }

@@ -61,8 +61,10 @@ public class CityViewPane extends JSplitPane {
 				String name = textField.getText();
 				String message = (String) Control.getInstance().getData(
 						"saveCityName", city, name);
-				if (message == null)
+				if (message == null){
 					city.setName(name);
+					JOptionPane.showMessageDialog(null, "Save city's name success", "Save name success", JOptionPane.INFORMATION_MESSAGE);
+				}
 				else
 					JOptionPane.showMessageDialog(null,
 							"Save city's name failed\nMessage: " + message,

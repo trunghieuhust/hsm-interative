@@ -102,7 +102,7 @@ public class RoomViewPane extends JPanel {
 				if (name == null)
 					JOptionPane.showMessageDialog(null, "Reload room's name failed", "Reload failed", JOptionPane.WARNING_MESSAGE);
 				else{
-					JOptionPane.showConfirmDialog(null, "Reload room's name success", "Reload success", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Reload room's name success", "Reload success", JOptionPane.INFORMATION_MESSAGE);
 					textField.setText(name);
 					room.setName(name);
 				}

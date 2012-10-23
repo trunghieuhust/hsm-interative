@@ -99,8 +99,10 @@ public class ClassViewPane extends JSplitPane {
 			public void selectValue(HedspiObject value) {
 				Student student = (Student) Control.getInstance().getData(
 						"getFullStudentData", value);
-				if (student != null)
-					studentViewPane.setStudent(student);
+				if (student != null){
+					studentViewPane.setHedspiObject(value);
+					studentViewPane.setInfo(student);
+				}
 				else
 					JOptionPane.showMessageDialog(null,
 							"Failed to get student info", "Get data failed",
