@@ -99,7 +99,7 @@ public class CourseViewPane extends JPanel {
 		JSpinner spinnerNFees = new JSpinner();
 		modelNFees = new SpinnerNumberModel(new Double(0), new Double(0), null,
 				new Double(0));
-		spinnerNFees.setModel(modelNFees);
+		spinnerNFees.setModel(new SpinnerNumberModel(new Double(2), new Double(0), null, new Double(1)));
 		panel.add(spinnerNFees, "4, 6");
 
 		JLabel lblNumberOfCredits = DefaultComponentFactory.getInstance()
@@ -109,7 +109,7 @@ public class CourseViewPane extends JPanel {
 		JSpinner spinnerNCredits = new JSpinner();
 		modelNCredits = new SpinnerNumberModel(new Integer(0), new Integer(0),
 				null, new Integer(1));
-		spinnerNCredits.setModel(modelNCredits);
+		spinnerNCredits.setModel(new SpinnerNumberModel(new Integer(2), new Integer(0), null, new Integer(1)));
 		panel.add(spinnerNCredits, "4, 8");
 
 		JLabel lblTime = DefaultComponentFactory.getInstance().createLabel(
@@ -119,7 +119,7 @@ public class CourseViewPane extends JPanel {
 		JSpinner spinnerTime = new JSpinner();
 		modelTime = new SpinnerNumberModel(new Double(0), new Double(0), null,
 				new Double(1));
-		spinnerTime.setModel(modelTime);
+		spinnerTime.setModel(new SpinnerNumberModel(new Double(45), new Double(0), null, new Double(5)));
 		panel.add(spinnerTime, "4, 10");
 
 		JLabel lblTopic = DefaultComponentFactory.getInstance().createLabel(
@@ -156,7 +156,7 @@ public class CourseViewPane extends JPanel {
 								.intValue(), editorPaneTopic.getText(),
 						modelTime.getNumber().doubleValue(), editorPaneNote
 								.getText(), textFieldCode.getText());
-				String message = (String)Control.getInstance().getData("saveCourse", hedspiObject, cou);
+				String message = (String)Control.getInstance().getData("saveCourse", hedspiObject, cou, dependencesListEditor.getValues());
 				if (message == null){
 					JOptionPane.showMessageDialog(null, "Save course ok", "Save ok", JOptionPane.INFORMATION_MESSAGE);
 					hedspiObject.setName(cou.getName());

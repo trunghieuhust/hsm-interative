@@ -1,7 +1,14 @@
 package org.hsm.view.course;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -23,6 +30,9 @@ public class DependencesListEditor extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private HedspiComboBox comboBoxChooseCourse;
 	private HedspiObject course;
+	private DefaultListModel<HedspiObject> coursesModel;
+	private JButton buttonReload;
+	private JList<HedspiObject> listCurrentCourses;
 	
 	/**
 	 * Create the panel.
@@ -38,7 +48,8 @@ public class DependencesListEditor extends JPanel {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),}));
-		
+
+		coursesModel = new DefaultListModel<HedspiObject>();
 		comboBoxChooseCourse = new HedspiComboBox(){
 
 			/**
@@ -50,17 +61,38 @@ public class DependencesListEditor extends JPanel {
 			public HedspiObject[] getValues() {
 				if (course == null)
 					return new HedspiObject[0];
-				return (HedspiObject[]) Control.getInstance().getData("getAddableBackgroundCourse", course);
+				HedspiObject[] val = (HedspiObject[]) Control.getInstance().getData("getAddableBackgroundCourse", course);
+				ArrayList<HedspiObject> ret = new ArrayList<>();
+				for(HedspiObject it : val){
+					boolean found = false;
+					for(int i = 0; i < coursesModel.size(); i++)
+						if (coursesModel.getElementAt(i).equals(it)){
+							found = true;
+							break;
+						}
+					if (!found)
+						ret.add(it);
+				}
+				return ret.toArray(new HedspiObject[ret.size()]);
 			}};
 		add(comboBoxChooseCourse, "2, 2, fill, default");
 		
 		JButton buttonAdd = new JButton("+");
+		buttonAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				HedspiObject selected = comboBoxChooseCourse.getSelectedObject();
+				if (selected == null)
+					return;
+				comboBoxChooseCourse.removeObject(selected);
+				coursesModel.addElement(selected);
+			}
+		});
 		add(buttonAdd, "4, 2");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		add(scrollPane, "2, 4, fill, fill");
 		
-		JList<HedspiObject> listCurrentCourses = new JList<>();
+		listCurrentCourses = new JList<>(coursesModel);
 		scrollPane.setViewportView(listCurrentCourses);
 		
 		JPanel panel = new JPanel();
@@ -74,17 +106,47 @@ public class DependencesListEditor extends JPanel {
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
 		JButton buttonRemove = new JButton("-");
+		buttonRemove.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				List<HedspiObject> indices = listCurrentCourses.getSelectedValuesList();
+				for(HedspiObject it : indices){
+					coursesModel.removeElement(it);
+					comboBoxChooseCourse.addObject(it);
+				}
+			}
+		});
 		panel.add(buttonRemove, "1, 2, left, top");
 		
-		JButton buttonReload = new JButton("R");
+		buttonReload = new JButton("R");
+		buttonReload.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (course == null)
+					return;
+				HedspiObject[] backgrounds = (HedspiObject[]) Control.getInstance().getData("getBackgroundCourses", course);
+				if (backgrounds == null)
+					JOptionPane.showMessageDialog(null, "Refresh background courses failed", "Refresh failed", JOptionPane.ERROR_MESSAGE);
+				else{
+					coursesModel.removeAllElements();
+					for(HedspiObject it : backgrounds)
+						coursesModel.addElement(it);
+					comboBoxChooseCourse.refresh();
+//					JOptionPane.showMessageDialog(null, "Refresh background courses ok", "Refresh ok", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+		});
 		panel.add(buttonReload, "1, 4");
 	}
 
 	public void setCourse(Course course) {
 		this.course = course;
-		comboBoxChooseCourse.refresh();
-		// TODO Auto-generated method stub
-		
+		buttonReload.doClick();
+	}
+
+	public HedspiObject[] getValues() {
+		ArrayList<HedspiObject> ret = new ArrayList<>();
+		for(int i = 0; i < coursesModel.getSize(); i++)
+			ret.add(coursesModel.getElementAt(i));
+		return ret.toArray(new HedspiObject[ret.size()]);
 	}
 
 }

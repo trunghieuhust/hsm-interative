@@ -8,17 +8,7 @@ import org.hsm.model.hedspiObject.HedspiObject;
 public class DistrictService {
 
 	public static HedspiObject[] getDistrictsList(int city) {
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_raw_districts_in_city", city);
-		ArrayList<HedspiObject> ret = new ArrayList<>();
-		for (HashMap<String, Object> it : rs) {
-			int id = (int) it.get("id");
-			String name = (String) it.get("name");
-			if (name == null)
-				name = "";
-			HedspiObject district = new HedspiObject(id, name);
-			ret.add(district);
-		}
-		return ret.toArray(new HedspiObject[ret.size()]);
+		return CoreService.getInstance().rsToSimpleArray(CoreService.getInstance().doQueryFunction("get_raw_districts_in_city", city));
 	}
 
 	public static int getCityOfDistrict(int i) {
@@ -31,12 +21,7 @@ public class DistrictService {
 	}
 
 	public static HedspiObject getNewInCity(int i) {
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_new_district_in_city", i);
-		if (rs.isEmpty())
-			return null;
-		int id = (int) rs.get(0).get("id");
-		String name = (String) rs.get(0).get("name");
-		return new HedspiObject(id, name);
+		return CoreService.getInstance().firstSimpleResult(CoreService.getInstance().doQueryFunction("get_new_district_in_city", i));
 	}
 
 	public static String remove(int i) {

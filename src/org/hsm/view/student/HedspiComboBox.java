@@ -81,6 +81,10 @@ public abstract class HedspiComboBox extends JPanel {
 		else
 			return obj.getId();
 	}
+	
+	public HedspiObject getSelectedObject(){
+		return (HedspiObject)comboBoxModel.getSelectedItem();
+	}
 
 	public JComboBox<HedspiObject> getComboBox() {
 		return comboBox;
@@ -88,5 +92,13 @@ public abstract class HedspiComboBox extends JPanel {
 	
 	public void refresh(){
 		btnR.doClick();
+	}
+
+	public void removeObject(HedspiObject selected) {
+		comboBoxModel.removeElement(selected);
+	}
+
+	public void addObject(HedspiObject it) {
+		comboBoxModel.addElement(it);
 	}
 }

@@ -188,6 +188,11 @@ public class Control implements IControl {
 		int offset, limit;
 		
 		switch(command){
+		case "getBackgroundCourses":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Get background courses of course {" + obj.getName() + "}");
+			return Model.getInstance().getData("getBackgroundCourses", obj.getId());
+			
 		case "getSuperFullStudents":
 			offset = (int)data[0];
 			limit = (int)data[1];
@@ -203,7 +208,7 @@ public class Control implements IControl {
 			obj = (HedspiObject)data[0];
 			course = (Course)data[1];
 			logger.log(Level.INFO, "Save information of course {" + obj.getName() + "}");
-			return Model.getInstance().getData("saveCourse", obj.getId(), course);
+			return Model.getInstance().getData("saveCourse", obj.getId(), course, data[2]);
 				
 		case "getCoursesList":
 			logger.log(Level.INFO, "Get courses list");

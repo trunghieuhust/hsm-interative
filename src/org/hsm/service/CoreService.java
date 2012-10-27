@@ -12,6 +12,7 @@ import java.util.Properties;
 import java.util.logging.Level;
 
 import org.hsm.control.Control;
+import org.hsm.model.hedspiObject.HedspiObject;
 
 public class CoreService {
 	private static CoreService instance;
@@ -247,7 +248,14 @@ public class CoreService {
 				arg = (Boolean)args[i] ? "true" : "false"; 
 			if (args[i] instanceof Double)
 				arg = args[i].toString() + "::double precision";
-			query += (i > 0 ? ", " : "") + arg;
+			if (args[i] instanceof HedspiObject[]){
+				HedspiObject[] arr = (HedspiObject[])args[i];
+				arg = "";
+				for(int j = 0; j < arr.length ;j++)
+					arg += arr[j].getId() + ", ";
+				arg += "-1";
+			}
+			query += arg == "" ? "" : ((i > 0 ? ", " : "") + arg);
 		}
 		query += ")";
 		return query;
@@ -267,7 +275,8 @@ public class CoreService {
 	 * thay thế kí tự <code>'</code> bởi <code>''</code>
 	 * @return xem {@link #update update}
 	 */
-	public String doUpdateFunction(String func, Object ... args){
+	@Deprecated
+	public String doUpdateFunctionDeplicated(String func, Object ... args){
 		final String RESULT_LABEL = "result";
 		String updateStr = "SELECT " + getFullFunctionCaller(func, args) + " AS " + RESULT_LABEL;
 		Pair<ArrayList<HashMap<String, Object>>, String> rs = queryFull(updateStr);
@@ -282,5 +291,33 @@ public class CoreService {
 				return (String)rs.getT1().get(0).get(RESULT_LABEL);
 		}
 		return "Query {" + func + "} failed";
+	}
+	
+	public String doUpdateFunction(String func, Object ... args){
+		String updateStr = "SELECT " + getFullFunctionCaller(func, args);
+		return queryFull(updateStr).getT2();
+	}
+
+	public HedspiObject[] rsToSimpleArray(
+			ArrayList<HashMap<String, Object>> rs) {
+		ArrayList<HedspiObject> ret = new ArrayList<>();
+		for(HashMap<String, Object> it : rs){
+			if (it.get("id") == null)
+				continue;
+			int id = (int)it.get("id");
+			String name = (String)it.get("name");
+			if (name == null)
+				name = "";
+			ret.add(new HedspiObject(id, name));
+		}
+		return ret.toArray(new HedspiObject[ret.size()]);
+	}
+
+	public HedspiObject firstSimpleResult(
+			ArrayList<HashMap<String, Object>> rs) {
+		HedspiObject[] arr = rsToSimpleArray(rs);
+		if (arr.length == 0)
+			return null;
+		return arr[0];
 	}
 }

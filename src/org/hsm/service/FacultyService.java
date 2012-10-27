@@ -1,19 +1,11 @@
 package org.hsm.service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import org.hsm.model.hedspiObject.HedspiObject;
 
 public class FacultyService {
 
 	public static HedspiObject getNew() {
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_new_faculty");
-		if (rs.size() == 0)
-			return null;
-		int id = (int)rs.get(0).get("id");
-		String name = (String)rs.get(0).get("name");
-		return new HedspiObject(id, name);
+		return CoreService.getInstance().firstSimpleResult(CoreService.getInstance().doQueryFunction("get_new_faculty"));
 	}
 
 	public static String remove(int i) {
@@ -21,15 +13,7 @@ public class FacultyService {
 	}
 
 	public static HedspiObject[] getFacutiesList() {
-		ArrayList<HedspiObject> ret = new ArrayList<>();
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_faculty_list");
-		for(HashMap<String, Object> it : rs)
-			if (it.get("id") != null){
-				int id = (int)it.get("id");
-				String name = (String)it.get("name");
-				ret.add(new HedspiObject(id, name));
-			}
-		return ret.toArray(new HedspiObject[ret.size()]);
+		return CoreService.getInstance().rsToSimpleArray(CoreService.getInstance().doQueryFunction("get_faculty_list"));
 	}
 
 	public static String rename(int i, String string) {

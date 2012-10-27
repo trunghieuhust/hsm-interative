@@ -10,12 +10,7 @@ import org.hsm.model.hedspiObject.Lecturer;
 public class LecturerService {
 
 	public static HedspiObject getNewInFaculty(int i) {
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_new_lecturer_in_faculty", i);
-		if (rs.isEmpty() || rs.get(0).get("id") == null)
-			return null;
-		int id = (int) rs.get(0).get("id");
-		String name = (String) rs.get(0).get("name");
-		return new HedspiObject(id, name);
+		return CoreService.getInstance().firstSimpleResult(CoreService.getInstance().doQueryFunction("get_new_lecturer_in_faculty", i));
 	}
 
 	public static String remove(int i) {
@@ -23,16 +18,7 @@ public class LecturerService {
 	}
 
 	public static HedspiObject[] getLecturersInFaculty(int i) {
-		ArrayList<HedspiObject> ret = new ArrayList<>();
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_raw_lecturers_list_in_faculty", i);
-		for (HashMap<String, Object> it : rs)
-			if (it.get("id") != null) {
-				int id = (int) it.get("id");
-				String name = (String) it.get("name");
-				ret.add(new HedspiObject(id, name));
-			}
-
-		return ret.toArray(new HedspiObject[ret.size()]);
+		return CoreService.getInstance().rsToSimpleArray(CoreService.getInstance().doQueryFunction("get_raw_lecturers_list_in_faculty", i));
 	}
 
 	public static Lecturer getFullData(int id) {

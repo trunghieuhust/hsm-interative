@@ -23,7 +23,7 @@ public class CourseService {
 		if (topic == null)
 			topic = "";
 		
-		double time = (double)it.get("time");
+		double time = (double)it.get("ctime");
 		
 		String note = (String)it.get("note");
 		if (note == null)
@@ -42,26 +42,14 @@ public class CourseService {
 	}
 
 	public static HedspiObject getNew() {
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_new_course");
-		if (rs.isEmpty())
-			return null;
-		int id = (int)rs.get(0).get("id");
-		String name = (String)rs.get(0).get("name");
-		return new HedspiObject(id, name);
+		return CoreService.getInstance().firstSimpleResult(CoreService.getInstance().doQueryFunction("get_new_course"));
 	}
 
 	public static HedspiObject[] getAll() {
-		ArrayList<HedspiObject> ret = new ArrayList<>();
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_raw_courses_list");
-		for(HashMap<String, Object> it : rs){
-			int id = (int)it.get("id");
-			String name = (String)it.get("name");
-			ret.add(new HedspiObject(id, name));
-		}
-		return ret.toArray(new HedspiObject[ret.size()]);
+		return CoreService.getInstance().rsToSimpleArray(CoreService.getInstance().doQueryFunction("get_raw_courses_list"));
 	}
 
-	public static String save(int i, Course course) {
+	public static String save(int i, Course course, HedspiObject[] dependencies) {
 		return CoreService.getInstance().doUpdateFunction("update_course",
 				course.getName(),
 				course.getNFees(),
@@ -70,18 +58,16 @@ public class CourseService {
 				course.getTime(),
 				course.getNote(),
 				course.getCode(),
-				i);
+				i,
+				dependencies);
 	}
 
 	public static HedspiObject[] getAddableBackground(int i) {
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_addable_background", i);
-		ArrayList<HedspiObject> ret = new ArrayList<>();
-		for(HashMap<String, Object> it : rs){
-			String name = (String) it.get("name");
-			int id = (int)it.get("id");
-			ret.add(new HedspiObject(id, name));
-		}
-		return ret.toArray(new HedspiObject[ret.size()]);
+		return CoreService.getInstance().rsToSimpleArray(CoreService.getInstance().doQueryFunction("get_addable_background", i));
+	}
+
+	public static HedspiObject[] getBackgrounds(int i) {
+		return CoreService.getInstance().rsToSimpleArray(CoreService.getInstance().doQueryFunction("get_background_courses", i));
 	}
 
 }

@@ -40,4 +40,17 @@ public class HedspiObject implements Comparable<HedspiObject> {
 	public String toString() {
 		return getName();
 	}
+
+	@Override
+	public int hashCode() {
+		return getId();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		HedspiObject val = (HedspiObject)obj;
+		if (val == null)
+			return false;
+		return getId() == val.getId();
+	}
 }

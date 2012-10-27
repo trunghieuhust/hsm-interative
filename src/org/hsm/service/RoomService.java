@@ -12,24 +12,11 @@ public class RoomService {
 	}
 
 	public static HedspiObject getNew() {
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_new_room");
-		if (rs.isEmpty() || rs.get(0).get("id") == null)
-			return null;
-		int id = (int) rs.get(0).get("id");
-		String name = (String) rs.get(0).get("name");
-		return new HedspiObject(id, name);
+		return CoreService.getInstance().firstSimpleResult(CoreService.getInstance().doQueryFunction("get_new_room"));
 	}
 
 	public static HedspiObject[] getAll() {
-		ArrayList<HedspiObject> ret = new ArrayList<>();
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_room_list");
-		for (HashMap<String, Object> it : rs)
-			if (it.get("id") != null) {
-				int id = (int) it.get("id");
-				String name = (String) it.get("name");
-				ret.add(new HedspiObject(id, name));
-			}
-		return ret.toArray(new HedspiObject[ret.size()]);
+		return CoreService.getInstance().rsToSimpleArray(CoreService.getInstance().doQueryFunction("get_room_list"));
 	}
 
 	public static String getReloadName(int i) {

@@ -5,6 +5,7 @@ import java.util.logging.Level;
 
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.Course;
+import org.hsm.model.hedspiObject.HedspiObject;
 import org.hsm.model.hedspiObject.Lecturer;
 import org.hsm.model.hedspiObject.Student;
 import org.hsm.service.CityService;
@@ -34,6 +35,9 @@ public class Model implements IModel {
 	@Override
 	public Object getData(String command, Object... data) {
 		switch (command) {
+		case "getBackgroundCourses":
+			return CourseService.getBackgrounds((int)data[0]);
+			
 		case "getSuperFullStudents":
 			return StudentService.getSuperFullStudents((int)data[0], (int)data[1]);
 			
@@ -41,7 +45,7 @@ public class Model implements IModel {
 			return CourseService.getAddableBackground((int)data[0]);
 			
 		case "saveCourse":
-			return CourseService.save((int)data[0], (Course)data[1]);
+			return CourseService.save((int)data[0], (Course)data[1], (HedspiObject[])data[2]);
 		case "getCoursesList":
 			return CourseService.getAll();
 			
