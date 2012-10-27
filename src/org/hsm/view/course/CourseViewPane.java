@@ -97,9 +97,8 @@ public class CourseViewPane extends JPanel {
 		panel.add(lblNumberOfFees, "2, 6");
 
 		JSpinner spinnerNFees = new JSpinner();
-		modelNFees = new SpinnerNumberModel(new Double(0), new Double(0), null,
-				new Double(0));
-		spinnerNFees.setModel(new SpinnerNumberModel(new Double(2), new Double(0), null, new Double(1)));
+		modelNFees = new SpinnerNumberModel(new Double(2), new Double(0), null, new Double(1));
+		spinnerNFees.setModel(modelNFees);
 		panel.add(spinnerNFees, "4, 6");
 
 		JLabel lblNumberOfCredits = DefaultComponentFactory.getInstance()
@@ -107,9 +106,8 @@ public class CourseViewPane extends JPanel {
 		panel.add(lblNumberOfCredits, "2, 8");
 
 		JSpinner spinnerNCredits = new JSpinner();
-		modelNCredits = new SpinnerNumberModel(new Integer(0), new Integer(0),
-				null, new Integer(1));
-		spinnerNCredits.setModel(new SpinnerNumberModel(new Integer(2), new Integer(0), null, new Integer(1)));
+		modelNCredits = new SpinnerNumberModel(new Integer(2), new Integer(0), null, new Integer(1));
+		spinnerNCredits.setModel(modelNCredits);
 		panel.add(spinnerNCredits, "4, 8");
 
 		JLabel lblTime = DefaultComponentFactory.getInstance().createLabel(
@@ -117,9 +115,8 @@ public class CourseViewPane extends JPanel {
 		panel.add(lblTime, "2, 10");
 
 		JSpinner spinnerTime = new JSpinner();
-		modelTime = new SpinnerNumberModel(new Double(0), new Double(0), null,
-				new Double(1));
-		spinnerTime.setModel(new SpinnerNumberModel(new Double(45), new Double(0), null, new Double(5)));
+		modelTime = new SpinnerNumberModel(new Double(45), new Double(0), null, new Double(5));
+		spinnerTime.setModel(modelTime);
 		panel.add(spinnerTime, "4, 10");
 
 		JLabel lblTopic = DefaultComponentFactory.getInstance().createLabel(
