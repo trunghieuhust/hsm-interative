@@ -18,6 +18,7 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
+import javax.swing.JTabbedPane;
 
 public class ClassViewPane extends JSplitPane {
 
@@ -130,12 +131,26 @@ public class ClassViewPane extends JSplitPane {
 			}
 		};
 		panel.add(studentListPane, "2, 4, fill, fill");
-
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		setRightComponent(tabbedPane);
+		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		setRightComponent(scrollPane_1);
-
-		studentViewPane = new StudentViewPane();
+		tabbedPane.addTab("Contact information", null, scrollPane_1, null);
+		
+		StudentViewPane studentViewPane = new StudentViewPane();
 		scrollPane_1.setViewportView(studentViewPane);
+		studentViewPane.setLayout(new FormLayout(new ColumnSpec[] {},
+			new RowSpec[] {}));
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		tabbedPane.addTab("Academic information", null, scrollPane_2, null);
+		
+		RegisterPane registerPane = new RegisterPane();
+		scrollPane_2.setViewportView(registerPane);
+		registerPane.setLayout(new FormLayout(new ColumnSpec[] {},
+			new RowSpec[] {}));
+
 		setDividerLocation(150);
 	}
 
