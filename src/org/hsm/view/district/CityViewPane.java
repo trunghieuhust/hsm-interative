@@ -1,21 +1,23 @@
 package org.hsm.view.district;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTextField;
 
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
 import org.hsm.view.student.ObjectListPane;
-import javax.swing.JPanel;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
+
 import com.jgoodies.forms.factories.FormFactory;
-import javax.swing.JButton;
-import javax.swing.JTextField;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.RowSpec;
 
 public class CityViewPane extends JSplitPane {
 
@@ -61,11 +63,12 @@ public class CityViewPane extends JSplitPane {
 				String name = textField.getText();
 				String message = (String) Control.getInstance().getData(
 						"saveCityName", city, name);
-				if (message == null){
+				if (message == null) {
 					city.setName(name);
-					JOptionPane.showMessageDialog(null, "Save city's name success", "Save name success", JOptionPane.INFORMATION_MESSAGE);
-				}
-				else
+					JOptionPane.showMessageDialog(null,
+							"Save city's name success", "Save name success",
+							JOptionPane.INFORMATION_MESSAGE);
+				} else
 					JOptionPane.showMessageDialog(null,
 							"Save city's name failed\nMessage: " + message,
 							"Save name failed", JOptionPane.ERROR_MESSAGE);

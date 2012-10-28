@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 
 import org.hsm.control.Control;
 
-
 public class MainWindow extends JFrame {
 
 	/**
@@ -31,6 +30,7 @@ public class MainWindow extends JFrame {
 					e.getWindow().dispose();
 				}
 			}
+
 			@Override
 			public void windowClosed(WindowEvent e) {
 				Control.getInstance().fire("exit");
@@ -42,7 +42,7 @@ public class MainWindow extends JFrame {
 
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		
+
 		setContentPane(new MainPane());
 	}
 }

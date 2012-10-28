@@ -8,10 +8,9 @@ public class Student extends Contact {
 	private int year;
 	private int hedspiClass;
 
-	public Student(int id, String first, String last,
-			boolean isMale, Date dob, String[] emails,
-			String[] phones, String note, String home, int district,
-			double point, String mssv, int year, int hedspiClass) {
+	public Student(int id, String first, String last, boolean isMale, Date dob,
+			String[] emails, String[] phones, String note, String home,
+			int district, double point, String mssv, int year, int hedspiClass) {
 		super(id, first, last, isMale, dob, emails, phones, note, home,
 				district);
 		this.point = point;

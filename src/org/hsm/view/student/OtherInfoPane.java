@@ -35,28 +35,25 @@ public class OtherInfoPane extends JPanel {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"),
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,}));
-		
-		JLabel lblMssv = DefaultComponentFactory.getInstance().createLabel("Student code");
+				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
+
+		JLabel lblMssv = DefaultComponentFactory.getInstance().createLabel(
+				"Student code");
 		add(lblMssv, "2, 2, right, default");
-		
+
 		textFieldMssv = new JTextField();
 		add(textFieldMssv, "4, 2, fill, default");
 		textFieldMssv.setColumns(10);
-		
-		JLabel lblClass = DefaultComponentFactory.getInstance().createLabel("Class");
+
+		JLabel lblClass = DefaultComponentFactory.getInstance().createLabel(
+				"Class");
 		add(lblClass, "2, 4, right, default");
-		
-		comboBoxClass = new HedspiComboBox(){
+
+		comboBoxClass = new HedspiComboBox() {
 
 			/**
 			 * 
@@ -64,24 +61,28 @@ public class OtherInfoPane extends JPanel {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			public
-			HedspiObject[] getValues() {
-				return (HedspiObject[])Control.getInstance().getData("getClassList");
-			}};
+			public HedspiObject[] getValues() {
+				return (HedspiObject[]) Control.getInstance().getData(
+						"getClassList");
+			}
+		};
 		add(comboBoxClass, "4, 4, fill, default");
-		
-		JLabel lblPoint = DefaultComponentFactory.getInstance().createLabel("Enroll point");
+
+		JLabel lblPoint = DefaultComponentFactory.getInstance().createLabel(
+				"Enroll point");
 		add(lblPoint, "2, 6");
-		
+
 		JSpinner spinnerPoint = new JSpinner();
 		modelPoint = new SpinnerNumberModel(0.0, 0.0, 30.0, 1.0);
 		spinnerPoint.setModel(new SpinnerNumberModel(0.0, 0.0, 30.0, 0.0));
 		add(spinnerPoint, "4, 6");
-		
-		JLabel lblYear = DefaultComponentFactory.getInstance().createLabel("Enroll year");
+
+		JLabel lblYear = DefaultComponentFactory.getInstance().createLabel(
+				"Enroll year");
 		add(lblYear, "2, 8");
-		
-		modelYear = new SpinnerNumberModel(new Integer(0), new Integer(0), null, new Integer(1));
+
+		modelYear = new SpinnerNumberModel(new Integer(0), new Integer(0),
+				null, new Integer(1));
 		JSpinner spinnerYear = new JSpinner();
 		spinnerYear.setModel(modelYear);
 		add(spinnerYear, "4, 8");

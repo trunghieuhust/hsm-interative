@@ -110,14 +110,13 @@ public class ContactPane extends JPanel {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			public
-			HedspiObject[] getValues() {
+			public HedspiObject[] getValues() {
 				return (HedspiObject[]) Control.getInstance().getData(
 						"getCityList");
 			}
 		};
 		comboBoxCity.getComboBox().addItemListener(new ItemListener() {
-			
+
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				comboBoxDistrict.refresh();
@@ -137,8 +136,7 @@ public class ContactPane extends JPanel {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			public
-			HedspiObject[] getValues() {
+			public HedspiObject[] getValues() {
 				int city = comboBoxCity.getSelectedValue();
 				if (city == -1)
 					return new HedspiObject[0];
@@ -192,7 +190,8 @@ public class ContactPane extends JPanel {
 	}
 
 	private void updateDistrict(int district) {
-		int city = (int)Control.getInstance().getData("getCityOfDistrict", district);
+		int city = (int) Control.getInstance().getData("getCityOfDistrict",
+				district);
 		if (city == -1)
 			return;
 		comboBoxCity.setSelectedValue(city);
@@ -212,7 +211,7 @@ public class ContactPane extends JPanel {
 	}
 
 	public Date getDob() {
-		return modelBirthday.getDate(); 
+		return modelBirthday.getDate();
 	}
 
 	public String[] getEmails() {

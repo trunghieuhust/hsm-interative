@@ -54,27 +54,20 @@ public class CourseViewPane extends JPanel {
 		JPanel panel = new JPanel();
 		add(panel, "2, 2, fill, fill");
 		panel.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
+				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),
 				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),}));
+				RowSpec.decode("default:grow"), }));
 
 		JLabel lblName = DefaultComponentFactory.getInstance().createLabel(
 				"Name");
@@ -97,7 +90,8 @@ public class CourseViewPane extends JPanel {
 		panel.add(lblNumberOfFees, "2, 6");
 
 		JSpinner spinnerNFees = new JSpinner();
-		modelNFees = new SpinnerNumberModel(new Double(2), new Double(0), null, new Double(1));
+		modelNFees = new SpinnerNumberModel(new Double(2), new Double(0), null,
+				new Double(1));
 		spinnerNFees.setModel(modelNFees);
 		panel.add(spinnerNFees, "4, 6");
 
@@ -106,7 +100,8 @@ public class CourseViewPane extends JPanel {
 		panel.add(lblNumberOfCredits, "2, 8");
 
 		JSpinner spinnerNCredits = new JSpinner();
-		modelNCredits = new SpinnerNumberModel(new Integer(2), new Integer(0), null, new Integer(1));
+		modelNCredits = new SpinnerNumberModel(new Integer(2), new Integer(0),
+				null, new Integer(1));
 		spinnerNCredits.setModel(modelNCredits);
 		panel.add(spinnerNCredits, "4, 8");
 
@@ -115,7 +110,8 @@ public class CourseViewPane extends JPanel {
 		panel.add(lblTime, "2, 10");
 
 		JSpinner spinnerTime = new JSpinner();
-		modelTime = new SpinnerNumberModel(new Double(45), new Double(0), null, new Double(5));
+		modelTime = new SpinnerNumberModel(new Double(45), new Double(0), null,
+				new Double(5));
 		spinnerTime.setModel(modelTime);
 		panel.add(spinnerTime, "4, 10");
 
@@ -126,10 +122,11 @@ public class CourseViewPane extends JPanel {
 		editorPaneTopic = new JEditorPane();
 		editorPaneTopic.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel.add(editorPaneTopic, "4, 12, fill, fill");
-		
-		JLabel lblDependanciesList = DefaultComponentFactory.getInstance().createLabel("Dependancies list");
+
+		JLabel lblDependanciesList = DefaultComponentFactory.getInstance()
+				.createLabel("Dependancies list");
 		panel.add(lblDependanciesList, "2, 14");
-		
+
 		dependencesListEditor = new DependencesListEditor();
 		panel.add(dependencesListEditor, "4, 14, fill, fill");
 
@@ -147,18 +144,23 @@ public class CourseViewPane extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if (hedspiObject == null)
 					return;
-				Course cou = new Course(hedspiObject.getId(),
-						textFieldName.getText(), modelNFees.getNumber()
-								.doubleValue(), modelNCredits.getNumber()
-								.intValue(), editorPaneTopic.getText(),
+				Course cou = new Course(hedspiObject.getId(), textFieldName
+						.getText(), modelNFees.getNumber().doubleValue(),
+						modelNCredits.getNumber().intValue(), editorPaneTopic
+								.getText(),
 						modelTime.getNumber().doubleValue(), editorPaneNote
 								.getText(), textFieldCode.getText());
-				String message = (String)Control.getInstance().getData("saveCourse", hedspiObject, cou, dependencesListEditor.getValues());
-				if (message == null){
-					JOptionPane.showMessageDialog(null, "Save course ok", "Save ok", JOptionPane.INFORMATION_MESSAGE);
+				String message = (String) Control.getInstance().getData(
+						"saveCourse", hedspiObject, cou,
+						dependencesListEditor.getValues());
+				if (message == null) {
+					JOptionPane.showMessageDialog(null, "Save course ok",
+							"Save ok", JOptionPane.INFORMATION_MESSAGE);
 					hedspiObject.setName(cou.getName());
 				} else
-					JOptionPane.showMessageDialog(null, "Save course failed\nMessage: " + message, "Save failed", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null,
+							"Save course failed\nMessage: " + message,
+							"Save failed", JOptionPane.WARNING_MESSAGE);
 			}
 		});
 	}

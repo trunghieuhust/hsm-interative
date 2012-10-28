@@ -5,14 +5,16 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
+import org.hsm.model.hedspiObject.AcademicInfo;
 import org.hsm.model.hedspiObject.HedspiObject;
 import org.hsm.model.hedspiObject.Student;
 
 public class StudentService {
 
 	public static HedspiObject[] getRawStudentListInClass(int classId) {
-		return CoreService.getInstance().rsToSimpleArray(CoreService.getInstance()
-				.doQueryFunction("get_raw_students_list_in_class", classId));
+		return CoreService.getInstance().rsToSimpleArray(
+				CoreService.getInstance().doQueryFunction(
+						"get_raw_students_list_in_class", classId));
 	}
 
 	public static String remove(int id) {
@@ -21,8 +23,9 @@ public class StudentService {
 	}
 
 	public static HedspiObject newRawInClass(int id) {
-		return CoreService.getInstance().firstSimpleResult(CoreService.getInstance()
-				.doQueryFunction("insert_student_into_class", id));
+		return CoreService.getInstance().firstSimpleResult(
+				CoreService.getInstance().doQueryFunction(
+						"insert_student_into_class", id));
 	}
 
 	public static Student getFullDataStudent(int id) {
@@ -154,5 +157,43 @@ public class StudentService {
 		}
 
 		return rs.toArray(new HashMap[rs.size()]);
+	}
+
+	public static AcademicInfo[] getAcademicInfo(int i) {
+		ArrayList<AcademicInfo> all = new ArrayList<>();
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
+				.doQueryFunction("get_academic_info", i);
+		for (HashMap<String, Object> it : rs) {
+			int ce = (int) it.get("ce");
+			String ce_name = (String) it.get("ce_name");
+			HedspiObject course = new HedspiObject(ce, ce_name);
+
+			int lt = (int) it.get("lt");
+			String lt_name = (String) it.get("lt_name");
+			HedspiObject lecturer = new HedspiObject(lt, lt_name);
+
+			int rm = (int) it.get("rm");
+			String rm_name = (String) it.get("rm_name");
+			HedspiObject room = new HedspiObject(rm, rm_name);
+
+			boolean isPassed = (boolean) it.get("is_passed");
+			double result = (double) it.get("result");
+
+			all.add(new AcademicInfo(course, lecturer, room, isPassed, result));
+		}
+		return all.toArray(new AcademicInfo[all.size()]);
+	}
+
+	public static String saveAcademicInfo(int i, AcademicInfo[] academicInfos) {
+		double[] arr = new double[academicInfos.length * 5];
+		for (int it = 0, j = 0; it < academicInfos.length; it++) {
+			arr[j++] = academicInfos[it].getCourse().getId();
+			arr[j++] = academicInfos[it].getLecturer().getId();
+			arr[j++] = academicInfos[it].getRoom().getId();
+			arr[j++] = academicInfos[it].isPassed() ? 1 : 0;
+			arr[j++] = academicInfos[it].getResult();
+		}
+		return CoreService.getInstance().doUpdateFunction(
+				"update_academic_info", i, arr);
 	}
 }

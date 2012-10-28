@@ -27,35 +27,34 @@ public class MainPane extends JPanel {
 	 * Create the panel.
 	 */
 	public MainPane() {
-		setLayout(new FormLayout(new ColumnSpec[] {
-				ColumnSpec.decode("38px:grow"),},
-			new RowSpec[] {
-				RowSpec.decode("7px:grow"),}));
-		
+		setLayout(new FormLayout(
+				new ColumnSpec[] { ColumnSpec.decode("38px:grow"), },
+				new RowSpec[] { RowSpec.decode("7px:grow"), }));
+
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.LEFT);
 		add(tabbedPane, "1, 1, fill, fill");
-		
+
 		StudentPane studentPanel = new StudentPane();
 		tabbedPane.addTab("Student", null, studentPanel, null);
-		
+
 		LecturerPane lecturerPanel = new LecturerPane();
 		tabbedPane.addTab("Lecturer", null, lecturerPanel, null);
-		
+
 		DistrictPane districtPane = new DistrictPane();
 		tabbedPane.addTab("District", null, districtPane, null);
-		
+
 		RoomPane roomPane = new RoomPane();
 		tabbedPane.addTab("Room", null, roomPane, null);
-		
+
 		CoursePane coursePane = new CoursePane();
 		tabbedPane.addTab("Course", null, coursePane, null);
-		
+
 		RegisterPane registerPane = new RegisterPane();
 		tabbedPane.addTab("Register", null, registerPane, null);
-		
+
 		ImexPane imexPanel = new ImexPane();
 		tabbedPane.addTab("Im-Export", null, imexPanel, null);
-		
+
 		MaintainPane maintainPane = new MaintainPane();
 		tabbedPane.addTab("Maintain", null, maintainPane, null);
 	}

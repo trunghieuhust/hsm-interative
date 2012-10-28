@@ -12,22 +12,26 @@ public class RoomService {
 	}
 
 	public static HedspiObject getNew() {
-		return CoreService.getInstance().firstSimpleResult(CoreService.getInstance().doQueryFunction("get_new_room"));
+		return CoreService.getInstance().firstSimpleResult(
+				CoreService.getInstance().doQueryFunction("get_new_room"));
 	}
 
 	public static HedspiObject[] getAll() {
-		return CoreService.getInstance().rsToSimpleArray(CoreService.getInstance().doQueryFunction("get_room_list"));
+		return CoreService.getInstance().rsToSimpleArray(
+				CoreService.getInstance().doQueryFunction("get_room_list"));
 	}
 
 	public static String getReloadName(int i) {
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_room_name", i);
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
+				.doQueryFunction("get_room_name", i);
 		if (rs.isEmpty())
 			return null;
 		return (String) rs.get(0).get("name");
 	}
 
 	public static String rename(int i, String string) {
-		return CoreService.getInstance().doUpdateFunction("update_room", i, string);
+		return CoreService.getInstance().doUpdateFunction("update_room", i,
+				string);
 	}
 
 }

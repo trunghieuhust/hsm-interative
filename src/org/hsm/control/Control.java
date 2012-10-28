@@ -16,6 +16,7 @@ import java.util.logging.SimpleFormatter;
 import javax.swing.JOptionPane;
 
 import org.hsm.model.Model;
+import org.hsm.model.hedspiObject.AcademicInfo;
 import org.hsm.model.hedspiObject.Course;
 import org.hsm.model.hedspiObject.HedspiObject;
 import org.hsm.model.hedspiObject.Lecturer;
@@ -149,33 +150,43 @@ public class Control implements IControl {
 			// hide current login
 			view.fire("set-visible", false);
 			// show function list
-			mainWindow = new MainWindow();//AllFunction();
+			mainWindow = new MainWindow();// AllFunction();
 			logger.log(Level.INFO, "Show main function window");
 			mainWindow.setVisible(true);
 		}
 	}
 
 	/**
-	 * Hàm chính của <code>Control</code>, thực hiện chức năng quản lý toàn phần mềm, các giao dịch dữ liệu,...
-	 * Hàm thực hiện rất nhiều chức năng, các chức năng chủ yếu là ghi log, gọi 
-	 * {@link org.hsm.model.Model.getInstance()#getData(String, Object...) Model.getData}
-	 * bằng cách chuyển trực tiếp câu lệnh cho <code>Model.getData</code>.
+	 * Hàm chính của <code>Control</code>, thực hiện chức năng quản lý toàn phần
+	 * mềm, các giao dịch dữ liệu,... Hàm thực hiện rất nhiều chức năng, các
+	 * chức năng chủ yếu là ghi log, gọi {@link
+	 * org.hsm.model.Model.getInstance()#getData(String, Object...)
+	 * Model.getData} bằng cách chuyển trực tiếp câu lệnh cho
+	 * <code>Model.getData</code>.
 	 * <p>
 	 * Lệnh huydt yêu cầu: lấy toàn bộ thông tin đầy đủ của sinh viên.
 	 * <ul>
-	 * <li>Lấy toàn bộ mang rất nhiều nghĩa, ở đây tôi chỉ lấy thông tin cơ bản.</li>
-	 * <li>Gọi <code>(HashMap[])Control.getInstance().getData("getSuperFullStudents", offset, limit)</code> 
-	 * với <code>offset</code> là độ dịch vị, <code>limit</code> là giới hạn số lượng kết quả trả về</li>
+	 * <li>Lấy toàn bộ mang rất nhiều nghĩa, ở đây tôi chỉ lấy thông tin cơ bản.
+	 * </li>
+	 * <li>Gọi
+	 * <code>(HashMap[])Control.getInstance().getData("getSuperFullStudents", offset, limit)</code>
+	 * với <code>offset</code> là độ dịch vị, <code>limit</code> là giới hạn số
+	 * lượng kết quả trả về</li>
 	 * <li>Nếu độ dài mảng trả về nhỏ hơn limit tức là dữ liệu lấy đã đạt giới</li>
 	 * <li>Thông tin mỗi sinh viên tương ứng một <code>HashMap</code></li>
-	 * <li>Các trường dữ liệu được lấy về đảm bảo không <code>null</code> tương ứng với 
-	 * các kiểu dữ liệu thường dùng và có <code>key</code> là: <code>first, last, 
+	 * <li>Các trường dữ liệu được lấy về đảm bảo không <code>null</code> tương
+	 * ứng với các kiểu dữ liệu thường dùng và có <code>key</code> là:
+	 * <code>first, last, 
 	 * district(String), city(String), class(String), phones(String[]), 
-	 * emails(String[]),... </code> </li>
-	 * </ul> 
-	 * @see org.hsm.control.IControl#getData(java.lang.String, java.lang.Object[])
-	 * @param command lệnh truyền cho control.
-	 * @param data danh sách các tham số (optional)
+	 * emails(String[]),... </code></li>
+	 * </ul>
+	 * 
+	 * @see org.hsm.control.IControl#getData(java.lang.String,
+	 *      java.lang.Object[])
+	 * @param command
+	 *            lệnh truyền cho control.
+	 * @param data
+	 *            danh sách các tham số (optional)
 	 */
 	@Override
 	public Object getData(String command, Object... data) {
@@ -186,226 +197,289 @@ public class Control implements IControl {
 		Lecturer lecturer;
 		Course course;
 		int offset, limit;
-		
-		switch(command){
+		AcademicInfo[] academicInfos;
+
+		switch (command) {
+		case "saveAcademicInfo":
+			obj = (HedspiObject) data[0];
+			academicInfos = (AcademicInfo[]) data[1];
+			logger.log(Level.INFO, "Save academic information of student {"
+					+ obj.getName() + "}");
+			return Model.getInstance().getData("saveAcademicInfo", obj.getId(),
+					academicInfos);
+
+		case "getAcademicInfo":
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO, "Get academic information of student {"
+					+ obj.getName() + "}");
+			return Model.getInstance().getData("getAcademicInfo", obj.getId());
+
+		case "getLecturerListAll":
+			logger.log(Level.INFO, "Get list of all lecturers");
+			return Model.getInstance().getData("getLecturerListAll");
+
 		case "getBackgroundCourses":
-			obj = (HedspiObject)data[0];
-			logger.log(Level.INFO, "Get background courses of course {" + obj.getName() + "}");
-			return Model.getInstance().getData("getBackgroundCourses", obj.getId());
-			
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO,
+					"Get background courses of course {" + obj.getName() + "}");
+			return Model.getInstance().getData("getBackgroundCourses",
+					obj.getId());
+
 		case "getSuperFullStudents":
-			offset = (int)data[0];
-			limit = (int)data[1];
-			logger.log(Level.INFO, "Get full data of students from " + offset + " to {1}" + (offset + limit - 1));
-			return Model.getInstance().getData("getSuperFullStudents", offset, limit);
-			
+			offset = (int) data[0];
+			limit = (int) data[1];
+			logger.log(Level.INFO, "Get full data of students from " + offset
+					+ " to {1}" + (offset + limit - 1));
+			return Model.getInstance().getData("getSuperFullStudents", offset,
+					limit);
+
 		case "getAddableBackgroundCourse":
-			obj = (HedspiObject)data[0];
-			logger.log(Level.INFO, "Get addable background courses of course {" + obj.getName() + "}");
-			return Model.getInstance().getData("getAddableBackgroundCourse", obj.getId());
-			
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO, "Get addable background courses of course {"
+					+ obj.getName() + "}");
+			return Model.getInstance().getData("getAddableBackgroundCourse",
+					obj.getId());
+
 		case "saveCourse":
-			obj = (HedspiObject)data[0];
-			course = (Course)data[1];
-			logger.log(Level.INFO, "Save information of course {" + obj.getName() + "}");
-			return Model.getInstance().getData("saveCourse", obj.getId(), course, data[2]);
-				
+			obj = (HedspiObject) data[0];
+			course = (Course) data[1];
+			logger.log(Level.INFO,
+					"Save information of course {" + obj.getName() + "}");
+			return Model.getInstance().getData("saveCourse", obj.getId(),
+					course, data[2]);
+
 		case "getCoursesList":
 			logger.log(Level.INFO, "Get courses list");
 			return Model.getInstance().getData("getCoursesList");
-			
+
 		case "newCourse":
 			logger.log(Level.INFO, "Get new course");
 			return Model.getInstance().getData("newCourse");
-			
+
 		case "removeCourse":
-			obj = (HedspiObject)data[0];
+			obj = (HedspiObject) data[0];
 			logger.log(Level.INFO, "Remove course {" + obj.getName() + "}");
 			return Model.getInstance().getData("removeCourse", obj.getId());
-			
+
 		case "getFullDataCourse":
-			obj = (HedspiObject)data[0];
-			logger.log(Level.INFO, "Get full data of course {" + obj.getName() + "}");
-			return Model.getInstance().getData("getFullDataCourse", obj.getId());
-			
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO, "Get full data of course {" + obj.getName()
+					+ "}");
+			return Model.getInstance()
+					.getData("getFullDataCourse", obj.getId());
+
 		case "saveRoomName":
-			obj = (HedspiObject)data[0];
-			name = (String)data[1];
-			logger.log(Level.INFO, "Change name of room {" + obj.getName() + "} into {" + name + "}");
-			return Model.getInstance().getData("saveRoomName", obj.getId(), name);
-			
+			obj = (HedspiObject) data[0];
+			name = (String) data[1];
+			logger.log(Level.INFO, "Change name of room {" + obj.getName()
+					+ "} into {" + name + "}");
+			return Model.getInstance().getData("saveRoomName", obj.getId(),
+					name);
+
 		case "reloadRoomName":
-			obj = (HedspiObject)data[0];
-			logger.log(Level.INFO, "Reload name of room {" + obj.getName() + "}");
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO, "Reload name of room {" + obj.getName()
+					+ "}");
 			return Model.getInstance().getData("reloadRoomName", obj.getId());
-			
+
 		case "getRoomList":
 			logger.log(Level.INFO, "Get list of rooms");
 			return Model.getInstance().getData("getRoomList");
-			
+
 		case "newRoom":
 			logger.log(Level.INFO, "Get new room");
 			return Model.getInstance().getData("newRoom");
-			
+
 		case "removeRoom":
-			obj = (HedspiObject)data[0];
+			obj = (HedspiObject) data[0];
 			logger.log(Level.INFO, "Remove room {" + obj.getName() + "}");
 			return Model.getInstance().getData("removeRoom", obj.getId());
-			
+
 		case "updateLecturer":
-			obj = (HedspiObject)data[0];
-			lecturer = (Lecturer)data[1];
-			logger.log(Level.INFO, "Save information of lecturer {" + obj.getName() + "}");
-			return Model.getInstance().getData("updateLecturer", obj.getId(), lecturer);
-			
+			obj = (HedspiObject) data[0];
+			lecturer = (Lecturer) data[1];
+			logger.log(Level.INFO,
+					"Save information of lecturer {" + obj.getName() + "}");
+			return Model.getInstance().getData("updateLecturer", obj.getId(),
+					lecturer);
+
 		case "getListOfDegrees":
 			logger.log(Level.INFO, "Get list of degrees");
 			return Model.getInstance().getData("getListOfDegrees");
-			
+
 		case "getFullDataLecturer":
-			obj = (HedspiObject)data[0];
-			logger.log(Level.INFO, "Get full data of lecturer {" + obj.getName() + "}");
-			return Model.getInstance().getData("getFullDataLecturer", obj.getId());
-			
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO,
+					"Get full data of lecturer {" + obj.getName() + "}");
+			return Model.getInstance().getData("getFullDataLecturer",
+					obj.getId());
+
 		case "getLecturersListInFaculty":
-			obj = (HedspiObject)data[0];
-			logger.log(Level.INFO, "Get lecturers in faculty {" + obj.getName() + "}");
-			return Model.getInstance().getData("getLecturersListInFaculty", obj.getId());
-			
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO, "Get lecturers in faculty {" + obj.getName()
+					+ "}");
+			return Model.getInstance().getData("getLecturersListInFaculty",
+					obj.getId());
+
 		case "removeLecturer":
-			obj = (HedspiObject)data[0];
+			obj = (HedspiObject) data[0];
 			logger.log(Level.INFO, "Remove lecturer {" + obj.getName() + "}");
 			return Model.getInstance().getData("removeLecturer", obj.getId());
-			
+
 		case "newLecturer":
-			obj = (HedspiObject)data[0];
-			logger.log(Level.INFO, "New lecturer in faculty {" + obj.getName() + "}");
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO, "New lecturer in faculty {" + obj.getName()
+					+ "}");
 			return Model.getInstance().getData("newLecturer", obj.getId());
-			
+
 		case "renameFaculty":
-			obj = (HedspiObject)data[0];
-			name = (String)data[1];
-			logger.log(Level.INFO, "Rename faculty {" + obj.getName() + "} into {" + name + "}");
-			return Model.getInstance().getData("renameFaculty", obj.getId(), name);
-			
+			obj = (HedspiObject) data[0];
+			name = (String) data[1];
+			logger.log(Level.INFO, "Rename faculty {" + obj.getName()
+					+ "} into {" + name + "}");
+			return Model.getInstance().getData("renameFaculty", obj.getId(),
+					name);
+
 		case "getListOfFaculties":
 			logger.log(Level.INFO, "Get list of faculties");
 			return Model.getInstance().getData("getListOfFaculties");
-			
+
 		case "removeFaculty":
-			obj = (HedspiObject)data[0];
+			obj = (HedspiObject) data[0];
 			logger.log(Level.INFO, "Remove faculty {" + obj.getName() + "}");
 			return Model.getInstance().getData("removeFaculty", obj.getId());
-			
+
 		case "newFaculty":
 			logger.log(Level.INFO, "Create new faculty");
 			return Model.getInstance().getData("newFaculty");
-			
+
 		case "saveCityName":
-			obj = (HedspiObject)data[0];
-			name= (String)data[1];
-			logger.log(Level.INFO, "Change name of city {" + obj.getName() + "} to {" + name + "}");
-			return Model.getInstance().getData("saveCityName", obj.getId(), name);
-			
+			obj = (HedspiObject) data[0];
+			name = (String) data[1];
+			logger.log(Level.INFO, "Change name of city {" + obj.getName()
+					+ "} to {" + name + "}");
+			return Model.getInstance().getData("saveCityName", obj.getId(),
+					name);
+
 		case "getDistrictName":
-			obj = (HedspiObject)data[0];
-			logger.log(Level.INFO, "Reload name of district {" + obj.getName() + "}");
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO, "Reload name of district {" + obj.getName()
+					+ "}");
 			return Model.getInstance().getData("getDistrictName", obj.getId());
-			
+
 		case "saveDistrictName":
-			obj = (HedspiObject)data[0];
-			name = (String)data[1];
-			logger.log(Level.INFO, "Change district name from {" + obj.getName() + "} into {" + name + "}");
-			return Model.getInstance().getData("saveDistrictName", obj.getId(), name);
-			
+			obj = (HedspiObject) data[0];
+			name = (String) data[1];
+			logger.log(Level.INFO,
+					"Change district name from {" + obj.getName() + "} into {"
+							+ name + "}");
+			return Model.getInstance().getData("saveDistrictName", obj.getId(),
+					name);
+
 		case "getDistrictsListInCity":
-			obj = (HedspiObject)data[0];
-			logger.log(Level.INFO, "Get new district in city {" + obj.getName() + "}");
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO, "Get new district in city {" + obj.getName()
+					+ "}");
 			return Model.getInstance().getData("getDistricsList", obj.getId());
-			
+
 		case "removeDistrict":
-			obj = (HedspiObject)data[0];
+			obj = (HedspiObject) data[0];
 			logger.log(Level.INFO, "Remove district {" + obj.getName() + "}");
 			return Model.getInstance().getData("removeDistrict", obj.getId());
-			
+
 		case "newDistrict":
-			obj = (HedspiObject)data[0];
-			logger.log(Level.INFO, "Get new district of city {" + obj.getName() + "}");
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO, "Get new district of city {" + obj.getName()
+					+ "}");
 			return Model.getInstance().getData("newDistrict", obj.getId());
-			
+
 		case "getCitiesList":
 			logger.log(Level.INFO, "Get list of cities");
 			return Model.getInstance().getData("getCitiesList");
-			
+
 		case "removeCity":
-			obj = (HedspiObject)data[0];
+			obj = (HedspiObject) data[0];
 			logger.log(Level.INFO, "Remove city {" + obj.getName() + "}");
 			return Model.getInstance().getData("removeCity", obj.getId());
-			
+
 		case "newCity":
 			logger.log(Level.INFO, "Get new city");
 			return Model.getInstance().getData("newCity");
-			
+
 		case "getCityOfDistrict":
 			id = (int) data[0];
-			logger.log(Level.INFO, "Get id of city for district with id {" + id + "}");
+			logger.log(Level.INFO, "Get id of city for district with id {" + id
+					+ "}");
 			return Model.getInstance().getData("getCityOfDistrict", id);
-			
+
 		case "updateStudent":
-			obj = (HedspiObject)data[0];
-			student = (Student)data[1];
-			return Model.getInstance().getData("updateStudent", obj.getId(), student);
-			
+			obj = (HedspiObject) data[0];
+			student = (Student) data[1];
+			return Model.getInstance().getData("updateStudent", obj.getId(),
+					student);
+
 		case "getDistricsList":
-			id = (int)data[0];
-			logger.log(Level.INFO, "Get list of districts in city having id {" + id + "}");
+			id = (int) data[0];
+			logger.log(Level.INFO, "Get list of districts in city having id {"
+					+ id + "}");
 			return Model.getInstance().getData("getDistricsList", id);
-			
+
 		case "getCityList":
 			logger.log(Level.INFO, "Get list of cities");
 			return Model.getInstance().getData("getCityList");
-			
+
 		case "getClassList":
 			logger.log(Level.INFO, "Get list of class");
 			return Model.getInstance().getData("getClassList");
-			
+
 		case "getFullStudentData":
-			obj = (HedspiObject)data[0];
-			logger.log(Level.INFO, "Get full data of student {" + obj.getName() + "}");
-			return Model.getInstance().getData("getFullStudentData", obj.getId());
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO, "Get full data of student {" + obj.getName()
+					+ "}");
+			return Model.getInstance().getData("getFullStudentData",
+					obj.getId());
 		case "renameClass":
-			obj = (HedspiObject)data[0];
-			name = (String)data[1];
-			logger.log(Level.INFO, "Change class's name from {" + obj.getName() + "} to {" + name + "}");
-			return Model.getInstance().getData("renameClass", obj.getId(), name);
+			obj = (HedspiObject) data[0];
+			name = (String) data[1];
+			logger.log(Level.INFO, "Change class's name from {" + obj.getName()
+					+ "} to {" + name + "}");
+			return Model.getInstance()
+					.getData("renameClass", obj.getId(), name);
 		case "getNewRawStudentInClass":
-			obj = (HedspiObject)data[0];
-			logger.log(Level.INFO, "Insert new student in class {" + obj.getName() + "}");
-			return Model.getInstance().getData("getNewRawStudentInClass", obj.getId());
-			
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO,
+					"Insert new student in class {" + obj.getName() + "}");
+			return Model.getInstance().getData("getNewRawStudentInClass",
+					obj.getId());
+
 		case "removeStudent":
-			obj = (HedspiObject)data[0];
+			obj = (HedspiObject) data[0];
 			logger.log(Level.INFO, "Remove student {" + obj.getName() + "}");
 			return Model.getInstance().getData("removeStudent", obj.getId());
-			
+
 		case "getStudentRawListInClass":
-			obj = (HedspiObject)data[0];
-			logger.log(Level.INFO, "Get raw list of students in {" + obj.toString() +"} class");
-			return Model.getInstance().getData("getStudentRawListInClass", obj.getId());
-			
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO,
+					"Get raw list of students in {" + obj.toString()
+							+ "} class");
+			return Model.getInstance().getData("getStudentRawListInClass",
+					obj.getId());
+
 		case "removeClass":
-			obj = (HedspiObject)data[0];
-			logger.log(Level.INFO, String.format("Remove class with id = {%d}, name = {%s}", obj.getId(), obj.toString()));
+			obj = (HedspiObject) data[0];
+			logger.log(Level.INFO, String.format(
+					"Remove class with id = {%d}, name = {%s}", obj.getId(),
+					obj.toString()));
 			return Model.getInstance().getData("removeClass", obj.getId());
-			
+
 		case "newClass":
 			logger.log(Level.INFO, "Create new class");
 			return Model.getInstance().getData("newClass");
-			
+
 		case "classList":
 			logger.log(Level.INFO, "Fetch class list");
 			return Model.getInstance().getData("classList");
-			
+
 		default:
 			logger.log(Level.WARNING,
 					"A view has fired Control an operation that is not supported.\nCommand: "

@@ -18,11 +18,11 @@ public class StudentPane extends JSplitPane {
 	 * Create the panel.
 	 */
 	public StudentPane() {
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		setLeftComponent(scrollPane);
-		
-		ObjectListPane classListPane = new ObjectListPane("Class list"){
+
+		ObjectListPane classListPane = new ObjectListPane("Class list") {
 
 			/**
 			 * 
@@ -30,32 +30,30 @@ public class StudentPane extends JSplitPane {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			public
-			HedspiObject newElement() {
-				return (HedspiObject)Control.getInstance().getData("newClass");
+			public HedspiObject newElement() {
+				return (HedspiObject) Control.getInstance().getData("newClass");
 			}
 
 			@Override
-			public
-			String removeElement(HedspiObject value) {
-				return (String)Control.getInstance().getData("removeClass", value);
+			public String removeElement(HedspiObject value) {
+				return (String) Control.getInstance().getData("removeClass",
+						value);
 			}
 
 			@Override
-			public
-			HedspiObject[] getRefresh() {
-				return (HedspiObject[]) Control.getInstance().getData("classList");
+			public HedspiObject[] getRefresh() {
+				return (HedspiObject[]) Control.getInstance().getData(
+						"classList");
 			}
 
 			@Override
-			public
-			void selectValue(HedspiObject value) {
+			public void selectValue(HedspiObject value) {
 				classViewPane.setHedspiClass(value);
 			}
 
 		};
 		scrollPane.setViewportView(classListPane);
-		
+
 		classViewPane = new ClassViewPane();
 		setRightComponent(classViewPane);
 		setDividerLocation(150);

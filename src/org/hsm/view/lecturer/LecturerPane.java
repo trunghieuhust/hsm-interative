@@ -19,11 +19,11 @@ public class LecturerPane extends JSplitPane {
 	 * Create the panel.
 	 */
 	public LecturerPane() {
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		setLeftComponent(scrollPane);
-		
-		ObjectListPane facultyListPane = new ObjectListPane("Faculties list"){
+
+		ObjectListPane facultyListPane = new ObjectListPane("Faculties list") {
 
 			/**
 			 * 
@@ -37,20 +37,24 @@ public class LecturerPane extends JSplitPane {
 
 			@Override
 			public HedspiObject newElement() {
-				return (HedspiObject)Control.getInstance().getData("newFaculty");
+				return (HedspiObject) Control.getInstance().getData(
+						"newFaculty");
 			}
 
 			@Override
 			public String removeElement(HedspiObject value) {
-				return (String)Control.getInstance().getData("removeFaculty", value);
+				return (String) Control.getInstance().getData("removeFaculty",
+						value);
 			}
 
 			@Override
 			public HedspiObject[] getRefresh() {
-				return (HedspiObject[]) Control.getInstance().getData("getListOfFaculties");
-			}};
+				return (HedspiObject[]) Control.getInstance().getData(
+						"getListOfFaculties");
+			}
+		};
 		scrollPane.setViewportView(facultyListPane);
-		
+
 		facultyViewPane = new FacultyViewPane();
 		setRightComponent(facultyViewPane);
 		setDividerLocation(150);

@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 import org.hsm.control.Control;
@@ -18,7 +19,6 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
-import javax.swing.JTabbedPane;
 
 public class ClassViewPane extends JSplitPane {
 
@@ -33,6 +33,8 @@ public class ClassViewPane extends JSplitPane {
 	private JTextField textFieldClassName;
 
 	private StudentViewPane studentViewPane;
+
+	private RegisterPane registerPane;
 
 	/**
 	 * Create the panel.
@@ -76,8 +78,9 @@ public class ClassViewPane extends JSplitPane {
 								"Rename class name failed.\nMessage: "
 										+ message, "Rename failed",
 								JOptionPane.WARNING_MESSAGE);
-					else{
-						JOptionPane.showMessageDialog(null, "Rename class ok", "Rename ok", JOptionPane.INFORMATION_MESSAGE);
+					else {
+						JOptionPane.showMessageDialog(null, "Rename class ok",
+								"Rename ok", JOptionPane.INFORMATION_MESSAGE);
 						hedspiClass.setName(name);
 					}
 				}
@@ -100,11 +103,11 @@ public class ClassViewPane extends JSplitPane {
 			public void selectValue(HedspiObject value) {
 				Student student = (Student) Control.getInstance().getData(
 						"getFullStudentData", value);
-				if (student != null){
+				if (student != null) {
 					studentViewPane.setHedspiObject(value);
 					studentViewPane.setInfo(student);
-				}
-				else
+					registerPane.setHedpiObject(value);
+				} else
 					JOptionPane.showMessageDialog(null,
 							"Failed to get student info", "Get data failed",
 							JOptionPane.ERROR_MESSAGE);
@@ -131,25 +134,21 @@ public class ClassViewPane extends JSplitPane {
 			}
 		};
 		panel.add(studentListPane, "2, 4, fill, fill");
-		
+
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		setRightComponent(tabbedPane);
-		
+
 		JScrollPane scrollPane_1 = new JScrollPane();
 		tabbedPane.addTab("Contact information", null, scrollPane_1, null);
-		
-		StudentViewPane studentViewPane = new StudentViewPane();
+
+		studentViewPane = new StudentViewPane();
 		scrollPane_1.setViewportView(studentViewPane);
-		studentViewPane.setLayout(new FormLayout(new ColumnSpec[] {},
-			new RowSpec[] {}));
-		
+
 		JScrollPane scrollPane_2 = new JScrollPane();
 		tabbedPane.addTab("Academic information", null, scrollPane_2, null);
-		
-		RegisterPane registerPane = new RegisterPane();
+
+		registerPane = new RegisterPane();
 		scrollPane_2.setViewportView(registerPane);
-		registerPane.setLayout(new FormLayout(new ColumnSpec[] {},
-			new RowSpec[] {}));
 
 		setDividerLocation(150);
 	}

@@ -8,11 +8,14 @@ import org.hsm.model.hedspiObject.HedspiObject;
 public class DistrictService {
 
 	public static HedspiObject[] getDistrictsList(int city) {
-		return CoreService.getInstance().rsToSimpleArray(CoreService.getInstance().doQueryFunction("get_raw_districts_in_city", city));
+		return CoreService.getInstance().rsToSimpleArray(
+				CoreService.getInstance().doQueryFunction(
+						"get_raw_districts_in_city", city));
 	}
 
 	public static int getCityOfDistrict(int i) {
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_city_id_of_district", i);
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
+				.doQueryFunction("get_city_id_of_district", i);
 		if (rs.size() == 0)
 			return -1;
 		if (rs.get(0).get("id") == null)
@@ -21,7 +24,9 @@ public class DistrictService {
 	}
 
 	public static HedspiObject getNewInCity(int i) {
-		return CoreService.getInstance().firstSimpleResult(CoreService.getInstance().doQueryFunction("get_new_district_in_city", i));
+		return CoreService.getInstance().firstSimpleResult(
+				CoreService.getInstance().doQueryFunction(
+						"get_new_district_in_city", i));
 	}
 
 	public static String remove(int i) {
@@ -29,11 +34,13 @@ public class DistrictService {
 	}
 
 	public static String rename(int id, String name) {
-		return CoreService.getInstance().doUpdateFunction("update_district", id, name);
+		return CoreService.getInstance().doUpdateFunction("update_district",
+				id, name);
 	}
 
 	public static String getName(int i) {
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_district_name", i);
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
+				.doQueryFunction("get_district_name", i);
 		if (rs.isEmpty())
 			return null;
 		String name = (String) rs.get(0).get("name");

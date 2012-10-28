@@ -1,5 +1,9 @@
 package org.hsm.view.lecturer;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -15,9 +19,6 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class LecturerViewPane extends JPanel {
 
@@ -47,11 +48,9 @@ public class LecturerViewPane extends JPanel {
 
 		JPanel panel = new JPanel();
 		add(panel, "4, 2, fill, fill");
-		panel.setLayout(new FormLayout(new ColumnSpec[] {
-				ColumnSpec.decode("236px:grow"),},
-			new RowSpec[] {
-				RowSpec.decode("70px"),
-				FormFactory.DEFAULT_ROWSPEC,}));
+		panel.setLayout(new FormLayout(new ColumnSpec[] { ColumnSpec
+				.decode("236px:grow"), }, new RowSpec[] {
+				RowSpec.decode("70px"), FormFactory.DEFAULT_ROWSPEC, }));
 
 		JPanel otherPane = new JPanel();
 		panel.add(otherPane, "1, 1, fill, top");

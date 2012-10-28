@@ -66,7 +66,9 @@ public class FacultyViewPane extends JSplitPane {
 				String message = (String) Control.getInstance().getData(
 						"renameFaculty", faculty, name);
 				if (message == null) {
-					JOptionPane.showMessageDialog(null, "Save faculty's name success", "Save success", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null,
+							"Save faculty's name success", "Save success",
+							JOptionPane.INFORMATION_MESSAGE);
 					faculty.setName(name);
 				} else {
 					JOptionPane.showMessageDialog(null,
@@ -92,11 +94,10 @@ public class FacultyViewPane extends JSplitPane {
 			public void selectValue(HedspiObject value) {
 				Lecturer lecturer = (Lecturer) Control.getInstance().getData(
 						"getFullDataLecturer", value);
-				if (lecturer != null){
+				if (lecturer != null) {
 					lecturerViewPane.setHedspiObject(value);
 					lecturerViewPane.setInfo(lecturer);
-				}
-				else
+				} else
 					JOptionPane.showMessageDialog(null,
 							"Get data of lecturer failed", "Get data failed",
 							JOptionPane.WARNING_MESSAGE);

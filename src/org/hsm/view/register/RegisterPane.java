@@ -15,7 +15,7 @@ public class RegisterPane extends JPanel {
 	 * Create the panel.
 	 */
 	public RegisterPane() {
-		//TODO @haidang: complete it
+		// TODO @haidang: complete it
 		setLayout(new FormLayout());
 	}
 

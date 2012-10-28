@@ -141,17 +141,19 @@ public class CoreService {
 
 	/**
 	 * Thực hiện truy vấn trả về kết quả.
-	 * @param queryStr	câu truy vấn có trả về kết quả.
-	 * Nếu một truy vấn không có kết quả được gọi, cảnh báo sẽ xuất hiện
-	 * trong file log.
-	 * @return	danh sách các bản ghi trả về, mỗi bản ghi là một map.
-	 * Trường hợp truy vấn lỗi sẽ trả về một danh sách rỗng.
+	 * 
+	 * @param queryStr
+	 *            câu truy vấn có trả về kết quả. Nếu một truy vấn không có kết
+	 *            quả được gọi, cảnh báo sẽ xuất hiện trong file log.
+	 * @return danh sách các bản ghi trả về, mỗi bản ghi là một map. Trường hợp
+	 *         truy vấn lỗi sẽ trả về một danh sách rỗng.
 	 */
 	public ArrayList<HashMap<String, Object>> query(String queryStr) {
 		return queryFull(queryStr).getT1();
 	}
 
-	private Pair<ArrayList<HashMap<String, Object>>, String> queryFull(String queryStr) {
+	public Pair<ArrayList<HashMap<String, Object>>, String> queryFull(
+			String queryStr) {
 		Control.getInstance().getLogger()
 				.log(Level.INFO, "Execute query {0}", queryStr);
 		ArrayList<HashMap<String, Object>> result = new ArrayList<>();
@@ -170,7 +172,8 @@ public class CoreService {
 		try {
 			rs = stmt.executeQuery(queryStr);
 		} catch (SQLException e) {
-			Control.getInstance().getLogger().log(Level.WARNING, e.getMessage());
+			Control.getInstance().getLogger()
+					.log(Level.WARNING, e.getMessage());
 			close(stmt);
 			close(conn);
 			return new Pair<>(result, e.getMessage());
@@ -203,15 +206,17 @@ public class CoreService {
 	}
 
 	/**
-	 * Thực thi truy vấn cập nhật CSDL, sử dụng giống như {@link #query query} tuy nhiên
-	 * lệnh này sử dụng cho những câu truy vấn không trả về kết quả.
-	 * @param updateStr	câu truy vấn có thể không trả về kết quả
-	 * @return	trả về <code>null</code> nếu thành công, ngược lại sẽ trả về String chứa
-	 * thông báo lỗi.
+	 * Thực thi truy vấn cập nhật CSDL, sử dụng giống như {@link #query query}
+	 * tuy nhiên lệnh này sử dụng cho những câu truy vấn không trả về kết quả.
+	 * 
+	 * @param updateStr
+	 *            câu truy vấn có thể không trả về kết quả
+	 * @return trả về <code>null</code> nếu thành công, ngược lại sẽ trả về
+	 *         String chứa thông báo lỗi.
 	 */
-	public String update(String updateStr){
+	public String update(String updateStr) {
 		Control.getInstance().getLogger()
-		.log(Level.INFO, "Execute udpate " + updateStr);
+				.log(Level.INFO, "Execute udpate " + updateStr);
 
 		Connection conn = getConnection();
 		if (conn == null)
@@ -227,7 +232,7 @@ public class CoreService {
 			stmt.executeUpdate(updateStr);
 		} catch (SQLException e) {
 			Control.getInstance().getLogger()
-			.log(Level.WARNING, e.getMessage());
+					.log(Level.WARNING, e.getMessage());
 			return e.getMessage();
 		}
 
@@ -239,21 +244,30 @@ public class CoreService {
 	public void setLoginInfo(Properties loginInfo) {
 		this.loginInfo = loginInfo;
 	}
-	
-	private String getFullFunctionCaller(String func, Object[] args){
+
+	private String getFullFunctionCaller(String func, Object[] args) {
 		String query = func + "(";
-		for(int i = 0; i < args.length; i++){
-			String arg = args[i] instanceof String ? ("'" + args[i].toString().replace("'", "''") + "'::text") : args[i].toString();
+		for (int i = 0; i < args.length; i++) {
+			String arg = args[i] instanceof String ? ("'"
+					+ args[i].toString().replace("'", "''") + "'::text")
+					: args[i].toString();
 			if (args[i] instanceof Boolean)
-				arg = (Boolean)args[i] ? "true" : "false"; 
+				arg = (Boolean) args[i] ? "true" : "false";
 			if (args[i] instanceof Double)
 				arg = args[i].toString() + "::double precision";
-			if (args[i] instanceof HedspiObject[]){
-				HedspiObject[] arr = (HedspiObject[])args[i];
+			if (args[i] instanceof HedspiObject[]) {
+				HedspiObject[] arr = (HedspiObject[]) args[i];
 				arg = "";
-				for(int j = 0; j < arr.length ;j++)
+				for (int j = 0; j < arr.length; j++)
 					arg += arr[j].getId() + ", ";
 				arg += "-1";
+			}
+			if (args[i] instanceof double[]) {
+				arg = "";
+				double[] arr = (double[]) args[i];
+				for (int j = 0; j < arr.length; j++)
+					arg += arr[j] + "::double precision, ";
+				arg += "-1::double precision";
 			}
 			query += arg == "" ? "" : ((i > 0 ? ", " : "") + arg);
 		}
@@ -262,50 +276,55 @@ public class CoreService {
 	}
 
 	public ArrayList<HashMap<String, Object>> doQueryFunction(String func,
-			Object ... args) {
+			Object... args) {
 		String queryStr = "SELECT * FROM " + getFullFunctionCaller(func, args);
 		return query(queryStr);
 	}
-	
+
 	/**
-	 * Sử dụng để gọi các hàm trên server. Mặc định hàm đó phải trả về text 
-	 * Trong đó cần trả về xâu rỗng nếu thành công, ngược lại trả về thông báo lỗi.
-	 * @param func tên hàm
-	 * @param args danh sách các tham số, nếu là <code>String</code>, sẽ tự động được
-	 * thay thế kí tự <code>'</code> bởi <code>''</code>
+	 * Sử dụng để gọi các hàm trên server. Mặc định hàm đó phải trả về text
+	 * Trong đó cần trả về xâu rỗng nếu thành công, ngược lại trả về thông báo
+	 * lỗi.
+	 * 
+	 * @param func
+	 *            tên hàm
+	 * @param args
+	 *            danh sách các tham số, nếu là <code>String</code>, sẽ tự động
+	 *            được thay thế kí tự <code>'</code> bởi <code>''</code>
 	 * @return xem {@link #update update}
 	 */
 	@Deprecated
-	public String doUpdateFunctionDeplicated(String func, Object ... args){
+	public String doUpdateFunctionDeplicated(String func, Object... args) {
 		final String RESULT_LABEL = "result";
-		String updateStr = "SELECT " + getFullFunctionCaller(func, args) + " AS " + RESULT_LABEL;
+		String updateStr = "SELECT " + getFullFunctionCaller(func, args)
+				+ " AS " + RESULT_LABEL;
 		Pair<ArrayList<HashMap<String, Object>>, String> rs = queryFull(updateStr);
 		if (rs.getT2() != null)
 			return rs.getT2();
-		if (!rs.getT1().isEmpty()){
+		if (!rs.getT1().isEmpty()) {
 			if (rs.getT1().get(0).get(RESULT_LABEL) == null)
-				return "Server function {" + func + "} did not return expected result";
+				return "Server function {" + func
+						+ "} did not return expected result";
 			if (rs.getT1().get(0).get(RESULT_LABEL).equals(""))
 				return null;
 			else
-				return (String)rs.getT1().get(0).get(RESULT_LABEL);
+				return (String) rs.getT1().get(0).get(RESULT_LABEL);
 		}
 		return "Query {" + func + "} failed";
 	}
-	
-	public String doUpdateFunction(String func, Object ... args){
+
+	public String doUpdateFunction(String func, Object... args) {
 		String updateStr = "SELECT " + getFullFunctionCaller(func, args);
 		return queryFull(updateStr).getT2();
 	}
 
-	public HedspiObject[] rsToSimpleArray(
-			ArrayList<HashMap<String, Object>> rs) {
+	public HedspiObject[] rsToSimpleArray(ArrayList<HashMap<String, Object>> rs) {
 		ArrayList<HedspiObject> ret = new ArrayList<>();
-		for(HashMap<String, Object> it : rs){
+		for (HashMap<String, Object> it : rs) {
 			if (it.get("id") == null)
 				continue;
-			int id = (int)it.get("id");
-			String name = (String)it.get("name");
+			int id = (int) it.get("id");
+			String name = (String) it.get("name");
 			if (name == null)
 				name = "";
 			ret.add(new HedspiObject(id, name));
@@ -313,8 +332,7 @@ public class CoreService {
 		return ret.toArray(new HedspiObject[ret.size()]);
 	}
 
-	public HedspiObject firstSimpleResult(
-			ArrayList<HashMap<String, Object>> rs) {
+	public HedspiObject firstSimpleResult(ArrayList<HashMap<String, Object>> rs) {
 		HedspiObject[] arr = rsToSimpleArray(rs);
 		if (arr.length == 0)
 			return null;

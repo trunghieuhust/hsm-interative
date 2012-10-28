@@ -15,7 +15,7 @@ public class ImexPane extends JPanel {
 	 * Create the panel.
 	 */
 	public ImexPane() {
-		//TODO @huydt: complete it
+		// TODO @huydt: complete it
 		setLayout(new FormLayout());
 	}
 

@@ -8,7 +8,7 @@ public class Course extends HedspiObject {
 	private double time;
 	private String note;
 	private String code;
-	
+
 	public Course(int id, String name, double nFees, int nCredits,
 			String topic, double time, String note, String code) {
 		super(id, name);

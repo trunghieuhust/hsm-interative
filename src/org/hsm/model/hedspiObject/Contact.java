@@ -13,9 +13,9 @@ public class Contact extends HedspiObject {
 	private String home;
 	private int district;
 
-	public Contact(int id, String first, String last,
-			boolean isMale, Date dob, String[] emails,
-			String[] phones, String note, String home, int district) {
+	public Contact(int id, String first, String last, boolean isMale, Date dob,
+			String[] emails, String[] phones, String note, String home,
+			int district) {
 		super(id, first + " " + last);
 		this.first = first;
 		this.last = last;

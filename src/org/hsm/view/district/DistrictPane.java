@@ -19,45 +19,43 @@ public class DistrictPane extends JSplitPane {
 	 * Create the panel.
 	 */
 	public DistrictPane() {
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		setLeftComponent(scrollPane);
-		
-		ObjectListPane cityListPane = new ObjectListPane("Cities list"){
+
+		ObjectListPane cityListPane = new ObjectListPane("Cities list") {
 
 			/**
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;
-			
+
 			@Override
-			public
-			HedspiObject newElement() {
-				return (HedspiObject)Control.getInstance().getData("newCity");
+			public HedspiObject newElement() {
+				return (HedspiObject) Control.getInstance().getData("newCity");
 			}
 
 			@Override
-			public
-			String removeElement(HedspiObject value) {
-				return (String)Control.getInstance().getData("removeCity", value);
+			public String removeElement(HedspiObject value) {
+				return (String) Control.getInstance().getData("removeCity",
+						value);
 			}
 
 			@Override
-			public
-			HedspiObject[] getRefresh() {
-				return (HedspiObject[]) Control.getInstance().getData("getCitiesList");
+			public HedspiObject[] getRefresh() {
+				return (HedspiObject[]) Control.getInstance().getData(
+						"getCitiesList");
 			}
 
 			@Override
-			public
-			void selectValue(HedspiObject value) {
+			public void selectValue(HedspiObject value) {
 				cityViewPane.setCity(value);
 			}
-	
+
 		};
-			
+
 		scrollPane.setViewportView(cityListPane);
-		
+
 		cityViewPane = new CityViewPane();
 		setRightComponent(cityViewPane);
 		setDividerLocation(150);

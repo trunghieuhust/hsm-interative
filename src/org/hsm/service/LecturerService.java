@@ -10,7 +10,9 @@ import org.hsm.model.hedspiObject.Lecturer;
 public class LecturerService {
 
 	public static HedspiObject getNewInFaculty(int i) {
-		return CoreService.getInstance().firstSimpleResult(CoreService.getInstance().doQueryFunction("get_new_lecturer_in_faculty", i));
+		return CoreService.getInstance().firstSimpleResult(
+				CoreService.getInstance().doQueryFunction(
+						"get_new_lecturer_in_faculty", i));
 	}
 
 	public static String remove(int i) {
@@ -18,11 +20,14 @@ public class LecturerService {
 	}
 
 	public static HedspiObject[] getLecturersInFaculty(int i) {
-		return CoreService.getInstance().rsToSimpleArray(CoreService.getInstance().doQueryFunction("get_raw_lecturers_list_in_faculty", i));
+		return CoreService.getInstance().rsToSimpleArray(
+				CoreService.getInstance().doQueryFunction(
+						"get_raw_lecturers_list_in_faculty", i));
 	}
 
 	public static Lecturer getFullData(int id) {
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_full_data_lecturer_in_faculty", id);
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
+				.doQueryFunction("get_full_data_lecturer_in_faculty", id);
 		if (rs.isEmpty())
 			return null;
 		HashMap<String, Object> ret = rs.get(0);
@@ -98,5 +103,10 @@ public class LecturerService {
 				StudentService.arrayToEndlineString(lecturer.getPhones()),
 				lecturer.getNote(), lecturer.getHome(), lecturer.getDistrict(),
 				lecturer.getFaculty(), lecturer.getDegree(), id);
+	}
+
+	public static HedspiObject[] getAll() {
+		return CoreService.getInstance().rsToSimpleArray(
+				CoreService.getInstance().doQueryFunction("get_all_lecturers"));
 	}
 }
