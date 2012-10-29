@@ -36,6 +36,9 @@ public class Model implements IModel {
 	@Override
 	public Object getData(String command, Object... data) {
 		switch (command) {
+		case "getBackgroundRelated":
+			return CourseService.getRelatedBackground((int)data[0]);
+			
 		case "saveAcademicInfo":
 			return StudentService.saveAcademicInfo((int) data[0],
 					(AcademicInfo[]) data[1]);

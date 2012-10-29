@@ -200,6 +200,11 @@ public class Control implements IControl {
 		AcademicInfo[] academicInfos;
 
 		switch (command) {
+		case "getBackgroundRelated":
+			obj = (HedspiObject)data[0];
+			logger.log(Level.INFO, "Get background constrains related with course{" + obj.getName() + "}");
+			return Model.getInstance().getData("getBackgroundRelated", obj.getId());
+			
 		case "saveAcademicInfo":
 			obj = (HedspiObject) data[0];
 			academicInfos = (AcademicInfo[]) data[1];

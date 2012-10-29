@@ -8,7 +8,6 @@ import org.hsm.view.district.DistrictPane;
 import org.hsm.view.imex.ImexPane;
 import org.hsm.view.lecturer.LecturerPane;
 import org.hsm.view.maintain.MaintainPane;
-import org.hsm.view.register.RegisterPane;
 import org.hsm.view.room.RoomPane;
 import org.hsm.view.student.StudentPane;
 
@@ -48,9 +47,6 @@ public class MainPane extends JPanel {
 
 		CoursePane coursePane = new CoursePane();
 		tabbedPane.addTab("Course", null, coursePane, null);
-
-		RegisterPane registerPane = new RegisterPane();
-		tabbedPane.addTab("Register", null, registerPane, null);
 
 		ImexPane imexPanel = new ImexPane();
 		tabbedPane.addTab("Im-Export", null, imexPanel, null);

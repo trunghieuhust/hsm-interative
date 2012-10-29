@@ -3,10 +3,12 @@ package org.hsm.view.course;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTabbedPane;
 
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.Course;
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.hsm.view.course.visual.HierachyView;
 import org.hsm.view.student.ObjectListPane;
 
 public class CoursePane extends JSplitPane {
@@ -16,6 +18,7 @@ public class CoursePane extends JSplitPane {
 	 */
 	private static final long serialVersionUID = 1L;
 	private CourseViewPane courseViewPane;
+	private HierachyView hierachyView;
 
 	/**
 	 * Create the panel.
@@ -43,6 +46,7 @@ public class CoursePane extends JSplitPane {
 				} else {
 					courseViewPane.setHedspiObject(value);
 					courseViewPane.setInfo(course);
+					hierachyView.setHedspiObject(value);
 				}
 
 			}
@@ -66,12 +70,18 @@ public class CoursePane extends JSplitPane {
 			}
 		};
 		scrollPane.setViewportView(courseListPane);
-
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		setRightComponent(tabbedPane);
+		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		setRightComponent(scrollPane_1);
+		tabbedPane.addTab("Course's information", null, scrollPane_1, null);
 
 		courseViewPane = new CourseViewPane();
 		scrollPane_1.setViewportView(courseViewPane);
+		
+		hierachyView = new HierachyView();
+		tabbedPane.addTab("Visual Hierachical tree", null, hierachyView, null);
 		setDividerLocation(150);
 	}
 }

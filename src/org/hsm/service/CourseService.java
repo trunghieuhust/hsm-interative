@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import org.hsm.model.hedspiObject.Course;
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.hsm.model.hedspiObject.HedspiObjectWithNote;
 
 public class CourseService {
 
@@ -71,6 +72,27 @@ public class CourseService {
 		return CoreService.getInstance().rsToSimpleArray(
 				CoreService.getInstance().doQueryFunction(
 						"get_background_courses", i));
+	}
+
+	public static ArrayList<Pair<HedspiObjectWithNote,HedspiObjectWithNote>> getRelatedBackground(int i) {
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_related_backgrounds", i);
+		ArrayList<Pair<HedspiObjectWithNote, HedspiObjectWithNote>> ret = new ArrayList<>();
+		for(HashMap<String, Object> it : rs){
+			int rce = (int)it.get("rce");
+			String rname = (String)it.get("rname");
+			String rnote = (String)it.get("rnote");
+			
+			int mce = (int)it.get("mce");
+			String mname = (String)it.get("mname");
+			String mnote = (String)it.get("mnote");
+			
+			HedspiObjectWithNote r = new HedspiObjectWithNote(rce, rname, rnote);
+			HedspiObjectWithNote m = new HedspiObjectWithNote(mce, mname, mnote);
+			
+			ret.add(new Pair<>(r, m));
+		}
+		
+		return ret;
 	}
 
 }
