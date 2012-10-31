@@ -65,11 +65,11 @@ public class CityViewPane extends JSplitPane {
 						"saveCityName", city, name);
 				if (message == null) {
 					city.setName(name);
-					JOptionPane.showMessageDialog(null,
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 							"Save city's name success", "Save name success",
 							JOptionPane.INFORMATION_MESSAGE);
 				} else
-					JOptionPane.showMessageDialog(null,
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 							"Save city's name failed\nMessage: " + message,
 							"Save name failed", JOptionPane.ERROR_MESSAGE);
 			}

@@ -74,7 +74,7 @@ public class LoginWindow extends IFrameAskToClose implements IView {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Properties prop = new Properties();
-				prop.setProperty("user", username.getValue());
+				prop.setProperty("username", username.getValue());
 				prop.setProperty("password", password.getValue());
 				prop.setProperty("dbname", dbname.getValue());
 				prop.setProperty("host", host.getValue());

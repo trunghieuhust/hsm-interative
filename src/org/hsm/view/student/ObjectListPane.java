@@ -11,9 +11,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
@@ -21,6 +24,12 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
+import javax.swing.JTextField;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public abstract class ObjectListPane extends JPanel {
 
@@ -32,6 +41,7 @@ public abstract class ObjectListPane extends JPanel {
 	private JList<HedspiObject> list;
 	private JButton btnRefresh;
 	private JLabel lblClassList;
+	private JTextField txtEnterSortPattern;
 
 	/**
 	 * Create the panel.
@@ -39,18 +49,68 @@ public abstract class ObjectListPane extends JPanel {
 	public ObjectListPane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,}));
 
 		lblClassList = DefaultComponentFactory.getInstance().createLabel(
 				"Objects list");
 		add(lblClassList, "2, 2");
+		
+		JPanel panel_1 = new JPanel();
+		add(panel_1, "2, 4, fill, fill");
+		panel_1.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,}));
+		
+		JLabel lblSortbox = DefaultComponentFactory.getInstance().createLabel("Sortbox");
+		panel_1.add(lblSortbox, "2, 2, right, default");
+		
+		txtEnterSortPattern = new JTextField();
+		txtEnterSortPattern.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				txtEnterSortPattern.selectAll();
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				txtEnterSortPattern.select(0,0);
+			}
+		});
+		txtEnterSortPattern.setText("Enter sort pattern here");
+		txtEnterSortPattern.getDocument().addDocumentListener(new DocumentListener(){
+
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				resort();
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				resort();
+			}
+
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				resort();
+			}});
+		panel_1.add(txtEnterSortPattern, "4, 2, fill, default");
+		txtEnterSortPattern.setColumns(10);
 
 		JScrollPane scrollPane = new JScrollPane();
-		add(scrollPane, "2, 4, fill, fill");
+		add(scrollPane, "2, 6, fill, fill");
 
 		model = new DefaultListModel<>();
 		list = new JList<HedspiObject>(model);
@@ -67,7 +127,7 @@ public abstract class ObjectListPane extends JPanel {
 		scrollPane.setViewportView(list);
 
 		JPanel panel = new JPanel();
-		add(panel, "2, 6, center, fill");
+		add(panel, "2, 8, center, fill");
 		panel.setLayout(new FormLayout(
 				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
 						FormFactory.DEFAULT_COLSPEC,
@@ -89,10 +149,10 @@ public abstract class ObjectListPane extends JPanel {
 					model.addElement(value);
 					list.setSelectedValue(value, true);
 				} else {
-					JOptionPane.showMessageDialog(null,
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
+							"Failed to create new element\nMessage: " + Control.getInstance().getQueryMessage(),
 							"Failed to create new element",
-							"Failed to create new element",
-							JOptionPane.ERROR_MESSAGE);
+							JOptionPane.WARNING_MESSAGE);
 				}
 			}
 		});
@@ -111,7 +171,7 @@ public abstract class ObjectListPane extends JPanel {
 					model.removeElement(value);
 					list.clearSelection();
 				} else
-					JOptionPane.showMessageDialog(null,
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 							"Delete failed.\nMessage: " + message,
 							"Delete failed", JOptionPane.ERROR_MESSAGE);
 			}
@@ -185,5 +245,48 @@ public abstract class ObjectListPane extends JPanel {
 
 	public void refresh() {
 		btnRefresh.doClick();
+	}
+	
+	private void resort(){
+		ArrayList<HedspiObject> list = new ArrayList<>();
+		for (int i = 0; i < model.getSize(); i++)
+			list.add(model.getElementAt(i));
+		model.removeAllElements();
+		Collections.sort(list, new Comparator<HedspiObject>() {
+
+			@Override
+			public int compare(HedspiObject arg0, HedspiObject arg1) {
+				return smartCompare(arg0.toString(), arg1.toString(), txtEnterSortPattern.getText());
+			}
+		});
+
+		for (HedspiObject it : list)
+			model.addElement(it);
+	}
+	
+	private int smartCompare(String arg0, String arg1, String text) {
+
+		int t1 = getDistance(arg0, text);
+		int t2 = getDistance(arg1, text);
+		if (t1 != t2)
+			return t2 - t1;
+		return arg0.toString().compareToIgnoreCase(arg1.toString());			}
+
+	private int getDistance(String string, String text) {
+		int[][] f = new int[string.length() + 1][text.length() + 1];
+		for (int i = 0; i <= string.length(); i++)
+			for (int j = 0; j <= text.length(); j++)
+				f[i][j] = 0;
+		for (int i = 1; i <= string.length(); i++)
+			for (int j = 1; j <= text.length(); j++) {
+				f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]);
+				char c1 = string.charAt(i - 1);
+				char c2 = text.charAt(j - 1);
+				c1 = Character.toLowerCase(c1);
+				c2 = Character.toLowerCase(c2);
+				if (c1 == c2)
+					f[i][j] = Math.max(f[i][j], f[i - 1][j - 1] + 1);
+			}
+		return f[string.length()][text.length()];
 	}
 }

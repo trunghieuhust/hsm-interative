@@ -63,12 +63,12 @@ public class DistrictViewPane extends JPanel {
 							"saveDistrictName", district, name);
 					if (message == null) {
 						district.setName(name);
-						JOptionPane.showMessageDialog(null,
+						JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 								"Save district's information successful",
 								"Save successed",
 								JOptionPane.INFORMATION_MESSAGE);
 					} else {
-						JOptionPane.showMessageDialog(null,
+						JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 								"Save district's information failed\nMessage: "
 										+ message, "Save failed",
 								JOptionPane.ERROR_MESSAGE);
@@ -97,8 +97,8 @@ public class DistrictViewPane extends JPanel {
 				String name = (String) Control.getInstance().getData(
 						"getDistrictName", district);
 				if (name == null)
-					JOptionPane.showMessageDialog(null,
-							"Reload name of district failed", "Reload failed",
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
+							"Reload name of district failed\nMessage: " + Control.getInstance().getQueryMessage(), "Reload failed",
 							JOptionPane.ERROR_MESSAGE);
 				else {
 					district.setName(name);

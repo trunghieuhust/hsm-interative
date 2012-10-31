@@ -2,14 +2,18 @@ package org.hsm.view.course.visual;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import org.hsm.control.Control;
+import org.hsm.io.FileManager;
 import org.hsm.model.hedspiObject.HedspiObject;
 import org.hsm.model.hedspiObject.HedspiObjectWithNote;
 import org.hsm.service.Pair;
@@ -41,9 +45,36 @@ public class HierachyView extends JPanel implements ActionListener {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),}));
 		
+		JPanel panel = new JPanel();
+		add(panel, "2, 2, fill, fill");
+		panel.setLayout(new FormLayout(new ColumnSpec[] {
+				ColumnSpec.decode("center:default:grow"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("center:default:grow"),},
+			new RowSpec[] {
+				FormFactory.DEFAULT_ROWSPEC,}));
+		
 		JButton btnDraw = new JButton("Draw");
+		panel.add(btnDraw, "1, 1");
+		
+		JButton btnExport = new JButton("Export to png");
+		btnExport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BufferedImage imgBuff = new BufferedImage(hierachyElement.getWidth() + 10, hierachyElement.getHeight() + 10, BufferedImage.TYPE_INT_RGB);
+				hierachyElement.paint(imgBuff.getGraphics());
+				try{
+				File outputFile = FileManager.getInstance().getOutputFile();
+				if (outputFile == null)
+					return;
+				ImageIO.write(imgBuff, "png", outputFile);
+				JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(), "Export to file successed", "Export success", JOptionPane.INFORMATION_MESSAGE);
+				} catch (Exception e1){
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(), "Export error\nMessage: " + e1.getMessage(), "Export failed", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
+		panel.add(btnExport, "3, 1");
 		btnDraw.addActionListener(this);
-		add(btnDraw, "2, 2");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		add(scrollPane, "2, 4, fill, fill");
@@ -58,7 +89,7 @@ public class HierachyView extends JPanel implements ActionListener {
 			return;
 		ArrayList<Pair<HedspiObjectWithNote,HedspiObjectWithNote>> background = (ArrayList<Pair<HedspiObjectWithNote, HedspiObjectWithNote>>) Control.getInstance().getData("getBackgroundRelated", hedspiObject);
 		if (background == null){
-			JOptionPane.showMessageDialog(null, "Get related backgrounds failed", "Get data failed", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(), "Get related backgrounds failed\nMessage: " + Control.getInstance().getQueryMessage(), "Get data failed", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		

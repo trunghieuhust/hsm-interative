@@ -69,12 +69,12 @@ public class StudentViewPane extends JPanel {
 				String message = (String) Control.getInstance().getData(
 						"updateStudent", hedspiObject, st);
 				if (message == null) {
-					JOptionPane.showMessageDialog(null,
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 							"Save student successful", "Save success",
 							JOptionPane.INFORMATION_MESSAGE);
 					hedspiObject.setName(st.getName());
 				} else
-					JOptionPane.showMessageDialog(null,
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 							"Save student failed\nMessage: " + message,
 							"Save failed", JOptionPane.WARNING_MESSAGE);
 			}

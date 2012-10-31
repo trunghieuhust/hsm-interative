@@ -1,5 +1,6 @@
 package org.hsm.view.course.visual;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
@@ -19,6 +20,8 @@ public class SingleElement extends JComponent {
 	private static int DEFAULT_WIDTH = 150;
 	private static int DEFAULT_HEIGHT = 50;
 	private static int DEFAULT_LINE_LEN = 50;
+	private static Color DEFAULT_RECT_COLOR = Color.RED;
+	private static Color DEFAULT_TEXT_COLOR = Color.BLUE;
 
 	public SingleElement(HedspiObjectWithNote hedspiObject) {
 		super();
@@ -45,8 +48,12 @@ public class SingleElement extends JComponent {
 
 	public void paint(Graphics g) {
 		super.paint(g);
-		g.drawRect(0, 0, DEFAULT_WIDTH - 1, DEFAULT_HEIGHT - 1);
+		Color bak = g.getColor();
+		g.setColor(DEFAULT_RECT_COLOR);
+		g.fillRect(0, 0, DEFAULT_WIDTH - 1, DEFAULT_HEIGHT - 1);
+		g.setColor(DEFAULT_TEXT_COLOR);
 		g.drawString(hedspiObject.getName(), 10, 20);
+		g.setColor(bak);
 	}
 	
 	public Dimension getPreferredSize(){

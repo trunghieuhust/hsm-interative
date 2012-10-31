@@ -35,14 +35,20 @@ public class CoreService {
 	}
 
 	private static String getUrl(Properties loginInfo) {
-		String url = "jdbc:postgresql://"
-				+ loginInfo.getProperty("host", "localhost") + ":"
-				+ loginInfo.getProperty("port", "5432") + "/"
-				+ loginInfo.getProperty("dbname", "hedspi") + "?user="
-				+ loginInfo.getProperty("username", "Admin") + "&password="
-				+ loginInfo.getProperty("password", "hedspi");
+		// String url = "jdbc:postgresql://"
+		// + loginInfo.getProperty("host", "localhost") + ":"
+		// + loginInfo.getProperty("port", "5432") + "/"
+		// + loginInfo.getProperty("dbname", "hedspi") + "?user="
+		// + loginInfo.getProperty("username", "Admin") + "&password="
+		// + loginInfo.getProperty("password", "hedspi");
 		// + "&ssl=" + loginInfo.getProperty("ssl", "false");
 		// Control.getInstance().getLogger().log(Level.INFO, url);
+		String url = "jdbc:postgresql://"
+				+ loginInfo.getProperty("host") + ":"
+				+ loginInfo.getProperty("port") + "/"
+				+ loginInfo.getProperty("dbname") + "?user="
+				+ loginInfo.getProperty("username") + "&password="
+				+ loginInfo.getProperty("password");
 		return url;
 	}
 
@@ -53,7 +59,8 @@ public class CoreService {
 			con.close();
 		} catch (SQLException e) {
 			Control.getInstance().getLogger()
-					.log(Level.WARNING, "Login failed: {0}", e.getMessage());
+					.log(Level.WARNING, "Login failed!");// : {0}",
+															// e.getMessage());
 			return false;
 		}
 		return true;
@@ -149,10 +156,12 @@ public class CoreService {
 	 *         truy vấn lỗi sẽ trả về một danh sách rỗng.
 	 */
 	public ArrayList<HashMap<String, Object>> query(String queryStr) {
-		return queryFull(queryStr).getT1();
+		Pair<ArrayList<HashMap<String, Object>>, String> queryFull = queryFull(queryStr);
+		Control.getInstance().setQueryMessage(queryFull.getT2());
+		return queryFull.getT1();
 	}
 
-	public Pair<ArrayList<HashMap<String, Object>>, String> queryFull(
+	private Pair<ArrayList<HashMap<String, Object>>, String> queryFull(
 			String queryStr) {
 		Control.getInstance().getLogger()
 				.log(Level.INFO, "Execute query {0}", queryStr);
@@ -337,5 +346,36 @@ public class CoreService {
 		if (arr.length == 0)
 			return null;
 		return arr[0];
+	}
+
+	public String[] executeQuery(String queryStr) {
+		Control.getInstance().getLogger()
+				.log(Level.INFO, "Execute udpate " + queryStr);
+
+		Connection conn = getConnection();
+		if (conn == null)
+			return new String[] { "Get connection failed", "0" };
+
+		Statement stmt = getStatement(conn);
+		if (stmt == null) {
+			close(conn);
+			return new String[] { "Cannot get statement", "0" };
+		}
+
+		ArrayList<String> ret = new ArrayList<>();
+		try {
+			// TODO: query, get result and message(hard) from here
+			if (stmt.execute(queryStr)) {
+			}
+		} catch (SQLException e) {
+			Control.getInstance().getLogger()
+					.log(Level.WARNING, e.getMessage());
+			return new String[] { e.getMessage(), "0" };
+		} finally {
+			close(stmt);
+			close(conn);
+		}
+
+		return ret.toArray(new String[ret.size()]);
 	}
 }

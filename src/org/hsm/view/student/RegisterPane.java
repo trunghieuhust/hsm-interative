@@ -82,11 +82,11 @@ public class RegisterPane extends JPanel {
 						"saveAcademicInfo", hedspiObject,
 						arr.toArray(new AcademicInfo[arr.size()]));
 				if (message == null)
-					JOptionPane.showMessageDialog(null,
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 							"Update student academic's information success",
 							"Update success", JOptionPane.INFORMATION_MESSAGE);
 				else
-					JOptionPane.showMessageDialog(null,
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 							"Update student academic's information failed.\nMessage: "
 									+ message, "Update failed",
 							JOptionPane.ERROR_MESSAGE);

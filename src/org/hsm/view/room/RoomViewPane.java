@@ -73,12 +73,12 @@ public class RoomViewPane extends JPanel {
 				String message = (String) Control.getInstance().getData(
 						"saveRoomName", room, name);
 				if (message == null) {
-					JOptionPane.showMessageDialog(null,
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 							"Save room's name success", "Save success",
 							JOptionPane.INFORMATION_MESSAGE);
 					room.setName(name);
 				} else
-					JOptionPane.showMessageDialog(null,
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 							"Save room's name failed\nMessage: " + message,
 							"Save failed", JOptionPane.WARNING_MESSAGE);
 			}
@@ -101,11 +101,11 @@ public class RoomViewPane extends JPanel {
 				String name = (String) Control.getInstance().getData(
 						"reloadRoomName", room);
 				if (name == null)
-					JOptionPane.showMessageDialog(null,
-							"Reload room's name failed", "Reload failed",
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
+							"Reload room's name failed\nMessage: " + Control.getInstance().getQueryMessage(), "Reload failed",
 							JOptionPane.WARNING_MESSAGE);
 				else {
-					JOptionPane.showMessageDialog(null,
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 							"Reload room's name success", "Reload success",
 							JOptionPane.INFORMATION_MESSAGE);
 					textField.setText(name);

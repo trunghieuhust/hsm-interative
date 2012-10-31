@@ -36,6 +36,9 @@ public class Model implements IModel {
 	@Override
 	public Object getData(String command, Object... data) {
 		switch (command) {
+		case "query":
+			return CoreService.getInstance().executeQuery((String)data[0]);
+			
 		case "getBackgroundRelated":
 			return CourseService.getRelatedBackground((int)data[0]);
 			

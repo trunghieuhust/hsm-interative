@@ -125,17 +125,14 @@ public class DependencesListEditor extends JPanel {
 				HedspiObject[] backgrounds = (HedspiObject[]) Control
 						.getInstance().getData("getBackgroundCourses", course);
 				if (backgrounds == null)
-					JOptionPane.showMessageDialog(null,
-							"Refresh background courses failed",
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
+							"Refresh background courses failed\nMessage:" + Control.getInstance().getQueryMessage(),
 							"Refresh failed", JOptionPane.ERROR_MESSAGE);
 				else {
 					coursesModel.removeAllElements();
 					for (HedspiObject it : backgrounds)
 						coursesModel.addElement(it);
 					comboBoxChooseCourse.refresh();
-					// JOptionPane.showMessageDialog(null,
-					// "Refresh background courses ok", "Refresh ok",
-					// JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		});

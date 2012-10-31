@@ -1,5 +1,6 @@
 package org.hsm.view.course.visual;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.ArrayList;
@@ -19,10 +20,13 @@ public class HierachyElement extends JComponent {
 	private int width;
 	private int height;
 	private static int ARROW_LEN = 10;
+	private static Color DEFAULT_ARROW_COLOR = Color.ORANGE;
+	private static Color DEFAULT_FOREGROUND_COLOR = Color.GREEN;
 	
 	public HierachyElement(HedspiObjectWithNote root) {
 		super();
 		super.setLayout(null);
+		super.setForeground(DEFAULT_FOREGROUND_COLOR);
 		if (root != null)
 			refresh(root);
 	}
@@ -88,6 +92,8 @@ public class HierachyElement extends JComponent {
 	
 	public void paint(Graphics g) {
 		super.paint(g);
+		if (background == null)
+			return;
 		for(Pair<HedspiObjectWithNote, HedspiObjectWithNote> it : background){
 			HedspiObjectWithNote parent = it.getT1();
 			HedspiObjectWithNote child = it.getT2();
@@ -107,13 +113,15 @@ public class HierachyElement extends JComponent {
 	}
 
 	private void connect(Graphics g, SingleElement p, SingleElement c) {
-		// TODO Auto-generated method stub
 		drawArrow(g, p.getOutx(), p.getOuty(), c.getInx(), c.getIny());
 	}
 	
 	private void drawArrow(Graphics g, int x1, int y1, int x2, int y2){
+		Color bak = g.getColor();
+		g.setColor(DEFAULT_ARROW_COLOR);
 		g.drawLine(x1, y1, x2, y2);
 		g.fillArc(x2 - ARROW_LEN, y2 - ARROW_LEN, ARROW_LEN * 2, ARROW_LEN * 2, -30 - (int) Math.toDegrees(Math.atan2(y1 - y2, x1 - x2)), 60);
+		g.setColor(bak);
 	}
 
 	public int getWidth() {

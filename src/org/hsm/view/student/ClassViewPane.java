@@ -74,12 +74,12 @@ public class ClassViewPane extends JSplitPane {
 					message = (String) Control.getInstance().getData(
 							"renameClass", hedspiClass, name);
 					if (message != null)
-						JOptionPane.showMessageDialog(null,
+						JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 								"Rename class name failed.\nMessage: "
 										+ message, "Rename failed",
 								JOptionPane.WARNING_MESSAGE);
 					else {
-						JOptionPane.showMessageDialog(null, "Rename class ok",
+						JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(), "Rename class ok",
 								"Rename ok", JOptionPane.INFORMATION_MESSAGE);
 						hedspiClass.setName(name);
 					}
@@ -108,9 +108,9 @@ public class ClassViewPane extends JSplitPane {
 					studentViewPane.setInfo(student);
 					registerPane.setHedpiObject(value);
 				} else
-					JOptionPane.showMessageDialog(null,
-							"Failed to get student info", "Get data failed",
-							JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
+							"Failed to get student info\nMessage: " + Control.getInstance().getQueryMessage(), "Get data failed",
+							JOptionPane.WARNING_MESSAGE);
 			}
 
 			@Override

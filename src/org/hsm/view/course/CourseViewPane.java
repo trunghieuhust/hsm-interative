@@ -154,11 +154,11 @@ public class CourseViewPane extends JPanel {
 						"saveCourse", hedspiObject, cou,
 						dependencesListEditor.getValues());
 				if (message == null) {
-					JOptionPane.showMessageDialog(null, "Save course ok",
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(), "Save course ok",
 							"Save ok", JOptionPane.INFORMATION_MESSAGE);
 					hedspiObject.setName(cou.getName());
 				} else
-					JOptionPane.showMessageDialog(null,
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 							"Save course failed\nMessage: " + message,
 							"Save failed", JOptionPane.WARNING_MESSAGE);
 			}

@@ -120,11 +120,11 @@ public class LecturerViewPane extends JPanel {
 						"updateLecturer", hedspiObject, newlt);
 				if (message == null) {
 					hedspiObject.setName(newlt.getName());
-					JOptionPane.showMessageDialog(null,
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 							"Update lecturer's information success",
 							"Update success", JOptionPane.INFORMATION_MESSAGE);
 				} else
-					JOptionPane.showMessageDialog(null,
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
 							"Update lecturer's information failed\nMessage: "
 									+ message, "Update failed",
 							JOptionPane.WARNING_MESSAGE);

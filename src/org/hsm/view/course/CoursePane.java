@@ -40,8 +40,8 @@ public class CoursePane extends JSplitPane {
 				Course course = (Course) Control.getInstance().getData(
 						"getFullDataCourse", value);
 				if (course == null) {
-					JOptionPane.showMessageDialog(null,
-							"Get information of course failed",
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
+							"Get information of course failed\nMessage: " + Control.getInstance().getQueryMessage(),
 							"Load data failed", JOptionPane.WARNING_MESSAGE);
 				} else {
 					courseViewPane.setHedspiObject(value);

@@ -8,6 +8,10 @@ import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 
 import org.hsm.control.Control;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainWindow extends JFrame {
 
@@ -15,6 +19,7 @@ public class MainWindow extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private MainPane contentPane;
 
 	/**
 	 * Create the frame.
@@ -42,7 +47,45 @@ public class MainWindow extends JFrame {
 
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
+		
+		JMenu mnMain = new JMenu("Main");
+		menuBar.add(mnMain);
+		
+		JMenuItem mntmQuit = new JMenuItem("Quit");
+		mntmQuit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (JOptionPane.showConfirmDialog(MainWindow.this,
+						"Are you sure want to quit?", "Quit?",
+						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+					MainWindow.this.setVisible(false);
+					MainWindow.this.dispose();
+				}
+			}
+		});
+		mnMain.add(mntmQuit);
+		
+		JMenu mnTools = new JMenu("Tools");
+		menuBar.add(mnTools);
+		
+		JMenuItem mntmOption = new JMenuItem("Option");
+		mnTools.add(mntmOption);
+		
+		JMenu mnHelp = new JMenu("Help");
+		menuBar.add(mnHelp);
+		
+		JMenuItem mntmAbout = new JMenuItem("About");
+		mntmAbout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				(new org.hsm.view.about.AboutBox()).setVisible(true);
+			}
+		});
+		mnHelp.add(mntmAbout);
 
-		setContentPane(new MainPane());
+		contentPane = new MainPane();
+		setContentPane(contentPane);
+	}
+
+	public void setStatus(String status) {
+		contentPane.setStatus(status);
 	}
 }

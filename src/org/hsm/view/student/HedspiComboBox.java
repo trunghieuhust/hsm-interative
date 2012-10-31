@@ -9,6 +9,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
 
 import com.jgoodies.forms.factories.FormFactory;
@@ -49,8 +50,8 @@ public abstract class HedspiComboBox extends JPanel {
 				comboBoxModel.removeAllElements();
 				HedspiObject[] values = getValues();
 				if (values == null)
-					JOptionPane.showMessageDialog(null, "Refresh failed",
-							"Refresh failed", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(), "Refresh failed\nMessage: " + Control.getInstance().getQueryMessage(),
+							"Refresh failed", JOptionPane.WARNING_MESSAGE);
 				else
 					for (HedspiObject it : values)
 						comboBoxModel.addElement(it);
