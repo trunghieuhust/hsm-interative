@@ -33,17 +33,20 @@ public class MainPane extends JPanel {
 	 * Create the panel.
 	 */
 	public MainPane() {
-		setLayout(new FormLayout(new ColumnSpec[] {
-				ColumnSpec.decode("38px:grow"),},
-			new RowSpec[] {
-				RowSpec.decode("7px:grow"),
-				FormFactory.DEFAULT_ROWSPEC,}));
+		setLayout(new FormLayout(
+				new ColumnSpec[] { ColumnSpec.decode("38px:grow"), },
+				new RowSpec[] { RowSpec.decode("7px:grow"),
+						FormFactory.DEFAULT_ROWSPEC, }));
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.LEFT);
 		add(tabbedPane, "1, 1, fill, fill");
 
 		StudentPane studentPanel = new StudentPane();
-		tabbedPane.addTab("Student", new ImageIcon("/home/haidang-ubuntu/git/hsm-interative/hsm-interative/icon/callcenter-girls-glasses.ico"), studentPanel, null);
+		tabbedPane
+				.addTab("Student",
+						new ImageIcon(
+								"/home/haidang-ubuntu/git/hsm-interative/hsm-interative/icon/callcenter-girls-glasses.ico"),
+						studentPanel, null);
 
 		LecturerPane lecturerPanel = new LecturerPane();
 		tabbedPane.addTab("Lecturer", null, lecturerPanel, null);
@@ -56,68 +59,67 @@ public class MainPane extends JPanel {
 
 		CoursePane coursePane = new CoursePane();
 		tabbedPane.addTab("Course", null, coursePane, null);
-		
+
 		JTabbedPane miscPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("Misc", null, miscPane, null);
-		
+
 		JTabbedPane imexPane = new JTabbedPane(JTabbedPane.TOP);
 		miscPane.addTab("Im/Ex(port)", null, imexPane, null);
-		
+
 		JPanel importPane = new JPanel();
 		imexPane.addTab("Import", null, importPane, null);
-		
+
 		JPanel exportPane = new JPanel();
 		imexPane.addTab("Export", null, exportPane, null);
-		
+
 		JTabbedPane maintainPane = new JTabbedPane(JTabbedPane.TOP);
 		miscPane.addTab("Maintain", null, maintainPane, null);
-		
+
 		JPanel backupPane = new JPanel();
 		maintainPane.addTab("Backup", null, backupPane, null);
-		
+
 		JPanel restorePane = new JPanel();
 		maintainPane.addTab("Restore", null, restorePane, null);
-		
+
 		JScrollPane queryScrollPane = new JScrollPane();
 		miscPane.addTab("Query", null, queryScrollPane, null);
-		
+
 		QueryPane queryPane = new QueryPane();
 		queryScrollPane.setViewportView(queryPane);
-		
+
 		JScrollPane batchDelScrollPane = new JScrollPane();
 		miscPane.addTab("Batch delete", null, batchDelScrollPane, null);
-		
+
 		JPanel batchDelPane = new JPanel();
 		batchDelScrollPane.setViewportView(batchDelPane);
-		
+
 		JScrollPane searchScrollPane = new JScrollPane();
 		miscPane.addTab("Search", null, searchScrollPane, null);
-		
+
 		JPanel searchPane = new JPanel();
 		searchScrollPane.setViewportView(searchPane);
-		
+
 		JScrollPane statisticScrollPane = new JScrollPane();
 		miscPane.addTab("Statistic", null, statisticScrollPane, null);
-		
+
 		JPanel statisticPane = new JPanel();
 		statisticScrollPane.setViewportView(statisticPane);
-		
+
 		JPanel panel = new JPanel();
 		add(panel, "1, 2, fill, fill");
-		panel.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,},
-			new RowSpec[] {
-				FormFactory.DEFAULT_ROWSPEC,}));
-		
+		panel.setLayout(new FormLayout(
+				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC,
+						FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC, },
+				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
+
 		lblStatus = DefaultComponentFactory.getInstance().createLabel("Status");
 		lblStatus.setFont(new Font("Dialog", Font.ITALIC, 12));
 		panel.add(lblStatus, "4, 1");
 	}
-	
-	public void setStatus(String status){
+
+	public void setStatus(String status) {
 		lblStatus.setText(status);
 	}
 }

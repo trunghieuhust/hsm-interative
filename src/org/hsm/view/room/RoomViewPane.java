@@ -11,12 +11,15 @@ import javax.swing.JTextField;
 
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.hsm.model.hedspiObject.HedspiTable;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 
 public class RoomViewPane extends JPanel {
 
@@ -26,6 +29,7 @@ public class RoomViewPane extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JTextField textField;
 	private HedspiObject room;
+	private RoomStatisticPane roomStatisticPane;
 
 	/**
 	 * Create the panel.
@@ -33,9 +37,14 @@ public class RoomViewPane extends JPanel {
 	public RoomViewPane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,}));
 
 		JPanel panel = new JPanel();
 		add(panel, "2, 2, fill, fill");
@@ -54,15 +63,18 @@ public class RoomViewPane extends JPanel {
 
 		JPanel panel_1 = new JPanel();
 		add(panel_1, "2, 4, center, fill");
-		panel_1.setLayout(new FormLayout(
-				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC,
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC,
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] {
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.DEFAULT_ROWSPEC, }));
+		panel_1.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,}));
 
 		JButton btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
@@ -73,12 +85,13 @@ public class RoomViewPane extends JPanel {
 				String message = (String) Control.getInstance().getData(
 						"saveRoomName", room, name);
 				if (message == null) {
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
-							"Save room's name success", "Save success",
-							JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(), "Save room's name success",
+							"Save success", JOptionPane.INFORMATION_MESSAGE);
 					room.setName(name);
 				} else
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(),
 							"Save room's name failed\nMessage: " + message,
 							"Save failed", JOptionPane.WARNING_MESSAGE);
 			}
@@ -101,25 +114,46 @@ public class RoomViewPane extends JPanel {
 				String name = (String) Control.getInstance().getData(
 						"reloadRoomName", room);
 				if (name == null)
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
-							"Reload room's name failed\nMessage: " + Control.getInstance().getQueryMessage(), "Reload failed",
-							JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(),
+							"Reload room's name failed\nMessage: "
+									+ Control.getInstance().getQueryMessage(),
+							"Reload failed", JOptionPane.WARNING_MESSAGE);
 				else {
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
-							"Reload room's name success", "Reload success",
-							JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(), "Reload room's name success",
+							"Reload success", JOptionPane.INFORMATION_MESSAGE);
 					textField.setText(name);
 					room.setName(name);
 				}
 			}
 		});
 		panel_1.add(btnReload, "6, 2");
+		
+		JButton btnExport = new JButton("Export");
+		btnExport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (room == null)
+					return;
+				HedspiTable hedspiTable = new HedspiTable("Information of room {" + room.getName() + "}", "label", "value");
+				hedspiTable.setIsTablePrint(false);
+				hedspiTable.addValue("Name", textField.getText());
+				roomStatisticPane.export(hedspiTable);
+				hedspiTable.writeToHtmlWithMessageDialog();
+			}
+		});
+		panel_1.add(btnExport, "8, 2");
+		
+		roomStatisticPane = new RoomStatisticPane();
+		roomStatisticPane.setBorder(new LineBorder(new Color(0, 0, 0)));
+		add(roomStatisticPane, "2, 6, fill, fill");
 	}
 
 	public void setRoom(HedspiObject value) {
 		if (value != null) {
 			room = value;
 			textField.setText(value.getName());
+			roomStatisticPane.setRoom(value);
 		}
 	}
 }

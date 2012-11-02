@@ -13,7 +13,6 @@ import javax.swing.JTextField;
 
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
-import org.hsm.model.hedspiObject.Student;
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -74,12 +73,14 @@ public class ClassViewPane extends JSplitPane {
 					message = (String) Control.getInstance().getData(
 							"renameClass", hedspiClass, name);
 					if (message != null)
-						JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
+						JOptionPane.showMessageDialog(Control.getInstance()
+								.getMainWindow(),
 								"Rename class name failed.\nMessage: "
 										+ message, "Rename failed",
 								JOptionPane.WARNING_MESSAGE);
 					else {
-						JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(), "Rename class ok",
+						JOptionPane.showMessageDialog(Control.getInstance()
+								.getMainWindow(), "Rename class ok",
 								"Rename ok", JOptionPane.INFORMATION_MESSAGE);
 						hedspiClass.setName(name);
 					}
@@ -101,16 +102,8 @@ public class ClassViewPane extends JSplitPane {
 
 			@Override
 			public void selectValue(HedspiObject value) {
-				Student student = (Student) Control.getInstance().getData(
-						"getFullStudentData", value);
-				if (student != null) {
-					studentViewPane.setHedspiObject(value);
-					studentViewPane.setInfo(student);
-					registerPane.setHedpiObject(value);
-				} else
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
-							"Failed to get student info\nMessage: " + Control.getInstance().getQueryMessage(), "Get data failed",
-							JOptionPane.WARNING_MESSAGE);
+				studentViewPane.setHedspiObject(value);
+				registerPane.setHedpiObject(value);
 			}
 
 			@Override
@@ -131,6 +124,13 @@ public class ClassViewPane extends JSplitPane {
 					return new HedspiObject[0];
 				return (HedspiObject[]) Control.getInstance().getData(
 						"getStudentRawListInClass", hedspiClass);
+			}
+
+			@Override
+			public String getTitle() {
+				if (hedspiClass == null)
+					return null;
+				return "Students list of class {" + hedspiClass.getName() + "}";
 			}
 		};
 		panel.add(studentListPane, "2, 4, fill, fill");

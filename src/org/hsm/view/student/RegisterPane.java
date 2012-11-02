@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.AcademicInfo;
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.hsm.model.hedspiObject.HedspiTable;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import com.jgoodies.forms.factories.FormFactory;
@@ -66,6 +67,7 @@ public class RegisterPane extends JPanel {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnSave = new JButton("Save");
@@ -82,29 +84,53 @@ public class RegisterPane extends JPanel {
 						"saveAcademicInfo", hedspiObject,
 						arr.toArray(new AcademicInfo[arr.size()]));
 				if (message == null)
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(),
 							"Update student academic's information success",
 							"Update success", JOptionPane.INFORMATION_MESSAGE);
 				else
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(),
 							"Update student academic's information failed.\nMessage: "
 									+ message, "Update failed",
 							JOptionPane.ERROR_MESSAGE);
 			}
 		});
-		panel.add(btnSave, "2, 2");
+
+		JButton btnExportToHtml = new JButton("Export");
+		btnExportToHtml.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (hedspiObject == null)
+					return;
+				HedspiTable hedspiTable = new HedspiTable(
+						"Academic status of student { "
+								+ hedspiObject.getName() + "}", "Course",
+						"Lecturer", "Room", "Is passed", "Result");
+				int cnt = model.getRowCount();
+				for (int i = 0; i < cnt; i++)
+					hedspiTable.addValue(
+							((HedspiObject) model.getValueAt(i, 0)).getName(),
+							((HedspiObject) model.getValueAt(i, 1)).getName(),
+							((HedspiObject) model.getValueAt(i, 2)).getName(),
+							((boolean) model.getValueAt(i, 3)) ? "Yes" : "No",
+							String.valueOf((double) model.getValueAt(i, 4)));
+				hedspiTable.writeToHtmlWithMessageDialog();
+			}
+		});
+		panel.add(btnExportToHtml, "2, 2");
+		panel.add(btnSave, "2, 4");
 
 		JLabel lblCourse = DefaultComponentFactory.getInstance().createLabel(
 				"Course");
-		panel.add(lblCourse, "4, 2");
+		panel.add(lblCourse, "4, 4");
 
 		JLabel lblLecturer = DefaultComponentFactory.getInstance().createLabel(
 				"Lecturer");
-		panel.add(lblLecturer, "6, 2");
+		panel.add(lblLecturer, "6, 4");
 
 		JLabel lblRoom = DefaultComponentFactory.getInstance().createLabel(
 				"Room");
-		panel.add(lblRoom, "8, 2");
+		panel.add(lblRoom, "8, 4");
 
 		JButton button = new JButton("+");
 		button.addActionListener(new ActionListener() {
@@ -118,7 +144,7 @@ public class RegisterPane extends JPanel {
 						new Boolean(false), new Double(0) });
 			}
 		});
-		panel.add(button, "2, 4");
+		panel.add(button, "2, 6");
 
 		comboBoxCourse = new HedspiComboBox() {
 
@@ -133,7 +159,7 @@ public class RegisterPane extends JPanel {
 						"getCoursesList");
 			}
 		};
-		panel.add(comboBoxCourse, "4, 4, fill, default");
+		panel.add(comboBoxCourse, "4, 6, fill, default");
 
 		comboBoxLecturer = new HedspiComboBox() {
 
@@ -148,7 +174,7 @@ public class RegisterPane extends JPanel {
 						"getLecturerListAll");
 			}
 		};
-		panel.add(comboBoxLecturer, "6, 4, fill, default");
+		panel.add(comboBoxLecturer, "6, 6, fill, default");
 
 		comboBoxRoom = new HedspiComboBox() {
 
@@ -163,7 +189,7 @@ public class RegisterPane extends JPanel {
 						"getRoomList");
 			}
 		};
-		panel.add(comboBoxRoom, "8, 4, fill, default");
+		panel.add(comboBoxRoom, "8, 6, fill, default");
 		model = new DefaultTableModel(new Object[][] {}, new String[] {
 				"Course", "Lecturer", "Room", "Is passed", "Result" }) {
 			/**
@@ -251,7 +277,9 @@ public class RegisterPane extends JPanel {
 		this.hedspiObject = value;
 		AcademicInfo[] academicInfo = (AcademicInfo[]) Control.getInstance()
 				.getData("getAcademicInfo", value);
-		table.removeAll();
+		int cnt = model.getRowCount();
+		for (int i = cnt - 1; i >= 0; i--)
+			model.removeRow(i);
 		for (AcademicInfo it : academicInfo)
 			model.addRow(new Object[] { it.getCourse(), it.getLecturer(),
 					it.getRoom(), it.isPassed(), it.getResult() });

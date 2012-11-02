@@ -65,11 +65,13 @@ public class CityViewPane extends JSplitPane {
 						"saveCityName", city, name);
 				if (message == null) {
 					city.setName(name);
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
-							"Save city's name success", "Save name success",
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(), "Save city's name success",
+							"Save name success",
 							JOptionPane.INFORMATION_MESSAGE);
 				} else
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(),
 							"Save city's name failed\nMessage: " + message,
 							"Save name failed", JOptionPane.ERROR_MESSAGE);
 			}
@@ -112,6 +114,13 @@ public class CityViewPane extends JSplitPane {
 					return new HedspiObject[0];
 				return (HedspiObject[]) Control.getInstance().getData(
 						"getDistrictsListInCity", city);
+			}
+
+			@Override
+			public String getTitle() {
+				if (city == null)
+					return null;
+				return "Districts list of city {" + city.getName() + "}";
 			}
 		};
 		panel.add(districtListPane, "2, 4, fill, fill");

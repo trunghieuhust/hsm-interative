@@ -51,6 +51,11 @@ public class StudentPane extends JSplitPane {
 				classViewPane.setHedspiClass(value);
 			}
 
+			@Override
+			public String getTitle() {
+				return "List of classes";
+			}
+
 		};
 		scrollPane.setViewportView(classListPane);
 

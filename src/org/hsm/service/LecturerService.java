@@ -109,4 +109,21 @@ public class LecturerService {
 		return CoreService.getInstance().rsToSimpleArray(
 				CoreService.getInstance().doQueryFunction("get_all_lecturers"));
 	}
+
+	public static String[] getSingleStatistic(int i) {
+		String[] ret = new String[5];
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
+				.doQueryFunction("get_single_lecturer_statistic5", i);
+		if (rs.isEmpty())
+			return null;
+		HashMap<String, Object> tt = rs.get(0);
+		// teached_classes integer, teached_courses integer, teached_students
+		// integer, best_student text, worst_student text)
+		ret[0] = String.valueOf((int) tt.get("teached_classes"));
+		ret[1] = String.valueOf((int) tt.get("teached_courses"));
+		ret[2] = String.valueOf((int) tt.get("teached_students"));
+		ret[3] = (String) tt.get("best_student");
+		ret[4] = (String) tt.get("worst_student");
+		return ret;
+	}
 }

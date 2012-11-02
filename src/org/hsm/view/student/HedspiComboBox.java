@@ -31,10 +31,9 @@ public abstract class HedspiComboBox extends JPanel {
 	 * Create the panel.
 	 */
 	public HedspiComboBox() {
-		setLayout(new FormLayout(
-				new ColumnSpec[] { ColumnSpec.decode("default:grow"),
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC, },
+		setLayout(new FormLayout(new ColumnSpec[] {
+				ColumnSpec.decode("min:grow"), FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("19dlu"), },
 				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
 
 		comboBoxModel = new DefaultComboBoxModel<>();
@@ -44,20 +43,7 @@ public abstract class HedspiComboBox extends JPanel {
 		btnR = new JButton("R");
 		btnR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// save current id
-				HedspiObject obj = (HedspiObject) comboBox.getSelectedItem();
-
-				comboBoxModel.removeAllElements();
-				HedspiObject[] values = getValues();
-				if (values == null)
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(), "Refresh failed\nMessage: " + Control.getInstance().getQueryMessage(),
-							"Refresh failed", JOptionPane.WARNING_MESSAGE);
-				else
-					for (HedspiObject it : values)
-						comboBoxModel.addElement(it);
-
-				if (obj != null)
-					setSelectedValue(obj.getId());
+				refresh();
 			}
 		});
 		add(btnR, "3, 1");
@@ -92,7 +78,22 @@ public abstract class HedspiComboBox extends JPanel {
 	}
 
 	public void refresh() {
-		btnR.doClick();
+		// save current id
+		HedspiObject obj = (HedspiObject) comboBox.getSelectedItem();
+
+		comboBoxModel.removeAllElements();
+		HedspiObject[] values = getValues();
+		if (values == null)
+			JOptionPane.showMessageDialog(Control.getInstance()
+					.getMainWindow(), "Refresh failed\nMessage: "
+					+ Control.getInstance().getQueryMessage(),
+					"Refresh failed", JOptionPane.WARNING_MESSAGE);
+		else
+			for (HedspiObject it : values)
+				comboBoxModel.addElement(it);
+
+		if (obj != null)
+			setSelectedValue(obj.getId());
 	}
 
 	public void removeObject(HedspiObject selected) {

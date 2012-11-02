@@ -8,6 +8,7 @@ import javax.swing.SpinnerNumberModel;
 
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.hsm.model.hedspiObject.HedspiTable;
 import org.hsm.model.hedspiObject.Student;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
@@ -31,21 +32,26 @@ public class OtherInfoPane extends JPanel {
 	 * Create the panel.
 	 */
 	public OtherInfoPane() {
-		setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
+		setLayout(new FormLayout(
+				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC,
+						FormFactory.RELATED_GAP_COLSPEC,
+						ColumnSpec.decode("min:grow"), }, new RowSpec[] {
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC, }));
 
 		JLabel lblMssv = DefaultComponentFactory.getInstance().createLabel(
 				"Student code");
 		add(lblMssv, "2, 2, right, default");
 
 		textFieldMssv = new JTextField();
+		lblMssv.setLabelFor(textFieldMssv);
 		add(textFieldMssv, "4, 2, fill, default");
 		textFieldMssv.setColumns(10);
 
@@ -66,24 +72,27 @@ public class OtherInfoPane extends JPanel {
 						"getClassList");
 			}
 		};
+		lblClass.setLabelFor(comboBoxClass);
 		add(comboBoxClass, "4, 4, fill, default");
 
 		JLabel lblPoint = DefaultComponentFactory.getInstance().createLabel(
 				"Enroll point");
-		add(lblPoint, "2, 6");
+		add(lblPoint, "2, 6, right, default");
 
 		JSpinner spinnerPoint = new JSpinner();
+		lblPoint.setLabelFor(spinnerPoint);
 		modelPoint = new SpinnerNumberModel(0.0, 0.0, 30.0, 1.0);
 		spinnerPoint.setModel(new SpinnerNumberModel(0.0, 0.0, 30.0, 0.0));
 		add(spinnerPoint, "4, 6");
 
 		JLabel lblYear = DefaultComponentFactory.getInstance().createLabel(
 				"Enroll year");
-		add(lblYear, "2, 8");
+		add(lblYear, "2, 8, right, default");
 
 		modelYear = new SpinnerNumberModel(new Integer(0), new Integer(0),
 				null, new Integer(1));
 		JSpinner spinnerYear = new JSpinner();
+		lblYear.setLabelFor(spinnerYear);
 		spinnerYear.setModel(modelYear);
 		add(spinnerYear, "4, 8");
 	}
@@ -109,5 +118,13 @@ public class OtherInfoPane extends JPanel {
 
 	public int getHedspiClass() {
 		return comboBoxClass.getSelectedValue();
+	}
+
+	public void export(HedspiTable hedspiTable) {
+		hedspiTable.addValue("Student code", textFieldMssv.getText());
+		HedspiObject obj = comboBoxClass.getSelectedObject();
+		hedspiTable.addValue("Class", obj == null ? "null" : obj.getName());
+		hedspiTable.addValue("Enroll point", modelPoint.getValue().toString());
+		hedspiTable.addValue("Enroll year", modelYear.getValue().toString());
 	}
 }

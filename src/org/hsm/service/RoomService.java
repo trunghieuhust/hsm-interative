@@ -34,4 +34,11 @@ public class RoomService {
 				string);
 	}
 
+	public static int getNClassesIn(int id) {
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_n_classes_in_room", id);
+		if (rs.isEmpty())
+			return 0;
+		return (int)rs.get(0).get("cnt");
+	}
+
 }

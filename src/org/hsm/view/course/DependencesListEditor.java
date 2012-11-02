@@ -125,8 +125,10 @@ public class DependencesListEditor extends JPanel {
 				HedspiObject[] backgrounds = (HedspiObject[]) Control
 						.getInstance().getData("getBackgroundCourses", course);
 				if (backgrounds == null)
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
-							"Refresh background courses failed\nMessage:" + Control.getInstance().getQueryMessage(),
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(),
+							"Refresh background courses failed\nMessage:"
+									+ Control.getInstance().getQueryMessage(),
 							"Refresh failed", JOptionPane.ERROR_MESSAGE);
 				else {
 					coursesModel.removeAllElements();
@@ -149,6 +151,10 @@ public class DependencesListEditor extends JPanel {
 		for (int i = 0; i < coursesModel.getSize(); i++)
 			ret.add(coursesModel.getElementAt(i));
 		return ret.toArray(new HedspiObject[ret.size()]);
+	}
+
+	public int getNDependencies() {
+		return coursesModel.getSize();
 	}
 
 }

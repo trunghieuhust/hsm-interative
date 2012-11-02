@@ -17,6 +17,7 @@ import javax.swing.border.LineBorder;
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.Course;
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.hsm.model.hedspiObject.HedspiTable;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import com.jgoodies.forms.factories.FormFactory;
@@ -154,18 +155,20 @@ public class CourseViewPane extends JPanel {
 						"saveCourse", hedspiObject, cou,
 						dependencesListEditor.getValues());
 				if (message == null) {
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(), "Save course ok",
-							"Save ok", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(), "Save course ok", "Save ok",
+							JOptionPane.INFORMATION_MESSAGE);
 					hedspiObject.setName(cou.getName());
 				} else
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
-							"Save course failed\nMessage: " + message,
-							"Save failed", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(), "Save course failed\nMessage: "
+							+ message, "Save failed",
+							JOptionPane.WARNING_MESSAGE);
 			}
 		});
 	}
 
-	public void setInfo(Course course) {
+	private void setInfo(Course course) {
 		if (course == null)
 			return;
 		textFieldCode.setText(course.getCode());
@@ -180,5 +183,28 @@ public class CourseViewPane extends JPanel {
 
 	public void setHedspiObject(HedspiObject hedspiObject) {
 		this.hedspiObject = hedspiObject;
+		Course course = (Course) Control.getInstance().getData(
+				"getFullDataCourse", hedspiObject);
+		if (course == null) {
+			JOptionPane.showMessageDialog(Control.getInstance()
+					.getMainWindow(),
+					"Get information of course failed\nMessage: "
+							+ Control.getInstance().getQueryMessage(),
+					"Load data failed", JOptionPane.WARNING_MESSAGE);
+		} else {
+			setInfo(course);
+
+		}
+	}
+
+	public void export(HedspiTable hedspiTable) {
+		hedspiTable.addValue("Name", textFieldName.getText());
+		hedspiTable.addValue("Course code", textFieldCode.getText());
+		hedspiTable.addValue("Number of fee credits", String.valueOf(modelNFees.getNumber().doubleValue()));
+		hedspiTable.addValue("Number of credits", String.valueOf(modelNCredits.getNumber().doubleValue()));
+		hedspiTable.addValue("Times (h)", String.valueOf(modelTime.getNumber().doubleValue()));
+		hedspiTable.addValue("Topic", editorPaneTopic.getText());
+		hedspiTable.addValue("Number of dependencies", String.valueOf(dependencesListEditor.getNDependencies()));
+		hedspiTable.addValue("Note", editorPaneNote.getText());
 	}
 }

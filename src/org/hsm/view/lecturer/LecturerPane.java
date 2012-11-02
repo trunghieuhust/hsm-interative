@@ -52,6 +52,11 @@ public class LecturerPane extends JSplitPane {
 				return (HedspiObject[]) Control.getInstance().getData(
 						"getListOfFaculties");
 			}
+
+			@Override
+			public String getTitle() {
+				return "List of faculties";
+			}
 		};
 		scrollPane.setViewportView(facultyListPane);
 

@@ -41,7 +41,7 @@ public class AboutBox extends JDialog {
 						RowSpec.decode("default:grow"), }));
 
 		JLabel lblHedspiStudentManager = DefaultComponentFactory.getInstance()
-				.createLabel("Hedspi student manager version 1.0");
+				.createLabel("Hedspi student manager version 2.0");
 		getContentPane().add(lblHedspiStudentManager, "1, 2, center, top");
 
 		JLabel lblDevelopTeam = DefaultComponentFactory.getInstance()

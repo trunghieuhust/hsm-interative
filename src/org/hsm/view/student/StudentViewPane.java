@@ -1,14 +1,17 @@
 package org.hsm.view.student;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.hsm.model.hedspiObject.HedspiTable;
 import org.hsm.model.hedspiObject.Student;
 
 import com.jgoodies.forms.factories.FormFactory;
@@ -25,6 +28,9 @@ public class StudentViewPane extends JPanel {
 	private OtherInfoPane panelStudentOther;
 	private ContactPane panelContact;
 	private HedspiObject hedspiObject;
+	private StudentStatisticPane studentStatisticPane;
+	private JPanel panel_1;
+	private JButton btnExportToHtml;
 
 	/**
 	 * Create the panel.
@@ -33,8 +39,8 @@ public class StudentViewPane extends JPanel {
 		super();
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("109dlu:grow"),
-				ColumnSpec.decode("98dlu:grow"), }, new RowSpec[] {
+				FormFactory.GROWING_BUTTON_COLSPEC,
+				FormFactory.GROWING_BUTTON_COLSPEC, }, new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("fill:default:grow"), }));
 
@@ -43,16 +49,45 @@ public class StudentViewPane extends JPanel {
 
 		JPanel panel = new JPanel();
 		add(panel, "3, 2, fill, fill");
-		panel.setLayout(new FormLayout(new ColumnSpec[] { ColumnSpec
-				.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
+		panel.setLayout(new FormLayout(
+				new ColumnSpec[] { FormFactory.GROWING_BUTTON_COLSPEC, },
+				new RowSpec[] { FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("default:grow"), }));
 
 		panelStudentOther = new OtherInfoPane();
 		panel.add(panelStudentOther, "1, 2, fill, fill");
 
+		panel_1 = new JPanel();
+		panel.add(panel_1, "1, 4, fill, fill");
+		panel_1.setLayout(new FormLayout(new ColumnSpec[] {
+				ColumnSpec.decode("default:grow"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"), },
+				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
+
 		JButton btnSave = new JButton("Save");
-		panel.add(btnSave, "1, 4, center, default");
+		panel_1.add(btnSave, "1, 1, center, default");
+
+		btnExportToHtml = new JButton("Export to html");
+		btnExportToHtml.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (hedspiObject == null)
+					return;
+				HedspiTable hedspiTable = new HedspiTable(
+						"Information of student {" + hedspiObject.getName()
+								+ "}", "Label", "value");
+				hedspiTable.setIsTablePrint(false);
+				panelContact.export(hedspiTable);
+				panelStudentOther.export(hedspiTable);
+				studentStatisticPane.export(hedspiTable);
+				hedspiTable.writeToHtmlWithMessageDialog();
+			}
+		});
+		panel_1.add(btnExportToHtml, "3, 1, center, default");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (hedspiObject == null)
@@ -69,25 +104,41 @@ public class StudentViewPane extends JPanel {
 				String message = (String) Control.getInstance().getData(
 						"updateStudent", hedspiObject, st);
 				if (message == null) {
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
-							"Save student successful", "Save success",
-							JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(), "Save student successful",
+							"Save success", JOptionPane.INFORMATION_MESSAGE);
 					hedspiObject.setName(st.getName());
 				} else
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
-							"Save student failed\nMessage: " + message,
-							"Save failed", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(), "Save student failed\nMessage: "
+							+ message, "Save failed",
+							JOptionPane.WARNING_MESSAGE);
 			}
 		});
 
-	}
+		studentStatisticPane = new StudentStatisticPane();
+		studentStatisticPane.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.add(studentStatisticPane, "1, 6, fill, fill");
 
-	public void setInfo(Student student) {
-		panelContact.setContact(student);
-		panelStudentOther.setStudent(student);
 	}
 
 	public void setHedspiObject(HedspiObject hedspiObject) {
+		if (hedspiObject == null)
+			return;
+
 		this.hedspiObject = hedspiObject;
+		studentStatisticPane.setStudent(hedspiObject);
+		Student student = (Student) Control.getInstance().getData(
+				"getFullStudentData", hedspiObject);
+		if (student != null) {
+			panelContact.setContact(student);
+			panelStudentOther.setStudent(student);
+		} else
+			JOptionPane.showMessageDialog(
+					Control.getInstance().getMainWindow(),
+					"Failed to get student info\nMessage: "
+							+ Control.getInstance().getQueryMessage(),
+					"Get data failed", JOptionPane.WARNING_MESSAGE);
+
 	}
 }

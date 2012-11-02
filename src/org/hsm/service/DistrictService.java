@@ -13,16 +13,6 @@ public class DistrictService {
 						"get_raw_districts_in_city", city));
 	}
 
-	public static int getCityOfDistrict(int i) {
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
-				.doQueryFunction("get_city_id_of_district", i);
-		if (rs.size() == 0)
-			return -1;
-		if (rs.get(0).get("id") == null)
-			return -1;
-		return (int) rs.get(0).get("id");
-	}
-
 	public static HedspiObject getNewInCity(int i) {
 		return CoreService.getInstance().firstSimpleResult(
 				CoreService.getInstance().doQueryFunction(
@@ -47,6 +37,23 @@ public class DistrictService {
 		if (name == null)
 			name = "";
 		return name;
+	}
+
+	public static String[] getSingleStatistic(int i) {
+		String[] ret = new String[4];
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_single_district_statistic", i);
+		if (rs.isEmpty())
+			return null;
+		HashMap<String, Object> tt = rs.get(0);
+		ret[0] = String.valueOf((int)tt.get("nlecturers"));
+		ret[1] = String.valueOf((int)tt.get("nstudents"));
+		ret[2] = (String)tt.get("best_student");
+		ret[3] = (String)tt.get("worst_student");
+		return ret;
+	}
+
+	public static HedspiObject getCity(int i) {
+		return CoreService.getInstance().firstSimpleResult(CoreService.getInstance().doQueryFunction("get_city_of_district", i));
 	}
 
 }

@@ -9,5 +9,11 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="hsm-interative/libs/postgres-jdbc"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="libs/commons-lang3-3.1/commons-lang3-3.1.jar" sourcepath="libs/commons-lang3-3.1/commons-lang3-3.1-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/hsm-interative/libs/commons-lang3-3.1/commons-lang3-3.1-javadoc.jar!/"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="hsm-interative/libs/commons-lang3-3.1"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

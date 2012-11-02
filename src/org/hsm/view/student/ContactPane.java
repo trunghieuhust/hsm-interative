@@ -18,6 +18,7 @@ import javax.swing.border.SoftBevelBorder;
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.Contact;
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.hsm.model.hedspiObject.HedspiTable;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import com.jgoodies.forms.factories.FormFactory;
@@ -46,29 +47,38 @@ public class ContactPane extends JPanel {
 	 * Create the panel.
 	 */
 	public ContactPane() {
-		setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("fill:default:grow"),
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("fill:default:grow"),
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("fill:max(39dlu;default):grow"), }));
+		setLayout(new FormLayout(
+				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
+						ColumnSpec.decode("right:default"),
+						FormFactory.RELATED_GAP_COLSPEC,
+						ColumnSpec.decode("min:grow"), }, new RowSpec[] {
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("fill:default:grow"),
+						FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("fill:default:grow"),
+						FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("fill:max(39dlu;default):grow"), }));
 
 		JLabel lblFirst = DefaultComponentFactory.getInstance().createLabel(
 				"First name");
 		add(lblFirst, "2, 2, right, default");
 
 		textFieldFirst = new JTextField();
+		lblFirst.setLabelFor(textFieldFirst);
 		add(textFieldFirst, "4, 2, fill, default");
 		textFieldFirst.setColumns(10);
 
@@ -77,6 +87,7 @@ public class ContactPane extends JPanel {
 		add(lblLastName, "2, 4, right, default");
 
 		textFieldLast = new JTextField();
+		lblLastName.setLabelFor(textFieldLast);
 		add(textFieldLast, "4, 4, fill, default");
 		textFieldLast.setColumns(10);
 
@@ -85,6 +96,7 @@ public class ContactPane extends JPanel {
 		add(lblIsMale, "2, 6");
 
 		checkBoxIsMale = new JCheckBox("");
+		lblIsMale.setLabelFor(checkBoxIsMale);
 		checkBoxIsMale.setSelected(true);
 		add(checkBoxIsMale, "4, 6");
 
@@ -93,6 +105,7 @@ public class ContactPane extends JPanel {
 		add(lblBirthday, "2, 8");
 
 		JSpinner spinnerBirthday = new JSpinner();
+		lblBirthday.setLabelFor(spinnerBirthday);
 		modelBirthday = new SpinnerDateModel(new Date(1349974800000L), null,
 				null, Calendar.DAY_OF_YEAR);
 		spinnerBirthday.setModel(modelBirthday);
@@ -115,6 +128,7 @@ public class ContactPane extends JPanel {
 						"getCityList");
 			}
 		};
+		lblCity.setLabelFor(comboBoxCity);
 		comboBoxCity.getComboBox().addItemListener(new ItemListener() {
 
 			@Override
@@ -144,6 +158,7 @@ public class ContactPane extends JPanel {
 						"getDistricsList", city);
 			}
 		};
+		lblDistrict.setLabelFor(comboBoxDistrict);
 		add(comboBoxDistrict, "4, 12, fill, default");
 
 		JLabel lblHome = DefaultComponentFactory.getInstance().createLabel(
@@ -151,6 +166,7 @@ public class ContactPane extends JPanel {
 		add(lblHome, "2, 14");
 
 		textFieldHome = new JTextField();
+		lblHome.setLabelFor(textFieldHome);
 		add(textFieldHome, "4, 14, fill, default");
 		textFieldHome.setColumns(10);
 
@@ -159,6 +175,7 @@ public class ContactPane extends JPanel {
 		add(lblEmails, "2, 16");
 
 		panelEmails = new QuickListEditor();
+		lblEmails.setLabelFor(panelEmails);
 		add(panelEmails, "4, 16, fill, fill");
 
 		JLabel lblPhones = DefaultComponentFactory.getInstance().createLabel(
@@ -166,6 +183,7 @@ public class ContactPane extends JPanel {
 		add(lblPhones, "2, 18");
 
 		panelPhones = new QuickListEditor();
+		lblPhones.setLabelFor(panelPhones);
 		add(panelPhones, "4, 18, fill, fill");
 
 		JLabel lblNote = DefaultComponentFactory.getInstance().createLabel(
@@ -173,6 +191,7 @@ public class ContactPane extends JPanel {
 		add(lblNote, "2, 20");
 
 		editorPaneNote = new JEditorPane();
+		lblNote.setLabelFor(editorPaneNote);
 		editorPaneNote.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null,
 				null, null, null));
 		add(editorPaneNote, "4, 20, fill, fill");
@@ -190,11 +209,11 @@ public class ContactPane extends JPanel {
 	}
 
 	private void updateDistrict(int district) {
-		int city = (int) Control.getInstance().getData("getCityOfDistrict",
+		HedspiObject city = (HedspiObject) Control.getInstance().getData("getCityOfDistrictFromDistrictId",
 				district);
-		if (city == -1)
+		if (city == null)
 			return;
-		comboBoxCity.setSelectedValue(city);
+		comboBoxCity.setSelectedValue(city.getId());
 		comboBoxDistrict.setSelectedValue(district);
 	}
 
@@ -232,5 +251,23 @@ public class ContactPane extends JPanel {
 
 	public int getDistrict() {
 		return comboBoxDistrict.getSelectedValue();
+	}
+
+	public void export(HedspiTable hedspiTable) {
+		hedspiTable.addValue("First name", textFieldFirst.getText());
+		hedspiTable.addValue("Last name", textFieldLast.getText());
+		hedspiTable.addValue("Gender", checkBoxIsMale.isSelected() ? "Male"
+				: "Female");
+		hedspiTable.addValue("Birthday", modelBirthday.getDate().toString());
+
+		HedspiObject obj = comboBoxCity.getSelectedObject();
+		hedspiTable.addValue("City", obj == null ? "null" : obj.getName());
+		obj = comboBoxDistrict.getSelectedObject();
+		hedspiTable.addValue("District", obj == null ? "null" : obj.getName());
+
+		hedspiTable.addValue("Home", textFieldHome.getText());
+		hedspiTable.addValue("Emails", panelEmails.toLineString());
+		hedspiTable.addValue("Phones", panelPhones.toLineString());
+		hedspiTable.addValue("Note", editorPaneNote.getText());
 	}
 }

@@ -206,11 +206,50 @@ public class Control implements IControl {
 		String str;
 
 		switch (command) {
+		case "getSingleCourseStatistic":
+			obj = (HedspiObject)data[0];
+			logStart("Get statistic of single course {" + obj.getName() + "}");
+			return logEnd(Model.getInstance().getData("getSingleCourseStatistic", obj.getId()));
+			
+		case "getNClassesInRoom":
+			obj = (HedspiObject)data[0];
+			logStart("Get number of classes held in room {" + obj.getName() + "}");
+			return logEnd(Model.getInstance().getData("getNClassesInRoom", obj.getId()));
+			
+		case "getCityOfDistrictFromDistrictId":
+			id = (int)data[0];
+			logStart("Get city of district with id {" + id + "}");
+			return logEnd(Model.getInstance().getData("getCityOfDistrict", id));
+			
+		case "getCityOfDistrict":
+			obj = (HedspiObject)data[0];
+			logStart("Get city of district {" + obj.getName() + "}");
+			return logEnd(Model.getInstance().getData("getCityOfDistrict", obj.getId()));
+			
+		case "getSingleDistrictStatistic":
+			obj = (HedspiObject)data[0];
+			logStart("Get statistic information of district {" + obj.getName() + "}");
+			return logEnd(Model.getInstance().getData("getSingleDistrictStatistic", obj.getId()));
+			
+		case "getSingleLecturerStatistic":
+			obj = (HedspiObject) data[0];
+			logStart("Get statistic information of lecturer {" + obj.getName()
+					+ "}");
+			return logEnd(Model.getInstance().getData(
+					"getSingleLecturerStatistic", obj.getId()));
+
+		case "getStatisticOfStudent":
+			obj = (HedspiObject) data[0];
+			logStart("Get statistic information of student {" + obj.getName()
+					+ "}");
+			return logEnd(Model.getInstance().getData("getStatisticOfStudent",
+					obj.getId()));
+
 		case "query":
-			str = (String)data[0];
+			str = (String) data[0];
 			logStart("Execute query {" + str + "}");
 			return logEnd(Model.getInstance().getData("query", str));
-			
+
 		case "getBackgroundRelated":
 			obj = (HedspiObject) data[0];
 			logStart("Get background constrains related with course{"
@@ -428,11 +467,6 @@ public class Control implements IControl {
 			logStart("Get new city");
 			return logEnd(Model.getInstance().getData("newCity"));
 
-		case "getCityOfDistrict":
-			id = (int) data[0];
-			logStart("Get id of city for district with id {" + id + "}");
-			return logEnd(Model.getInstance().getData("getCityOfDistrict", id));
-
 		case "updateStudent":
 			obj = (HedspiObject) data[0];
 			student = (Student) data[1];
@@ -509,7 +543,8 @@ public class Control implements IControl {
 
 	private Object logEnd(Object data) {
 		if (mainWindow != null)
-			mainWindow.setStatus("(" + (System.currentTimeMillis() - time) + " ms) " + currentStatus);
+			mainWindow.setStatus("(" + (System.currentTimeMillis() - time)
+					+ " ms) " + currentStatus);
 		return data;
 	}
 

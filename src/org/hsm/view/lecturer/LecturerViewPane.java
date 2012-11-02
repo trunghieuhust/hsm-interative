@@ -1,5 +1,6 @@
 package org.hsm.view.lecturer;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,9 +8,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.hsm.model.hedspiObject.HedspiTable;
 import org.hsm.model.hedspiObject.Lecturer;
 import org.hsm.view.student.ContactPane;
 import org.hsm.view.student.HedspiComboBox;
@@ -30,6 +33,7 @@ public class LecturerViewPane extends JPanel {
 	private HedspiComboBox comboBoxDegree;
 	private HedspiComboBox comboBoxFaculty;
 	private HedspiObject hedspiObject;
+	private LecturerStatisticPane lecturerStatisticPane;
 
 	/**
 	 * Create the panel.
@@ -50,7 +54,9 @@ public class LecturerViewPane extends JPanel {
 		add(panel, "4, 2, fill, fill");
 		panel.setLayout(new FormLayout(new ColumnSpec[] { ColumnSpec
 				.decode("236px:grow"), }, new RowSpec[] {
-				RowSpec.decode("70px"), FormFactory.DEFAULT_ROWSPEC, }));
+				RowSpec.decode("70px"), FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"), }));
 
 		JPanel otherPane = new JPanel();
 		panel.add(otherPane, "1, 1, fill, top");
@@ -103,8 +109,32 @@ public class LecturerViewPane extends JPanel {
 		};
 		otherPane.add(comboBoxDegree, "4, 4, fill, default");
 
+		JPanel panel_1 = new JPanel();
+		panel.add(panel_1, "1, 2, fill, fill");
+		panel_1.setLayout(new FormLayout(new ColumnSpec[] {
+				ColumnSpec.decode("60px:grow"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"), },
+				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
+
 		JButton btnSave = new JButton("Save");
-		panel.add(btnSave, "1, 2, center, default");
+		panel_1.add(btnSave, "1, 1, right, default");
+
+		JButton btnExport = new JButton("Export");
+		btnExport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (hedspiObject == null)
+					return;
+				HedspiTable hedspiTable = new HedspiTable(
+						"Information of lecturer {" + hedspiObject.getName()
+								+ "}", "Label", "value");
+				hedspiTable.setIsTablePrint(false);
+				contactPane.export(hedspiTable);
+				lecturerStatisticPane.export(hedspiTable);
+				hedspiTable.writeToHtmlWithMessageDialog();
+			}
+		});
+		panel_1.add(btnExport, "3, 1, left, default");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (hedspiObject == null)
@@ -120,19 +150,25 @@ public class LecturerViewPane extends JPanel {
 						"updateLecturer", hedspiObject, newlt);
 				if (message == null) {
 					hedspiObject.setName(newlt.getName());
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(),
 							"Update lecturer's information success",
 							"Update success", JOptionPane.INFORMATION_MESSAGE);
 				} else
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(),
 							"Update lecturer's information failed\nMessage: "
 									+ message, "Update failed",
 							JOptionPane.WARNING_MESSAGE);
 			}
 		});
+
+		lecturerStatisticPane = new LecturerStatisticPane();
+		lecturerStatisticPane.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.add(lecturerStatisticPane, "1, 4, fill, fill");
 	}
 
-	public void setInfo(Lecturer lecturer) {
+	private void setInfo(Lecturer lecturer) {
 		if (lecturer != null) {
 			contactPane.setContact(lecturer);
 			comboBoxDegree.setSelectedValue(lecturer.getDegree());
@@ -141,7 +177,20 @@ public class LecturerViewPane extends JPanel {
 	}
 
 	public void setHedspiObject(HedspiObject hedspiObject) {
-		this.hedspiObject = hedspiObject;
-	}
+		if (hedspiObject == null)
+			return;
 
+		lecturerStatisticPane.setLecturer(hedspiObject);
+		this.hedspiObject = hedspiObject;
+		Lecturer lecturer = (Lecturer) Control.getInstance().getData(
+				"getFullDataLecturer", hedspiObject);
+		if (lecturer != null) {
+			setInfo(lecturer);
+		} else
+			JOptionPane.showMessageDialog(
+					Control.getInstance().getMainWindow(),
+					"Get data of lecturer failed\nMessage: "
+							+ Control.getInstance().getQueryMessage(),
+					"Get data failed", JOptionPane.WARNING_MESSAGE);
+	}
 }

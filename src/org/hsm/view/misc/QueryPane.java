@@ -19,7 +19,7 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
-public class QueryPane extends JPanel implements ActionListener{
+public class QueryPane extends JPanel implements ActionListener {
 
 	/**
 	 * 
@@ -35,57 +35,53 @@ public class QueryPane extends JPanel implements ActionListener{
 	public QueryPane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
+				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("max(41dlu;default):grow"),
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),}));
-		
-		JLabel lblQuery = DefaultComponentFactory.getInstance().createLabel("Query");
+				RowSpec.decode("default:grow"), }));
+
+		JLabel lblQuery = DefaultComponentFactory.getInstance().createLabel(
+				"Query");
 		add(lblQuery, "2, 2");
-		
+
 		queryInputEntry = new JEditorPane();
 		queryInputEntry.setText("SELECT * FROM room;");
 		add(queryInputEntry, "2, 4, fill, fill");
-		
+
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(this);
 		add(btnSubmit, "2, 6, left, default");
-		
-		JLabel lblResult = DefaultComponentFactory.getInstance().createLabel("Result");
+
+		JLabel lblResult = DefaultComponentFactory.getInstance().createLabel(
+				"Result");
 		add(lblResult, "2, 8");
-		
+
 		JSplitPane splitPane = new JSplitPane();
 		add(splitPane, "2, 10, fill, fill");
-		
+
 		JPanel panel = new JPanel();
 		splitPane.setLeftComponent(panel);
 		panel.setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
+				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),}));
-		
+				RowSpec.decode("default:grow"), }));
+
 		JLabel lblMessage = new JLabel("Message");
 		panel.add(lblMessage, "2, 2");
-		
+
 		messagePane = new JEditorPane();
 		messagePane.setEditable(false);
 		panel.add(messagePane, "2, 4, fill, fill");
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		splitPane.setRightComponent(scrollPane);
-		
+
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		splitPane.setDividerLocation(100);
@@ -93,15 +89,16 @@ public class QueryPane extends JPanel implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String[] rs = (String[]) Control.getInstance().getData("query", queryInputEntry.getText());
+		String[] rs = (String[]) Control.getInstance().getData("query",
+				queryInputEntry.getText());
 		messagePane.setText(rs[0]);
 		int nRow;
-		try{
+		try {
 			nRow = Integer.parseInt(rs[1]);
-		} catch (NumberFormatException e1){
+		} catch (NumberFormatException e1) {
 			nRow = 0;
 		}
 		// TODO Auto-generated method stub
-		
+
 	}
 }

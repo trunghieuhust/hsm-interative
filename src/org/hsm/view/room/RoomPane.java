@@ -51,6 +51,11 @@ public class RoomPane extends JSplitPane {
 				return (HedspiObject[]) Control.getInstance().getData(
 						"getRoomList");
 			}
+
+			@Override
+			public String getTitle() {
+				return "List of rooms";
+			}
 		};
 
 		scrollPane.setViewportView(roomListPane);

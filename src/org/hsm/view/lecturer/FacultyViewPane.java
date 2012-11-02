@@ -12,7 +12,6 @@ import javax.swing.JTextField;
 
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
-import org.hsm.model.hedspiObject.Lecturer;
 import org.hsm.view.student.ObjectListPane;
 
 import com.jgoodies.forms.factories.FormFactory;
@@ -66,14 +65,15 @@ public class FacultyViewPane extends JSplitPane {
 				String message = (String) Control.getInstance().getData(
 						"renameFaculty", faculty, name);
 				if (message == null) {
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
-							"Save faculty's name success", "Save success",
-							JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(), "Save faculty's name success",
+							"Save success", JOptionPane.INFORMATION_MESSAGE);
 					faculty.setName(name);
 				} else {
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
-							"Rename failed\nMessage: " + message,
-							"Rename failed", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(), "Rename failed\nMessage: "
+							+ message, "Rename failed",
+							JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
@@ -92,15 +92,7 @@ public class FacultyViewPane extends JSplitPane {
 
 			@Override
 			public void selectValue(HedspiObject value) {
-				Lecturer lecturer = (Lecturer) Control.getInstance().getData(
-						"getFullDataLecturer", value);
-				if (lecturer != null) {
-					lecturerViewPane.setHedspiObject(value);
-					lecturerViewPane.setInfo(lecturer);
-				} else
-					JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
-							"Get data of lecturer failed\nMessage: " + Control.getInstance().getQueryMessage(), "Get data failed",
-							JOptionPane.WARNING_MESSAGE);
+				lecturerViewPane.setHedspiObject(value);
 			}
 
 			@Override
@@ -123,6 +115,13 @@ public class FacultyViewPane extends JSplitPane {
 					return new HedspiObject[0];
 				return (HedspiObject[]) Control.getInstance().getData(
 						"getLecturersListInFaculty", faculty);
+			}
+
+			@Override
+			public String getTitle() {
+				if (faculty == null)
+					return null;
+				return "Lecturers list in faculty {" + faculty.getName() + "}";
 			}
 		};
 		panel.add(lecturerListPane, "2, 4, fill, fill");

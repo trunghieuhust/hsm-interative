@@ -33,12 +33,12 @@ public class SingleElement extends JComponent {
 	private String wrapText(String note) {
 		String ret = "<html>";
 		int cnt = 0;
-		for(int i = 0; i < note.length(); i++)
-			if (i > 0 && i % DEFAULT_LINE_LEN <= 5 && note.charAt(i) == ' ' && cnt >= 30){
+		for (int i = 0; i < note.length(); i++)
+			if (i > 0 && i % DEFAULT_LINE_LEN <= 5 && note.charAt(i) == ' '
+					&& cnt >= 30) {
 				ret += "<br>";
 				cnt = 0;
-			}
-			else{
+			} else {
 				ret += note.charAt(i);
 				cnt++;
 			}
@@ -55,16 +55,16 @@ public class SingleElement extends JComponent {
 		g.drawString(hedspiObject.getName(), 10, 20);
 		g.setColor(bak);
 	}
-	
-	public Dimension getPreferredSize(){
+
+	public Dimension getPreferredSize() {
 		return new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 	}
-	
-	public int getWidth(){
+
+	public int getWidth() {
 		return DEFAULT_WIDTH;
 	}
-	
-	public int getHeight(){
+
+	public int getHeight() {
 		return DEFAULT_HEIGHT;
 	}
 
@@ -80,20 +80,20 @@ public class SingleElement extends JComponent {
 	public int getCoy() {
 		return coy;
 	}
-	
-	public int getInx(){
-		return cox +getWidth() / 2;
+
+	public int getInx() {
+		return cox + getWidth() / 2;
 	}
-	
-	public int getIny(){
+
+	public int getIny() {
 		return coy;
 	}
-	
-	public int getOutx(){
+
+	public int getOutx() {
 		return getInx();
 	}
-	
-	public int getOuty(){
+
+	public int getOuty() {
 		return coy + getHeight();
 	}
 }

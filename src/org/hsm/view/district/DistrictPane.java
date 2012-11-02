@@ -52,6 +52,11 @@ public class DistrictPane extends JSplitPane {
 				cityViewPane.setCity(value);
 			}
 
+			@Override
+			public String getTitle() {
+				return "List of cities";
+			}
+
 		};
 
 		scrollPane.setViewportView(cityListPane);

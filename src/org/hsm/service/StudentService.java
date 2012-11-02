@@ -164,7 +164,7 @@ public class StudentService {
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
 				.doQueryFunction("get_academic_info", i);
 		for (HashMap<String, Object> it : rs) {
-			int ce = (int) it.get("ce");
+			int ce = (int) it.get("ceid");
 			String ce_name = (String) it.get("ce_name");
 			HedspiObject course = new HedspiObject(ce, ce_name);
 
@@ -172,12 +172,12 @@ public class StudentService {
 			String lt_name = (String) it.get("lt_name");
 			HedspiObject lecturer = new HedspiObject(lt, lt_name);
 
-			int rm = (int) it.get("rm");
+			int rm = (int) it.get("rmid");
 			String rm_name = (String) it.get("rm_name");
 			HedspiObject room = new HedspiObject(rm, rm_name);
 
 			boolean isPassed = (boolean) it.get("is_passed");
-			double result = (double) it.get("result");
+			double result = (double) it.get("ret");
 
 			all.add(new AcademicInfo(course, lecturer, room, isPassed, result));
 		}
@@ -195,5 +195,23 @@ public class StudentService {
 		}
 		return CoreService.getInstance().doUpdateFunction(
 				"update_academic_info", i, arr);
+	}
+
+	public static Number[] getSingleStatistic(int i) {
+		Number[] result = new Number[8];
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
+				.doQueryFunction("get_single_student_statistic8", i);
+		if (rs.isEmpty())
+			return null;
+		HashMap<String, Object> tt = rs.get(0);
+		result[0] = new Integer((int) tt.get("passed_classes"));
+		result[1] = new Integer((int) tt.get("failed_classes"));
+		result[2] = new Integer((int) tt.get("passed_courses"));
+		result[3] = new Integer((int) tt.get("failed_courses"));
+		result[4] = new Double((double) tt.get("max_point"));
+		result[5] = new Double((double) tt.get("min_point"));
+		result[6] = new Double((double) tt.get("avg_point"));
+		result[7] = new Double((double) tt.get("avg_max_point"));
+		return result;
 	}
 }

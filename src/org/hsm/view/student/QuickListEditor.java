@@ -86,4 +86,11 @@ public class QuickListEditor extends JPanel {
 		return ret;
 	}
 
+	public String toLineString() {
+		String ret = "";
+		for (int i = 0; i < listModel.getSize(); i++)
+			ret += listModel.getElementAt(i) + "; ";
+		return ret;
+	}
+
 }

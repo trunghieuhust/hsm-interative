@@ -43,8 +43,7 @@ public class CoreService {
 		// + loginInfo.getProperty("password", "hedspi");
 		// + "&ssl=" + loginInfo.getProperty("ssl", "false");
 		// Control.getInstance().getLogger().log(Level.INFO, url);
-		String url = "jdbc:postgresql://"
-				+ loginInfo.getProperty("host") + ":"
+		String url = "jdbc:postgresql://" + loginInfo.getProperty("host") + ":"
 				+ loginInfo.getProperty("port") + "/"
 				+ loginInfo.getProperty("dbname") + "?user="
 				+ loginInfo.getProperty("username") + "&password="

@@ -36,12 +36,30 @@ public class Model implements IModel {
 	@Override
 	public Object getData(String command, Object... data) {
 		switch (command) {
+		case "getSingleCourseStatistic":
+			return CourseService.getSingleStatistic((int)data[0]);
+			
+		case "getNClassesInRoom":
+			return RoomService.getNClassesIn((int)data[0]);
+			
+		case "getCityOfDistrict":
+			return DistrictService.getCity((int)data[0]);
+			
+		case "getSingleDistrictStatistic":
+			return DistrictService.getSingleStatistic((int)data[0]);
+			
+		case "getSingleLecturerStatistic":
+			return LecturerService.getSingleStatistic((int) data[0]);
+
+		case "getStatisticOfStudent":
+			return StudentService.getSingleStatistic((int) data[0]);
+
 		case "query":
-			return CoreService.getInstance().executeQuery((String)data[0]);
-			
+			return CoreService.getInstance().executeQuery((String) data[0]);
+
 		case "getBackgroundRelated":
-			return CourseService.getRelatedBackground((int)data[0]);
-			
+			return CourseService.getRelatedBackground((int) data[0]);
+
 		case "saveAcademicInfo":
 			return StudentService.saveAcademicInfo((int) data[0],
 					(AcademicInfo[]) data[1]);
@@ -145,9 +163,6 @@ public class Model implements IModel {
 
 		case "newCity":
 			return CityService.getNew();
-
-		case "getCityOfDistrict":
-			return DistrictService.getCityOfDistrict((int) data[0]);
 
 		case "updateStudent":
 			return StudentService.update((int) data[0], (Student) data[1]);
