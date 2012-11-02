@@ -14,6 +14,13 @@ import java.util.logging.Level;
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
 
+/**
+ * Tập hợp driver tương tác trực tiếp với server.
+ * Một số đã có doc sẵn, một số chưa. Nếu cần cái nào thì email
+ * bảo rồi tôi sẽ viết
+ * @author haidang-ubuntu
+ *
+ */
 public class CoreService {
 	private static CoreService instance;
 
@@ -153,6 +160,10 @@ public class CoreService {
 	 *            quả được gọi, cảnh báo sẽ xuất hiện trong file log.
 	 * @return danh sách các bản ghi trả về, mỗi bản ghi là một map. Trường hợp
 	 *         truy vấn lỗi sẽ trả về một danh sách rỗng.
+	 *         Ngoài ra, thông báo đi kèm sẽ được ghi vào {@link org.hsm.control.Control#getQueryMessage() query message
+	 *         là thông báo lỗi hoặc <code>null</code> nếu truy vẫn thành công.
+	 *         Lưu ý: danh sách rỗng khác với kết quả là rỗng.
+	 * @see #queryFull(String)
 	 */
 	public ArrayList<HashMap<String, Object>> query(String queryStr) {
 		Pair<ArrayList<HashMap<String, Object>>, String> queryFull = queryFull(queryStr);
@@ -160,6 +171,14 @@ public class CoreService {
 		return queryFull.getT1();
 	}
 
+	/**
+	 * Thực hiện truy vấn loại có trả về kết quả.
+	 * Lưu ý: trường hợp câu truy vấn không trả về kết quả, sẽ có thông báo lỗi,
+	 * trường hợp này hãy sử dụng hàm {@link #update(String) update} để thay thế
+	 * @param queryStr câu truy vấn có trả về kết quả
+	 * @return một cặp gồm kết quả truy vấn và thông báo nếu có. Thông báo là <code>null</code> tức là thành công. 
+	 * @see #update(String)
+	 */
 	private Pair<ArrayList<HashMap<String, Object>>, String> queryFull(
 			String queryStr) {
 		Control.getInstance().getLogger()
@@ -221,6 +240,7 @@ public class CoreService {
 	 *            câu truy vấn có thể không trả về kết quả
 	 * @return trả về <code>null</code> nếu thành công, ngược lại sẽ trả về
 	 *         String chứa thông báo lỗi.
+	 * @see #query(String)
 	 */
 	public String update(String updateStr) {
 		Control.getInstance().getLogger()
@@ -253,6 +273,16 @@ public class CoreService {
 		this.loginInfo = loginInfo;
 	}
 
+	/**
+	 * Truyền tham số vào cho hàm trên server từ các biến của java.
+	 * Có sửa đổi một số kiểu biến nhất định cho phù hợp với server.
+	 * Chủ yếu sửa đổi:
+	 * <li>biến boolean</li>
+	 * <li>biến dãy</li>
+	 * @param func tên hàm
+	 * @param args danh sách biến
+	 * @return dòng gọi hàm đầy đủ biến
+	 */
 	private String getFullFunctionCaller(String func, Object[] args) {
 		String query = func + "(";
 		for (int i = 0; i < args.length; i++) {
@@ -283,6 +313,15 @@ public class CoreService {
 		return query;
 	}
 
+	/**
+	 * Thực hiện một hàm có trả về kết quả từ trên server.
+	 * @param func tên hàm đặt trên server
+	 * @param args danh sách các tham số. Một số tham số có kiểu đặc biệt sẽ được
+	 * điều hướng lại để cho phù hợp với server. Xem {@link #getFullFunctionCaller(String, Object[])}
+	 * để biết cụ thể
+	 * @return
+	 * @see #getFullFunctionCaller(String, Object[])
+	 */
 	public ArrayList<HashMap<String, Object>> doQueryFunction(String func,
 			Object... args) {
 		String queryStr = "SELECT * FROM " + getFullFunctionCaller(func, args);
@@ -321,11 +360,29 @@ public class CoreService {
 		return "Query {" + func + "} failed";
 	}
 
+	/**
+	 * Thực hiện hàm cập nhật trên server.
+	 * @param func tên hàm
+	 * @param args danh sách biến
+	 * @return xâu rỗng nếu thành công, ngược lại trả về thông báo lỗi
+	 * @see #queryFull(String)
+	 * @see #doQueryFunction(String, Object...)
+	 * @see #getFullFunctionCaller(String, Object[])
+	 * @see #update(String)
+	 */
 	public String doUpdateFunction(String func, Object... args) {
 		String updateStr = "SELECT " + getFullFunctionCaller(func, args);
 		return queryFull(updateStr).getT2();
 	}
 
+	/**
+	 * Hàm chuyển đổi kết quả của các phép truy vấn về dãy các đối tượng đơn giản.
+	 * Yêu cầu các truy vấn trả về dãy các bảng có ít nhất 2 trường
+	 * <li><code>id</code> kiểu <code>integer</code></li>
+	 * <li><code>name</code> kiểu <code>text</code></li>
+	 * @param rs kết quả của các truy vấn cần được chuyển
+	 * @return danh sách đối tượng sau khi chuyển
+	 */
 	public HedspiObject[] rsToSimpleArray(ArrayList<HashMap<String, Object>> rs) {
 		ArrayList<HedspiObject> ret = new ArrayList<>();
 		for (HashMap<String, Object> it : rs) {
@@ -340,6 +397,13 @@ public class CoreService {
 		return ret.toArray(new HedspiObject[ret.size()]);
 	}
 
+	/**
+	 * Trả về đối tượng đầu tiên của phép gọi.
+	 * Xem {@link #rsToSimpleArray(ArrayList)} để biết các quy ước về kết quả trả về của các câu truy vấn
+	 * @param rs kết quả các câu truy vấn
+	 * @return kết quả sau khi chuyển đổi, là đối tượng đầu tiên của kết quả truy vấn
+	 * hoặc <code>null</code> nếu câu truy vẫn không có kết quả 
+	 */
 	public HedspiObject firstSimpleResult(ArrayList<HashMap<String, Object>> rs) {
 		HedspiObject[] arr = rsToSimpleArray(rs);
 		if (arr.length == 0)
@@ -347,9 +411,14 @@ public class CoreService {
 		return arr[0];
 	}
 
+	/**
+	 * Thực hiện truy vấn hoặc cập nhật.
+	 * @param queryStr câu truy vấn hoặc câu cập nhật.
+	 * @return dãy các <code>String</code> với một quy ước về cấu trúc dữ liệu khác thường.
+	 */
 	public String[] executeQuery(String queryStr) {
 		Control.getInstance().getLogger()
-				.log(Level.INFO, "Execute udpate " + queryStr);
+				.log(Level.INFO, "Execute udpate or query" + queryStr);
 
 		Connection conn = getConnection();
 		if (conn == null)

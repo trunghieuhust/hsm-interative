@@ -560,6 +560,11 @@ public class Control implements IControl {
 		return mainWindow;
 	}
 
+	/**
+	 * Trả về thông báo lỗi, sau đó reset biến nhớ về <code>""</code>
+	 * @return thông báo lỗi hoặc <code>null</code> nếu ok.
+	 * @see org.hsm.service.CoreService#query(String)
+	 */
 	public String getQueryMessage() {
 		String queryMessage2 = queryMessage;
 		setQueryMessage("");
