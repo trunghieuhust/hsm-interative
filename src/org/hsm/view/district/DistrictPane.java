@@ -58,6 +58,7 @@ public class DistrictPane extends JSplitPane {
 			}
 
 		};
+		cityListPane.setToolTipText("List of cities");
 
 		scrollPane.setViewportView(cityListPane);
 

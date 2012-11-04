@@ -57,6 +57,7 @@ public class RoomPane extends JSplitPane {
 				return "List of rooms";
 			}
 		};
+		roomListPane.setToolTipText("List of rooms");
 
 		scrollPane.setViewportView(roomListPane);
 

@@ -52,9 +52,11 @@ public class HierachyView extends JPanel implements ActionListener {
 				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnDraw = new JButton("Draw");
+		btnDraw.setToolTipText("Refresh graphic");
 		panel.add(btnDraw, "1, 1");
 
 		JButton btnExport = new JButton("Export to png");
+		btnExport.setToolTipText("Export to png image");
 		btnExport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				BufferedImage imgBuff = new BufferedImage(hierachyElement

@@ -68,6 +68,7 @@ public class StudentStatisticPane extends JPanel {
 						FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.setToolTipText("Refresh student's statistic information");
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				refresh();
@@ -80,6 +81,8 @@ public class StudentStatisticPane extends JPanel {
 		add(lblPassedClasses, "2, 4, right, default");
 
 		textFieldPassedClasses = new JTextField();
+		textFieldPassedClasses
+				.setToolTipText("Number of classes that student passed");
 		lblPassedClasses.setLabelFor(textFieldPassedClasses);
 		textFieldPassedClasses.setEditable(false);
 		textFieldPassedClasses.setColumns(10);
@@ -90,6 +93,8 @@ public class StudentStatisticPane extends JPanel {
 		add(lblFailedClass, "2, 6, right, default");
 
 		textFieldFailedClasses = new JTextField();
+		textFieldFailedClasses
+				.setToolTipText("Number of classes that student got failed");
 		lblFailedClass.setLabelFor(textFieldFailedClasses);
 		textFieldFailedClasses.setEditable(false);
 		textFieldFailedClasses.setColumns(10);
@@ -100,6 +105,8 @@ public class StudentStatisticPane extends JPanel {
 		add(lblPassedCourse, "2, 10, right, default");
 
 		textFieldPassedCourse = new JTextField();
+		textFieldPassedCourse
+				.setToolTipText("Number of courses that student passed");
 		lblPassedCourse.setLabelFor(textFieldPassedCourse);
 		textFieldPassedCourse.setEditable(false);
 		textFieldPassedCourse.setColumns(10);
@@ -110,6 +117,8 @@ public class StudentStatisticPane extends JPanel {
 		add(lblFailedCourses, "2, 12, right, default");
 
 		textFieldFailedCourses = new JTextField();
+		textFieldFailedCourses
+				.setToolTipText("Number of courses that student got failed");
 		lblFailedCourses.setLabelFor(textFieldFailedCourses);
 		textFieldFailedCourses.setEditable(false);
 		textFieldFailedCourses.setColumns(10);
@@ -120,6 +129,8 @@ public class StudentStatisticPane extends JPanel {
 		add(lblMaxPoint, "2, 16, right, default");
 
 		textFieldMaxPoint = new JTextField();
+		textFieldMaxPoint
+				.setToolTipText("The best point that student achieved");
 		lblMaxPoint.setLabelFor(textFieldMaxPoint);
 		textFieldMaxPoint.setEditable(false);
 		textFieldMaxPoint.setColumns(10);
@@ -130,6 +141,7 @@ public class StudentStatisticPane extends JPanel {
 		add(lblMinPoint, "2, 18, right, default");
 
 		textFieldMinPoint = new JTextField();
+		textFieldMinPoint.setToolTipText("The worst point that student got");
 		lblMinPoint.setLabelFor(textFieldMinPoint);
 		textFieldMinPoint.setEditable(false);
 		textFieldMinPoint.setColumns(10);
@@ -140,6 +152,8 @@ public class StudentStatisticPane extends JPanel {
 		add(lblAveragePoint, "2, 20, right, default");
 
 		textFieldAveragePoint = new JTextField();
+		textFieldAveragePoint
+				.setToolTipText("The average point which student has");
 		lblAveragePoint.setLabelFor(textFieldAveragePoint);
 		textFieldAveragePoint.setEditable(false);
 		textFieldAveragePoint.setColumns(10);
@@ -150,6 +164,8 @@ public class StudentStatisticPane extends JPanel {
 		add(lblAverageOfMax, "2, 22, right, default");
 
 		textFieldAverageMax = new JTextField();
+		textFieldAverageMax
+				.setToolTipText("The average of maximal points in all course he attended");
 		lblAverageOfMax.setLabelFor(textFieldAverageMax);
 		textFieldAverageMax.setEditable(false);
 		textFieldAverageMax.setColumns(10);

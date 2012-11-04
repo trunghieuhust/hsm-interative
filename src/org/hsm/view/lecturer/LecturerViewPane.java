@@ -88,6 +88,9 @@ public class LecturerViewPane extends JPanel {
 						"getListOfFaculties");
 			}
 		};
+		comboBoxFaculty
+				.setToolTipText("Changing faculty will remove lecturer from current faculty on next refresh");
+		lblFaculty.setLabelFor(comboBoxFaculty);
 		otherPane.add(comboBoxFaculty, "4, 2, fill, default");
 
 		JLabel lblDegree = DefaultComponentFactory.getInstance().createLabel(
@@ -107,6 +110,8 @@ public class LecturerViewPane extends JPanel {
 						"getListOfDegrees");
 			}
 		};
+		comboBoxDegree.setToolTipText("Choose academic degree");
+		lblDegree.setLabelFor(comboBoxDegree);
 		otherPane.add(comboBoxDegree, "4, 4, fill, default");
 
 		JPanel panel_1 = new JPanel();
@@ -118,9 +123,11 @@ public class LecturerViewPane extends JPanel {
 				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnSave = new JButton("Save");
+		btnSave.setToolTipText("Save lecturer's information");
 		panel_1.add(btnSave, "1, 1, right, default");
 
 		JButton btnExport = new JButton("Export");
+		btnExport.setToolTipText("Export lecturer's information to html file");
 		btnExport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (hedspiObject == null)

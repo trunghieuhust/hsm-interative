@@ -65,6 +65,7 @@ public class ClassViewPane extends JSplitPane {
 						FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnSave = new JButton("Save");
+		btnSave.setToolTipText("Save class's name");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = textFieldClassName.getText();
@@ -90,6 +91,7 @@ public class ClassViewPane extends JSplitPane {
 		panel_1.add(btnSave, "2, 2");
 
 		textFieldClassName = new JTextField();
+		textFieldClassName.setToolTipText("Name of class");
 		panel_1.add(textFieldClassName, "4, 2, fill, default");
 		textFieldClassName.setColumns(10);
 
@@ -133,6 +135,7 @@ public class ClassViewPane extends JSplitPane {
 				return "Students list of class {" + hedspiClass.getName() + "}";
 			}
 		};
+		studentListPane.setToolTipText("List of classes");
 		panel.add(studentListPane, "2, 4, fill, fill");
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);

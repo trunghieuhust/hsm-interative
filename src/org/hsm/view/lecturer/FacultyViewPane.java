@@ -57,6 +57,7 @@ public class FacultyViewPane extends JSplitPane {
 						FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnSave = new JButton("Save");
+		btnSave.setToolTipText("Save faculty name");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (faculty == null)
@@ -80,6 +81,7 @@ public class FacultyViewPane extends JSplitPane {
 		panel_1.add(btnSave, "2, 2");
 
 		textFieldFacultyName = new JTextField();
+		textFieldFacultyName.setToolTipText("Name of faculty");
 		panel_1.add(textFieldFacultyName, "4, 2, fill, default");
 		textFieldFacultyName.setColumns(10);
 
@@ -124,6 +126,7 @@ public class FacultyViewPane extends JSplitPane {
 				return "Lecturers list in faculty {" + faculty.getName() + "}";
 			}
 		};
+		lecturerListPane.setToolTipText("List of lecturers in faculty");
 		panel.add(lecturerListPane, "2, 4, fill, fill");
 
 		setLeftComponent(scrollPane);

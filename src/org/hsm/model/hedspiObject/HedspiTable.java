@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.hsm.control.Control;
@@ -20,11 +21,13 @@ public class HedspiTable {
 	private boolean isShowBorder;
 
 	public HedspiTable(String title, String... headers) {
-		isPrintWithOrd = true;
-		isShowBorder = true;
-		isShowHeader = true;
+		setIsTablePrint(true);
 		this.title = title;
 
+		setHeaders(headers);
+	}
+
+	private void setHeaders(String... headers) {
 		this.headers = new String[headers.length];
 		for (int i = 0; i < headers.length; i++)
 			this.headers[i] = headers[i];
@@ -32,6 +35,27 @@ public class HedspiTable {
 		values = new ArrayList[this.headers.length];
 		for (int i = 0; i < this.headers.length; i++)
 			values[i] = new ArrayList<String>();
+	}
+
+	public HedspiTable(String title, DefaultTableModel model) {
+		setIsTablePrint(true);
+		this.title = title;
+
+		// header
+		int n = model.getColumnCount();
+		String[] header = new String[n];
+		for (int i = 0; i < n; i++)
+			header[i] = model.getColumnName(i);
+		setHeaders(header);
+
+		// data
+		int cnt = model.getRowCount();
+		for (int i = 0; i < cnt; i++) {
+			String[] data = new String[n];
+			for (int j = 0; j < n; j++)
+				data[j] = model.getValueAt(i, j).toString();
+			addValue(data);
+		}
 	}
 
 	public void addValue(String... v) {
@@ -95,15 +119,15 @@ public class HedspiTable {
 		return FileManager.getInstance().writeToHtml(getHtmlText());
 	}
 
-	public void setShowHeader(boolean isShowHeader) {
+	private void setShowHeader(boolean isShowHeader) {
 		this.isShowHeader = isShowHeader;
 	}
 
-	public void setShowBorder(boolean isShowBorder) {
+	private void setShowBorder(boolean isShowBorder) {
 		this.isShowBorder = isShowBorder;
 	}
 
-	public void setPrintWithOrd(boolean isPrintWithOrd) {
+	private void setPrintWithOrd(boolean isPrintWithOrd) {
 		this.isPrintWithOrd = isPrintWithOrd;
 	}
 
@@ -122,9 +146,9 @@ public class HedspiTable {
 	}
 
 	public void setIsTablePrint(boolean b) {
-		setShowBorder(false);
-		setShowHeader(false);
-		setPrintWithOrd(false);
+		setShowBorder(b);
+		setShowHeader(b);
+		setPrintWithOrd(b);
 	}
 
 }

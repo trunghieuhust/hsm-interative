@@ -75,6 +75,8 @@ public class CourseViewPane extends JPanel {
 		panel.add(lblName, "2, 2");
 
 		textFieldName = new JTextField();
+		textFieldName.setToolTipText("Name of course");
+		lblName.setLabelFor(textFieldName);
 		panel.add(textFieldName, "4, 2, fill, default");
 		textFieldName.setColumns(10);
 
@@ -83,6 +85,8 @@ public class CourseViewPane extends JPanel {
 		panel.add(lblCode, "2, 4");
 
 		textFieldCode = new JTextField();
+		textFieldCode.setToolTipText("Course's code");
+		lblCode.setLabelFor(textFieldCode);
 		panel.add(textFieldCode, "4, 4, fill, default");
 		textFieldCode.setColumns(10);
 
@@ -91,6 +95,8 @@ public class CourseViewPane extends JPanel {
 		panel.add(lblNumberOfFees, "2, 6");
 
 		JSpinner spinnerNFees = new JSpinner();
+		spinnerNFees.setToolTipText("Number of fee credits for course");
+		lblNumberOfFees.setLabelFor(spinnerNFees);
 		modelNFees = new SpinnerNumberModel(new Double(2), new Double(0), null,
 				new Double(1));
 		spinnerNFees.setModel(modelNFees);
@@ -101,6 +107,8 @@ public class CourseViewPane extends JPanel {
 		panel.add(lblNumberOfCredits, "2, 8");
 
 		JSpinner spinnerNCredits = new JSpinner();
+		spinnerNCredits.setToolTipText("Number of academic course");
+		lblNumberOfCredits.setLabelFor(spinnerNCredits);
 		modelNCredits = new SpinnerNumberModel(new Integer(2), new Integer(0),
 				null, new Integer(1));
 		spinnerNCredits.setModel(modelNCredits);
@@ -111,6 +119,8 @@ public class CourseViewPane extends JPanel {
 		panel.add(lblTime, "2, 10");
 
 		JSpinner spinnerTime = new JSpinner();
+		spinnerTime.setToolTipText("Number of time credits for course");
+		lblTime.setLabelFor(spinnerTime);
 		modelTime = new SpinnerNumberModel(new Double(45), new Double(0), null,
 				new Double(5));
 		spinnerTime.setModel(modelTime);
@@ -121,6 +131,8 @@ public class CourseViewPane extends JPanel {
 		panel.add(lblTopic, "2, 12");
 
 		editorPaneTopic = new JEditorPane();
+		editorPaneTopic.setToolTipText("Topic of course");
+		lblTopic.setLabelFor(editorPaneTopic);
 		editorPaneTopic.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel.add(editorPaneTopic, "4, 12, fill, fill");
 
@@ -129,6 +141,7 @@ public class CourseViewPane extends JPanel {
 		panel.add(lblDependanciesList, "2, 14");
 
 		dependencesListEditor = new DependencesListEditor();
+		lblDependanciesList.setLabelFor(dependencesListEditor);
 		panel.add(dependencesListEditor, "4, 14, fill, fill");
 
 		JLabel lblNote = DefaultComponentFactory.getInstance().createLabel(
@@ -136,6 +149,8 @@ public class CourseViewPane extends JPanel {
 		panel.add(lblNote, "2, 16");
 
 		editorPaneNote = new JEditorPane();
+		editorPaneNote.setToolTipText("Note for course");
+		lblNote.setLabelFor(editorPaneNote);
 		editorPaneNote.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel.add(editorPaneNote, "4, 16, fill, fill");
 
@@ -186,8 +201,8 @@ public class CourseViewPane extends JPanel {
 		Course course = (Course) Control.getInstance().getData(
 				"getFullDataCourse", hedspiObject);
 		if (course == null) {
-			JOptionPane.showMessageDialog(Control.getInstance()
-					.getMainWindow(),
+			JOptionPane.showMessageDialog(
+					Control.getInstance().getMainWindow(),
 					"Get information of course failed\nMessage: "
 							+ Control.getInstance().getQueryMessage(),
 					"Load data failed", JOptionPane.WARNING_MESSAGE);
@@ -200,11 +215,15 @@ public class CourseViewPane extends JPanel {
 	public void export(HedspiTable hedspiTable) {
 		hedspiTable.addValue("Name", textFieldName.getText());
 		hedspiTable.addValue("Course code", textFieldCode.getText());
-		hedspiTable.addValue("Number of fee credits", String.valueOf(modelNFees.getNumber().doubleValue()));
-		hedspiTable.addValue("Number of credits", String.valueOf(modelNCredits.getNumber().doubleValue()));
-		hedspiTable.addValue("Times (h)", String.valueOf(modelTime.getNumber().doubleValue()));
+		hedspiTable.addValue("Number of fee credits",
+				String.valueOf(modelNFees.getNumber().doubleValue()));
+		hedspiTable.addValue("Number of credits",
+				String.valueOf(modelNCredits.getNumber().doubleValue()));
+		hedspiTable.addValue("Times (h)",
+				String.valueOf(modelTime.getNumber().doubleValue()));
 		hedspiTable.addValue("Topic", editorPaneTopic.getText());
-		hedspiTable.addValue("Number of dependencies", String.valueOf(dependencesListEditor.getNDependencies()));
+		hedspiTable.addValue("Number of dependencies",
+				String.valueOf(dependencesListEditor.getNDependencies()));
 		hedspiTable.addValue("Note", editorPaneNote.getText());
 	}
 }

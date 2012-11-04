@@ -41,19 +41,22 @@ public class DistrictService {
 
 	public static String[] getSingleStatistic(int i) {
 		String[] ret = new String[4];
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_single_district_statistic", i);
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
+				.doQueryFunction("get_single_district_statistic", i);
 		if (rs.isEmpty())
 			return null;
 		HashMap<String, Object> tt = rs.get(0);
-		ret[0] = String.valueOf((int)tt.get("nlecturers"));
-		ret[1] = String.valueOf((int)tt.get("nstudents"));
-		ret[2] = (String)tt.get("best_student");
-		ret[3] = (String)tt.get("worst_student");
+		ret[0] = String.valueOf((int) tt.get("nlecturers"));
+		ret[1] = String.valueOf((int) tt.get("nstudents"));
+		ret[2] = (String) tt.get("best_student");
+		ret[3] = (String) tt.get("worst_student");
 		return ret;
 	}
 
 	public static HedspiObject getCity(int i) {
-		return CoreService.getInstance().firstSimpleResult(CoreService.getInstance().doQueryFunction("get_city_of_district", i));
+		return CoreService.getInstance().firstSimpleResult(
+				CoreService.getInstance().doQueryFunction(
+						"get_city_of_district", i));
 	}
 
 }

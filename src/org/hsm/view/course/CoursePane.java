@@ -77,6 +77,7 @@ public class CoursePane extends JSplitPane {
 						"getCoursesList");
 			}
 		};
+		courseListPane.setToolTipText("List of courses");
 		scrollPane.setViewportView(courseListPane);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -90,25 +91,26 @@ public class CoursePane extends JSplitPane {
 
 		hierachyView = new HierachyView();
 		tabbedPane.addTab("Visual Hierachical tree", null, hierachyView, null);
-		
+
 		courseStatisticPane = new CourseStatisticPane();
 		tabbedPane.addTab("Statistic", null, courseStatisticPane, null);
-		
+
 		JPanel panel = new JPanel();
 		tabbedPane.addTab("Export", null, panel, null);
-		panel.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,}));
-		
+		panel.setLayout(new FormLayout(
+				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] {
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC, }));
+
 		JButton btnExport = new JButton("Export");
 		btnExport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (course == null)
 					return;
-				HedspiTable hedspiTable = new HedspiTable("Information of course {" + course.getName() + "}", "label", "value");
+				HedspiTable hedspiTable = new HedspiTable(
+						"Information of course {" + course.getName() + "}",
+						"label", "value");
 				hedspiTable.setIsTablePrint(false);
 				courseViewPane.export(hedspiTable);
 				courseStatisticPane.export(hedspiTable);

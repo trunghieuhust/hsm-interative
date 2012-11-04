@@ -48,6 +48,7 @@ public class LecturerStatisticPane extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.setToolTipText("Refresh lecturer statistic's information");
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				refresh();
@@ -60,6 +61,8 @@ public class LecturerStatisticPane extends JPanel {
 		add(lblTeachedClasses, "2, 4, right, default");
 
 		textFieldTeachedClasses = new JTextField();
+		textFieldTeachedClasses
+				.setToolTipText("Number of classes teached by lecturer");
 		lblTeachedClasses.setLabelFor(textFieldTeachedClasses);
 		textFieldTeachedClasses.setEditable(false);
 		add(textFieldTeachedClasses, "4, 4, fill, default");
@@ -70,6 +73,8 @@ public class LecturerStatisticPane extends JPanel {
 		add(lblTeachedCourses, "2, 6, right, default");
 
 		textFieldTeachedCourses = new JTextField();
+		textFieldTeachedCourses
+				.setToolTipText("Number of courses teached by lecturer");
 		lblTeachedCourses.setLabelFor(textFieldTeachedCourses);
 		textFieldTeachedCourses.setEditable(false);
 		textFieldTeachedCourses.setColumns(10);
@@ -80,6 +85,8 @@ public class LecturerStatisticPane extends JPanel {
 		add(lblTeachedStudents, "2, 8, right, default");
 
 		textFieldTeachedStudents = new JTextField();
+		textFieldTeachedStudents
+				.setToolTipText("Number of students teached by lecturer");
 		lblTeachedStudents.setLabelFor(textFieldTeachedStudents);
 		textFieldTeachedStudents.setEditable(false);
 		textFieldTeachedStudents.setColumns(10);
@@ -90,6 +97,8 @@ public class LecturerStatisticPane extends JPanel {
 		add(lblBestStudent, "2, 10, right, default");
 
 		textFieldBestStudent = new JTextField();
+		textFieldBestStudent
+				.setToolTipText("Fullname of student with best academic result");
 		lblBestStudent.setLabelFor(textFieldBestStudent);
 		textFieldBestStudent.setEditable(false);
 		textFieldBestStudent.setColumns(10);
@@ -100,6 +109,8 @@ public class LecturerStatisticPane extends JPanel {
 		add(lblWorstStudent, "2, 12, right, default");
 
 		textFieldWorstStudent = new JTextField();
+		textFieldWorstStudent
+				.setToolTipText("Fullname of student with worst academic result");
 		lblWorstStudent.setLabelFor(textFieldWorstStudent);
 		textFieldWorstStudent.setEditable(false);
 		textFieldWorstStudent.setColumns(10);

@@ -51,6 +51,7 @@ public class OtherInfoPane extends JPanel {
 		add(lblMssv, "2, 2, right, default");
 
 		textFieldMssv = new JTextField();
+		textFieldMssv.setToolTipText("Student code");
 		lblMssv.setLabelFor(textFieldMssv);
 		add(textFieldMssv, "4, 2, fill, default");
 		textFieldMssv.setColumns(10);
@@ -72,6 +73,8 @@ public class OtherInfoPane extends JPanel {
 						"getClassList");
 			}
 		};
+		comboBoxClass
+				.setToolTipText("Changing class will remove student from current class on next refresh");
 		lblClass.setLabelFor(comboBoxClass);
 		add(comboBoxClass, "4, 4, fill, default");
 
@@ -80,6 +83,7 @@ public class OtherInfoPane extends JPanel {
 		add(lblPoint, "2, 6, right, default");
 
 		JSpinner spinnerPoint = new JSpinner();
+		spinnerPoint.setToolTipText("Point student archieve in enroll exam");
 		lblPoint.setLabelFor(spinnerPoint);
 		modelPoint = new SpinnerNumberModel(0.0, 0.0, 30.0, 1.0);
 		spinnerPoint.setModel(new SpinnerNumberModel(0.0, 0.0, 30.0, 0.0));
@@ -92,6 +96,7 @@ public class OtherInfoPane extends JPanel {
 		modelYear = new SpinnerNumberModel(new Integer(0), new Integer(0),
 				null, new Integer(1));
 		JSpinner spinnerYear = new JSpinner();
+		spinnerYear.setToolTipText("Year that student enrolled");
 		lblYear.setLabelFor(spinnerYear);
 		spinnerYear.setModel(modelYear);
 		add(spinnerYear, "4, 8");

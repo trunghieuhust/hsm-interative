@@ -41,10 +41,12 @@ public class QuickListEditor extends JPanel {
 						RowSpec.decode("default:grow"), }));
 
 		textField = new JTextField();
+		textField.setToolTipText("Value to add");
 		add(textField, "2, 2, fill, default");
 		textField.setColumns(10);
 
 		JButton buttonAdd = new JButton("+");
+		buttonAdd.setToolTipText("Add value");
 		buttonAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (!textField.getText().equals(""))
@@ -59,9 +61,11 @@ public class QuickListEditor extends JPanel {
 
 		listModel = new DefaultListModel<>();
 		list = new JList<>(listModel);
+		list.setToolTipText("Values list");
 		scrollPane.setViewportView(list);
 
 		JButton buttonRemove = new JButton("-");
+		buttonRemove.setToolTipText("Remove selected values");
 		buttonRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int[] arr = list.getSelectedIndices();

@@ -82,6 +82,7 @@ public class MainWindow extends JFrame {
 		mnHelp.add(mntmAbout);
 
 		contentPane = new MainPane();
+		contentPane.setToolTipText("Status area with time counter");
 		setContentPane(contentPane);
 	}
 

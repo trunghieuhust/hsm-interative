@@ -56,6 +56,7 @@ public class CityViewPane extends JSplitPane {
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnSave = new JButton("Save");
+		btnSave.setToolTipText("Save city name");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (city == null)
@@ -79,6 +80,7 @@ public class CityViewPane extends JSplitPane {
 		panel_1.add(btnSave, "2, 2");
 
 		textField = new JTextField();
+		textField.setToolTipText("City name");
 		panel_1.add(textField, "4, 2, fill, default");
 		textField.setColumns(10);
 
@@ -123,6 +125,7 @@ public class CityViewPane extends JSplitPane {
 				return "Districts list of city {" + city.getName() + "}";
 			}
 		};
+		districtListPane.setToolTipText("List of district in city");
 		panel.add(districtListPane, "2, 4, fill, fill");
 
 		JScrollPane scrollPane_1 = new JScrollPane();

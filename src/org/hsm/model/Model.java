@@ -37,17 +37,17 @@ public class Model implements IModel {
 	public Object getData(String command, Object... data) {
 		switch (command) {
 		case "getSingleCourseStatistic":
-			return CourseService.getSingleStatistic((int)data[0]);
-			
+			return CourseService.getSingleStatistic((int) data[0]);
+
 		case "getNClassesInRoom":
-			return RoomService.getNClassesIn((int)data[0]);
-			
+			return RoomService.getNClassesIn((int) data[0]);
+
 		case "getCityOfDistrict":
-			return DistrictService.getCity((int)data[0]);
-			
+			return DistrictService.getCity((int) data[0]);
+
 		case "getSingleDistrictStatistic":
-			return DistrictService.getSingleStatistic((int)data[0]);
-			
+			return DistrictService.getSingleStatistic((int) data[0]);
+
 		case "getSingleLecturerStatistic":
 			return LecturerService.getSingleStatistic((int) data[0]);
 

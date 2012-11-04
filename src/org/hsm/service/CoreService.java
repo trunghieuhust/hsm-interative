@@ -15,11 +15,11 @@ import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
 
 /**
- * Tập hợp driver tương tác trực tiếp với server.
- * Một số đã có doc sẵn, một số chưa. Nếu cần cái nào thì email
- * bảo rồi tôi sẽ viết
+ * Tập hợp driver tương tác trực tiếp với server. Một số đã có doc sẵn, một số
+ * chưa. Nếu cần cái nào thì email bảo rồi tôi sẽ viết
+ * 
  * @author haidang-ubuntu
- *
+ * 
  */
 public class CoreService {
 	private static CoreService instance;
@@ -152,7 +152,7 @@ public class CoreService {
 		return getUrl(loginInfo);
 	}
 
-	/**
+/**
 	 * Thực hiện truy vấn trả về kết quả.
 	 * 
 	 * @param queryStr
@@ -172,11 +172,14 @@ public class CoreService {
 	}
 
 	/**
-	 * Thực hiện truy vấn loại có trả về kết quả.
-	 * Lưu ý: trường hợp câu truy vấn không trả về kết quả, sẽ có thông báo lỗi,
-	 * trường hợp này hãy sử dụng hàm {@link #update(String) update} để thay thế
-	 * @param queryStr câu truy vấn có trả về kết quả
-	 * @return một cặp gồm kết quả truy vấn và thông báo nếu có. Thông báo là <code>null</code> tức là thành công. 
+	 * Thực hiện truy vấn loại có trả về kết quả. Lưu ý: trường hợp câu truy vấn
+	 * không trả về kết quả, sẽ có thông báo lỗi, trường hợp này hãy sử dụng hàm
+	 * {@link #update(String) update} để thay thế
+	 * 
+	 * @param queryStr
+	 *            câu truy vấn có trả về kết quả
+	 * @return một cặp gồm kết quả truy vấn và thông báo nếu có. Thông báo là
+	 *         <code>null</code> tức là thành công.
 	 * @see #update(String)
 	 */
 	private Pair<ArrayList<HashMap<String, Object>>, String> queryFull(
@@ -274,13 +277,14 @@ public class CoreService {
 	}
 
 	/**
-	 * Truyền tham số vào cho hàm trên server từ các biến của java.
-	 * Có sửa đổi một số kiểu biến nhất định cho phù hợp với server.
-	 * Chủ yếu sửa đổi:
-	 * <li>biến boolean</li>
-	 * <li>biến dãy</li>
-	 * @param func tên hàm
-	 * @param args danh sách biến
+	 * Truyền tham số vào cho hàm trên server từ các biến của java. Có sửa đổi
+	 * một số kiểu biến nhất định cho phù hợp với server. Chủ yếu sửa đổi: <li>
+	 * biến boolean</li> <li>biến dãy</li>
+	 * 
+	 * @param func
+	 *            tên hàm
+	 * @param args
+	 *            danh sách biến
 	 * @return dòng gọi hàm đầy đủ biến
 	 */
 	private String getFullFunctionCaller(String func, Object[] args) {
@@ -315,10 +319,14 @@ public class CoreService {
 
 	/**
 	 * Thực hiện một hàm có trả về kết quả từ trên server.
-	 * @param func tên hàm đặt trên server
-	 * @param args danh sách các tham số. Một số tham số có kiểu đặc biệt sẽ được
-	 * điều hướng lại để cho phù hợp với server. Xem {@link #getFullFunctionCaller(String, Object[])}
-	 * để biết cụ thể
+	 * 
+	 * @param func
+	 *            tên hàm đặt trên server
+	 * @param args
+	 *            danh sách các tham số. Một số tham số có kiểu đặc biệt sẽ được
+	 *            điều hướng lại để cho phù hợp với server. Xem
+	 *            {@link #getFullFunctionCaller(String, Object[])} để biết cụ
+	 *            thể
 	 * @return
 	 * @see #getFullFunctionCaller(String, Object[])
 	 */
@@ -362,8 +370,11 @@ public class CoreService {
 
 	/**
 	 * Thực hiện hàm cập nhật trên server.
-	 * @param func tên hàm
-	 * @param args danh sách biến
+	 * 
+	 * @param func
+	 *            tên hàm
+	 * @param args
+	 *            danh sách biến
 	 * @return xâu rỗng nếu thành công, ngược lại trả về thông báo lỗi
 	 * @see #queryFull(String)
 	 * @see #doQueryFunction(String, Object...)
@@ -376,11 +387,13 @@ public class CoreService {
 	}
 
 	/**
-	 * Hàm chuyển đổi kết quả của các phép truy vấn về dãy các đối tượng đơn giản.
-	 * Yêu cầu các truy vấn trả về dãy các bảng có ít nhất 2 trường
-	 * <li><code>id</code> kiểu <code>integer</code></li>
-	 * <li><code>name</code> kiểu <code>text</code></li>
-	 * @param rs kết quả của các truy vấn cần được chuyển
+	 * Hàm chuyển đổi kết quả của các phép truy vấn về dãy các đối tượng đơn
+	 * giản. Yêu cầu các truy vấn trả về dãy các bảng có ít nhất 2 trường <li>
+	 * <code>id</code> kiểu <code>integer</code></li> <li><code>name</code> kiểu
+	 * <code>text</code></li>
+	 * 
+	 * @param rs
+	 *            kết quả của các truy vấn cần được chuyển
 	 * @return danh sách đối tượng sau khi chuyển
 	 */
 	public HedspiObject[] rsToSimpleArray(ArrayList<HashMap<String, Object>> rs) {
@@ -398,11 +411,14 @@ public class CoreService {
 	}
 
 	/**
-	 * Trả về đối tượng đầu tiên của phép gọi.
-	 * Xem {@link #rsToSimpleArray(ArrayList)} để biết các quy ước về kết quả trả về của các câu truy vấn
-	 * @param rs kết quả các câu truy vấn
-	 * @return kết quả sau khi chuyển đổi, là đối tượng đầu tiên của kết quả truy vấn
-	 * hoặc <code>null</code> nếu câu truy vẫn không có kết quả 
+	 * Trả về đối tượng đầu tiên của phép gọi. Xem
+	 * {@link #rsToSimpleArray(ArrayList)} để biết các quy ước về kết quả trả về
+	 * của các câu truy vấn
+	 * 
+	 * @param rs
+	 *            kết quả các câu truy vấn
+	 * @return kết quả sau khi chuyển đổi, là đối tượng đầu tiên của kết quả
+	 *         truy vấn hoặc <code>null</code> nếu câu truy vẫn không có kết quả
 	 */
 	public HedspiObject firstSimpleResult(ArrayList<HashMap<String, Object>> rs) {
 		HedspiObject[] arr = rsToSimpleArray(rs);
@@ -413,37 +429,58 @@ public class CoreService {
 
 	/**
 	 * Thực hiện truy vấn hoặc cập nhật.
-	 * @param queryStr câu truy vấn hoặc câu cập nhật.
-	 * @return dãy các <code>String</code> với một quy ước về cấu trúc dữ liệu khác thường.
+	 * 
+	 * @param queryStr
+	 *            câu truy vấn hoặc câu cập nhật.
+	 * @return dãy các <code>String</code> với một quy ước về cấu trúc dữ liệu
+	 *         khác thường.
 	 */
-	public String[] executeQuery(String queryStr) {
+	public Object[] executeQuery(String queryStr) {
 		Control.getInstance().getLogger()
-				.log(Level.INFO, "Execute udpate or query" + queryStr);
+				.log(Level.INFO, "Execute update or query {" + queryStr + "}");
 
 		Connection conn = getConnection();
 		if (conn == null)
-			return new String[] { "Get connection failed", "0" };
+			return new Object[] { "Get connection failed", 0 };
 
 		Statement stmt = getStatement(conn);
 		if (stmt == null) {
 			close(conn);
-			return new String[] { "Cannot get statement", "0" };
+			return new Object[] { "Cannot get statement", 0 };
 		}
 
-		ArrayList<String> ret = new ArrayList<>();
+		ArrayList<Object> ret = new ArrayList<>();
 		try {
-			// TODO: query, get result and message(hard) from here
-			if (stmt.execute(queryStr)) {
-			}
+			boolean isQuery = stmt.execute(queryStr);
+			String warn = isQuery ? "Do Query\n" : "Do update\n";
+			for (SQLWarning t = stmt.getWarnings(); t != null; t = t
+					.getNextWarning())
+				warn += t.getMessage();
+			ret.add(warn);
+			if (isQuery) {
+				ResultSet rs = stmt.getResultSet();
+				int n = rs.getMetaData().getColumnCount();
+
+				// add header (metadata)
+				ret.add(n);
+				for (int i = 1; i <= n; i++)
+					ret.add(rs.getMetaData().getColumnLabel(i));
+
+				// add data
+				while (rs.next())
+					for (int i = 1; i <= n; i++)
+						ret.add(rs.getObject(i));
+			} else
+				ret.add(0);
 		} catch (SQLException e) {
 			Control.getInstance().getLogger()
 					.log(Level.WARNING, e.getMessage());
-			return new String[] { e.getMessage(), "0" };
+			return new Object[] { e.getMessage(), 0 };
 		} finally {
 			close(stmt);
 			close(conn);
 		}
 
-		return ret.toArray(new String[ret.size()]);
+		return ret.toArray(new Object[ret.size()]);
 	}
 }

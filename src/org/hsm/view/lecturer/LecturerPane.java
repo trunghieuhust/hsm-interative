@@ -58,6 +58,7 @@ public class LecturerPane extends JSplitPane {
 				return "List of faculties";
 			}
 		};
+		facultyListPane.setToolTipText("List of faculties");
 		scrollPane.setViewportView(facultyListPane);
 
 		facultyViewPane = new FacultyViewPane();

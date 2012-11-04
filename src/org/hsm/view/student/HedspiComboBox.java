@@ -84,9 +84,10 @@ public abstract class HedspiComboBox extends JPanel {
 		comboBoxModel.removeAllElements();
 		HedspiObject[] values = getValues();
 		if (values == null)
-			JOptionPane.showMessageDialog(Control.getInstance()
-					.getMainWindow(), "Refresh failed\nMessage: "
-					+ Control.getInstance().getQueryMessage(),
+			JOptionPane.showMessageDialog(
+					Control.getInstance().getMainWindow(),
+					"Refresh failed\nMessage: "
+							+ Control.getInstance().getQueryMessage(),
 					"Refresh failed", JOptionPane.WARNING_MESSAGE);
 		else
 			for (HedspiObject it : values)

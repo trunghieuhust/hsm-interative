@@ -30,6 +30,7 @@ public class UserPanel extends JSplitPane {
 		setRightComponent(scrollPane_1);
 
 		ImagePanel panel = new ImagePanel(imageUrl);
+		panel.setToolTipText(info);
 		scrollPane_1.setViewportView(panel);
 
 	}

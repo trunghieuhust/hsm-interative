@@ -99,18 +99,19 @@ public class CourseService {
 
 	public static String[] getSingleStatistic(int i) {
 		String[] ret = new String[8];
-		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance().doQueryFunction("get_single_courses_statistic", i);
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
+				.doQueryFunction("get_single_courses_statistic", i);
 		if (rs.isEmpty())
 			return null;
 		HashMap<String, Object> tt = rs.get(0);
-		ret[0] = String.valueOf((int)tt.get("teached_lecturers"));
-		ret[1] = String.valueOf((int)tt.get("passed_students"));
-		ret[2] = String.valueOf((int)tt.get("failed_students"));
-		ret[3] = String.valueOf((double)tt.get("best_point"));
-		ret[4] = String.valueOf((double)tt.get("worst_point"));
-		ret[5] = String.valueOf((double)tt.get("average_point"));
-		ret[6] = (String)tt.get("best_student");
-		ret[7] = (String)tt.get("worst_student");
+		ret[0] = String.valueOf((int) tt.get("teached_lecturers"));
+		ret[1] = String.valueOf((int) tt.get("passed_students"));
+		ret[2] = String.valueOf((int) tt.get("failed_students"));
+		ret[3] = String.valueOf((double) tt.get("best_point"));
+		ret[4] = String.valueOf((double) tt.get("worst_point"));
+		ret[5] = String.valueOf((double) tt.get("average_point"));
+		ret[6] = (String) tt.get("best_student");
+		ret[7] = (String) tt.get("worst_student");
 		return ret;
 	}
 

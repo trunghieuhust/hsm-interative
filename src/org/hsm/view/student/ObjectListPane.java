@@ -125,7 +125,7 @@ public abstract class ObjectListPane extends JPanel {
 		scrollPane.setViewportView(list);
 
 		JPanel panel = new JPanel();
-		add(panel, "2, 8, center, fill");
+		add(panel, "2, 8, left, fill");
 		panel.setLayout(new FormLayout(
 				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
 						FormFactory.DEFAULT_COLSPEC,
@@ -139,7 +139,7 @@ public abstract class ObjectListPane extends JPanel {
 						FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnNew = new JButton("New");
-		panel.add(btnNew, "2, 2");
+		panel.add(btnNew, "2, 2, left, default");
 		btnNew.addActionListener(new ActionListener() {
 
 			@Override
@@ -160,7 +160,7 @@ public abstract class ObjectListPane extends JPanel {
 		});
 
 		JButton btnRemove = new JButton("Remove");
-		panel.add(btnRemove, "4, 2");
+		panel.add(btnRemove, "4, 2, left, default");
 		btnRemove.addActionListener(new ActionListener() {
 
 			@Override
@@ -188,7 +188,7 @@ public abstract class ObjectListPane extends JPanel {
 				refresh();
 			}
 		});
-		panel.add(btnRefresh, "6, 2");
+		panel.add(btnRefresh, "6, 2, left, default");
 
 		JButton btnExport = new JButton("Export");
 		btnExport.addActionListener(new ActionListener() {
@@ -203,7 +203,7 @@ public abstract class ObjectListPane extends JPanel {
 				}
 			}
 		});
-		panel.add(btnExport, "8, 2");
+		panel.add(btnExport, "8, 2, left, default");
 
 		refresh();
 	}

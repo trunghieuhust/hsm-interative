@@ -76,9 +76,11 @@ public class DependencesListEditor extends JPanel {
 				return ret.toArray(new HedspiObject[ret.size()]);
 			}
 		};
+		comboBoxChooseCourse.setToolTipText("Courses to add");
 		add(comboBoxChooseCourse, "2, 2, fill, default");
 
 		JButton buttonAdd = new JButton("+");
+		buttonAdd.setToolTipText("Add base course");
 		buttonAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HedspiObject selected = comboBoxChooseCourse
@@ -95,6 +97,7 @@ public class DependencesListEditor extends JPanel {
 		add(scrollPane, "2, 4, fill, fill");
 
 		listCurrentCourses = new JList<>(coursesModel);
+		listCurrentCourses.setToolTipText("List of base courses");
 		scrollPane.setViewportView(listCurrentCourses);
 
 		JPanel panel = new JPanel();
@@ -105,6 +108,7 @@ public class DependencesListEditor extends JPanel {
 				FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton buttonRemove = new JButton("-");
+		buttonRemove.setToolTipText("Remove selected base courses");
 		buttonRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				List<HedspiObject> indices = listCurrentCourses
@@ -118,6 +122,7 @@ public class DependencesListEditor extends JPanel {
 		panel.add(buttonRemove, "1, 2, left, top");
 
 		buttonReload = new JButton("R");
+		buttonReload.setToolTipText("Reload list");
 		buttonReload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (course == null)

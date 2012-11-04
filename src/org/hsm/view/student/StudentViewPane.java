@@ -39,24 +39,21 @@ public class StudentViewPane extends JPanel {
 		super();
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.GROWING_BUTTON_COLSPEC,
-				FormFactory.GROWING_BUTTON_COLSPEC, }, new RowSpec[] {
+				ColumnSpec.decode("max(137dlu;pref)"),
+				ColumnSpec.decode("max(98dlu;pref):grow"), }, new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("fill:default:grow"), }));
+				RowSpec.decode("fill:default"), }));
 
 		panelContact = new ContactPane();
 		add(panelContact, "2, 2, fill, fill");
 
 		JPanel panel = new JPanel();
 		add(panel, "3, 2, fill, fill");
-		panel.setLayout(new FormLayout(
-				new ColumnSpec[] { FormFactory.GROWING_BUTTON_COLSPEC, },
-				new RowSpec[] { FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.DEFAULT_ROWSPEC,
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.DEFAULT_ROWSPEC,
-						FormFactory.RELATED_GAP_ROWSPEC,
-						RowSpec.decode("default:grow"), }));
+		panel.setLayout(new FormLayout(new ColumnSpec[] { ColumnSpec
+				.decode("max(78dlu;pref):grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
 
 		panelStudentOther = new OtherInfoPane();
 		panel.add(panelStudentOther, "1, 2, fill, fill");
@@ -70,9 +67,12 @@ public class StudentViewPane extends JPanel {
 				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnSave = new JButton("Save");
+		btnSave.setToolTipText("Commit student's information to server");
 		panel_1.add(btnSave, "1, 1, center, default");
 
 		btnExportToHtml = new JButton("Export to html");
+		btnExportToHtml
+				.setToolTipText("Export student's information to html file");
 		btnExportToHtml.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (hedspiObject == null)

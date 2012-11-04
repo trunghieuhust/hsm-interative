@@ -78,6 +78,7 @@ public class ContactPane extends JPanel {
 		add(lblFirst, "2, 2, right, default");
 
 		textFieldFirst = new JTextField();
+		textFieldFirst.setToolTipText("First name of contact");
 		lblFirst.setLabelFor(textFieldFirst);
 		add(textFieldFirst, "4, 2, fill, default");
 		textFieldFirst.setColumns(10);
@@ -87,6 +88,7 @@ public class ContactPane extends JPanel {
 		add(lblLastName, "2, 4, right, default");
 
 		textFieldLast = new JTextField();
+		textFieldLast.setToolTipText("Last name");
 		lblLastName.setLabelFor(textFieldLast);
 		add(textFieldLast, "4, 4, fill, default");
 		textFieldLast.setColumns(10);
@@ -96,6 +98,7 @@ public class ContactPane extends JPanel {
 		add(lblIsMale, "2, 6");
 
 		checkBoxIsMale = new JCheckBox("");
+		checkBoxIsMale.setToolTipText("Selected means is male");
 		lblIsMale.setLabelFor(checkBoxIsMale);
 		checkBoxIsMale.setSelected(true);
 		add(checkBoxIsMale, "4, 6");
@@ -105,6 +108,7 @@ public class ContactPane extends JPanel {
 		add(lblBirthday, "2, 8");
 
 		JSpinner spinnerBirthday = new JSpinner();
+		spinnerBirthday.setToolTipText("Birthday");
 		lblBirthday.setLabelFor(spinnerBirthday);
 		modelBirthday = new SpinnerDateModel(new Date(1349974800000L), null,
 				null, Calendar.DAY_OF_YEAR);
@@ -128,6 +132,7 @@ public class ContactPane extends JPanel {
 						"getCityList");
 			}
 		};
+		comboBoxCity.setToolTipText("Choose city");
 		lblCity.setLabelFor(comboBoxCity);
 		comboBoxCity.getComboBox().addItemListener(new ItemListener() {
 
@@ -158,6 +163,7 @@ public class ContactPane extends JPanel {
 						"getDistricsList", city);
 			}
 		};
+		comboBoxDistrict.setToolTipText("Choose district in city");
 		lblDistrict.setLabelFor(comboBoxDistrict);
 		add(comboBoxDistrict, "4, 12, fill, default");
 
@@ -166,12 +172,14 @@ public class ContactPane extends JPanel {
 		add(lblHome, "2, 14");
 
 		textFieldHome = new JTextField();
+		textFieldHome.setToolTipText("Home's detail");
 		lblHome.setLabelFor(textFieldHome);
 		add(textFieldHome, "4, 14, fill, default");
 		textFieldHome.setColumns(10);
 
 		JLabel lblEmails = DefaultComponentFactory.getInstance().createLabel(
 				"Emails");
+		lblEmails.setToolTipText("");
 		add(lblEmails, "2, 16");
 
 		panelEmails = new QuickListEditor();
@@ -180,6 +188,7 @@ public class ContactPane extends JPanel {
 
 		JLabel lblPhones = DefaultComponentFactory.getInstance().createLabel(
 				"Phones");
+		lblPhones.setToolTipText("");
 		add(lblPhones, "2, 18");
 
 		panelPhones = new QuickListEditor();
@@ -191,6 +200,7 @@ public class ContactPane extends JPanel {
 		add(lblNote, "2, 20");
 
 		editorPaneNote = new JEditorPane();
+		editorPaneNote.setToolTipText("Note for contact");
 		lblNote.setLabelFor(editorPaneNote);
 		editorPaneNote.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null,
 				null, null, null));
@@ -209,8 +219,8 @@ public class ContactPane extends JPanel {
 	}
 
 	private void updateDistrict(int district) {
-		HedspiObject city = (HedspiObject) Control.getInstance().getData("getCityOfDistrictFromDistrictId",
-				district);
+		HedspiObject city = (HedspiObject) Control.getInstance().getData(
+				"getCityOfDistrictFromDistrictId", district);
 		if (city == null)
 			return;
 		comboBoxCity.setSelectedValue(city.getId());

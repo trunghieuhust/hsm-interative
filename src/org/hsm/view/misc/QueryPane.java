@@ -10,8 +10,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 import org.hsm.control.Control;
+import org.hsm.model.hedspiObject.HedspiTable;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import com.jgoodies.forms.factories.FormFactory;
@@ -28,6 +30,8 @@ public class QueryPane extends JPanel implements ActionListener {
 	private JTable table;
 	private JEditorPane queryInputEntry;
 	private JEditorPane messagePane;
+	private String lastQuery = "";
+	private DefaultTableModel model;
 
 	/**
 	 * Create the panel.
@@ -49,12 +53,36 @@ public class QueryPane extends JPanel implements ActionListener {
 		add(lblQuery, "2, 2");
 
 		queryInputEntry = new JEditorPane();
+		queryInputEntry.setToolTipText("Input query to execute");
+		lblQuery.setLabelFor(queryInputEntry);
 		queryInputEntry.setText("SELECT * FROM room;");
 		add(queryInputEntry, "2, 4, fill, fill");
 
+		JPanel panel_1 = new JPanel();
+		add(panel_1, "2, 6, fill, fill");
+		panel_1.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC, },
+				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
+
 		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.setToolTipText("Sumit query");
+		panel_1.add(btnSubmit, "1, 1, left, default");
+
+		JButton btnExport = new JButton("Export");
+		btnExport
+				.setToolTipText("Export only values on below table to html file");
+		btnExport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (model == null)
+					return;
+				HedspiTable hedspiTable = new HedspiTable("Result of query {"
+						+ lastQuery + "}", model);
+				hedspiTable.writeToHtmlWithMessageDialog();
+			}
+		});
+		panel_1.add(btnExport, "3, 1");
 		btnSubmit.addActionListener(this);
-		add(btnSubmit, "2, 6, left, default");
 
 		JLabel lblResult = DefaultComponentFactory.getInstance().createLabel(
 				"Result");
@@ -89,16 +117,35 @@ public class QueryPane extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String[] rs = (String[]) Control.getInstance().getData("query",
-				queryInputEntry.getText());
-		messagePane.setText(rs[0]);
-		int nRow;
+		String queryStr = queryInputEntry.getText();
+		Object[] rs = (Object[]) Control.getInstance().getData("query",
+				queryStr);
+		messagePane.setText((String) rs[0]);
+		int nCol;
 		try {
-			nRow = Integer.parseInt(rs[1]);
-		} catch (NumberFormatException e1) {
-			nRow = 0;
+			nCol = (int) rs[1];
+		} catch (Exception e1) {
+			nCol = 0;
 		}
-		// TODO Auto-generated method stub
+		if (nCol <= 0)
+			return;
 
+		lastQuery = queryStr;
+		model = new DefaultTableModel();
+		table.setModel(model);
+
+		// add data
+		boolean first = true;
+		for (int i = 2; i < rs.length;) {
+			Object[] objs = new Object[nCol];
+			for (int j = 0; j < nCol && i < rs.length; j++, i++)
+				objs[j] = rs[i];
+			if (first)
+				for (int k = 0; k < nCol; k++)
+					model.addColumn(objs[k]);
+			else
+				model.addRow(objs);
+			first = false;
+		}
 	}
 }

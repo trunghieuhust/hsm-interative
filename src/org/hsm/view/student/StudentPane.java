@@ -57,6 +57,7 @@ public class StudentPane extends JSplitPane {
 			}
 
 		};
+		classListPane.setToolTipText("List of classes");
 		scrollPane.setViewportView(classListPane);
 
 		classViewPane = new ClassViewPane();

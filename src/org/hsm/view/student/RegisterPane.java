@@ -71,6 +71,7 @@ public class RegisterPane extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnSave = new JButton("Save");
+		btnSave.setToolTipText("Save register status of student to server");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<AcademicInfo> arr = new ArrayList<>();
@@ -98,6 +99,8 @@ public class RegisterPane extends JPanel {
 		});
 
 		JButton btnExportToHtml = new JButton("Export");
+		btnExportToHtml
+				.setToolTipText("Export student's register status to html file");
 		btnExportToHtml.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (hedspiObject == null)
@@ -133,6 +136,7 @@ public class RegisterPane extends JPanel {
 		panel.add(lblRoom, "8, 4");
 
 		JButton button = new JButton("+");
+		button.setToolTipText("Add course");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HedspiObject course = comboBoxCourse.getSelectedObject();
@@ -159,6 +163,8 @@ public class RegisterPane extends JPanel {
 						"getCoursesList");
 			}
 		};
+		comboBoxCourse.setToolTipText("Choose course to add");
+		lblCourse.setLabelFor(comboBoxCourse);
 		panel.add(comboBoxCourse, "4, 6, fill, default");
 
 		comboBoxLecturer = new HedspiComboBox() {
@@ -174,6 +180,8 @@ public class RegisterPane extends JPanel {
 						"getLecturerListAll");
 			}
 		};
+		comboBoxLecturer.setToolTipText("Choose lecturer teaching course");
+		lblLecturer.setLabelFor(comboBoxLecturer);
 		panel.add(comboBoxLecturer, "6, 6, fill, default");
 
 		comboBoxRoom = new HedspiComboBox() {
@@ -189,6 +197,8 @@ public class RegisterPane extends JPanel {
 						"getRoomList");
 			}
 		};
+		comboBoxRoom.setToolTipText("Choose room that course will hold in");
+		lblRoom.setLabelFor(comboBoxRoom);
 		panel.add(comboBoxRoom, "8, 6, fill, default");
 		model = new DefaultTableModel(new Object[][] {}, new String[] {
 				"Course", "Lecturer", "Room", "Is passed", "Result" }) {
@@ -206,6 +216,7 @@ public class RegisterPane extends JPanel {
 		};
 
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setToolTipText("Current student's register status");
 		add(scrollPane, "2, 4, fill, fill");
 
 		popupMenu = new JPopupMenu();
