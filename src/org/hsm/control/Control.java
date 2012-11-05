@@ -206,6 +206,17 @@ public class Control implements IControl {
 		String str;
 
 		switch (command) {
+		case "getStatisticQueryResult":
+			name = (String) data[0];
+			logStart("Get first result of statistic query {" + name + "}");
+			return logEnd(Model.getInstance().getData(
+					"getStatisticQueryResult", name));
+
+		case "getLoginInfo":
+			name = (String) data[0];
+			logStart("Get login information{" + name + "}");
+			return logEnd(Model.getInstance().getData("getLoginInfo", name));
+
 		case "getSingleCourseStatistic":
 			obj = (HedspiObject) data[0];
 			logStart("Get statistic of single course {" + obj.getName() + "}");

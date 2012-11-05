@@ -104,13 +104,17 @@ public class QueryPane extends JPanel implements ActionListener {
 		panel.add(lblMessage, "2, 2");
 
 		messagePane = new JEditorPane();
+		messagePane.setToolTipText("Message received from server");
+		lblMessage.setLabelFor(messagePane);
 		messagePane.setEditable(false);
 		panel.add(messagePane, "2, 4, fill, fill");
 
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setToolTipText("Returning data");
 		splitPane.setRightComponent(scrollPane);
 
 		table = new JTable();
+		table.setToolTipText("Returning data");
 		scrollPane.setViewportView(table);
 		splitPane.setDividerLocation(100);
 	}

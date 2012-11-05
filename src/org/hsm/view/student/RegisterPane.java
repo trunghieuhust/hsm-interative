@@ -74,6 +74,8 @@ public class RegisterPane extends JPanel {
 		btnSave.setToolTipText("Save register status of student to server");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (hedspiObject == null)
+					return;
 				ArrayList<AcademicInfo> arr = new ArrayList<>();
 				for (int i = 0; i < model.getRowCount(); i++)
 					arr.add(new AcademicInfo((HedspiObject) model.getValueAt(i,
@@ -216,7 +218,8 @@ public class RegisterPane extends JPanel {
 		};
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setToolTipText("Current student's register status");
+		scrollPane
+				.setToolTipText("Current student's register status. Right click for more options");
 		add(scrollPane, "2, 4, fill, fill");
 
 		popupMenu = new JPopupMenu();
@@ -235,6 +238,7 @@ public class RegisterPane extends JPanel {
 		popupMenu.add(mntmDeleteSelected);
 
 		table = new JTable();
+		table.setToolTipText("Current student's register status. Right click for more options");
 		table.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
 				if (e.isPopupTrigger()) {

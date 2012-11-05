@@ -15,13 +15,13 @@ public class HierachyElement extends JComponent {
 
 	private static ArrayList<Pair<HedspiObjectWithNote, HedspiObjectWithNote>> background;
 	private static HashMap<HedspiObjectWithNote, SingleElement> allElements;
-	private static int DEFAULT_SPACE_H = 10;
-	private static int DEFAULT_SPACE_V = 100;
+	private static final int DEFAULT_SPACE_H = 10;
+	private static final int DEFAULT_SPACE_V = 100;
 	private int width;
 	private int height;
-	private static int ARROW_LEN = 10;
-	private static Color DEFAULT_ARROW_COLOR = Color.ORANGE;
-	private static Color DEFAULT_FOREGROUND_COLOR = Color.GREEN;
+	private static final int ARROW_LEN = 10;
+	private static final Color DEFAULT_ARROW_COLOR = Color.ORANGE;
+	private static final Color DEFAULT_FOREGROUND_COLOR = Color.GREEN;
 
 	public HierachyElement(HedspiObjectWithNote root) {
 		super();

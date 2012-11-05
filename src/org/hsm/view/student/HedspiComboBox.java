@@ -38,9 +38,11 @@ public abstract class HedspiComboBox extends JPanel {
 
 		comboBoxModel = new DefaultComboBoxModel<>();
 		comboBox = new JComboBox<>(comboBoxModel);
+		comboBox.setToolTipText("Choose object");
 		add(comboBox, "1, 1, fill, default");
 
 		btnR = new JButton("R");
+		btnR.setToolTipText("Refresh objects list");
 		btnR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				refresh();

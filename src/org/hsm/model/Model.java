@@ -19,6 +19,7 @@ import org.hsm.service.FacultyService;
 import org.hsm.service.LecturerService;
 import org.hsm.service.RoomService;
 import org.hsm.service.StudentService;
+import org.hsm.service.UtilService;
 
 public class Model implements IModel {
 
@@ -36,6 +37,21 @@ public class Model implements IModel {
 	@Override
 	public Object getData(String command, Object... data) {
 		switch (command) {
+		case "getStatisticQueryResult":
+			return UtilService.getResultOfStatisticQuery((String) data[0]);
+
+		case "getLoginInfo":
+			switch ((String) data[0]) {
+			case "host":
+				return CoreService.getInstance().getHost();
+			case "port":
+				return CoreService.getInstance().getPort();
+			case "username":
+				return CoreService.getInstance().getUsername();
+			case "database":
+				return CoreService.getInstance().getDatabase();
+			}
+
 		case "getSingleCourseStatistic":
 			return CourseService.getSingleStatistic((int) data[0]);
 

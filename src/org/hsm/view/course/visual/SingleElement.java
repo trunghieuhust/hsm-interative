@@ -17,11 +17,11 @@ public class SingleElement extends JComponent {
 	private HedspiObjectWithNote hedspiObject;
 	private int cox;
 	private int coy;
-	private static int DEFAULT_WIDTH = 150;
-	private static int DEFAULT_HEIGHT = 50;
-	private static int DEFAULT_LINE_LEN = 50;
-	private static Color DEFAULT_RECT_COLOR = Color.RED;
-	private static Color DEFAULT_TEXT_COLOR = Color.BLUE;
+	private static final int DEFAULT_WIDTH = 150;
+	private static final int DEFAULT_HEIGHT = 50;
+	private static final int DEFAULT_LINE_LEN = 50;
+	private static final Color DEFAULT_RECT_COLOR = Color.RED;
+	private static final Color DEFAULT_TEXT_COLOR = Color.BLUE;
 
 	public SingleElement(HedspiObjectWithNote hedspiObject) {
 		super();

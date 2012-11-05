@@ -22,6 +22,11 @@ import org.hsm.model.hedspiObject.HedspiObject;
  * 
  */
 public class CoreService {
+	private static final String HOST_NAME = "host";
+	private static final String PASSWORD_NAME = "password";
+	private static final String USERNAME_NAME = "username";
+	private static final String DBNAME_NAME = "dbname";
+	private static final String PORT_NAME = "port";
 	private static CoreService instance;
 
 	public static CoreService getInstance() {
@@ -50,11 +55,11 @@ public class CoreService {
 		// + loginInfo.getProperty("password", "hedspi");
 		// + "&ssl=" + loginInfo.getProperty("ssl", "false");
 		// Control.getInstance().getLogger().log(Level.INFO, url);
-		String url = "jdbc:postgresql://" + loginInfo.getProperty("host") + ":"
-				+ loginInfo.getProperty("port") + "/"
-				+ loginInfo.getProperty("dbname") + "?user="
-				+ loginInfo.getProperty("username") + "&password="
-				+ loginInfo.getProperty("password");
+		String url = "jdbc:postgresql://" + loginInfo.getProperty(HOST_NAME)
+				+ ":" + loginInfo.getProperty(PORT_NAME) + "/"
+				+ loginInfo.getProperty(DBNAME_NAME) + "?user="
+				+ loginInfo.getProperty(USERNAME_NAME) + "&password="
+				+ loginInfo.getProperty(PASSWORD_NAME);
 		return url;
 	}
 
@@ -482,5 +487,21 @@ public class CoreService {
 		}
 
 		return ret.toArray(new Object[ret.size()]);
+	}
+
+	public String getHost() {
+		return loginInfo.getProperty(HOST_NAME);
+	}
+
+	public String getPort() {
+		return loginInfo.getProperty(PORT_NAME);
+	}
+
+	public String getUsername() {
+		return loginInfo.getProperty(USERNAME_NAME);
+	}
+
+	public String getDatabase() {
+		return loginInfo.getProperty(DBNAME_NAME);
 	}
 }
