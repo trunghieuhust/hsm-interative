@@ -1,0 +1,432 @@
+Nov 05, 2012 9:15:26 PM org.hsm.control.Control start
+INFO: System starts
+Nov 05, 2012 9:15:26 PM org.hsm.control.Control start
+INFO: Open login window
+Nov 05, 2012 9:15:28 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Nov 05, 2012 9:15:28 PM org.hsm.control.Control tryLogin
+INFO: Login success
+Nov 05, 2012 9:15:28 PM org.hsm.control.Control logStart
+INFO: Fetch class list
+Nov 05, 2012 9:15:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_class_list()
+Nov 05, 2012 9:15:28 PM org.hsm.control.Control logStart
+INFO: Get list of cities
+Nov 05, 2012 9:15:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Nov 05, 2012 9:15:28 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {1}
+Nov 05, 2012 9:15:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(1)
+Nov 05, 2012 9:15:28 PM org.hsm.control.Control logStart
+INFO: Get list of class
+Nov 05, 2012 9:15:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_class_list()
+Nov 05, 2012 9:15:28 PM org.hsm.control.Control logStart
+INFO: Get courses list
+Nov 05, 2012 9:15:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_courses_list()
+Nov 05, 2012 9:15:28 PM org.hsm.control.Control logStart
+INFO: Get list of all lecturers
+Nov 05, 2012 9:15:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_all_lecturers()
+Nov 05, 2012 9:15:28 PM org.hsm.control.Control logStart
+INFO: Get list of rooms
+Nov 05, 2012 9:15:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_list()
+Nov 05, 2012 9:15:29 PM org.hsm.control.Control logStart
+INFO: Get list of faculties
+Nov 05, 2012 9:15:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_faculty_list()
+Nov 05, 2012 9:15:29 PM org.hsm.control.Control logStart
+INFO: Get list of cities
+Nov 05, 2012 9:15:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Nov 05, 2012 9:15:29 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {1}
+Nov 05, 2012 9:15:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(1)
+Nov 05, 2012 9:15:29 PM org.hsm.control.Control logStart
+INFO: Get list of faculties
+Nov 05, 2012 9:15:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_faculty_list()
+Nov 05, 2012 9:15:29 PM org.hsm.control.Control logStart
+INFO: Get list of degrees
+Nov 05, 2012 9:15:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_degree_list()
+Nov 05, 2012 9:15:29 PM org.hsm.control.Control logStart
+INFO: Get list of cities
+Nov 05, 2012 9:15:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Nov 05, 2012 9:15:29 PM org.hsm.control.Control logStart
+INFO: Get list of rooms
+Nov 05, 2012 9:15:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_list()
+Nov 05, 2012 9:15:29 PM org.hsm.control.Control logStart
+INFO: Get courses list
+Nov 05, 2012 9:15:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_courses_list()
+Nov 05, 2012 9:15:29 PM org.hsm.control.Control logStart
+INFO: Get login information{host}
+Nov 05, 2012 9:15:29 PM org.hsm.control.Control logStart
+INFO: Get login information{port}
+Nov 05, 2012 9:15:29 PM org.hsm.control.Control logStart
+INFO: Get login information{database}
+Nov 05, 2012 9:15:29 PM org.hsm.control.Control logStart
+INFO: Get login information{username}
+Nov 05, 2012 9:15:29 PM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Nov 05, 2012 9:15:40 PM org.hsm.control.Control logStart
+INFO: Get raw list of students in {AS1} class
+Nov 05, 2012 9:15:40 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(14)
+Nov 05, 2012 9:15:40 PM org.hsm.control.Control logStart
+INFO: Get raw list of students in {AS1} class
+Nov 05, 2012 9:15:40 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(14)
+Nov 05, 2012 9:15:44 PM org.hsm.control.Control logStart
+INFO: Get raw list of students in {BK1.11} class
+Nov 05, 2012 9:15:44 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(694)
+Nov 05, 2012 9:15:45 PM org.hsm.control.Control logStart
+INFO: Get raw list of students in {BK1.11} class
+Nov 05, 2012 9:15:45 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(694)
+Nov 05, 2012 9:15:46 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Phạm Tiến Đạt}
+Nov 05, 2012 9:15:46 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38750)
+Nov 05, 2012 9:15:46 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Phạm Tiến Đạt}
+Nov 05, 2012 9:15:46 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38750)
+Nov 05, 2012 9:15:46 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {237}
+Nov 05, 2012 9:15:46 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(237)
+Nov 05, 2012 9:15:46 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {49}
+Nov 05, 2012 9:15:46 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(49)
+Nov 05, 2012 9:15:46 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {49}
+Nov 05, 2012 9:15:46 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(49)
+Nov 05, 2012 9:15:46 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Phạm Tiến Đạt}
+Nov 05, 2012 9:15:46 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38750)
+Nov 05, 2012 9:15:46 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Phạm Tiến Đạt}
+Nov 05, 2012 9:15:46 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38750)
+Nov 05, 2012 9:15:46 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Phạm Tiến Đạt}
+Nov 05, 2012 9:15:46 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38750)
+Nov 05, 2012 9:15:46 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {237}
+Nov 05, 2012 9:15:46 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(237)
+Nov 05, 2012 9:15:46 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Phạm Tiến Đạt}
+Nov 05, 2012 9:15:46 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38750)
+Nov 05, 2012 9:15:47 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Phan Đăng Khoa}
+Nov 05, 2012 9:15:47 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38760)
+Nov 05, 2012 9:15:47 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Phan Đăng Khoa}
+Nov 05, 2012 9:15:47 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38760)
+Nov 05, 2012 9:15:47 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {525}
+Nov 05, 2012 9:15:47 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(525)
+Nov 05, 2012 9:15:47 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {52}
+Nov 05, 2012 9:15:47 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(52)
+Nov 05, 2012 9:15:47 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {52}
+Nov 05, 2012 9:15:47 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(52)
+Nov 05, 2012 9:15:47 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Phan Đăng Khoa}
+Nov 05, 2012 9:15:47 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38760)
+Nov 05, 2012 9:15:47 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Phan Đăng Khoa}
+Nov 05, 2012 9:15:47 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38760)
+Nov 05, 2012 9:15:47 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Phan Đăng Khoa}
+Nov 05, 2012 9:15:47 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38760)
+Nov 05, 2012 9:15:47 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {525}
+Nov 05, 2012 9:15:47 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(525)
+Nov 05, 2012 9:15:47 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Phan Đăng Khoa}
+Nov 05, 2012 9:15:47 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38760)
+Nov 05, 2012 9:15:48 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Phạm Tiến Đạt}
+Nov 05, 2012 9:15:48 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38750)
+Nov 05, 2012 9:15:48 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Phạm Tiến Đạt}
+Nov 05, 2012 9:15:48 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38750)
+Nov 05, 2012 9:15:48 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {237}
+Nov 05, 2012 9:15:48 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(237)
+Nov 05, 2012 9:15:48 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {49}
+Nov 05, 2012 9:15:48 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(49)
+Nov 05, 2012 9:15:48 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {49}
+Nov 05, 2012 9:15:48 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(49)
+Nov 05, 2012 9:15:48 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Phạm Tiến Đạt}
+Nov 05, 2012 9:15:48 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38750)
+Nov 05, 2012 9:15:48 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Phạm Tiến Đạt}
+Nov 05, 2012 9:15:48 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38750)
+Nov 05, 2012 9:15:48 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Phạm Tiến Đạt}
+Nov 05, 2012 9:15:48 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38750)
+Nov 05, 2012 9:15:49 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {237}
+Nov 05, 2012 9:15:49 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(237)
+Nov 05, 2012 9:15:49 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Phạm Tiến Đạt}
+Nov 05, 2012 9:15:49 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38750)
+Nov 05, 2012 9:15:50 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Nguyễn Hải Đăng}
+Nov 05, 2012 9:15:50 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38749)
+Nov 05, 2012 9:15:50 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Nguyễn Hải Đăng}
+Nov 05, 2012 9:15:50 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38749)
+Nov 05, 2012 9:15:50 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {485}
+Nov 05, 2012 9:15:50 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(485)
+Nov 05, 2012 9:15:50 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {24}
+Nov 05, 2012 9:15:50 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(24)
+Nov 05, 2012 9:15:50 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {24}
+Nov 05, 2012 9:15:50 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(24)
+Nov 05, 2012 9:15:50 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Nguyễn Hải Đăng}
+Nov 05, 2012 9:15:50 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38749)
+Nov 05, 2012 9:15:50 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Nguyễn Hải Đăng}
+Nov 05, 2012 9:15:50 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38749)
+Nov 05, 2012 9:15:50 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Nguyễn Hải Đăng}
+Nov 05, 2012 9:15:50 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38749)
+Nov 05, 2012 9:15:50 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {485}
+Nov 05, 2012 9:15:50 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(485)
+Nov 05, 2012 9:15:50 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Nguyễn Hải Đăng}
+Nov 05, 2012 9:15:50 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38749)
+Nov 05, 2012 9:15:51 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Khương Mạnh Duy}
+Nov 05, 2012 9:15:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38754)
+Nov 05, 2012 9:15:51 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Khương Mạnh Duy}
+Nov 05, 2012 9:15:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38754)
+Nov 05, 2012 9:15:51 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {441}
+Nov 05, 2012 9:15:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(441)
+Nov 05, 2012 9:15:51 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {56}
+Nov 05, 2012 9:15:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(56)
+Nov 05, 2012 9:15:51 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {56}
+Nov 05, 2012 9:15:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(56)
+Nov 05, 2012 9:15:51 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Khương Mạnh Duy}
+Nov 05, 2012 9:15:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38754)
+Nov 05, 2012 9:15:51 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Khương Mạnh Duy}
+Nov 05, 2012 9:15:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38754)
+Nov 05, 2012 9:15:51 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Khương Mạnh Duy}
+Nov 05, 2012 9:15:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38754)
+Nov 05, 2012 9:15:52 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {441}
+Nov 05, 2012 9:15:52 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(441)
+Nov 05, 2012 9:15:52 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Khương Mạnh Duy}
+Nov 05, 2012 9:15:52 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38754)
+Nov 05, 2012 9:15:53 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Phan Đăng Khoa}
+Nov 05, 2012 9:15:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38760)
+Nov 05, 2012 9:15:53 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Phan Đăng Khoa}
+Nov 05, 2012 9:15:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38760)
+Nov 05, 2012 9:15:53 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {525}
+Nov 05, 2012 9:15:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(525)
+Nov 05, 2012 9:15:53 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {52}
+Nov 05, 2012 9:15:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(52)
+Nov 05, 2012 9:15:53 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {52}
+Nov 05, 2012 9:15:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(52)
+Nov 05, 2012 9:15:53 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Phan Đăng Khoa}
+Nov 05, 2012 9:15:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38760)
+Nov 05, 2012 9:15:53 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Phan Đăng Khoa}
+Nov 05, 2012 9:15:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38760)
+Nov 05, 2012 9:15:53 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Phan Đăng Khoa}
+Nov 05, 2012 9:15:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38760)
+Nov 05, 2012 9:15:53 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {525}
+Nov 05, 2012 9:15:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(525)
+Nov 05, 2012 9:15:53 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Phan Đăng Khoa}
+Nov 05, 2012 9:15:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38760)
+Nov 05, 2012 9:15:57 PM org.hsm.control.Control logStart
+INFO: Get raw list of students in {AS1} class
+Nov 05, 2012 9:15:57 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(14)
+Nov 05, 2012 9:15:57 PM org.hsm.control.Control logStart
+INFO: Get raw list of students in {AS1} class
+Nov 05, 2012 9:15:57 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(14)
+Nov 05, 2012 9:16:04 PM org.hsm.control.Control logStart
+INFO: Get raw list of students in {BK1.07} class
+Nov 05, 2012 9:16:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(689)
+Nov 05, 2012 9:16:04 PM org.hsm.control.Control logStart
+INFO: Get raw list of students in {BK1.07} class
+Nov 05, 2012 9:16:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(689)
+Nov 05, 2012 9:16:04 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Trần Khắc Chung}
+Nov 05, 2012 9:16:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38549)
+Nov 05, 2012 9:16:04 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Trần Khắc Chung}
+Nov 05, 2012 9:16:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38549)
+Nov 05, 2012 9:16:04 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {351}
+Nov 05, 2012 9:16:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(351)
+Nov 05, 2012 9:16:04 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {21}
+Nov 05, 2012 9:16:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(21)
+Nov 05, 2012 9:16:04 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {21}
+Nov 05, 2012 9:16:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(21)
+Nov 05, 2012 9:16:04 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Trần Khắc Chung}
+Nov 05, 2012 9:16:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38549)
+Nov 05, 2012 9:16:04 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Trần Khắc Chung}
+Nov 05, 2012 9:16:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38549)
+Nov 05, 2012 9:16:04 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Trần Khắc Chung}
+Nov 05, 2012 9:16:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38549)
+Nov 05, 2012 9:16:04 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {351}
+Nov 05, 2012 9:16:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(351)
+Nov 05, 2012 9:16:04 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Trần Khắc Chung}
+Nov 05, 2012 9:16:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38549)
+Nov 05, 2012 9:16:05 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Đoàn Mạnh Anh}
+Nov 05, 2012 9:16:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38544)
+Nov 05, 2012 9:16:05 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Đoàn Mạnh Anh}
+Nov 05, 2012 9:16:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38544)
+Nov 05, 2012 9:16:05 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {345}
+Nov 05, 2012 9:16:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(345)
+Nov 05, 2012 9:16:05 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {6}
+Nov 05, 2012 9:16:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(6)
+Nov 05, 2012 9:16:05 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {6}
+Nov 05, 2012 9:16:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(6)
+Nov 05, 2012 9:16:05 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Đoàn Mạnh Anh}
+Nov 05, 2012 9:16:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38544)
+Nov 05, 2012 9:16:05 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Đoàn Mạnh Anh}
+Nov 05, 2012 9:16:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38544)
+Nov 05, 2012 9:16:05 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Đoàn Mạnh Anh}
+Nov 05, 2012 9:16:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38544)
+Nov 05, 2012 9:16:05 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {345}
+Nov 05, 2012 9:16:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(345)
+Nov 05, 2012 9:16:05 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Đoàn Mạnh Anh}
+Nov 05, 2012 9:16:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38544)
+Nov 05, 2012 9:16:09 PM org.hsm.control.Control fire
+INFO: System exits

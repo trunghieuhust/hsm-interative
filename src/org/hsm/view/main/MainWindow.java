@@ -2,9 +2,12 @@ package org.hsm.view.main;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -20,6 +23,7 @@ public class MainWindow extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private MainPane contentPane;
+	private JCheckBox chckbxLogView;
 
 	/**
 	 * Create the frame.
@@ -64,6 +68,18 @@ public class MainWindow extends JFrame {
 		});
 		mnMain.add(mntmQuit);
 
+		JMenu mnView = new JMenu("View");
+		menuBar.add(mnView);
+
+		chckbxLogView = new JCheckBox("Log view");
+		chckbxLogView.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				Control.getInstance().fire("setLogViewVisible",
+						chckbxLogView.isSelected());
+			}
+		});
+		mnView.add(chckbxLogView);
+
 		JMenu mnTools = new JMenu("Tools");
 		menuBar.add(mnTools);
 
@@ -88,5 +104,11 @@ public class MainWindow extends JFrame {
 
 	public void setStatus(String status) {
 		contentPane.setStatus(status);
+	}
+
+	public void setLogViewSelected(boolean bool) {
+		if (chckbxLogView.isSelected() != bool)
+			chckbxLogView.setSelected(bool);
+
 	}
 }

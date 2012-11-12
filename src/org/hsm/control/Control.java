@@ -9,7 +9,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Properties;
 import java.util.logging.FileHandler;
+import java.util.logging.Handler;
 import java.util.logging.Level;
+import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
@@ -24,6 +26,7 @@ import org.hsm.model.hedspiObject.Student;
 import org.hsm.service.CoreService;
 import org.hsm.view.IView;
 import org.hsm.view.login.LoginWindow;
+import org.hsm.view.main.LogViewFrame;
 import org.hsm.view.main.MainWindow;
 
 /**
@@ -56,6 +59,7 @@ public class Control implements IControl {
 	private MainWindow mainWindow = null;
 
 	private IView login;
+	private LogViewFrame logViewFrame;
 
 	/**
 	 * init and open log
@@ -76,6 +80,25 @@ public class Control implements IControl {
 		}
 		logFileHandler.setFormatter(new SimpleFormatter());
 		logger.addHandler(logFileHandler);
+		logger.addHandler(new Handler() {
+
+			@Override
+			public void publish(LogRecord record) {
+				String all = record.getLevel().getName() + ": "
+						+ record.getMessage();
+				LogViewFrame tmp = getLogView();
+				if (tmp != null)
+					tmp.appendLog(all);
+			}
+
+			@Override
+			public void flush() {
+			}
+
+			@Override
+			public void close() throws SecurityException {
+			}
+		});
 	}
 
 	/**
@@ -83,13 +106,23 @@ public class Control implements IControl {
 	 */
 	@Override
 	public void fire(String command, Object... data) {
+		boolean bool;
+
 		switch (command) {
 		case "start":
 			start();
 			break;
+
 		case "exit":
 			logger.log(Level.INFO, "System exits");
 			System.exit(0);
+
+		case "setLogViewVisible":
+			bool = (boolean) data[0];
+			getLogView().setVisible(bool);
+			if (mainWindow != null)
+				mainWindow.setLogViewSelected(bool);
+			break;
 
 		default:
 			logger.log(Level.WARNING,
@@ -97,6 +130,12 @@ public class Control implements IControl {
 							+ command);
 		}
 
+	}
+
+	private LogViewFrame getLogView() {
+		if (logViewFrame == null)
+			logViewFrame = new LogViewFrame();
+		return logViewFrame;
 	}
 
 	/**

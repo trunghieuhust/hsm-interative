@@ -13,6 +13,8 @@ import java.util.logging.Level;
 
 import org.hsm.control.Control;
 import org.hsm.model.hedspiObject.HedspiObject;
+import org.postgresql.copy.CopyManager;
+import org.postgresql.core.BaseConnection;
 
 /**
  * Tập hợp driver tương tác trực tiếp với server. Một số đã có doc sẵn, một số
@@ -503,5 +505,10 @@ public class CoreService {
 
 	public String getDatabase() {
 		return loginInfo.getProperty(DBNAME_NAME);
+	}
+
+	public CopyManager getCopyManager() throws SQLException {
+		return new CopyManager((BaseConnection) CoreService.getInstance()
+				.getConnection());
 	}
 }

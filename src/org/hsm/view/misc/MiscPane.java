@@ -29,10 +29,10 @@ public class MiscPane extends JTabbedPane {
 		JTabbedPane maintainPane = new JTabbedPane(JTabbedPane.TOP);
 		addTab("Maintain", null, maintainPane, null);
 
-		JPanel backupPane = new JPanel();
+		BackupPane backupPane = new BackupPane();
 		maintainPane.addTab("Backup", null, backupPane, null);
 
-		JPanel restorePane = new JPanel();
+		RestorePane restorePane = new RestorePane();
 		maintainPane.addTab("Restore", null, restorePane, null);
 
 		JScrollPane queryScrollPane = new JScrollPane();
