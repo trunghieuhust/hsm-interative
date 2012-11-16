@@ -12,6 +12,7 @@ import org.hsm.view.lecturer.LecturerPane;
 import org.hsm.view.misc.MiscPane;
 import org.hsm.view.room.RoomPane;
 import org.hsm.view.student.StudentPane;
+import org.hsm.view.teach.TeachPane;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import com.jgoodies.forms.factories.FormFactory;
@@ -40,22 +41,30 @@ public class MainPane extends JPanel {
 		add(tabbedPane, "1, 1, fill, fill");
 
 		StudentPane studentPanel = new StudentPane();
-		tabbedPane.addTab("Student", null, studentPanel, null);
+		tabbedPane.addTab("Student", null, studentPanel,
+				"View and edit students' information grouped by class");
 
-		LecturerPane lecturerPanel = new LecturerPane();
-		tabbedPane.addTab("Lecturer", null, lecturerPanel, null);
+		LecturerPane lecturerPane = new LecturerPane();
+		tabbedPane.addTab("Lecturer", null, lecturerPane,
+				"View and edit lecturers' information grouped by faculty");
+
+		TeachPane teachPane = new TeachPane();
+		tabbedPane.addTab("Teaching", null, teachPane,
+				"View and edit teaching information");
 
 		DistrictPane districtPane = new DistrictPane();
-		tabbedPane.addTab("District", null, districtPane, null);
+		tabbedPane.addTab("District", null, districtPane,
+				"Manage districts and cities' information");
 
 		RoomPane roomPane = new RoomPane();
-		tabbedPane.addTab("Room", null, roomPane, null);
+		tabbedPane.addTab("Room", null, roomPane, "Manage rooms' information");
 
 		CoursePane coursePane = new CoursePane();
-		tabbedPane.addTab("Course", null, coursePane, null);
+		tabbedPane.addTab("Course", null, coursePane, "View and edit cources");
 
 		MiscPane miscPane = new MiscPane();
-		tabbedPane.addTab("Misc", null, miscPane, null);
+		tabbedPane
+				.addTab("Misc", null, miscPane, "Various of useful utilities");
 
 		JPanel statusPane = new JPanel();
 		add(statusPane, "1, 2, fill, fill");

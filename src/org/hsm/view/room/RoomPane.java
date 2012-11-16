@@ -32,7 +32,7 @@ public class RoomPane extends JSplitPane {
 
 			@Override
 			public void selectValue(HedspiObject value) {
-				roomViewPane.setRoom(value);
+				roomViewPane.setHedspiObject(value);
 			}
 
 			@Override

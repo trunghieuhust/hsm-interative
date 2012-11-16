@@ -216,6 +216,7 @@ public class ContactPane extends JPanel {
 		textFieldHome.setText(contact.getHome());
 		panelEmails.setValues(contact.getEmails());
 		editorPaneNote.setText(contact.getNote());
+		panelPhones.setValues(contact.getPhones());
 	}
 
 	private void updateDistrict(int district) {

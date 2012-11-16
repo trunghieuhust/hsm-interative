@@ -90,6 +90,7 @@ public class HierachyView extends JPanel implements ActionListener {
 		scrollPane.setViewportView(hierachyElement);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (hedspiObject == null)

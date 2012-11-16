@@ -117,13 +117,23 @@ public class LecturerService {
 		if (rs.isEmpty())
 			return null;
 		HashMap<String, Object> tt = rs.get(0);
-		// teached_classes integer, teached_courses integer, teached_students
-		// integer, best_student text, worst_student text)
 		ret[0] = String.valueOf((int) tt.get("teached_classes"));
 		ret[1] = String.valueOf((int) tt.get("teached_courses"));
 		ret[2] = String.valueOf((int) tt.get("teached_students"));
 		ret[3] = (String) tt.get("best_student");
 		ret[4] = (String) tt.get("worst_student");
 		return ret;
+	}
+
+	public static String[] getTeachedInfo(int i) {
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
+				.doQueryFunction("get_teach_info_lecturer", i);
+		ArrayList<String> ret = new ArrayList<>();
+		for (HashMap<String, Object> it : rs) {
+			ret.add((String) it.get("teach"));
+			ret.add((String) it.get("course"));
+			ret.add((String) it.get("room"));
+		}
+		return ret.toArray(new String[ret.size()]);
 	}
 }

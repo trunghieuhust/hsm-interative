@@ -80,12 +80,6 @@ public class MainWindow extends JFrame {
 		});
 		mnView.add(chckbxLogView);
 
-		JMenu mnTools = new JMenu("Tools");
-		menuBar.add(mnTools);
-
-		JMenuItem mntmOption = new JMenuItem("Option");
-		mnTools.add(mntmOption);
-
 		JMenu mnHelp = new JMenu("Help");
 		menuBar.add(mnHelp);
 

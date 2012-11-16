@@ -1,33 +1,16 @@
 package org.hsm.model.hedspiObject;
 
 public class AcademicInfo {
-	private HedspiObject course;
-	private HedspiObject room;
-	private HedspiObject lecturer;
-	private boolean isPassed;
-	private double result;
-
-	public AcademicInfo(HedspiObject course, HedspiObject lecturer,
-			HedspiObject room, boolean isPassed, double result) {
+	public AcademicInfo(HedspiObject teach, boolean isPassed, double result) {
 		super();
-		this.course = course;
-		this.room = room;
-		this.lecturer = lecturer;
+		this.teach = teach;
 		this.isPassed = isPassed;
 		this.result = result;
 	}
 
-	public HedspiObject getCourse() {
-		return course;
-	}
-
-	public HedspiObject getRoom() {
-		return room;
-	}
-
-	public HedspiObject getLecturer() {
-		return lecturer;
-	}
+	private boolean isPassed;
+	private double result;
+	private HedspiObject teach;
 
 	public boolean isPassed() {
 		return isPassed;
@@ -35,5 +18,9 @@ public class AcademicInfo {
 
 	public double getResult() {
 		return result;
+	}
+
+	public HedspiObject getTeach() {
+		return teach;
 	}
 }

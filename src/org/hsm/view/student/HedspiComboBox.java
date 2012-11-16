@@ -17,6 +17,10 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
+/**
+ * @author haidang-ubuntu
+ * 
+ */
 public abstract class HedspiComboBox extends JPanel {
 
 	/**
@@ -32,8 +36,8 @@ public abstract class HedspiComboBox extends JPanel {
 	 */
 	public HedspiComboBox() {
 		setLayout(new FormLayout(new ColumnSpec[] {
-				ColumnSpec.decode("min:grow"), FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("19dlu"), },
+				ColumnSpec.decode("max(92dlu;min):grow"),
+				FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("19dlu"), },
 				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
 
 		comboBoxModel = new DefaultComboBoxModel<>();
@@ -48,7 +52,7 @@ public abstract class HedspiComboBox extends JPanel {
 				refresh();
 			}
 		});
-		add(btnR, "3, 1");
+		add(btnR, "2, 1, 2, 1");
 
 		refresh();
 	}
@@ -63,6 +67,11 @@ public abstract class HedspiComboBox extends JPanel {
 			}
 	}
 
+	/**
+	 * Get id of selected object
+	 * 
+	 * @return id selected object or -1 when none is selected
+	 */
 	public int getSelectedValue() {
 		HedspiObject obj = (HedspiObject) comboBoxModel.getSelectedItem();
 		if (obj == null)

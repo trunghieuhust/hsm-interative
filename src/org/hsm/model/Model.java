@@ -9,6 +9,7 @@ import org.hsm.model.hedspiObject.Course;
 import org.hsm.model.hedspiObject.HedspiObject;
 import org.hsm.model.hedspiObject.Lecturer;
 import org.hsm.model.hedspiObject.Student;
+import org.hsm.model.hedspiObject.Teach;
 import org.hsm.service.CityService;
 import org.hsm.service.ClassService;
 import org.hsm.service.CoreService;
@@ -19,6 +20,7 @@ import org.hsm.service.FacultyService;
 import org.hsm.service.LecturerService;
 import org.hsm.service.RoomService;
 import org.hsm.service.StudentService;
+import org.hsm.service.TeachService;
 import org.hsm.service.UtilService;
 
 public class Model implements IModel {
@@ -37,6 +39,36 @@ public class Model implements IModel {
 	@Override
 	public Object getData(String command, Object... data) {
 		switch (command) {
+		case "getClassesListOfCourse":
+			return CourseService.getClassesTeaching((int) data[0]);
+
+		case "getClassesInRoom":
+			return RoomService.getClassesHeldIn((int) data[0]);
+
+		case "getLTeachedInfoOfLecturer":
+			return LecturerService.getTeachedInfo((int) data[0]);
+
+		case "getNameOfFactorsInTeachingClass":
+			return TeachService.getFactorNames((int) data[0]);
+
+		case "saveTeachInfo":
+			return TeachService.save((Teach) data[0]);
+
+		case "getListOfStudentsInTeachingClass":
+			return TeachService.getStudentsList((int) data[0]);
+
+		case "getFullDataOfTeachingClass":
+			return TeachService.getFull((int) data[0]);
+
+		case "removeTeachingClass":
+			return TeachService.remove((int) data[0]);
+
+		case "getNewTeachingClass":
+			return TeachService.getNew();
+
+		case "getRawListOfTeachingClasses":
+			return TeachService.getRawList();
+
 		case "getStatisticQueryResult":
 			return UtilService.getResultOfStatisticQuery((String) data[0]);
 
@@ -54,9 +86,6 @@ public class Model implements IModel {
 
 		case "getSingleCourseStatistic":
 			return CourseService.getSingleStatistic((int) data[0]);
-
-		case "getNClassesInRoom":
-			return RoomService.getNClassesIn((int) data[0]);
 
 		case "getCityOfDistrict":
 			return DistrictService.getCity((int) data[0]);

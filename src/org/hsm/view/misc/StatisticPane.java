@@ -68,23 +68,23 @@ public class StatisticPane extends JPanel {
 			new String[] { "Number of faculties",
 					"SELECT count(fc) FROM faculty", "" },
 			new String[] { "Number of teaching classes",
-					"SELECT count(ad) FROM attend", "" },
+					"SELECT count(tc) FROM teach", "" },
 			new String[] {
 					"Maximal point that student achieved",
 					"SELECT result || ' (' || concat(first, ' ', last) || ')'\n"
-							+ "FROM student JOIN (SELECT result, student_ct AS ct\n"
-							+ "FROM attend\n"
-							+ "WHERE result = (SELECT max(result) FROM attend)) AS tmp USING (ct)",
+							+ "FROM student JOIN (SELECT result, ct\n"
+							+ "FROM study\n"
+							+ "WHERE result = (SELECT max(result) FROM study)) AS tmp USING (ct)",
 					"" },
 			new String[] {
 					"Minimal point that student get",
 					"SELECT result || ' (' || concat(first, ' ', last) || ')'\n"
-							+ "FROM student JOIN (SELECT result, student_ct AS ct\n"
-							+ "FROM attend\n"
-							+ "WHERE result = (SELECT min(result) FROM attend)) AS tmp USING (ct)",
+							+ "FROM student JOIN (SELECT result, ct\n"
+							+ "FROM study\n"
+							+ "WHERE result = (SELECT min(result) FROM study)) AS tmp USING (ct)",
 					"" },
 			new String[] { "Average point in all teaching classes",
-					"SELECT avg(result) FROM attend", "" },
+					"SELECT avg(result) FROM study", "" },
 			new String[] {
 					"Maximal number of students in all classes",
 					"SELECT cnt || ' (' || name || ')'\n"
@@ -167,60 +167,60 @@ public class StatisticPane extends JPanel {
 					"" },
 			new String[] {
 					"The best average point",
-					"WITH student_avg_point AS (SELECT avg(result) AS apoint, student_ct AS ct FROM attend GROUP BY student_ct)\n"
+					"WITH student_avg_point AS (SELECT avg(result) AS apoint, ct FROM study GROUP BY ct)\n"
 							+ "SELECT apoint || ' (' || concat(first, ' ', last) || ')'\n"
 							+ "FROM student JOIN student_avg_point USING (ct)\n"
 							+ "WHERE apoint = (SELECT max(apoint) FROM student_avg_point)",
 					"" },
 			new String[] {
 					"The worst average point",
-					"WITH student_avg_point AS (SELECT avg(result) AS apoint, student_ct AS ct FROM attend GROUP BY student_ct)\n"
+					"WITH student_avg_point AS (SELECT avg(result) AS apoint, ct FROM study GROUP BY ct)\n"
 							+ "SELECT apoint || ' (' || concat(first, ' ', last) || ')'\n"
 							+ "FROM student JOIN student_avg_point USING (ct)\n"
 							+ "WHERE apoint = (SELECT min(apoint) FROM student_avg_point)",
 					"" },
 			new String[] {
 					"Average of passed courses in all students",
-					"SELECT avg(cnt) FROM (SELECT count(DISTINCT ce) AS cnt FROM attend WHERE is_passed IS TRUE GROUP BY student_ct) AS tmp",
+					"SELECT avg(cnt) FROM (SELECT count(DISTINCT ce) AS cnt FROM study JOIN teach USING (tc) WHERE is_passed IS TRUE GROUP BY study.ct) AS tmp",
 					"" },
 			new String[] {
 					"The best student with most passed courses",
-					"WITH student_passed_course AS (SELECT count(DISTINCT ce) AS cnt, student_ct AS ct FROM attend WHERE is_passed IS TRUE GROUP BY ct)\n"
+					"WITH student_passed_course AS (SELECT count(DISTINCT ce) AS cnt, study.ct FROM study JOIN teach USING (tc) WHERE is_passed IS TRUE GROUP BY study.ct)\n"
 							+ "SELECT concat(first, ' ', last) || ' (' || cnt || ')'\n"
 							+ "FROM student LEFT OUTER JOIN student_passed_course USING (ct)\n"
 							+ "WHERE cnt = (SELECT max(cnt) FROM student_passed_course)",
 					"" },
 			new String[] {
 					"The worst student with least passed courses",
-					"WITH student_passed_course AS (SELECT count(DISTINCT ce) AS cnt, student_ct AS ct FROM attend WHERE is_passed IS TRUE GROUP BY ct)\n"
+					"WITH student_passed_course AS (SELECT count(DISTINCT ce) AS cnt, study.ct FROM study JOIN teach USING (tc) WHERE is_passed IS TRUE GROUP BY study.ct)\n"
 							+ "SELECT concat(first, ' ', last) || ' (' || cnt || ')'\n"
 							+ "FROM student LEFT OUTER JOIN student_passed_course USING (ct)\n"
 							+ "WHERE cnt = (SELECT min(cnt) FROM student_passed_course)",
 					"" },
 			new String[] {
 					"The best student with most passed classes",
-					"WITH student_passed_course AS (SELECT count(ad) AS cnt, student_ct AS ct FROM attend WHERE is_passed IS TRUE GROUP BY ct)\n"
+					"WITH student_passed_course AS (SELECT count(tc) AS cnt, study.ct FROM study WHERE is_passed IS TRUE GROUP BY ct)\n"
 							+ "SELECT concat(first, ' ', last) || ' (' || cnt || ')'\n"
 							+ "FROM student LEFT OUTER JOIN student_passed_course USING (ct)\n"
 							+ "WHERE cnt = (SELECT max(cnt) FROM student_passed_course)",
 					"" },
 			new String[] {
 					"The worst student with least passed classes",
-					"WITH student_passed_course AS (SELECT count(ad) AS cnt, student_ct AS ct FROM attend WHERE is_passed IS TRUE GROUP BY ct)\n"
+					"WITH student_passed_course AS (SELECT count(tc) AS cnt, ct FROM study WHERE is_passed IS TRUE GROUP BY ct)\n"
 							+ "SELECT concat(first, ' ', last) || ' (' || cnt || ')'\n"
 							+ "FROM student LEFT OUTER JOIN student_passed_course USING (ct)\n"
 							+ "WHERE cnt = (SELECT min(cnt) FROM student_passed_course)",
 					"" },
 			new String[] {
 					"Lecturer with the most teached classes",
-					"WITH lecturer_with_counter AS (SELECT count(ad) AS cnt, lecturer_ct AS ct FROM attend GROUP BY ct)\n"
+					"WITH lecturer_with_counter AS (SELECT count(tc) AS cnt, ct FROM teach GROUP BY ct)\n"
 							+ "SELECT concat(first, ' ', last) || ' (' || cnt || ')'\n"
 							+ "FROM lecturer LEFT OUTER JOIN lecturer_with_counter USING (ct)\n"
 							+ "WHERE cnt = (SELECT max(cnt) FROM lecturer_with_counter)",
 					"" },
 			new String[] {
 					"Lecturer with the least teached classes",
-					"WITH lecturer_with_counter AS (SELECT count(ad) AS cnt, lecturer_ct AS ct FROM attend GROUP BY ct)\n"
+					"WITH lecturer_with_counter AS (SELECT count(tc) AS cnt, ct FROM teach GROUP BY ct)\n"
 							+ "SELECT concat(first, ' ', last) || ' (' || cnt || ')'\n"
 							+ "FROM lecturer LEFT OUTER JOIN lecturer_with_counter USING (ct)\n"
 							+ "WHERE cnt = (SELECT min(cnt) FROM lecturer_with_counter)",
@@ -492,10 +492,10 @@ public class StatisticPane extends JPanel {
 					 * 
 					 */
 			private static final long serialVersionUID = 1L;
-			Class[] columnTypes = new Class[] { String.class, String.class,
+			Class<?>[] columnTypes = new Class[] { String.class, String.class,
 					String.class };
 
-			public Class getColumnClass(int columnIndex) {
+			public Class<?> getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}
 		};
@@ -626,9 +626,6 @@ public class StatisticPane extends JPanel {
 				.getLogger()
 				.log(Level.INFO,
 						"Use default internal default statistic values");
-		// JOptionPane.showMessageDialog(Control.getInstance().getMainWindow(),
-		// "Use default internal statistic values",
-		// "Use default internal values", JOptionPane.INFORMATION_MESSAGE);
 		defaultProps = new Properties();
 		for (int i = 0; i < DEFAULT_VALUES.length; i++) {
 			defaultProps

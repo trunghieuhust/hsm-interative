@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 import org.hsm.control.Control;
@@ -29,6 +30,7 @@ public class FacultyViewPane extends JSplitPane {
 	private HedspiObject faculty;
 	protected JTextField textFieldFacultyName;
 	private ObjectListPane lecturerListPane;
+	private LecturerClassesListPane lecturerClassesListPane;
 
 	/**
 	 * Create the panel.
@@ -95,6 +97,7 @@ public class FacultyViewPane extends JSplitPane {
 			@Override
 			public void selectValue(HedspiObject value) {
 				lecturerViewPane.setHedspiObject(value);
+				lecturerClassesListPane.setHedspiObject(value);
 			}
 
 			@Override
@@ -131,8 +134,30 @@ public class FacultyViewPane extends JSplitPane {
 
 		setLeftComponent(scrollPane);
 
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		setRightComponent(tabbedPane);
+
 		JScrollPane scrollPane_1 = new JScrollPane();
-		setRightComponent(scrollPane_1);
+		tabbedPane.addTab("Contact information", null, scrollPane_1,
+				"Contact information of lecturer");
+
+		JScrollPane scrollPane_2 = new JScrollPane();
+		tabbedPane.addTab("Classes list", null, scrollPane_2,
+				"List of classes that lecturer teaches in");
+
+		lecturerClassesListPane = new LecturerClassesListPane() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			LecturerViewPane getLecturerViewPane() {
+				return lecturerViewPane;
+			}
+		};
+		scrollPane_2.setViewportView(lecturerClassesListPane);
 
 		lecturerViewPane = new LecturerViewPane();
 		scrollPane_1.setViewportView(lecturerViewPane);

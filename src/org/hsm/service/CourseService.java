@@ -115,4 +115,17 @@ public class CourseService {
 		return ret;
 	}
 
+	public static String[] getClassesTeaching(int i) {
+		ArrayList<String> ret = new ArrayList<>();
+		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
+				.doQueryFunction("get_classes_teaching_course", i);
+		for (HashMap<String, Object> it : rs) {
+			ret.add((String) it.get("teach"));
+			ret.add((String) it.get("lecturer"));
+			ret.add((String) it.get("room"));
+		}
+
+		return ret.toArray(new String[ret.size()]);
+	}
+
 }

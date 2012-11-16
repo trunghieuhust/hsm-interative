@@ -130,14 +130,9 @@ public class LecturerViewPane extends JPanel {
 		btnExport.setToolTipText("Export lecturer's information to html file");
 		btnExport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (hedspiObject == null)
+				HedspiTable hedspiTable = getHedspiTable();
+				if (hedspiTable == null)
 					return;
-				HedspiTable hedspiTable = new HedspiTable(
-						"Information of lecturer {" + hedspiObject.getName()
-								+ "}", "Label", "value");
-				hedspiTable.setIsTablePrint(false);
-				contactPane.export(hedspiTable);
-				lecturerStatisticPane.export(hedspiTable);
 				hedspiTable.writeToHtmlWithMessageDialog();
 			}
 		});
@@ -199,5 +194,16 @@ public class LecturerViewPane extends JPanel {
 					"Get data of lecturer failed\nMessage: "
 							+ Control.getInstance().getQueryMessage(),
 					"Get data failed", JOptionPane.WARNING_MESSAGE);
+	}
+
+	public HedspiTable getHedspiTable() {
+		if (hedspiObject == null)
+			return null;
+		HedspiTable hedspiTable = new HedspiTable("Information of lecturer {"
+				+ hedspiObject.getName() + "}", "Label", "value");
+		hedspiTable.setIsTablePrint(false);
+		contactPane.export(hedspiTable);
+		lecturerStatisticPane.export(hedspiTable);
+		return hedspiTable;
 	}
 }

@@ -129,6 +129,7 @@ public class StudentService {
 				id);
 	}
 
+	@SuppressWarnings("unchecked")
 	public static HashMap<String, Object>[] getSuperFullStudents(int offset,
 			int limit) {
 		String query = "SELECT \n" + "  student.first, \n"
@@ -164,32 +165,21 @@ public class StudentService {
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
 				.doQueryFunction("get_academic_info", i);
 		for (HashMap<String, Object> it : rs) {
-			int ce = (int) it.get("ceid");
-			String ce_name = (String) it.get("ce_name");
-			HedspiObject course = new HedspiObject(ce, ce_name);
-
-			int lt = (int) it.get("lt");
-			String lt_name = (String) it.get("lt_name");
-			HedspiObject lecturer = new HedspiObject(lt, lt_name);
-
-			int rm = (int) it.get("rmid");
-			String rm_name = (String) it.get("rm_name");
-			HedspiObject room = new HedspiObject(rm, rm_name);
-
+			int tc = (int) it.get("tcr");
+			String name = (String) it.get("name");
 			boolean isPassed = (boolean) it.get("is_passed");
 			double result = (double) it.get("ret");
 
-			all.add(new AcademicInfo(course, lecturer, room, isPassed, result));
+			all.add(new AcademicInfo(new HedspiObject(tc, name), isPassed,
+					result));
 		}
 		return all.toArray(new AcademicInfo[all.size()]);
 	}
 
 	public static String saveAcademicInfo(int i, AcademicInfo[] academicInfos) {
-		double[] arr = new double[academicInfos.length * 5];
+		double[] arr = new double[academicInfos.length * 3];
 		for (int it = 0, j = 0; it < academicInfos.length; it++) {
-			arr[j++] = academicInfos[it].getCourse().getId();
-			arr[j++] = academicInfos[it].getLecturer().getId();
-			arr[j++] = academicInfos[it].getRoom().getId();
+			arr[j++] = academicInfos[it].getTeach().getId();
 			arr[j++] = academicInfos[it].isPassed() ? 1 : 0;
 			arr[j++] = academicInfos[it].getResult();
 		}

@@ -23,6 +23,7 @@ import org.hsm.model.hedspiObject.Course;
 import org.hsm.model.hedspiObject.HedspiObject;
 import org.hsm.model.hedspiObject.Lecturer;
 import org.hsm.model.hedspiObject.Student;
+import org.hsm.model.hedspiObject.Teach;
 import org.hsm.service.CoreService;
 import org.hsm.view.IView;
 import org.hsm.view.login.LoginWindow;
@@ -243,8 +244,71 @@ public class Control implements IControl {
 		int offset, limit;
 		AcademicInfo[] academicInfos;
 		String str;
+		Teach teach;
 
 		switch (command) {
+		case "getClassesListOfCourse":
+			obj = (HedspiObject) data[0];
+			logStart("Get classes list teaching course {" + obj.getName() + "}");
+			return logEnd(Model.getInstance().getData("getClassesListOfCourse",
+					obj.getId()));
+
+		case "getClassesInRoom":
+			obj = (HedspiObject) data[0];
+			logStart("Get teaching classes held in room {" + obj.getName()
+					+ "}");
+			return logEnd(Model.getInstance().getData("getClassesInRoom",
+					obj.getId()));
+
+		case "getLTeachedInfoOfLecturer":
+			obj = (HedspiObject) data[0];
+			logStart("Get teaching information of lecturer {" + obj.getName()
+					+ "}");
+			return logEnd(Model.getInstance().getData(
+					"getLTeachedInfoOfLecturer", obj.getId()));
+
+		case "getNameOfFactorsInTeachingClass":
+			obj = (HedspiObject) data[0];
+			logStart("Get name of factors in teaching class {" + obj.getName()
+					+ "}");
+			return logEnd(Model.getInstance().getData(
+					"getNameOfFactorsInTeachingClass", obj.getId()));
+
+		case "saveTeachInfo":
+			obj = (HedspiObject) data[0];
+			teach = (Teach) data[1];
+			logStart("Save information of teaching class {" + obj.getName()
+					+ "}");
+			return logEnd(Model.getInstance().getData("saveTeachInfo", teach));
+
+		case "getListOfStudentsInTeachingClass":
+			obj = (HedspiObject) data[0];
+			logStart("Get students list in teaching class {" + obj.getName()
+					+ "}");
+			return logEnd(Model.getInstance().getData(
+					"getListOfStudentsInTeachingClass", obj.getId()));
+
+		case "getFullDataOfTeachingClass":
+			obj = (HedspiObject) data[0];
+			logStart("Get full data of teaching class {" + obj.getName() + "}");
+			return logEnd(Model.getInstance().getData(
+					"getFullDataOfTeachingClass", obj.getId()));
+
+		case "removeTeachingClass":
+			obj = (HedspiObject) data[0];
+			logStart("Remove teaching class {" + obj.getName() + "}");
+			return logEnd(Model.getInstance().getData("removeTeachingClass",
+					obj.getId()));
+
+		case "getNewTeachingClass":
+			logStart("Get new teaching class");
+			return logEnd(Model.getInstance().getData("getNewTeachingClass"));
+
+		case "getRawListOfTeachingClasses":
+			logStart("Get raw list of teaching classes");
+			return logEnd(Model.getInstance().getData(
+					"getRawListOfTeachingClasses"));
+
 		case "getStatisticQueryResult":
 			name = (String) data[0];
 			logStart("Get first result of statistic query {" + name + "}");
@@ -261,13 +325,6 @@ public class Control implements IControl {
 			logStart("Get statistic of single course {" + obj.getName() + "}");
 			return logEnd(Model.getInstance().getData(
 					"getSingleCourseStatistic", obj.getId()));
-
-		case "getNClassesInRoom":
-			obj = (HedspiObject) data[0];
-			logStart("Get number of classes held in room {" + obj.getName()
-					+ "}");
-			return logEnd(Model.getInstance().getData("getNClassesInRoom",
-					obj.getId()));
 
 		case "getCityOfDistrictFromDistrictId":
 			id = (int) data[0];

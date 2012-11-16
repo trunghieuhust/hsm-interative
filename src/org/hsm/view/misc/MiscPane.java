@@ -41,16 +41,10 @@ public class MiscPane extends JTabbedPane {
 		QueryPane queryPane = new QueryPane();
 		queryScrollPane.setViewportView(queryPane);
 
-		JScrollPane batchDelScrollPane = new JScrollPane();
-		addTab("Batch delete", null, batchDelScrollPane, null);
-
-		JPanel batchDelPane = new JPanel();
-		batchDelScrollPane.setViewportView(batchDelPane);
-
 		JScrollPane searchScrollPane = new JScrollPane();
 		addTab("Search", null, searchScrollPane, null);
 
-		JPanel searchPane = new JPanel();
+		SearchPane searchPane = new SearchPane();
 		searchScrollPane.setViewportView(searchPane);
 
 		JScrollPane statisticScrollPane = new JScrollPane();

@@ -27,6 +27,7 @@ public class HedspiTable {
 		setHeaders(headers);
 	}
 
+	@SuppressWarnings("unchecked")
 	private void setHeaders(String... headers) {
 		this.headers = new String[headers.length];
 		for (int i = 0; i < headers.length; i++)
@@ -67,8 +68,20 @@ public class HedspiTable {
 	}
 
 	public String getHtmlText() {
-		String ret = "<body>\n<center><h1>Hedspi student manager&copy;</h1></center><br>\n"
-				+ "<h3>" + title + "</h3><br>\n";
+		String ret = "<body>\n<center><h1>Hedspi student manager&copy;</h1></center><br>\n";
+
+		ret += getTableHtml();
+
+		// finish
+		ret += "</body>";
+		return ret;
+	}
+
+	public String getTableHtml() {
+		String ret = "";
+
+		// title
+		ret += "<h3>" + title + "</h3><br>\n";
 		if (headers.length == 0) {
 			ret += "Empty table!\n</body>";
 			return ret;
@@ -98,9 +111,8 @@ public class HedspiTable {
 			}
 			ret += "</tr>\n";
 		}
+		ret += "</table>\n";
 
-		// finish
-		ret += "</table>\n" + "</body>";
 		return ret;
 	}
 
@@ -113,10 +125,6 @@ public class HedspiTable {
 					.log(Level.WARNING, e.getMessage());
 		}
 		return StringEscapeUtils.escapeHtml4(utf8str);
-	}
-
-	private String writeToHtml() {
-		return FileManager.getInstance().writeToHtml(getHtmlText());
 	}
 
 	private void setShowHeader(boolean isShowHeader) {
@@ -145,10 +153,46 @@ public class HedspiTable {
 					"Export failed", JOptionPane.ERROR_MESSAGE);
 	}
 
+	private String writeToHtml() {
+		return FileManager.getInstance().writeToHtml(getHtmlText());
+	}
+
 	public void setIsTablePrint(boolean b) {
 		setShowBorder(b);
 		setShowHeader(b);
 		setPrintWithOrd(b);
 	}
 
+	// The code below not be optimized. It should be deplicated soon!
+
+	public void writeToHtmlWithMessageDialog(HedspiTable table) {
+		String message = writeToHtml(table);
+		if (message == null)
+			JOptionPane.showMessageDialog(
+					Control.getInstance().getMainWindow(),
+					"Export to html success", "Export success",
+					JOptionPane.INFORMATION_MESSAGE);
+		else
+			JOptionPane.showMessageDialog(
+					Control.getInstance().getMainWindow(),
+					"Export to html failed\nMessage: " + message,
+					"Export failed", JOptionPane.ERROR_MESSAGE);
+	}
+
+	private String writeToHtml(HedspiTable table) {
+		return FileManager.getInstance().writeToHtml(getHtmlText(table));
+	}
+
+	private String getHtmlText(HedspiTable table) {
+		String ret = "<body>\n<center><h1>Hedspi student manager&copy;</h1></center><br>\n";
+
+		ret += getTableHtml();
+		ret += "<br>";
+		ret += table.getTableHtml();
+
+		// finish
+		ret += "</body>";
+		return ret;
+	}
+	// HERE: end of non-optimized code.
 }

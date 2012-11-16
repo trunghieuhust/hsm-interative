@@ -150,7 +150,18 @@ public class ClassViewPane extends JSplitPane {
 		JScrollPane scrollPane_2 = new JScrollPane();
 		tabbedPane.addTab("Academic information", null, scrollPane_2, null);
 
-		registerPane = new RegisterPane();
+		registerPane = new RegisterPane() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			StudentViewPane getStudentViewPane() {
+				return studentViewPane;
+			}
+		};
 		scrollPane_2.setViewportView(registerPane);
 
 		setDividerLocation(150);

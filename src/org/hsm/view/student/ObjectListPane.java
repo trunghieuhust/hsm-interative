@@ -4,12 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -43,6 +46,24 @@ public abstract class ObjectListPane extends JPanel {
 	private JButton btnRefresh;
 	private JLabel lblClassList;
 	private JTextField txtEnterSortPattern;
+	private JCheckBox chckbxInstant;
+	private final DocumentListener searchBoxListener = new DocumentListener() {
+
+		@Override
+		public void insertUpdate(DocumentEvent e) {
+			resort();
+		}
+
+		@Override
+		public void removeUpdate(DocumentEvent e) {
+			resort();
+		}
+
+		@Override
+		public void changedUpdate(DocumentEvent e) {
+			resort();
+		}
+	};
 
 	/**
 	 * Create the panel.
@@ -63,17 +84,18 @@ public abstract class ObjectListPane extends JPanel {
 
 		JPanel panel_1 = new JPanel();
 		add(panel_1, "2, 4, fill, fill");
-		panel_1.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
-
-		JLabel lblSortbox = DefaultComponentFactory.getInstance().createLabel(
-				"Sortbox");
-		panel_1.add(lblSortbox, "2, 2, right, default");
+		panel_1.setLayout(new FormLayout(
+				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC,
+						FormFactory.RELATED_GAP_COLSPEC,
+						ColumnSpec.decode("default:grow"),
+						FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] {
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC, }));
 
 		txtEnterSortPattern = new JTextField();
+		txtEnterSortPattern.setToolTipText("Ordering pattern");
 		txtEnterSortPattern.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -86,32 +108,48 @@ public abstract class ObjectListPane extends JPanel {
 			}
 		});
 		txtEnterSortPattern.setText("Enter sort pattern here");
-		txtEnterSortPattern.getDocument().addDocumentListener(
-				new DocumentListener() {
 
-					@Override
-					public void insertUpdate(DocumentEvent e) {
-						resort();
-					}
+		txtEnterSortPattern.getDocument()
+				.addDocumentListener(searchBoxListener);
 
-					@Override
-					public void removeUpdate(DocumentEvent e) {
-						resort();
-					}
-
-					@Override
-					public void changedUpdate(DocumentEvent e) {
-						resort();
-					}
-				});
+		JButton btnSortBox = new JButton("Sort box");
+		btnSortBox.setToolTipText("Smart ordering");
+		btnSortBox.setMnemonic('s');
+		btnSortBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				resort();
+			}
+		});
+		panel_1.add(btnSortBox, "2, 2");
 		panel_1.add(txtEnterSortPattern, "4, 2, fill, default");
 		txtEnterSortPattern.setColumns(10);
+
+		chckbxInstant = new JCheckBox("Instant");
+		chckbxInstant.setToolTipText("Uncheck for weak computer");
+		chckbxInstant.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if (chckbxInstant.isSelected()) {
+					// if
+					// (txtEnterSortPattern.getDocument().hasEventListener(searchBoxListener))
+					txtEnterSortPattern.getDocument().addDocumentListener(
+							searchBoxListener);
+				} else {
+					txtEnterSortPattern.getDocument().removeDocumentListener(
+							searchBoxListener);
+				}
+			}
+		});
+		chckbxInstant.setMnemonic('i');
+		chckbxInstant.setSelected(true);
+		panel_1.add(chckbxInstant, "6, 2");
 
 		JScrollPane scrollPane = new JScrollPane();
 		add(scrollPane, "2, 6, fill, fill");
 
 		model = new DefaultListModel<>();
 		list = new JList<HedspiObject>(model);
+		lblClassList.setLabelFor(list);
+		list.setToolTipText("Objects list");
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.addListSelectionListener(new ListSelectionListener() {
 
@@ -139,6 +177,8 @@ public abstract class ObjectListPane extends JPanel {
 						FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnNew = new JButton("New");
+		btnNew.setToolTipText("Get new object from server");
+		btnNew.setMnemonic('n');
 		panel.add(btnNew, "2, 2, left, default");
 		btnNew.addActionListener(new ActionListener() {
 
@@ -160,6 +200,8 @@ public abstract class ObjectListPane extends JPanel {
 		});
 
 		JButton btnRemove = new JButton("Remove");
+		btnRemove.setToolTipText("Remove selected");
+		btnRemove.setMnemonic('e');
 		panel.add(btnRemove, "4, 2, left, default");
 		btnRemove.addActionListener(new ActionListener() {
 
@@ -181,6 +223,8 @@ public abstract class ObjectListPane extends JPanel {
 		});
 
 		btnRefresh = new JButton("Refresh");
+		btnRefresh.setToolTipText("Refresh list");
+		btnRefresh.setMnemonic('r');
 		btnRefresh.addActionListener(new ActionListener() {
 
 			@Override
@@ -191,10 +235,11 @@ public abstract class ObjectListPane extends JPanel {
 		panel.add(btnRefresh, "6, 2, left, default");
 
 		JButton btnExport = new JButton("Export");
+		btnExport.setToolTipText("Export to html format");
+		btnExport.setMnemonic('x');
 		btnExport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String title = getTitle();
-				String message;
 				if (title != null) {
 					HedspiTable hedspiTable = new HedspiTable(title, "Name");
 					for (int i = 0; i < model.getSize(); i++)
@@ -257,7 +302,10 @@ public abstract class ObjectListPane extends JPanel {
 	public void refresh() {
 		HedspiObject[] arr = getRefresh();
 		if (arr == null) {
-			JOptionPane.showConfirmDialog(null, "Cannot get list of objects",
+			JOptionPane.showMessageDialog(
+					Control.getInstance().getMainWindow(),
+					"Cannot get list of objects\nMessage: "
+							+ Control.getInstance().getQueryMessage(),
 					"Refresh failed", JOptionPane.WARNING_MESSAGE);
 			return;
 		}

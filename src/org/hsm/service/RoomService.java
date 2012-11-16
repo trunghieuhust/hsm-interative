@@ -34,12 +34,16 @@ public class RoomService {
 				string);
 	}
 
-	public static int getNClassesIn(int id) {
+	public static String[] getClassesHeldIn(int i) {
 		ArrayList<HashMap<String, Object>> rs = CoreService.getInstance()
-				.doQueryFunction("get_n_classes_in_room", id);
-		if (rs.isEmpty())
-			return 0;
-		return (int) rs.get(0).get("cnt");
+				.doQueryFunction("get_classses_held_in_room", i);
+		ArrayList<String> ret = new ArrayList<>();
+		for (HashMap<String, Object> it : rs) {
+			ret.add((String) it.get("id"));
+			ret.add((String) it.get("course"));
+			ret.add((String) it.get("lecturer"));
+		}
+		return ret.toArray(new String[ret.size()]);
 	}
 
 }

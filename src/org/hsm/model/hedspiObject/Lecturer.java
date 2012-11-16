@@ -23,5 +23,4 @@ public class Lecturer extends Contact {
 	public int getFaculty() {
 		return faculty;
 	}
-
 }

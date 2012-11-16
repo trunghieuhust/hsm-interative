@@ -152,4 +152,8 @@ public class QueryPane extends JPanel implements ActionListener {
 			first = false;
 		}
 	}
+
+	public void setQuery(String query) {
+		queryInputEntry.setText(query);
+	}
 }
