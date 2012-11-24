@@ -16,8 +16,6 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import org.hsm.model.Model;
 import org.hsm.model.hedspiObject.AcademicInfo;
@@ -31,6 +29,7 @@ import org.hsm.view.IView;
 import org.hsm.view.login.LoginWindow;
 import org.hsm.view.main.LogViewFrame;
 import org.hsm.view.main.MainWindow;
+import org.hsm.view.option.OptionFrame;
 
 /**
  * Thanh phan control trong mo hinh MVC. Control de dang single skeleton, goi
@@ -40,7 +39,6 @@ import org.hsm.view.main.MainWindow;
  * 
  */
 public class Control implements IControl {
-	private static final boolean IS_SET_UI_MANAGER = false;
 	private static final String LOG_DIR = "log";
 	private static final String LOG_FILE_NAME = LOG_DIR
 			+ "/"
@@ -50,20 +48,18 @@ public class Control implements IControl {
 	private long time;
 	private String currentStatus;
 	private String queryMessage = "";
+	private Logger logger;
+	private FileHandler logFileHandler;
+	private MainWindow mainWindow = null;
+	private IView login;
+	private LogViewFrame logViewFrame;
+	private OptionFrame optionFrame;
 
 	public static Control getInstance() {
 		if (instance == null)
 			instance = new Control();
 		return instance;
 	}
-
-	private Logger logger;
-	private FileHandler logFileHandler;
-
-	private MainWindow mainWindow = null;
-
-	private IView login;
-	private LogViewFrame logViewFrame;
 
 	/**
 	 * init and open log
@@ -114,8 +110,7 @@ public class Control implements IControl {
 
 		switch (command) {
 		case "start":
-			if (IS_SET_UI_MANAGER)
-				setUIManager();
+			setUIManager();
 			start();
 			break;
 
@@ -130,6 +125,11 @@ public class Control implements IControl {
 				mainWindow.setLogViewSelected(bool);
 			break;
 
+		case "setOptionWindowVisble":
+			bool = (boolean) data[0];
+			getOptionFrame().setVisible(bool);
+			break;
+
 		default:
 			logger.log(Level.WARNING,
 					"You have called Control an operation that is not supported.\nCommand: "
@@ -139,19 +139,20 @@ public class Control implements IControl {
 	}
 
 	private void setUIManager() {
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (UnsupportedLookAndFeelException | ClassNotFoundException
-				| InstantiationException | IllegalAccessException e1) {
-			e1.printStackTrace();
-			try {
-				UIManager.setLookAndFeel(UIManager
-						.getCrossPlatformLookAndFeelClassName());
-			} catch (ClassNotFoundException | InstantiationException
-					| IllegalAccessException | UnsupportedLookAndFeelException e) {
-				e.printStackTrace();
-			}
-		}
+		OptionFrame.setUI();
+//		try {
+//			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//		} catch (UnsupportedLookAndFeelException | ClassNotFoundException
+//				| InstantiationException | IllegalAccessException e1) {
+//			e1.printStackTrace();
+//			try {
+//				UIManager.setLookAndFeel(UIManager
+//						.getCrossPlatformLookAndFeelClassName());
+//			} catch (ClassNotFoundException | InstantiationException
+//					| IllegalAccessException | UnsupportedLookAndFeelException e) {
+//				e.printStackTrace();
+//			}
+//		}
 	}
 
 	private LogViewFrame getLogView() {
@@ -268,6 +269,9 @@ public class Control implements IControl {
 		Teach teach;
 
 		switch (command) {
+		case "getOptionFrame":
+			return getOptionFrame();
+
 		case "getClassesListOfCourse":
 			obj = (HedspiObject) data[0];
 			logStart("Get classes list teaching course {" + obj.getName() + "}");
@@ -708,6 +712,12 @@ public class Control implements IControl {
 
 	public void setQueryMessage(String queryMessage) {
 		this.queryMessage = queryMessage;
+	}
+
+	public OptionFrame getOptionFrame() {
+		if (optionFrame == null)
+			optionFrame = new OptionFrame();
+		return optionFrame;
 	}
 
 }

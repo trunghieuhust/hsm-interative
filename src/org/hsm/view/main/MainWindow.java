@@ -53,6 +53,7 @@ public class MainWindow extends JFrame {
 		setJMenuBar(menuBar);
 
 		JMenu mnMain = new JMenu("Main");
+		mnMain.setMnemonic('m');
 		menuBar.add(mnMain);
 
 		JMenuItem mntmQuit = new JMenuItem("Quit");
@@ -69,9 +70,12 @@ public class MainWindow extends JFrame {
 		mnMain.add(mntmQuit);
 
 		JMenu mnView = new JMenu("View");
+		mnView.setMnemonic('v');
 		menuBar.add(mnView);
 
 		chckbxLogView = new JCheckBox("Log view");
+		chckbxLogView.setToolTipText("Open interactive log window");
+		chckbxLogView.setMnemonic('l');
 		chckbxLogView.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				Control.getInstance().fire("setLogViewVisible",
@@ -79,8 +83,21 @@ public class MainWindow extends JFrame {
 			}
 		});
 		mnView.add(chckbxLogView);
+		
+		JMenu mnTools = new JMenu("Tools");
+		mnTools.setMnemonic('t');
+		menuBar.add(mnTools);
+		
+		JMenuItem mntmOptions = new JMenuItem("Options");
+		mntmOptions.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Control.getInstance().fire("setOptionWindowVisble", true);
+			}
+		});
+		mnTools.add(mntmOptions);
 
 		JMenu mnHelp = new JMenu("Help");
+		mnHelp.setMnemonic('h');
 		menuBar.add(mnHelp);
 
 		JMenuItem mntmAbout = new JMenuItem("About");
