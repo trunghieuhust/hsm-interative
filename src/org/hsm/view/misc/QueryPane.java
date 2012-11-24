@@ -66,10 +66,12 @@ public class QueryPane extends JPanel implements ActionListener {
 				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.setMnemonic('s');
 		btnSubmit.setToolTipText("Sumit query");
 		panel_1.add(btnSubmit, "1, 1, left, default");
 
 		JButton btnExport = new JButton("Export");
+		btnExport.setMnemonic('x');
 		btnExport
 				.setToolTipText("Export only values on below table to html file");
 		btnExport.addActionListener(new ActionListener() {

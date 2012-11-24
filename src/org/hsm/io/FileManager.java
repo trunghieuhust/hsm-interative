@@ -51,13 +51,19 @@ public class FileManager {
 	}
 
 	public File getOutputFilePng() {
-		return getOutputFile(new FileNameExtensionFilter(
-				"Portable network graphics image", "png"));
+		return extensionVerify(getOutputFile(new FileNameExtensionFilter(
+				"Portable network graphics image", "png")), "png");
+	}
+
+	private File extensionVerify(File file, String ext) {
+		if (file == null || file.getName().contains("."))
+			return file;
+		return new File(file.getPath() + "." + ext);
 	}
 
 	public File getOutputFileHtml() {
-		return getOutputFile(new FileNameExtensionFilter(
-				"HyperText Markup Language files", "html", "htm"));
+		return extensionVerify(getOutputFile(new FileNameExtensionFilter(
+				"HyperText Markup Language files", "html", "htm")), "html");
 	}
 
 	public String writeToHtml(String text) {

@@ -1,0 +1,109 @@
+Nov 21, 2012 11:24:13 AM org.hsm.control.Control start
+INFO: System starts
+Nov 21, 2012 11:24:13 AM org.hsm.control.Control start
+INFO: Open login window
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control tryLogin
+INFO: Try login
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control tryLogin
+INFO: Login success
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control logStart
+INFO: Fetch class list
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_class_list()
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation class
+  Where: SQL function "get_class_list" statement 1
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control logStart
+INFO: Get list of cities
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation city
+  Where: SQL function "get_city_list" statement 1
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control logStart
+INFO: Get list of class
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_class_list()
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation class
+  Where: SQL function "get_class_list" statement 1
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control logStart
+INFO: Get raw list of teaching classes
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_list_of_teaching_classes()
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control logStart
+INFO: Get list of faculties
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_faculty_list()
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation faculty
+  Where: SQL function "get_faculty_list" statement 1
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control logStart
+INFO: Get list of cities
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation city
+  Where: SQL function "get_city_list" statement 1
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control logStart
+INFO: Get list of faculties
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_faculty_list()
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation faculty
+  Where: SQL function "get_faculty_list" statement 1
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control logStart
+INFO: Get list of degrees
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_degree_list()
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation degree
+  Where: SQL function "get_degree_list" statement 1
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control logStart
+INFO: Get raw list of teaching classes
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_list_of_teaching_classes()
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control logStart
+INFO: Get courses list
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_courses_list()
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control logStart
+INFO: Get list of all lecturers
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_all_lecturers()
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation lecturer
+  Where: SQL function "get_all_lecturers" statement 1
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control logStart
+INFO: Get list of rooms
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_list()
+Nov 21, 2012 11:24:16 AM org.hsm.control.Control logStart
+INFO: Get list of cities
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Nov 21, 2012 11:24:16 AM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation city
+  Where: SQL function "get_city_list" statement 1
+Nov 21, 2012 11:24:17 AM org.hsm.control.Control logStart
+INFO: Get list of rooms
+Nov 21, 2012 11:24:17 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_list()
+Nov 21, 2012 11:24:17 AM org.hsm.control.Control logStart
+INFO: Get courses list
+Nov 21, 2012 11:24:17 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_courses_list()
+Nov 21, 2012 11:24:17 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_table_info()
+Nov 21, 2012 11:24:17 AM org.hsm.control.Control logStart
+INFO: Get login information{host}
+Nov 21, 2012 11:24:17 AM org.hsm.control.Control logStart
+INFO: Get login information{port}
+Nov 21, 2012 11:24:17 AM org.hsm.control.Control logStart
+INFO: Get login information{database}
+Nov 21, 2012 11:24:17 AM org.hsm.control.Control logStart
+INFO: Get login information{username}
+Nov 21, 2012 11:24:17 AM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Nov 21, 2012 11:24:22 AM org.hsm.control.Control fire
+INFO: System exits

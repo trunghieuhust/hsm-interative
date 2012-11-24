@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -34,7 +35,6 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
-import javax.swing.ImageIcon;
 
 public abstract class ObjectListPane extends JPanel {
 
@@ -70,17 +70,16 @@ public abstract class ObjectListPane extends JPanel {
 	 * Create the panel.
 	 */
 	public ObjectListPane() {
-		setLayout(new FormLayout(new ColumnSpec[] {
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,}));
+		setLayout(new FormLayout(
+				new ColumnSpec[] { ColumnSpec.decode("default:grow"), },
+				new RowSpec[] { FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC,
+						FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("default:grow"),
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC, }));
 
 		lblClassList = DefaultComponentFactory.getInstance().createLabel(
 				"Objects list");
@@ -88,15 +87,14 @@ public abstract class ObjectListPane extends JPanel {
 
 		JPanel panel_1 = new JPanel();
 		add(panel_1, "1, 4, fill, fill");
-		panel_1.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,}));
+		panel_1.setLayout(new FormLayout(
+				new ColumnSpec[] { FormFactory.DEFAULT_COLSPEC,
+						FormFactory.RELATED_GAP_COLSPEC,
+						ColumnSpec.decode("default:grow"),
+						FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] {
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC, }));
 
 		txtEnterSortPattern = new JTextField();
 		txtEnterSortPattern.setToolTipText("Ordering pattern");
@@ -169,16 +167,11 @@ public abstract class ObjectListPane extends JPanel {
 		JPanel panel = new JPanel();
 		add(panel, "1, 8, left, fill");
 		panel.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,}));
+				FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnNew = new JButton("+");
 		btnNew.setToolTipText("Get new object from server");
@@ -204,7 +197,10 @@ public abstract class ObjectListPane extends JPanel {
 		});
 
 		JButton btnRemove = new JButton("");
-		btnRemove.setIcon(new ImageIcon(ObjectListPane.class.getResource("/javax/swing/plaf/metal/icons/ocean/paletteClose-pressed.gif")));
+		btnRemove
+				.setIcon(new ImageIcon(
+						ObjectListPane.class
+								.getResource("/javax/swing/plaf/metal/icons/ocean/paletteClose-pressed.gif")));
 		btnRemove.setToolTipText("Remove selected");
 		btnRemove.setMnemonic('e');
 		panel.add(btnRemove, "3, 2, left, default");
@@ -240,7 +236,10 @@ public abstract class ObjectListPane extends JPanel {
 		panel.add(btnRefresh, "5, 2, left, default");
 
 		JButton btnExport = new JButton("");
-		btnExport.setIcon(new ImageIcon(ObjectListPane.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
+		btnExport
+				.setIcon(new ImageIcon(
+						ObjectListPane.class
+								.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
 		btnExport.setToolTipText("Export to html format");
 		btnExport.setMnemonic('x');
 		btnExport.addActionListener(new ActionListener() {
@@ -329,8 +328,15 @@ public abstract class ObjectListPane extends JPanel {
 
 			@Override
 			public int compare(HedspiObject arg0, HedspiObject arg1) {
-				return smartCompare(arg0.toString(), arg1.toString(),
-						txtEnterSortPattern.getText());
+				String text = txtEnterSortPattern.getText().toLowerCase();
+				// String a = arg0.toString().toLowerCase();
+				// String b = arg1.toString().toLowerCase();
+				// int t = StringUtils.getLevenshteinDistance(a, text) -
+				// StringUtils.getLevenshteinDistance(b, text);
+				// if (t == 0)
+				// return a.compareTo(b);
+				// return t;
+				return smartCompare(arg0.toString(), arg1.toString(), text);
 			}
 		});
 

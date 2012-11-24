@@ -1,0 +1,154 @@
+Nov 21, 2012 2:12:21 AM org.hsm.control.Control start
+INFO: System starts
+Nov 21, 2012 2:12:22 AM org.hsm.control.Control start
+INFO: Open login window
+Nov 21, 2012 2:12:23 AM org.hsm.control.Control tryLogin
+INFO: Try login
+Nov 21, 2012 2:12:24 AM org.hsm.control.Control tryLogin
+INFO: Login success
+Nov 21, 2012 2:12:24 AM org.hsm.control.Control logStart
+INFO: Fetch class list
+Nov 21, 2012 2:12:24 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_class_list()
+Nov 21, 2012 2:12:25 AM org.hsm.control.Control logStart
+INFO: Get list of cities
+Nov 21, 2012 2:12:25 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Nov 21, 2012 2:12:25 AM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {1}
+Nov 21, 2012 2:12:25 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(1)
+Nov 21, 2012 2:12:25 AM org.hsm.control.Control logStart
+INFO: Get list of class
+Nov 21, 2012 2:12:25 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_class_list()
+Nov 21, 2012 2:12:25 AM org.hsm.control.Control logStart
+INFO: Get raw list of teaching classes
+Nov 21, 2012 2:12:25 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_list_of_teaching_classes()
+Nov 21, 2012 2:12:26 AM org.hsm.control.Control logStart
+INFO: Get list of faculties
+Nov 21, 2012 2:12:26 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_faculty_list()
+Nov 21, 2012 2:12:26 AM org.hsm.control.Control logStart
+INFO: Get list of cities
+Nov 21, 2012 2:12:26 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Nov 21, 2012 2:12:26 AM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {1}
+Nov 21, 2012 2:12:26 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(1)
+Nov 21, 2012 2:12:26 AM org.hsm.control.Control logStart
+INFO: Get list of faculties
+Nov 21, 2012 2:12:26 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_faculty_list()
+Nov 21, 2012 2:12:26 AM org.hsm.control.Control logStart
+INFO: Get list of degrees
+Nov 21, 2012 2:12:26 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_degree_list()
+Nov 21, 2012 2:12:26 AM org.hsm.control.Control logStart
+INFO: Get raw list of teaching classes
+Nov 21, 2012 2:12:26 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_list_of_teaching_classes()
+Nov 21, 2012 2:12:26 AM org.hsm.control.Control logStart
+INFO: Get courses list
+Nov 21, 2012 2:12:26 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_courses_list()
+Nov 21, 2012 2:12:26 AM org.hsm.control.Control logStart
+INFO: Get list of all lecturers
+Nov 21, 2012 2:12:26 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_all_lecturers()
+Nov 21, 2012 2:12:26 AM org.hsm.control.Control logStart
+INFO: Get list of rooms
+Nov 21, 2012 2:12:26 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_list()
+Nov 21, 2012 2:12:27 AM org.hsm.control.Control logStart
+INFO: Get list of cities
+Nov 21, 2012 2:12:27 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Nov 21, 2012 2:12:27 AM org.hsm.control.Control logStart
+INFO: Get list of rooms
+Nov 21, 2012 2:12:27 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_list()
+Nov 21, 2012 2:12:27 AM org.hsm.control.Control logStart
+INFO: Get courses list
+Nov 21, 2012 2:12:27 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_courses_list()
+Nov 21, 2012 2:12:27 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_table_info()
+Nov 21, 2012 2:12:27 AM org.hsm.control.Control logStart
+INFO: Get login information{host}
+Nov 21, 2012 2:12:27 AM org.hsm.control.Control logStart
+INFO: Get login information{port}
+Nov 21, 2012 2:12:27 AM org.hsm.control.Control logStart
+INFO: Get login information{database}
+Nov 21, 2012 2:12:27 AM org.hsm.control.Control logStart
+INFO: Get login information{username}
+Nov 21, 2012 2:12:27 AM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Nov 21, 2012 2:12:30 AM org.hsm.control.Control logStart
+INFO: Get raw list of students in {BK02} class
+Nov 21, 2012 2:12:30 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(10)
+Nov 21, 2012 2:12:31 AM org.hsm.control.Control logStart
+INFO: Get raw list of students in {BK02} class
+Nov 21, 2012 2:12:31 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(10)
+Nov 21, 2012 2:12:31 AM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Tran Van Sang}
+Nov 21, 2012 2:12:31 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(46575)
+Nov 21, 2012 2:12:31 AM org.hsm.control.Control logStart
+INFO: Get full data of student {Tran Van Sang}
+Nov 21, 2012 2:12:31 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(46575)
+Nov 21, 2012 2:12:32 AM org.hsm.control.Control logStart
+INFO: Get city of district with id {242}
+Nov 21, 2012 2:12:32 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(242)
+Nov 21, 2012 2:12:32 AM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {55}
+Nov 21, 2012 2:12:32 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(55)
+Nov 21, 2012 2:12:32 AM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {55}
+Nov 21, 2012 2:12:32 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(55)
+Nov 21, 2012 2:12:32 AM org.hsm.control.Control logStart
+INFO: Get academic information of student {Tran Van Sang}
+Nov 21, 2012 2:12:32 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(46575)
+Nov 21, 2012 2:12:32 AM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Tran Van Sang}
+Nov 21, 2012 2:12:32 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(46575)
+Nov 21, 2012 2:12:32 AM org.hsm.control.Control logStart
+INFO: Get full data of student {Tran Van Sang}
+Nov 21, 2012 2:12:32 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(46575)
+Nov 21, 2012 2:12:32 AM org.hsm.control.Control logStart
+INFO: Get city of district with id {242}
+Nov 21, 2012 2:12:32 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(242)
+Nov 21, 2012 2:12:32 AM org.hsm.control.Control logStart
+INFO: Get academic information of student {Tran Van Sang}
+Nov 21, 2012 2:12:32 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(46575)
+Nov 21, 2012 2:12:33 AM org.hsm.control.Control logStart
+INFO: Remove student {Tran Van Sang}
+Nov 21, 2012 2:12:33 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT delete_student_with_id(46575)
+Nov 21, 2012 2:12:33 AM org.hsm.service.CoreService queryFull
+WARNING: ERROR: Not found teaching-class{46575} to delete
+  Hint: Refesh teaching-class list
+Nov 21, 2012 2:17:47 AM org.hsm.control.Control logStart
+INFO: Remove student {Tran Van Sang}
+Nov 21, 2012 2:17:47 AM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT delete_student_with_id(46575)
+Nov 21, 2012 2:17:47 AM org.hsm.service.CoreService queryFull
+WARNING: ERROR: update or delete on table "student" violates foreign key constraint "fk_student" on table "study"
+  Detail: Key (ct)=(46575) is still referenced from table "study".
+  Where: SQL statement "DELETE FROM student WHERE ct = $1"
+PL/pgSQL function "delete_student_with_id" line 11 at SQL statement
+Nov 21, 2012 2:30:00 AM org.hsm.control.Control fire
+INFO: System exits
