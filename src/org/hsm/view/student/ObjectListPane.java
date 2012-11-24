@@ -111,8 +111,8 @@ public abstract class ObjectListPane extends JPanel {
 		});
 		txtEnterSortPattern.setText("Enter sort pattern here");
 
-		txtEnterSortPattern.getDocument()
-				.addDocumentListener(searchBoxListener);
+//		txtEnterSortPattern.getDocument()
+//				.addDocumentListener(searchBoxListener);
 
 		JButton btnSortBox = new JButton("Sort");
 		btnSortBox.setToolTipText("Smart ordering");
