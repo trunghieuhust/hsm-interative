@@ -15,6 +15,7 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
+import javax.swing.JCheckBox;
 
 public class SearchPane extends JPanel {
 
@@ -25,6 +26,7 @@ public class SearchPane extends JPanel {
 	private JComboBox<SEARCH_TYPE> comboBox;
 	private JTextField txtObjectName;
 	private QueryPane queryPane;
+	private JCheckBox chckbxApproximate;
 
 	private static enum SEARCH_TYPE {
 		STUDENT, LECTURER, DISTRICT
@@ -37,6 +39,7 @@ public class SearchPane extends JPanel {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
@@ -60,8 +63,11 @@ public class SearchPane extends JPanel {
 				.values()));
 		comboBox.setToolTipText("Choose object to serch for");
 
+		chckbxApproximate = new JCheckBox("Approximate");
+		add(chckbxApproximate, "2, 4");
+
 		JPanel panel_1 = new JPanel();
-		add(panel_1, "2, 4, fill, fill");
+		add(panel_1, "2, 6, fill, fill");
 		panel_1.setLayout(new FormLayout(
 				new ColumnSpec[] { ColumnSpec.decode("default:grow"),
 						FormFactory.RELATED_GAP_COLSPEC,
@@ -97,9 +103,15 @@ public class SearchPane extends JPanel {
 
 				if (relname == null)
 					return;
-				String query = "SELECT * FROM " + relname
-						+ " WHERE name_no_hat LIKE lower(remove_hat('%"
-						+ txtObjectName.getText().replace("'", "") + "%'))";
+				String query;
+				if (chckbxApproximate.isSelected())
+					query = "SELECT * FROM " + relname
+							+ " WHERE name_no_hat LIKE lower(remove_hat('%"
+							+ txtObjectName.getText().replace("'", "") + "%'))";
+				else
+					query = "SELECT * FROM " + relname
+							+ " WHERE name_no_hat = '"
+							+ txtObjectName.getText().replace("'", "") + "'";
 				queryPane.setQuery(query);
 			}
 		});
@@ -107,6 +119,6 @@ public class SearchPane extends JPanel {
 		btnUpdate.setMnemonic('u');
 
 		queryPane = new QueryPane();
-		add(queryPane, "2, 6, fill, fill");
+		add(queryPane, "2, 8, fill, fill");
 	}
 }

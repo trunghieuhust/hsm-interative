@@ -16,6 +16,8 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import org.hsm.model.Model;
 import org.hsm.model.hedspiObject.AcademicInfo;
@@ -38,6 +40,7 @@ import org.hsm.view.main.MainWindow;
  * 
  */
 public class Control implements IControl {
+	private static final boolean IS_SET_UI_MANAGER = false;
 	private static final String LOG_DIR = "log";
 	private static final String LOG_FILE_NAME = LOG_DIR
 			+ "/"
@@ -111,6 +114,8 @@ public class Control implements IControl {
 
 		switch (command) {
 		case "start":
+			if (IS_SET_UI_MANAGER)
+				setUIManager();
 			start();
 			break;
 
@@ -131,6 +136,20 @@ public class Control implements IControl {
 							+ command);
 		}
 
+	}
+
+	private void setUIManager() {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e1) {
+			e1.printStackTrace();
+			try {
+				UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+			} catch (ClassNotFoundException | InstantiationException
+					| IllegalAccessException | UnsupportedLookAndFeelException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	private LogViewFrame getLogView() {

@@ -34,6 +34,7 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
+import javax.swing.ImageIcon;
 
 public abstract class ObjectListPane extends JPanel {
 
@@ -70,29 +71,32 @@ public abstract class ObjectListPane extends JPanel {
 	 */
 	public ObjectListPane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,}));
 
 		lblClassList = DefaultComponentFactory.getInstance().createLabel(
 				"Objects list");
-		add(lblClassList, "2, 2");
+		add(lblClassList, "1, 2");
 
 		JPanel panel_1 = new JPanel();
-		add(panel_1, "2, 4, fill, fill");
-		panel_1.setLayout(new FormLayout(
-				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC,
-						FormFactory.RELATED_GAP_COLSPEC,
-						ColumnSpec.decode("default:grow"),
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] {
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.DEFAULT_ROWSPEC, }));
+		add(panel_1, "1, 4, fill, fill");
+		panel_1.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,}));
 
 		txtEnterSortPattern = new JTextField();
 		txtEnterSortPattern.setToolTipText("Ordering pattern");
@@ -112,7 +116,7 @@ public abstract class ObjectListPane extends JPanel {
 		txtEnterSortPattern.getDocument()
 				.addDocumentListener(searchBoxListener);
 
-		JButton btnSortBox = new JButton("Sort box");
+		JButton btnSortBox = new JButton("Sort");
 		btnSortBox.setToolTipText("Smart ordering");
 		btnSortBox.setMnemonic('s');
 		btnSortBox.addActionListener(new ActionListener() {
@@ -120,8 +124,8 @@ public abstract class ObjectListPane extends JPanel {
 				resort();
 			}
 		});
-		panel_1.add(btnSortBox, "2, 2");
-		panel_1.add(txtEnterSortPattern, "4, 2, fill, default");
+		panel_1.add(btnSortBox, "1, 2");
+		panel_1.add(txtEnterSortPattern, "3, 2, fill, default");
 		txtEnterSortPattern.setColumns(10);
 
 		chckbxInstant = new JCheckBox("Instant");
@@ -141,10 +145,10 @@ public abstract class ObjectListPane extends JPanel {
 		});
 		chckbxInstant.setMnemonic('i');
 		chckbxInstant.setSelected(true);
-		panel_1.add(chckbxInstant, "6, 2");
+		panel_1.add(chckbxInstant, "5, 2");
 
 		JScrollPane scrollPane = new JScrollPane();
-		add(scrollPane, "2, 6, fill, fill");
+		add(scrollPane, "1, 6, fill, fill");
 
 		model = new DefaultListModel<>();
 		list = new JList<HedspiObject>(model);
@@ -163,23 +167,23 @@ public abstract class ObjectListPane extends JPanel {
 		scrollPane.setViewportView(list);
 
 		JPanel panel = new JPanel();
-		add(panel, "2, 8, left, fill");
-		panel.setLayout(new FormLayout(
-				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC,
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC,
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC,
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] {
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.DEFAULT_ROWSPEC, }));
+		add(panel, "1, 8, left, fill");
+		panel.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,}));
 
-		JButton btnNew = new JButton("New");
+		JButton btnNew = new JButton("+");
 		btnNew.setToolTipText("Get new object from server");
 		btnNew.setMnemonic('n');
-		panel.add(btnNew, "2, 2, left, default");
+		panel.add(btnNew, "1, 2, left, default");
 		btnNew.addActionListener(new ActionListener() {
 
 			@Override
@@ -199,10 +203,11 @@ public abstract class ObjectListPane extends JPanel {
 			}
 		});
 
-		JButton btnRemove = new JButton("Remove");
+		JButton btnRemove = new JButton("");
+		btnRemove.setIcon(new ImageIcon(ObjectListPane.class.getResource("/javax/swing/plaf/metal/icons/ocean/paletteClose-pressed.gif")));
 		btnRemove.setToolTipText("Remove selected");
 		btnRemove.setMnemonic('e');
-		panel.add(btnRemove, "4, 2, left, default");
+		panel.add(btnRemove, "3, 2, left, default");
 		btnRemove.addActionListener(new ActionListener() {
 
 			@Override
@@ -222,7 +227,7 @@ public abstract class ObjectListPane extends JPanel {
 			}
 		});
 
-		btnRefresh = new JButton("Refresh");
+		btnRefresh = new JButton("R");
 		btnRefresh.setToolTipText("Refresh list");
 		btnRefresh.setMnemonic('r');
 		btnRefresh.addActionListener(new ActionListener() {
@@ -232,9 +237,10 @@ public abstract class ObjectListPane extends JPanel {
 				refresh();
 			}
 		});
-		panel.add(btnRefresh, "6, 2, left, default");
+		panel.add(btnRefresh, "5, 2, left, default");
 
-		JButton btnExport = new JButton("Export");
+		JButton btnExport = new JButton("");
+		btnExport.setIcon(new ImageIcon(ObjectListPane.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
 		btnExport.setToolTipText("Export to html format");
 		btnExport.setMnemonic('x');
 		btnExport.addActionListener(new ActionListener() {
@@ -248,7 +254,7 @@ public abstract class ObjectListPane extends JPanel {
 				}
 			}
 		});
-		panel.add(btnExport, "8, 2, left, default");
+		panel.add(btnExport, "7, 2, left, default");
 
 		refresh();
 	}
