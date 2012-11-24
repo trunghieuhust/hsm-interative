@@ -4,10 +4,15 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Properties;
 import java.util.logging.Level;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import org.hsm.control.Control;
@@ -19,7 +24,7 @@ public class LoginWindow extends IFrameAskToClose implements IView {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final Dimension DEFAULT_LOGIN_SIZE = new Dimension(300, 250);
+	private static final Dimension DEFAULT_LOGIN_SIZE = new Dimension(300, 280);
 	private InputField username;
 	private InputField password;
 	private InputField host;
@@ -122,7 +127,27 @@ public class LoginWindow extends IFrameAskToClose implements IView {
 		// base info
 		super.setTitle("Hedspi student manager - login");
 		super.setSize(DEFAULT_LOGIN_SIZE);
-		super.setResizable(false);
+		super.setResizable(true);
+		addComponentListener(new ComponentAdapter() {
+
+			@Override
+			public void componentResized(ComponentEvent e) {
+				setSize(new Dimension((int) DEFAULT_LOGIN_SIZE.getWidth(),
+						getHeight()));
+				super.componentResized(e);
+			}
+		});
+
+		addWindowStateListener(new WindowAdapter() {
+
+			@Override
+			public void windowStateChanged(WindowEvent e) {
+				if ((e.getNewState() & JFrame.MAXIMIZED_HORIZ) == JFrame.MAXIMIZED_HORIZ)
+					setExtendedState(JFrame.NORMAL);
+				else if ((e.getNewState() & JFrame.MAXIMIZED_BOTH) == JFrame.MAXIMIZED_BOTH)
+					setExtendedState(JFrame.MAXIMIZED_VERT);
+			}
+		});
 
 		// add components
 		fl = new FlowLayout(FlowLayout.CENTER);

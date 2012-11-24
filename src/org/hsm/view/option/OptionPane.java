@@ -142,6 +142,8 @@ public class OptionPane extends JPanel {
 
 		try {
 			String uiName = prop.getProperty(UI_KEY);
+			if (uiName == null)
+				return;
 			switch (uiName) {
 			case "DEFAULT":
 				UIManager.setLookAndFeel((LookAndFeel) null);
