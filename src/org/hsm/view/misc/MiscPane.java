@@ -1,6 +1,5 @@
 package org.hsm.view.misc;
 
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 
@@ -20,10 +19,10 @@ public class MiscPane extends JTabbedPane {
 		JTabbedPane imexPane = new JTabbedPane(JTabbedPane.TOP);
 		addTab("Im/Ex(port)", null, imexPane, null);
 
-		JPanel importPane = new JPanel();
+		ImportPane importPane = new ImportPane();
 		imexPane.addTab("Import", null, importPane, null);
 
-		JPanel exportPane = new JPanel();
+		ExportPane exportPane = new ExportPane();
 		imexPane.addTab("Export", null, exportPane, null);
 
 		JTabbedPane maintainPane = new JTabbedPane(JTabbedPane.TOP);

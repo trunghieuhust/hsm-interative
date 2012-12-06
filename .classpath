@@ -15,5 +15,18 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="hsm-interative/libs/commons-lang3-3.1"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="libs/junit4.11/junit-4.11.jar" sourcepath="libs/junit4.11/junit-4.11-src.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/home/haidang-ubuntu/git/hsm-interative/libs/junit4.11/doc/"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="hsm-interative/libs/junit4.11"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/opencsv-2.3/deploy/opencsv-2.3.jar" sourcepath="libs/opencsv-2.3/src">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/home/haidang-ubuntu/git/hsm-interative/libs/opencsv-2.3/doc/"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="hsm-interative/libs/opencsv-2.3"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="miglayout15-swing.jar" sourcepath="miglayout-src.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
