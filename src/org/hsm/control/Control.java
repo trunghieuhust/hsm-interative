@@ -140,19 +140,19 @@ public class Control implements IControl {
 
 	private void setUIManager() {
 		OptionFrame.setUI();
-//		try {
-//			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-//		} catch (UnsupportedLookAndFeelException | ClassNotFoundException
-//				| InstantiationException | IllegalAccessException e1) {
-//			e1.printStackTrace();
-//			try {
-//				UIManager.setLookAndFeel(UIManager
-//						.getCrossPlatformLookAndFeelClassName());
-//			} catch (ClassNotFoundException | InstantiationException
-//					| IllegalAccessException | UnsupportedLookAndFeelException e) {
-//				e.printStackTrace();
-//			}
-//		}
+		// try {
+		// UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		// } catch (UnsupportedLookAndFeelException | ClassNotFoundException
+		// | InstantiationException | IllegalAccessException e1) {
+		// e1.printStackTrace();
+		// try {
+		// UIManager.setLookAndFeel(UIManager
+		// .getCrossPlatformLookAndFeelClassName());
+		// } catch (ClassNotFoundException | InstantiationException
+		// | IllegalAccessException | UnsupportedLookAndFeelException e) {
+		// e.printStackTrace();
+		// }
+		// }
 	}
 
 	private LogViewFrame getLogView() {

@@ -34,7 +34,7 @@ public class BackupService {
 	 */
 	public long client_copyout(String url) throws IOException {
 		org.hsm.control.Control.getInstance().getLogger()
-				.log(Level.INFO, "Backup start.");
+				.log(Level.INFO, "Server backup start.");
 		String folder_name = make_backup_folder(url);
 		long number = 0;
 		long total_rows = 0;

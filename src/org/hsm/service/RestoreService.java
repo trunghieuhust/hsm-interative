@@ -13,6 +13,7 @@ import org.postgresql.copy.CopyManager;
 
 public class RestoreService {
 	CopyManager cpmanager;
+	private Boolean done;
 	private static RestoreService instance;
 
 	public RestoreService() {
@@ -29,37 +30,62 @@ public class RestoreService {
 	/**
 	 * 
 	 * @return number of rows updated (for postgresql 8.1 or newer, -1 for
-	 *         older).
+	 *         failed).
 	 * @throws IOException
 	 * 
 	 */
 	public long client_copyin(File[] list_file) throws IOException {
 		long number = 0;
 		long total_rows = 0;
-
+		String table;
 		org.hsm.control.Control.getInstance().getLogger()
 				.log(Level.INFO, "Restore start.");
 
 		for (int i = 0; i < list_file.length; i++) {
 			InputStreamReader fr = read_file_stream(list_file[i]);
 			String statement = make_statement(list_file[i]);
+			table = list_file[i].getName().substring(0,
+					list_file[i].getName().lastIndexOf("."));
 			try {
+				done = true;
+				Control.getInstance().getLogger()
+						.log(Level.INFO, "Start clearing old data.\n");
+				String res = CoreService.getInstance().doUpdateFunction(
+						"clear_for_restore", table);
+				System.out.println(res);
+				if (res != null) {
+					done = false;
+					return -1;
+				}
+				Control.getInstance()
+						.getLogger()
+						.log(Level.INFO,
+								"Clearing done.Start copy in database table "
+										+ table);
 				number = cpmanager.copyIn(statement, fr);
 			} catch (SQLException | IOException e) {
 				Control.getInstance()
 						.getLogger()
 						.log(Level.SEVERE,
-								"On database usage errors or upon writer or database connection failure ");
-				e.printStackTrace();
+								"On database usage errors or upon writer or database connection failure.\nDetail:\n "
+										+ e.toString());
+				done = false;
 			}
 			total_rows = total_rows + number;
 			fr.close();
 		}
-		org.hsm.control.Control
-				.getInstance()
-				.getLogger()
-				.log(Level.INFO,
-						"Restore done.Total rows updated:" + total_rows);
+		if (done == true) {
+			org.hsm.control.Control
+					.getInstance()
+					.getLogger()
+					.log(Level.INFO,
+							"Restore done.Total rows updated:" + total_rows);
+		} else {
+			org.hsm.control.Control.getInstance().getLogger()
+					.log(Level.INFO, "Restore did not complete successfully\n");
+			return -1;
+		}
+
 		return total_rows;
 	}
 
@@ -81,7 +107,13 @@ public class RestoreService {
 	}
 
 	private String make_statement(File list_file) {
-		return "COPY " + list_file.getName() + " FROM STDIN";
+
+		String file_name = list_file.getName().substring(0,
+				list_file.getName().lastIndexOf("."));
+		System.out.println(file_name);
+		String state = "COPY " + file_name + " FROM STDIN";
+		System.out.println(state);
+		return state;
 	}
 
 	public static RestoreService get_instance() {

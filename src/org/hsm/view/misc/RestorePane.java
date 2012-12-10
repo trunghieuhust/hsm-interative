@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -17,6 +18,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.table.DefaultTableModel;
 
+import org.hsm.control.Control;
 import org.hsm.service.RestoreService;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
@@ -34,11 +36,13 @@ public class RestorePane extends JPanel {
 	private JTextArea output;
 	private long total_rows;
 	private JTable viewFileinfo;
+	private DefaultTableModel infomodel;
 	protected Object[][] data = { { " ", " ", " " }, { " ", " ", " " },
 			{ " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " },
 			{ " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " },
 			{ " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " },
 			{ " ", " ", " " }, { " ", " ", " " }, { " ", " ", " " } };
+
 	protected String[] columnname = { "File", "Size", "Last Modified" };
 
 	public RestorePane() {
@@ -61,13 +65,19 @@ public class RestorePane extends JPanel {
 		JLabel resultlb = DefaultComponentFactory.getInstance().createLabel(
 				"Console");
 		add(resultlb, "2, 10");
-		viewFileInfo(null);
+
+		infomodel = new DefaultTableModel(data, columnname);
+		viewFileinfo = new JTable(infomodel);
 		viewFileinfo
-				.setPreferredScrollableViewportSize(new Dimension(450, 250));
-		JScrollPane scrollPane = new JScrollPane();
-		add(scrollPane, "2, 8, fill, fill");
-		scrollPane.setViewportView(viewFileinfo);
-		scrollPane.setAlignmentY(TOP_ALIGNMENT);
+				.setPreferredScrollableViewportSize(new Dimension(450, 252));
+		viewFileinfo.setMinimumSize(new Dimension(400, 30));
+		viewFileinfo.setLayout(new FormLayout(new ColumnSpec[] { ColumnSpec
+				.decode("400px:grow"), }, new RowSpec[] { RowSpec
+				.decode("default:grow"), }));
+		JScrollPane viewfilescr = new JScrollPane();
+		viewfilescr.setMinimumSize(new Dimension(400, 23));
+		viewfilescr.setViewportView(viewFileinfo);
+		add(viewfilescr, "2,8,fill,fill");
 		output = new JTextArea();
 		output.setAutoscrolls(true);
 		output.setEditable(false);
@@ -93,23 +103,31 @@ public class RestorePane extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				File[] list_file = get_list_file();
-				viewFileInfo(list_file);
-				output.append("Running....");
-				try {
-					total_rows = RestoreService.get_instance().client_copyin(
-							list_file);
-				} catch (IOException e1) {
-					output.append("Backup failed.See log for details\n");
-					e1.printStackTrace();
+
+				if (list_file == null) {
+					output.append("Restore cancel by user.\n");
+				} else {
+					viewFileInfo(list_file);
+					output.append("Running....");
+					try {
+						total_rows = RestoreService.get_instance()
+								.client_copyin(list_file);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					if (total_rows == -1) {
+						output.append("Failed.\nDatabase restore did not complete successfully.See log for details.\n");
+					} else {
+						output.append("Done.\nTotal rows:" + total_rows + "\n");
+					}
 				}
-				output.append("Done.\nTotal rows:" + total_rows + "\n");
 			}
 		});
 		btnserver.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				Control.getInstance().setQueryMessage("Under contruction.");
 			}
 		});
 		btnpanel.add(btnclient, "1,1");
@@ -119,26 +137,28 @@ public class RestorePane extends JPanel {
 
 	public File[] get_list_file() {
 		File[] list_file;
+		list_file = null;
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.setDialogTitle("Choose backup file");
 		fileChooser.setMultiSelectionEnabled(true);
 		fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 		if (fileChooser.showSaveDialog(null) == JFileChooser.CANCEL_OPTION)
-			return null;
+			return list_file;
 		list_file = fileChooser.getSelectedFiles();
 		return list_file;
 	}
 
 	public void viewFileInfo(File[] list_file) {
-		DefaultTableModel model;
-		model = new DefaultTableModel(data, columnname);
-		viewFileinfo = new JTable(model);
-		if (list_file == null)
-			return;
+		SimpleDateFormat sdf = new SimpleDateFormat("DD/MM/YYYY hh:mm a");
 		for (int i = 0; i < list_file.length; i++) {
-			model.addRow(new Object[] { list_file[i].getName(),
-					list_file[i].length() + "bytes",
-					list_file[i].lastModified() });
+			infomodel.setValueAt(list_file[i].getName(), i, 0);
+			infomodel.setValueAt(list_file[i].length() + " bytes", i, 1);
+			infomodel.setValueAt(sdf.format(list_file[i].lastModified()), i, 2);
+		}
+		for (int i = list_file.length; i < infomodel.getRowCount(); i++) {
+			infomodel.setValueAt("", i, 0);
+			infomodel.setValueAt("", i, 1);
+			infomodel.setValueAt("", i, 2);
 		}
 	}
 }

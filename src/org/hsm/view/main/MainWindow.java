@@ -83,11 +83,11 @@ public class MainWindow extends JFrame {
 			}
 		});
 		mnView.add(chckbxLogView);
-		
+
 		JMenu mnTools = new JMenu("Tools");
 		mnTools.setMnemonic('t');
 		menuBar.add(mnTools);
-		
+
 		JMenuItem mntmOptions = new JMenuItem("Options");
 		mntmOptions.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

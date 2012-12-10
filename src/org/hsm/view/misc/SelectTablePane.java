@@ -8,6 +8,8 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import org.hsm.model.hedspiObject.HedspiObject;
@@ -85,36 +87,25 @@ public class SelectTablePane extends JPanel {
 				new ColumnSpec[] { ColumnSpec.decode("400px:grow"), },
 				new RowSpec[] { RowSpec.decode("default:grow"), }));
 
-		// jtable.getSelectionModel().addListSelectionListener(
-		// new ListSelectionListener() {
-		// @Override
-		// public void valueChanged(ListSelectionEvent e) {
-		// outputselection();
-		// for (int i = 0; i < isbackup.length; i++) {
-		// if (isbackup[i] == 1)
-		// System.out.print(table_name[i] + "  ");
-		// }
-		// System.out.println("\n###############\n");
-		// }
-		// });
+		jtable.getSelectionModel().addListSelectionListener(
+				new ListSelectionListener() {
 
+					@Override
+					public void valueChanged(ListSelectionEvent e) {
+						for (int i = 0; i < isbackup.length; i++) {
+							if (jtable.getValueAt(i, 2).equals(true)) {
+								isbackup[i] = 1;
+								System.out.println(jtable.getValueAt(i, 0));
+							} else
+								isbackup[i] = 0;
+						}
+					}
+				});
 		JScrollPane scrollPane = new JScrollPane();
 		add(scrollPane, "1, 1, fill, fill");
 		scrollPane.setViewportView(jtable);
 
 	}
-
-	// private void outputselection() {
-	// int sel = jtable.getSelectedRow();
-	// System.out.println("sel = " + sel);
-	// if (isbackup[sel] == 0) {
-	// isbackup[sel] = 1;
-	// model.setValueAt(new Boolean(true), sel, 2);
-	// } else {
-	// isbackup[sel] = 0;
-	// model.setValueAt(new Boolean(false), sel, 2);
-	// }
-	// }
 
 	protected String[] get_table_name() {
 		return table_name;

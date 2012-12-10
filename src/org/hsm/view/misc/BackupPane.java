@@ -4,11 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
@@ -35,8 +36,6 @@ public class BackupPane extends JPanel {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
@@ -46,25 +45,47 @@ public class BackupPane extends JPanel {
 		JLabel selectlb = DefaultComponentFactory.getInstance().createLabel(
 				"Select table");
 		add(selectlb, "2,2");
-		JLabel backuplb = DefaultComponentFactory.getInstance().createLabel(
-				"Backup to");
-		add(backuplb, "2, 8");
-		JLabel resultlb = DefaultComponentFactory.getInstance().createLabel(
-				"Console");
-		add(resultlb, "2, 12");
+
+		JRadioButton ckbcsv = new JRadioButton("CSV");
+		ckbcsv.setToolTipText("Back up to CSV file");
+		ckbcsv.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+
+		JRadioButton ckbtxt = new JRadioButton("Plain text");
+		ckbtxt.setToolTipText("Back up to plain text file.");
+		ckbtxt.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		ButtonGroup ckb_file_type = new ButtonGroup();
+		ckb_file_type.add(ckbtxt);
+		ckb_file_type.add(ckbcsv);
+
+		// add(lblFileType, "2, 8");
+		JPanel ckbpanel = new JPanel();
+		ckbpanel.setLayout(new FormLayout(
+				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC,
+						FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC, },
+				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
+		ckbpanel.add(ckbtxt, "2,1");
+		ckbpanel.add(ckbcsv, "4,1");
+		// add(ckbpanel, "2,10");
 		SelectTablePane selecttable = new SelectTablePane();
 		selecttable.jtable.setBorder(new BevelBorder(BevelBorder.LOWERED, null,
 				null, null, null));
-		add(selecttable, "2, 6, fill, fill");
-		output = new JTextArea();
-		output.setAutoscrolls(true);
-		output.setEditable(false);
-		output.setToolTipText("Display result.");
-		output.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null,
-				null, null));
-		JScrollPane outputscl = new JScrollPane();
-		outputscl.setViewportView(output);
-		add(outputscl, "2, 14, fill, fill");
+		add(selecttable, "2, 4, fill, fill");
+
+		JLabel backuplb = DefaultComponentFactory.getInstance().createLabel(
+				"Backup to");
+		add(backuplb, "2, 6");
 		JPanel btnpanel = new JPanel();
 		btnpanel.setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC,
@@ -73,9 +94,6 @@ public class BackupPane extends JPanel {
 
 		JButton btnclient = new JButton("Client backup");
 		btnclient.setToolTipText("Backup to client");
-		JButton btnserver = new JButton("Server backup");
-		btnserver.setToolTipText("Backup to server");
-
 		btnclient.addActionListener(new ActionListener() {
 
 			@Override
@@ -92,6 +110,9 @@ public class BackupPane extends JPanel {
 				output.append("Done.\nTotal rows:" + total_rows + "\n");
 			}
 		});
+		JButton btnserver = new JButton("Server backup");
+		btnserver.setToolTipText("Backup to server");
+
 		btnserver.addActionListener(new ActionListener() {
 
 			@Override
@@ -101,7 +122,17 @@ public class BackupPane extends JPanel {
 		});
 		btnpanel.add(btnclient, "1,1");
 		btnpanel.add(btnserver, "3,1");
-		add(btnpanel, "2, 10, fill, fill");
+		add(btnpanel, "2, 8, fill, fill");
+		JLabel resultlb = DefaultComponentFactory.getInstance().createLabel(
+				"Console");
+		add(resultlb, "2, 10");
+		output = new JTextArea();
+		add(output, "2, 12,fill,fill");
+		output.setAutoscrolls(true);
+		output.setEditable(false);
+		output.setToolTipText("Display result.");
+		output.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null,
+				null, null));
 	}
 
 	public String getOutputFolder() {
