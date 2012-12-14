@@ -64,11 +64,11 @@ public class AboutBox extends JDialog {
 		panel.add(panel_1, "2, 1, fill, fill");
 
 		UserPanel panel_2 = new UserPanel("image/html.jpg",
-				"Name : Bùi Trung Hiếu.\r\nMSSV : unknown.\r\nI'm ht!");
+				"Name : Bùi Trung Hiếu.\r\nMSSV : 20101503.\r\nI'm ht!");
 		panel.add(panel_2, "4, 1, fill, fill");
 
 		UserPanel panel_3 = new UserPanel("image/huydt.jpg",
-				"Name : Phùng Nhật Huy.\r\nMSSV : unknown.\r\nHuy chồn am I!");
+				"Name : Phùng Nhật Huy.\r\nMSSV : 20101628.\r\nHuy chồn am I!");
 		panel.add(panel_3, "6, 1, fill, fill");
 
 	}

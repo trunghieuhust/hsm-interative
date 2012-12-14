@@ -32,8 +32,7 @@ public class ExportPane extends JPanel {
 	 * Create the panel.
 	 */
 	public ExportPane() {
-		setLayout(new MigLayout("", "[][][grow][][][grow]",
-				"[][][][][][][][49.00,grow][][][][][][][]"));
+		setLayout(new MigLayout("", "[][157.00,grow][grow]", "[][][][][][][][]"));
 
 		String[] exportObject = { "Students", "Lecturers", "Courses" };
 
@@ -44,35 +43,38 @@ public class ExportPane extends JPanel {
 		add(lblExportObject, "cell 0 1");
 		final JComboBox<Object> comboBox_exportObj = new JComboBox<Object>(
 				exportObject);
-		add(comboBox_exportObj, "cell 2 1 4 1,growx");
+		lblExportObject.setLabelFor(comboBox_exportObj);
+		add(comboBox_exportObj, "cell 1 1 2 1,growx");
 
 		JLabel lblExportFields = new JLabel("Export fields");
 		add(lblExportFields, "cell 0 2");
 
 		final JCheckBox chckbxPersonalDetails = new JCheckBox(
 				"Personal details");
-		add(chckbxPersonalDetails, "cell 2 2");
+		add(chckbxPersonalDetails, "cell 1 2");
 
 		final JCheckBox chckbxInfo = new JCheckBox("Info");
-		add(chckbxInfo, "cell 3 2");
+		add(chckbxInfo, "cell 2 2");
 
 		final JCheckBox chckbxContact = new JCheckBox("Contact");
-		add(chckbxContact, "cell 2 3");
+		add(chckbxContact, "cell 1 3");
 
 		final JCheckBox chckbxNote = new JCheckBox("Note");
-		add(chckbxNote, "cell 3 3");
+		add(chckbxNote, "cell 2 3");
 
 		JLabel lblExportList = new JLabel("Export list");
 		add(lblExportList, "cell 0 4");
 
 		textField_exportList = new JTextField();
-		add(textField_exportList, "cell 2 4 4 1,growx");
+		lblExportList.setLabelFor(textField_exportList);
+		add(textField_exportList, "cell 1 4 2 1,growx");
 		textField_exportList.setColumns(10);
 
 		final JCheckBox chckbxAll = new JCheckBox("All");
-		add(chckbxAll, "cell 2 5");
+		add(chckbxAll, "cell 1 5");
 
 		JButton btnExport = new JButton("Export");
+		btnExport.setMnemonic('x');
 		btnExport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				/* Export students */
@@ -755,10 +757,11 @@ public class ExportPane extends JPanel {
 		add(lblExportPath, "cell 0 6");
 
 		textField_exportPath = new JTextField();
-		add(textField_exportPath, "cell 2 6 4 1,growx");
+		lblExportPath.setLabelFor(textField_exportPath);
+		add(textField_exportPath, "cell 1 6 2 1,growx");
 		textField_exportPath.setColumns(10);
 
-		add(btnExport, "cell 2 7");
+		add(btnExport, "cell 0 7 3 1,alignx center");
 
 	}
 
