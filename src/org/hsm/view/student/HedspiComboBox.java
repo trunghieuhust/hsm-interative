@@ -16,6 +16,7 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
+import java.awt.Dimension;
 
 /**
  * @author haidang-ubuntu
@@ -36,12 +37,14 @@ public abstract class HedspiComboBox extends JPanel {
 	 */
 	public HedspiComboBox() {
 		setLayout(new FormLayout(new ColumnSpec[] {
-				ColumnSpec.decode("max(92dlu;min):grow"),
-				FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("19dlu"), },
-				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
+				ColumnSpec.decode("default:grow"),
+				ColumnSpec.decode("19dlu"),},
+			new RowSpec[] {
+				FormFactory.DEFAULT_ROWSPEC,}));
 
 		comboBoxModel = new DefaultComboBoxModel<>();
 		comboBox = new JComboBox<>(comboBoxModel);
+		comboBox.setMinimumSize(new Dimension(10, 10));
 		comboBox.setToolTipText("Choose object");
 		add(comboBox, "1, 1, fill, default");
 
@@ -52,7 +55,7 @@ public abstract class HedspiComboBox extends JPanel {
 				refresh();
 			}
 		});
-		add(btnR, "2, 1, 2, 1");
+		add(btnR, "2, 1");
 
 		refresh();
 	}

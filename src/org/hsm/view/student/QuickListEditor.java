@@ -74,7 +74,7 @@ public class QuickListEditor extends JPanel {
 					listModel.removeElementAt(i);
 			}
 		});
-		add(buttonRemove, "4, 4");
+		add(buttonRemove, "4, 4, default, top");
 	}
 
 	public void setValues(String[] values) {

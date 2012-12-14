@@ -32,7 +32,7 @@ public class ExportPane extends JPanel {
 	 * Create the panel.
 	 */
 	public ExportPane() {
-		setLayout(new MigLayout("", "[][157.00,grow][grow]", "[][][][][][][][]"));
+		setLayout(new MigLayout("", "[][157.00][grow]", "[][][][][][][][]"));
 
 		String[] exportObject = { "Students", "Lecturers", "Courses" };
 
@@ -51,15 +51,19 @@ public class ExportPane extends JPanel {
 
 		final JCheckBox chckbxPersonalDetails = new JCheckBox(
 				"Personal details");
+		chckbxPersonalDetails.setMnemonic('p');
 		add(chckbxPersonalDetails, "cell 1 2");
 
-		final JCheckBox chckbxInfo = new JCheckBox("Info");
+		final JCheckBox chckbxInfo = new JCheckBox("Academic Information");
+		chckbxInfo.setMnemonic('f');
 		add(chckbxInfo, "cell 2 2");
 
 		final JCheckBox chckbxContact = new JCheckBox("Contact");
+		chckbxContact.setMnemonic('o');
 		add(chckbxContact, "cell 1 3");
 
 		final JCheckBox chckbxNote = new JCheckBox("Note");
+		chckbxNote.setMnemonic('n');
 		add(chckbxNote, "cell 2 3");
 
 		JLabel lblExportList = new JLabel("Export list");
@@ -71,7 +75,8 @@ public class ExportPane extends JPanel {
 		textField_exportList.setColumns(10);
 
 		final JCheckBox chckbxAll = new JCheckBox("All");
-		add(chckbxAll, "cell 1 5");
+		chckbxAll.setMnemonic('a');
+		add(chckbxAll, "cell 1 5 2 1");
 
 		JButton btnExport = new JButton("Export");
 		btnExport.setMnemonic('x');
@@ -761,7 +766,7 @@ public class ExportPane extends JPanel {
 		add(textField_exportPath, "cell 1 6 2 1,growx");
 		textField_exportPath.setColumns(10);
 
-		add(btnExport, "cell 0 7 3 1,alignx center");
+		add(btnExport, "cell 0 7 3 1,alignx left");
 
 	}
 

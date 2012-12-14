@@ -37,54 +37,49 @@ public class HierachyView extends JPanel implements ActionListener {
 	 */
 	public HierachyView() {
 		setLayout(new FormLayout(new ColumnSpec[] {
+				ColumnSpec.decode("center:default"),
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("center:default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"), }));
-
-		JPanel panel = new JPanel();
-		add(panel, "2, 2, fill, fill");
-		panel.setLayout(new FormLayout(new ColumnSpec[] {
-				ColumnSpec.decode("center:default:grow"),
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("center:default:grow"), },
-				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
-
-		JButton btnDraw = new JButton("Draw");
-		btnDraw.setToolTipText("Refresh graphic");
-		panel.add(btnDraw, "1, 1");
-
-		JButton btnExport = new JButton("Export to png");
-		btnExport.setToolTipText("Export to png image");
-		btnExport.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				BufferedImage imgBuff = new BufferedImage(hierachyElement
-						.getWidth() + 10, hierachyElement.getHeight() + 10,
-						BufferedImage.TYPE_INT_RGB);
-				hierachyElement.paint(imgBuff.getGraphics());
-				try {
-					File outputFile = FileManager.getInstance()
-							.getOutputFilePng();
-					if (outputFile == null)
-						return;
-					ImageIO.write(imgBuff, "png", outputFile);
-					JOptionPane.showMessageDialog(Control.getInstance()
-							.getMainWindow(), "Export to file successed",
-							"Export success", JOptionPane.INFORMATION_MESSAGE);
-				} catch (Exception e1) {
-					JOptionPane.showMessageDialog(Control.getInstance()
-							.getMainWindow(),
-							"Export error\nMessage: " + e1.getMessage(),
-							"Export failed", JOptionPane.ERROR_MESSAGE);
-				}
-			}
-		});
-		panel.add(btnExport, "3, 1");
-		btnDraw.addActionListener(this);
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),}));
+		
+				JButton btnDraw = new JButton("Draw");
+				add(btnDraw, "1, 2, left, default");
+				btnDraw.setToolTipText("Refresh graphic");
+				btnDraw.addActionListener(this);
+		
+				JButton btnExport = new JButton("Export to png");
+				add(btnExport, "3, 2, left, default");
+				btnExport.setToolTipText("Export to png image");
+				btnExport.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						BufferedImage imgBuff = new BufferedImage(hierachyElement
+								.getWidth() + 10, hierachyElement.getHeight() + 10,
+								BufferedImage.TYPE_INT_RGB);
+						hierachyElement.paint(imgBuff.getGraphics());
+						try {
+							File outputFile = FileManager.getInstance()
+									.getOutputFilePng();
+							if (outputFile == null)
+								return;
+							ImageIO.write(imgBuff, "png", outputFile);
+							JOptionPane.showMessageDialog(Control.getInstance()
+									.getMainWindow(), "Export to file successed",
+									"Export success", JOptionPane.INFORMATION_MESSAGE);
+						} catch (Exception e1) {
+							JOptionPane.showMessageDialog(Control.getInstance()
+									.getMainWindow(),
+									"Export error\nMessage: " + e1.getMessage(),
+									"Export failed", JOptionPane.ERROR_MESSAGE);
+						}
+					}
+				});
 
 		JScrollPane scrollPane = new JScrollPane();
-		add(scrollPane, "2, 4, fill, fill");
+		add(scrollPane, "1, 4, 3, 1, fill, fill");
 
 		hierachyElement = new HierachyElement(null);
 		scrollPane.setViewportView(hierachyElement);

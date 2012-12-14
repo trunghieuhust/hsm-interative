@@ -40,26 +40,20 @@ public class LecturerViewPane extends JPanel {
 	 */
 	public LecturerViewPane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("134dlu:grow"),
+				FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("134dlu"),
+				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"), }));
 
 		contactPane = new ContactPane();
-		add(contactPane, "2, 2, fill, fill");
-
-		JPanel panel = new JPanel();
-		add(panel, "4, 2, fill, fill");
-		panel.setLayout(new FormLayout(new ColumnSpec[] { ColumnSpec
-				.decode("236px:grow"), }, new RowSpec[] {
-				RowSpec.decode("70px"), FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"), }));
+		add(contactPane, "2, 2, 1, 5, fill, fill");
 
 		JPanel otherPane = new JPanel();
-		panel.add(otherPane, "1, 1, fill, top");
+		add(otherPane, "4, 2, 3, 1");
 		otherPane
 				.setLayout(new FormLayout(new ColumnSpec[] {
 						FormFactory.RELATED_GAP_COLSPEC,
@@ -78,8 +72,8 @@ public class LecturerViewPane extends JPanel {
 		comboBoxFaculty = new HedspiComboBox() {
 
 			/**
-			 * 
-			 */
+									 * 
+									 */
 			private static final long serialVersionUID = 1L;
 
 			@Override
@@ -100,8 +94,8 @@ public class LecturerViewPane extends JPanel {
 		comboBoxDegree = new HedspiComboBox() {
 
 			/**
-			 * 
-			 */
+													 * 
+													 */
 			private static final long serialVersionUID = 1L;
 
 			@Override
@@ -114,20 +108,17 @@ public class LecturerViewPane extends JPanel {
 		lblDegree.setLabelFor(comboBoxDegree);
 		otherPane.add(comboBoxDegree, "4, 4, fill, default");
 
-		JPanel panel_1 = new JPanel();
-		panel.add(panel_1, "1, 2, fill, fill");
-		panel_1.setLayout(new FormLayout(new ColumnSpec[] {
-				ColumnSpec.decode("60px:grow"),
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), },
-				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
-
 		JButton btnSave = new JButton("Save");
+		add(btnSave, "4, 4, left, default");
 		btnSave.setToolTipText("Save lecturer's information");
-		panel_1.add(btnSave, "1, 1, right, default");
 
 		JButton btnExport = new JButton("Export");
+		add(btnExport, "6, 4, left, default");
 		btnExport.setToolTipText("Export lecturer's information to html file");
+
+		lecturerStatisticPane = new LecturerStatisticPane();
+		add(lecturerStatisticPane, "4, 6, 3, 1, default, top");
+		lecturerStatisticPane.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnExport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HedspiTable hedspiTable = getHedspiTable();
@@ -136,7 +127,6 @@ public class LecturerViewPane extends JPanel {
 				hedspiTable.writeToHtmlWithMessageDialog();
 			}
 		});
-		panel_1.add(btnExport, "3, 1, left, default");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (hedspiObject == null)
@@ -164,10 +154,6 @@ public class LecturerViewPane extends JPanel {
 							JOptionPane.WARNING_MESSAGE);
 			}
 		});
-
-		lecturerStatisticPane = new LecturerStatisticPane();
-		lecturerStatisticPane.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.add(lecturerStatisticPane, "1, 4, fill, fill");
 	}
 
 	private void setInfo(Lecturer lecturer) {

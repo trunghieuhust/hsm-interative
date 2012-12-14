@@ -234,171 +234,173 @@ public class StatisticPane extends JPanel {
 	public StatisticPane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
-
-		JPanel panel = new JPanel();
-		add(panel, "2, 2, fill, fill");
-		panel.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.DEFAULT_ROWSPEC, FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC, FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC, FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC, }));
-
-		JButton btnRefresh = new JButton("Refresh all");
-		btnRefresh.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int[] arr = new int[model.getRowCount()];
-				for (int i = 0; i < arr.length; i++)
-					arr[i] = i;
-				refresh(arr);
-			}
-		});
-		btnRefresh.setToolTipText("Refresh all statistics in list");
-		panel.add(btnRefresh, "1, 1");
-
-		JLabel lblHostAddress = DefaultComponentFactory.getInstance()
-				.createLabel("Host address");
-		panel.add(lblHostAddress, "3, 1, right, default");
-
-		textFieldHostaddress = new JTextField((String) Control.getInstance()
-				.getData("getLoginInfo", "host"));
-		textFieldHostaddress.setToolTipText("Host address");
-		lblHostAddress.setLabelFor(textFieldHostaddress);
-		panel.add(textFieldHostaddress, "5, 1, fill, default");
-		textFieldHostaddress.setEditable(false);
-		textFieldHostaddress.setColumns(10);
-
-		JButton btnExport = new JButton("Export");
-		btnExport.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				HedspiTable hedspiTable = new HedspiTable(
-						"General and user-defined statistic information",
-						"Label", "value");
-				hedspiTable.setIsTablePrint(false);
-				// server information
-				hedspiTable.addValue("Host address",
-						textFieldHostaddress.getText());
-				hedspiTable.addValue("Port", textFieldPort.getText());
-				hedspiTable.addValue("Database", textFieldDatabase.getText());
-				hedspiTable.addValue("Username", textFieldUsername.getText());
-				hedspiTable.addValue("", "");
-				// statistic info
-				int n = model.getRowCount();
-				for (int i = 0; i < n; i++)
-					hedspiTable.addValue((String) model.getValueAt(i, 0),
-							(String) model.getValueAt(i, 2));
-				// write
-				hedspiTable.writeToHtmlWithMessageDialog();
-			}
-		});
-		btnExport
-				.setToolTipText("Export list to html files excluding query string field");
-		panel.add(btnExport, "1, 3");
-
-		JLabel lblPort = DefaultComponentFactory.getInstance().createLabel(
-				"Port");
-		panel.add(lblPort, "3, 3, right, default");
-
-		textFieldPort = new JTextField((String) Control.getInstance().getData(
-				"getLoginInfo", "port"));
-		textFieldPort.setToolTipText("Connection's port");
-		lblPort.setLabelFor(textFieldPort);
-		panel.add(textFieldPort, "5, 3, fill, default");
-		textFieldPort.setEditable(false);
-		textFieldPort.setColumns(10);
-
-		JButton btnSaveList = new JButton("Save list");
-		btnSaveList.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				FileOutputStream ou = FileManager.getInstance()
-						.getFileOutputStreamWithDialog(STATISTIC_FILE);
-				if (ou == null) {
-					return;
-				}
-				String comment = "Save list of statistics values with username{"
-						+ textFieldUsername.getText()
-						+ "}, host{"
-						+ textFieldHostaddress.getText()
-						+ "}, port{"
-						+ textFieldPort.getText()
-						+ "}, database{"
-						+ textFieldDatabase.getText()
-						+ "} at "
-						+ (new Date()).toString();
-				Control.getInstance().getLogger().log(Level.INFO, comment);
-				try {
-					Properties props = new Properties();
-					int n = model.getRowCount();
-					props.setProperty(COUNT_NAME, String.valueOf(n));
-					for (int i = 0; i < n; i++) {
-						props.setProperty(DESCRIPTION_NAME + i,
-								(String) model.getValueAt(i, 0));
-						props.setProperty(QUERYSTR_NAME + i,
-								(String) model.getValueAt(i, 1));
-						props.setProperty(RESULT_NAME + i,
-								(String) model.getValueAt(i, 2));
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,}));
+		
+				JButton btnRefresh = new JButton("Refresh all");
+				add(btnRefresh, "2, 2, left, default");
+				btnRefresh.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						int[] arr = new int[model.getRowCount()];
+						for (int i = 0; i < arr.length; i++)
+							arr[i] = i;
+						refresh(arr);
 					}
-					props.store(ou, comment);
-				} catch (IOException e1) {
-					JOptionPane.showMessageDialog(
-							Control.getInstance().getMainWindow(),
-							"Save list of statistics failed\nMessage: "
-									+ e1.getMessage(), "Saving failed",
-							JOptionPane.WARNING_MESSAGE);
-				} finally {
-					FileManager.getInstance().close(ou);
-				}
-				JOptionPane.showMessageDialog(Control.getInstance()
-						.getMainWindow(), "Save list of statistics ok",
-						"Saveing ok", JOptionPane.INFORMATION_MESSAGE);
-			}
-		});
-		btnSaveList.setToolTipText("Save list for next sessions");
-		panel.add(btnSaveList, "1, 5");
-
-		JLabel lblDatabase = DefaultComponentFactory.getInstance().createLabel(
-				"Database");
-		panel.add(lblDatabase, "3, 5, right, default");
-
-		textFieldDatabase = new JTextField((String) Control.getInstance()
-				.getData("getLoginInfo", "database"));
-		textFieldDatabase.setToolTipText("Current database name");
-		lblDatabase.setLabelFor(textFieldDatabase);
-		panel.add(textFieldDatabase, "5, 5, fill, default");
-		textFieldDatabase.setEditable(false);
-		textFieldDatabase.setColumns(10);
-
-		JButton btnReset = new JButton("Reset");
-		btnReset.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				reset();
-			}
-		});
-		btnReset.setToolTipText("Back to last saved");
-		panel.add(btnReset, "1, 7");
-
-		JLabel lblUsername = DefaultComponentFactory.getInstance().createLabel(
-				"Username");
-		panel.add(lblUsername, "3, 7, right, default");
-
-		textFieldUsername = new JTextField((String) Control.getInstance()
-				.getData("getLoginInfo", "username"));
-		textFieldUsername.setToolTipText("Current session's username");
-		lblUsername.setLabelFor(textFieldUsername);
-		panel.add(textFieldUsername, "5, 7, fill, default");
-		textFieldUsername.setEditable(false);
-		textFieldUsername.setColumns(10);
+				});
+				btnRefresh.setToolTipText("Refresh all statistics in list");
+		
+				JLabel lblHostAddress = DefaultComponentFactory.getInstance()
+						.createLabel("Host address");
+				add(lblHostAddress, "4, 2, left, default");
+				lblHostAddress.setLabelFor(textFieldHostaddress);
+				
+						textFieldHostaddress = new JTextField((String) Control.getInstance()
+								.getData("getLoginInfo", "host"));
+						add(textFieldHostaddress, "6, 2");
+						textFieldHostaddress.setToolTipText("Host address");
+						textFieldHostaddress.setEditable(false);
+						textFieldHostaddress.setColumns(10);
+		
+				JButton btnExport = new JButton("Export");
+				add(btnExport, "2, 4, left, default");
+				btnExport.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						HedspiTable hedspiTable = new HedspiTable(
+								"General and user-defined statistic information",
+								"Label", "value");
+						hedspiTable.setIsTablePrint(false);
+						// server information
+						hedspiTable.addValue("Host address",
+								textFieldHostaddress.getText());
+						hedspiTable.addValue("Port", textFieldPort.getText());
+						hedspiTable.addValue("Database", textFieldDatabase.getText());
+						hedspiTable.addValue("Username", textFieldUsername.getText());
+						hedspiTable.addValue("", "");
+						// statistic info
+						int n = model.getRowCount();
+						for (int i = 0; i < n; i++)
+							hedspiTable.addValue((String) model.getValueAt(i, 0),
+									(String) model.getValueAt(i, 2));
+						// write
+						hedspiTable.writeToHtmlWithMessageDialog();
+					}
+				});
+				btnExport
+						.setToolTipText("Export list to html files excluding query string field");
+		
+				JLabel lblPort = DefaultComponentFactory.getInstance().createLabel(
+						"Port");
+				add(lblPort, "4, 4, left, default");
+				lblPort.setLabelFor(textFieldPort);
+				
+						textFieldPort = new JTextField((String) Control.getInstance().getData(
+								"getLoginInfo", "port"));
+						add(textFieldPort, "6, 4");
+						textFieldPort.setToolTipText("Connection's port");
+						textFieldPort.setEditable(false);
+						textFieldPort.setColumns(10);
+		
+				JButton btnSaveList = new JButton("Save list");
+				add(btnSaveList, "2, 6, left, default");
+				btnSaveList.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						FileOutputStream ou = FileManager.getInstance()
+								.getFileOutputStreamWithDialog(STATISTIC_FILE);
+						if (ou == null) {
+							return;
+						}
+						String comment = "Save list of statistics values with username{"
+								+ textFieldUsername.getText()
+								+ "}, host{"
+								+ textFieldHostaddress.getText()
+								+ "}, port{"
+								+ textFieldPort.getText()
+								+ "}, database{"
+								+ textFieldDatabase.getText()
+								+ "} at "
+								+ (new Date()).toString();
+						Control.getInstance().getLogger().log(Level.INFO, comment);
+						try {
+							Properties props = new Properties();
+							int n = model.getRowCount();
+							props.setProperty(COUNT_NAME, String.valueOf(n));
+							for (int i = 0; i < n; i++) {
+								props.setProperty(DESCRIPTION_NAME + i,
+										(String) model.getValueAt(i, 0));
+								props.setProperty(QUERYSTR_NAME + i,
+										(String) model.getValueAt(i, 1));
+								props.setProperty(RESULT_NAME + i,
+										(String) model.getValueAt(i, 2));
+							}
+							props.store(ou, comment);
+						} catch (IOException e1) {
+							JOptionPane.showMessageDialog(
+									Control.getInstance().getMainWindow(),
+									"Save list of statistics failed\nMessage: "
+											+ e1.getMessage(), "Saving failed",
+									JOptionPane.WARNING_MESSAGE);
+						} finally {
+							FileManager.getInstance().close(ou);
+						}
+						JOptionPane.showMessageDialog(Control.getInstance()
+								.getMainWindow(), "Save list of statistics ok",
+								"Saveing ok", JOptionPane.INFORMATION_MESSAGE);
+					}
+				});
+				btnSaveList.setToolTipText("Save list for next sessions");
+		
+				JLabel lblDatabase = DefaultComponentFactory.getInstance().createLabel(
+						"Database");
+				add(lblDatabase, "4, 6, left, default");
+				lblDatabase.setLabelFor(textFieldDatabase);
+				
+						textFieldDatabase = new JTextField((String) Control.getInstance()
+								.getData("getLoginInfo", "database"));
+						add(textFieldDatabase, "6, 6");
+						textFieldDatabase.setToolTipText("Current database name");
+						textFieldDatabase.setEditable(false);
+						textFieldDatabase.setColumns(10);
+		
+				JButton btnReset = new JButton("Reset");
+				add(btnReset, "2, 8, left, default");
+				btnReset.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						reset();
+					}
+				});
+				btnReset.setToolTipText("Back to last saved");
+		
+				JLabel lblUsername = DefaultComponentFactory.getInstance().createLabel(
+						"Username");
+				add(lblUsername, "4, 8, left, default");
+				lblUsername.setLabelFor(textFieldUsername);
+				
+						textFieldUsername = new JTextField((String) Control.getInstance()
+								.getData("getLoginInfo", "username"));
+						add(textFieldUsername, "6, 8");
+						textFieldUsername.setToolTipText("Current session's username");
+						textFieldUsername.setEditable(false);
+						textFieldUsername.setColumns(10);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setToolTipText("");
-		add(scrollPane, "2, 4, fill, fill");
+		add(scrollPane, "2, 10, 5, 1, fill, fill");
 
 		popup = new JPopupMenu();
 		addPopup(scrollPane, popup);
@@ -507,7 +509,7 @@ public class StatisticPane extends JPanel {
 		lblRightClickTable.setToolTipText("List of statistics");
 		lblRightClickTable.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC,
 				12));
-		add(lblRightClickTable, "2, 6");
+		add(lblRightClickTable, "2, 12, 5, 1");
 	}
 
 	protected void refresh(int[] selectedRows) {

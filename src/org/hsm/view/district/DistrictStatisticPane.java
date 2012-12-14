@@ -46,13 +46,14 @@ public class DistrictStatisticPane extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.setMnemonic('r');
 		btnRefresh.setToolTipText("Refresh values");
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				refresh();
 			}
 		});
-		add(btnRefresh, "2, 2, center, default");
+		add(btnRefresh, "2, 2, 3, 1, left, default");
 
 		JLabel lblNumberOfLecturers = DefaultComponentFactory.getInstance()
 				.createLabel("Number of lecturers");

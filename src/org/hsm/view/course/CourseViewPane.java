@@ -24,6 +24,7 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
+import java.awt.Dimension;
 
 public class CourseViewPane extends JPanel {
 
@@ -46,116 +47,121 @@ public class CourseViewPane extends JPanel {
 	 */
 	public CourseViewPane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				ColumnSpec.decode("max(63dlu;default):grow"),},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("fill:default:grow"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow(3)"),
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,}));
 
-		JPanel panel = new JPanel();
-		add(panel, "2, 2, fill, fill");
-		panel.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"), }));
+		modelNFees = new SpinnerNumberModel(new Double(2), new Double(0), null,
+				new Double(1));
+		modelNCredits = new SpinnerNumberModel(new Integer(2), new Integer(0),
+				null, new Integer(1));
+		modelTime = new SpinnerNumberModel(new Double(45), new Double(0), null,
+				new Double(5));
 
 		JLabel lblName = DefaultComponentFactory.getInstance().createLabel(
 				"Name");
-		panel.add(lblName, "2, 2");
+		add(lblName, "1, 2");
+		lblName.setLabelFor(textFieldName);
 
 		textFieldName = new JTextField();
+		add(textFieldName, "3, 2");
 		textFieldName.setToolTipText("Name of course");
-		lblName.setLabelFor(textFieldName);
-		panel.add(textFieldName, "4, 2, fill, default");
 		textFieldName.setColumns(10);
 
 		JLabel lblCode = DefaultComponentFactory.getInstance().createLabel(
 				"Code");
-		panel.add(lblCode, "2, 4");
+		add(lblCode, "1, 4");
+		lblCode.setLabelFor(textFieldCode);
 
 		textFieldCode = new JTextField();
+		add(textFieldCode, "3, 4");
 		textFieldCode.setToolTipText("Course's code");
-		lblCode.setLabelFor(textFieldCode);
-		panel.add(textFieldCode, "4, 4, fill, default");
 		textFieldCode.setColumns(10);
 
 		JLabel lblNumberOfFees = DefaultComponentFactory.getInstance()
 				.createLabel("Number of fees");
-		panel.add(lblNumberOfFees, "2, 6");
+		add(lblNumberOfFees, "1, 6");
 
 		JSpinner spinnerNFees = new JSpinner();
-		spinnerNFees.setToolTipText("Number of fee credits for course");
 		lblNumberOfFees.setLabelFor(spinnerNFees);
-		modelNFees = new SpinnerNumberModel(new Double(2), new Double(0), null,
-				new Double(1));
+		add(spinnerNFees, "3, 6, fill, default");
+		spinnerNFees.setToolTipText("Number of fee credits for course");
 		spinnerNFees.setModel(modelNFees);
-		panel.add(spinnerNFees, "4, 6");
 
 		JLabel lblNumberOfCredits = DefaultComponentFactory.getInstance()
 				.createLabel("Number of credits");
-		panel.add(lblNumberOfCredits, "2, 8");
+		add(lblNumberOfCredits, "1, 8");
 
 		JSpinner spinnerNCredits = new JSpinner();
-		spinnerNCredits.setToolTipText("Number of academic course");
 		lblNumberOfCredits.setLabelFor(spinnerNCredits);
-		modelNCredits = new SpinnerNumberModel(new Integer(2), new Integer(0),
-				null, new Integer(1));
+		add(spinnerNCredits, "3, 8, fill, default");
+		spinnerNCredits.setToolTipText("Number of academic course");
 		spinnerNCredits.setModel(modelNCredits);
-		panel.add(spinnerNCredits, "4, 8");
 
 		JLabel lblTime = DefaultComponentFactory.getInstance().createLabel(
 				"Time");
-		panel.add(lblTime, "2, 10");
+		add(lblTime, "1, 10");
 
 		JSpinner spinnerTime = new JSpinner();
-		spinnerTime.setToolTipText("Number of time credits for course");
 		lblTime.setLabelFor(spinnerTime);
-		modelTime = new SpinnerNumberModel(new Double(45), new Double(0), null,
-				new Double(5));
+		add(spinnerTime, "3, 10, fill, default");
+		spinnerTime.setToolTipText("Number of time credits for course");
 		spinnerTime.setModel(modelTime);
-		panel.add(spinnerTime, "4, 10");
 
 		JLabel lblTopic = DefaultComponentFactory.getInstance().createLabel(
 				"Topic");
-		panel.add(lblTopic, "2, 12");
+		add(lblTopic, "1, 12");
+		lblTopic.setLabelFor(editorPaneTopic);
 
 		editorPaneTopic = new JEditorPane();
+		editorPaneTopic.setPreferredSize(new Dimension(10, 10));
+		add(editorPaneTopic, "3, 12");
 		editorPaneTopic.setToolTipText("Topic of course");
-		lblTopic.setLabelFor(editorPaneTopic);
 		editorPaneTopic.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.add(editorPaneTopic, "4, 12, fill, fill");
 
 		JLabel lblDependanciesList = DefaultComponentFactory.getInstance()
 				.createLabel("Dependancies list");
-		panel.add(lblDependanciesList, "2, 14");
+		add(lblDependanciesList, "1, 14");
+		lblDependanciesList.setLabelFor(dependencesListEditor);
 
 		dependencesListEditor = new DependencesListEditor();
-		lblDependanciesList.setLabelFor(dependencesListEditor);
-		panel.add(dependencesListEditor, "4, 14, fill, fill");
+		dependencesListEditor.setPreferredSize(new Dimension(10, 10));
+		dependencesListEditor.setMinimumSize(new Dimension(10, 10));
+		add(dependencesListEditor, "3, 14, fill, fill");
 
 		JLabel lblNote = DefaultComponentFactory.getInstance().createLabel(
 				"Note");
-		panel.add(lblNote, "2, 16");
+		add(lblNote, "1, 16");
+		lblNote.setLabelFor(editorPaneNote);
 
 		editorPaneNote = new JEditorPane();
+		editorPaneNote.setPreferredSize(new Dimension(10, 10));
+		add(editorPaneNote, "3, 16, default, fill");
 		editorPaneNote.setToolTipText("Note for course");
-		lblNote.setLabelFor(editorPaneNote);
 		editorPaneNote.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.add(editorPaneNote, "4, 16, fill, fill");
 
 		JButton btnSave = new JButton("Save");
-		add(btnSave, "2, 4, center, default");
+		btnSave.setMnemonic('s');
+		add(btnSave, "1, 18, center, default");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (hedspiObject == null)

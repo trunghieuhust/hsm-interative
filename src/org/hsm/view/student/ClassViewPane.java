@@ -47,53 +47,46 @@ public class ClassViewPane extends JSplitPane {
 		scrollPane.setViewportView(panel);
 		panel.setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"), }));
-
-		JPanel panel_1 = new JPanel();
-		panel.add(panel_1, "2, 2, fill, fill");
-		panel_1.setLayout(new FormLayout(
-				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC,
-						FormFactory.RELATED_GAP_COLSPEC,
-						ColumnSpec.decode("default:grow"),
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] {
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.DEFAULT_ROWSPEC, }));
-
-		JButton btnSave = new JButton("Save");
-		btnSave.setToolTipText("Save class's name");
-		btnSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String name = textFieldClassName.getText();
-				String message;
-				if (hedspiClass != null) {
-					message = (String) Control.getInstance().getData(
-							"renameClass", hedspiClass, name);
-					if (message != null)
-						JOptionPane.showMessageDialog(Control.getInstance()
-								.getMainWindow(),
-								"Rename class name failed.\nMessage: "
-										+ message, "Rename failed",
-								JOptionPane.WARNING_MESSAGE);
-					else {
-						JOptionPane.showMessageDialog(Control.getInstance()
-								.getMainWindow(), "Rename class ok",
-								"Rename ok", JOptionPane.INFORMATION_MESSAGE);
-						hedspiClass.setName(name);
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),}));
+		
+				JButton btnSave = new JButton("Save");
+				panel.add(btnSave, "2, 2");
+				btnSave.setMnemonic('v');
+				btnSave.setToolTipText("Save class's name");
+				btnSave.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						String name = textFieldClassName.getText();
+						String message;
+						if (hedspiClass != null) {
+							message = (String) Control.getInstance().getData(
+									"renameClass", hedspiClass, name);
+							if (message != null)
+								JOptionPane.showMessageDialog(Control.getInstance()
+										.getMainWindow(),
+										"Rename class name failed.\nMessage: "
+												+ message, "Rename failed",
+										JOptionPane.WARNING_MESSAGE);
+							else {
+								JOptionPane.showMessageDialog(Control.getInstance()
+										.getMainWindow(), "Rename class ok",
+										"Rename ok", JOptionPane.INFORMATION_MESSAGE);
+								hedspiClass.setName(name);
+							}
+						}
 					}
-				}
-			}
-		});
-		panel_1.add(btnSave, "2, 2");
-
-		textFieldClassName = new JTextField();
-		textFieldClassName.setToolTipText("Name of class");
-		panel_1.add(textFieldClassName, "4, 2, fill, default");
-		textFieldClassName.setColumns(10);
+				});
+		
+				textFieldClassName = new JTextField();
+				panel.add(textFieldClassName, "4, 2");
+				textFieldClassName.setToolTipText("Name of class");
+				textFieldClassName.setColumns(10);
 
 		studentListPane = new ObjectListPane("Students list") {
 
@@ -136,7 +129,7 @@ public class ClassViewPane extends JSplitPane {
 			}
 		};
 		studentListPane.setToolTipText("List of classes");
-		panel.add(studentListPane, "2, 4, fill, fill");
+		panel.add(studentListPane, "2, 4, 3, 1, fill, fill");
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		setRightComponent(tabbedPane);

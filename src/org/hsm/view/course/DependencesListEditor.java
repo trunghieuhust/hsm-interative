@@ -21,6 +21,7 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
+import java.awt.Dimension;
 
 public class DependencesListEditor extends JPanel {
 
@@ -38,15 +39,17 @@ public class DependencesListEditor extends JPanel {
 	 * Create the panel.
 	 */
 	public DependencesListEditor() {
-		setLayout(new FormLayout(
-				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
-						ColumnSpec.decode("default:grow"),
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] {
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.DEFAULT_ROWSPEC,
-						FormFactory.RELATED_GAP_ROWSPEC,
-						RowSpec.decode("default:grow"), }));
+		setLayout(new FormLayout(new ColumnSpec[] {
+				ColumnSpec.decode("default:grow"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("left:default"),},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),}));
 
 		coursesModel = new DefaultListModel<HedspiObject>();
 		comboBoxChooseCourse = new HedspiComboBox() {
@@ -77,7 +80,7 @@ public class DependencesListEditor extends JPanel {
 			}
 		};
 		comboBoxChooseCourse.setToolTipText("Courses to add");
-		add(comboBoxChooseCourse, "2, 2, fill, default");
+		add(comboBoxChooseCourse, "1, 2, fill, default");
 
 		JButton buttonAdd = new JButton("+");
 		buttonAdd.setToolTipText("Add base course");
@@ -91,38 +94,33 @@ public class DependencesListEditor extends JPanel {
 				coursesModel.addElement(selected);
 			}
 		});
-		add(buttonAdd, "4, 2");
+		add(buttonAdd, "3, 2");
 
 		JScrollPane scrollPane = new JScrollPane();
-		add(scrollPane, "2, 4, fill, fill");
+		scrollPane.setMinimumSize(new Dimension(10, 10));
+		add(scrollPane, "1, 4, 1, 3, fill, fill");
 
 		listCurrentCourses = new JList<>(coursesModel);
 		listCurrentCourses.setToolTipText("List of base courses");
 		scrollPane.setViewportView(listCurrentCourses);
-
-		JPanel panel = new JPanel();
-		add(panel, "4, 4, fill, fill");
-		panel.setLayout(new FormLayout(new ColumnSpec[] { ColumnSpec
-				.decode("39px"), }, new RowSpec[] { RowSpec.decode("78px"),
-				RowSpec.decode("25px"), FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC, }));
-
-		JButton buttonRemove = new JButton("-");
-		buttonRemove.setToolTipText("Remove selected base courses");
-		buttonRemove.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				List<HedspiObject> indices = listCurrentCourses
-						.getSelectedValuesList();
-				for (HedspiObject it : indices) {
-					coursesModel.removeElement(it);
-					comboBoxChooseCourse.addObject(it);
-				}
-			}
-		});
-		panel.add(buttonRemove, "1, 2, left, top");
-
-		buttonReload = new JButton("R");
-		buttonReload.setToolTipText("Reload list");
+				
+						JButton buttonRemove = new JButton("-");
+						add(buttonRemove, "3, 4");
+						buttonRemove.setToolTipText("Remove selected base courses");
+						buttonRemove.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								List<HedspiObject> indices = listCurrentCourses
+										.getSelectedValuesList();
+								for (HedspiObject it : indices) {
+									coursesModel.removeElement(it);
+									comboBoxChooseCourse.addObject(it);
+								}
+							}
+						});
+		
+				buttonReload = new JButton("R");
+				add(buttonReload, "3, 6, default, top");
+				buttonReload.setToolTipText("Reload list");
 		buttonReload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (course == null)
@@ -143,7 +141,6 @@ public class DependencesListEditor extends JPanel {
 				}
 			}
 		});
-		panel.add(buttonReload, "1, 4");
 	}
 
 	public void setCourse(Course course) {

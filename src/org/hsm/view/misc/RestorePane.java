@@ -48,23 +48,73 @@ public class RestorePane extends JPanel {
 	public RestorePane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"), }));
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),}));
 		JLabel selectlb = DefaultComponentFactory.getInstance().createLabel(
 				"Choose backup file to restore");
-		add(selectlb, "2,2");
+		add(selectlb, "2, 2, 3, 1");
+		
+				JButton btnclient = new JButton("From client");
+				btnclient.setMnemonic('c');
+				add(btnclient, "2, 4, left, default");
+				btnclient.setToolTipText("Using backup file on client");
+				
+						btnclient.addActionListener(new ActionListener() {
+				
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								File[] list_file = get_list_file();
+				
+								if (list_file == null) {
+									output.append("Restore cancel by user.\n");
+								} else {
+									viewFileInfo(list_file);
+									output.append("Running....");
+									try {
+										total_rows = RestoreService.get_instance()
+												.client_copyin(list_file);
+									} catch (IOException e1) {
+										e1.printStackTrace();
+									}
+									if (total_rows == -1) {
+										output.append("Failed.\nDatabase restore did not complete successfully.See log for details.\n");
+									} else {
+										output.append("Done.\nTotal rows:" + total_rows + "\n");
+									}
+								}
+							}
+						});
+		JButton btnserver = new JButton("From server");
+		btnserver.setMnemonic('r');
+		add(btnserver, "4, 4, left, default");
+		btnserver.setToolTipText("Using backup file on server");
+		btnserver.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Control.getInstance().setQueryMessage("Under contruction.");
+			}
+		});
 		JLabel backuplb = DefaultComponentFactory.getInstance().createLabel(
 				"Backup file");
-		add(backuplb, "2, 6");
+		add(backuplb, "2, 6, 3, 1");
 		JLabel resultlb = DefaultComponentFactory.getInstance().createLabel(
 				"Console");
-		add(resultlb, "2, 10");
+		add(resultlb, "2, 10, 3, 1");
 
 		infomodel = new DefaultTableModel(data, columnname);
 		viewFileinfo = new JTable(infomodel);
@@ -77,7 +127,7 @@ public class RestorePane extends JPanel {
 		JScrollPane viewfilescr = new JScrollPane();
 		viewfilescr.setMinimumSize(new Dimension(400, 23));
 		viewfilescr.setViewportView(viewFileinfo);
-		add(viewfilescr, "2,8,fill,fill");
+		add(viewfilescr, "2, 8, 3, 1, fill, fill");
 		output = new JTextArea();
 		output.setAutoscrolls(true);
 		output.setEditable(false);
@@ -86,53 +136,7 @@ public class RestorePane extends JPanel {
 				null, null));
 		JScrollPane outputscl = new JScrollPane();
 		outputscl.setViewportView(output);
-		add(outputscl, "2, 12, fill, fill");
-		JPanel btnpanel = new JPanel();
-		btnpanel.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC, },
-				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
-
-		JButton btnclient = new JButton("From client");
-		btnclient.setToolTipText("Using backup file on client");
-		JButton btnserver = new JButton("From server");
-		btnserver.setToolTipText("Using backup file on server");
-
-		btnclient.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				File[] list_file = get_list_file();
-
-				if (list_file == null) {
-					output.append("Restore cancel by user.\n");
-				} else {
-					viewFileInfo(list_file);
-					output.append("Running....");
-					try {
-						total_rows = RestoreService.get_instance()
-								.client_copyin(list_file);
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
-					if (total_rows == -1) {
-						output.append("Failed.\nDatabase restore did not complete successfully.See log for details.\n");
-					} else {
-						output.append("Done.\nTotal rows:" + total_rows + "\n");
-					}
-				}
-			}
-		});
-		btnserver.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				Control.getInstance().setQueryMessage("Under contruction.");
-			}
-		});
-		btnpanel.add(btnclient, "1,1");
-		btnpanel.add(btnserver, "3,1");
-		add(btnpanel, "2, 4, fill, fill");
+		add(outputscl, "2, 12, 3, 1, fill, fill");
 	}
 
 	public File[] get_list_file() {

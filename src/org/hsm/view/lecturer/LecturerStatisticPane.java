@@ -48,6 +48,7 @@ public class LecturerStatisticPane extends JPanel {
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.setMnemonic('r');
 		btnRefresh.setToolTipText("Refresh lecturer statistic's information");
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

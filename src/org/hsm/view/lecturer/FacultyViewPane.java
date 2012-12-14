@@ -41,51 +41,44 @@ public class FacultyViewPane extends JSplitPane {
 		scrollPane.setViewportView(panel);
 		panel.setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,},
+			new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"), }));
-
-		JPanel panel_1 = new JPanel();
-		panel.add(panel_1, "2, 2, fill, fill");
-		panel_1.setLayout(new FormLayout(
-				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC,
-						FormFactory.RELATED_GAP_COLSPEC,
-						ColumnSpec.decode("default:grow"),
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] {
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.DEFAULT_ROWSPEC, }));
-
-		JButton btnSave = new JButton("Save");
-		btnSave.setToolTipText("Save faculty name");
-		btnSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (faculty == null)
-					return;
-				String name = textFieldFacultyName.getText();
-				String message = (String) Control.getInstance().getData(
-						"renameFaculty", faculty, name);
-				if (message == null) {
-					JOptionPane.showMessageDialog(Control.getInstance()
-							.getMainWindow(), "Save faculty's name success",
-							"Save success", JOptionPane.INFORMATION_MESSAGE);
-					faculty.setName(name);
-				} else {
-					JOptionPane.showMessageDialog(Control.getInstance()
-							.getMainWindow(), "Rename failed\nMessage: "
-							+ message, "Rename failed",
-							JOptionPane.ERROR_MESSAGE);
-				}
-			}
-		});
-		panel_1.add(btnSave, "2, 2");
-
-		textFieldFacultyName = new JTextField();
-		textFieldFacultyName.setToolTipText("Name of faculty");
-		panel_1.add(textFieldFacultyName, "4, 2, fill, default");
-		textFieldFacultyName.setColumns(10);
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),}));
+		
+				JButton btnSave = new JButton("Save");
+				panel.add(btnSave, "2, 2");
+				btnSave.setMnemonic('v');
+				btnSave.setToolTipText("Save faculty name");
+				btnSave.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if (faculty == null)
+							return;
+						String name = textFieldFacultyName.getText();
+						String message = (String) Control.getInstance().getData(
+								"renameFaculty", faculty, name);
+						if (message == null) {
+							JOptionPane.showMessageDialog(Control.getInstance()
+									.getMainWindow(), "Save faculty's name success",
+									"Save success", JOptionPane.INFORMATION_MESSAGE);
+							faculty.setName(name);
+						} else {
+							JOptionPane.showMessageDialog(Control.getInstance()
+									.getMainWindow(), "Rename failed\nMessage: "
+									+ message, "Rename failed",
+									JOptionPane.ERROR_MESSAGE);
+						}
+					}
+				});
+		
+				textFieldFacultyName = new JTextField();
+				panel.add(textFieldFacultyName, "4, 2");
+				textFieldFacultyName.setToolTipText("Name of faculty");
+				textFieldFacultyName.setColumns(10);
 
 		lecturerListPane = new ObjectListPane("Lecturers list") {
 
@@ -130,7 +123,7 @@ public class FacultyViewPane extends JSplitPane {
 			}
 		};
 		lecturerListPane.setToolTipText("List of lecturers in faculty");
-		panel.add(lecturerListPane, "2, 4, fill, fill");
+		panel.add(lecturerListPane, "2, 4, 3, 1, fill, fill");
 
 		setLeftComponent(scrollPane);
 

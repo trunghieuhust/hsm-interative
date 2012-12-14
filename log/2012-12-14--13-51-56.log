@@ -1,0 +1,1541 @@
+Dec 14, 2012 1:51:56 PM org.hsm.control.Control start
+INFO: System starts
+Dec 14, 2012 1:51:56 PM org.hsm.control.Control start
+INFO: Open login window
+Dec 14, 2012 1:51:59 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Dec 14, 2012 1:51:59 PM org.hsm.control.Control tryLogin
+INFO: Login success
+Dec 14, 2012 1:51:59 PM org.hsm.control.Control logStart
+INFO: Fetch class list
+Dec 14, 2012 1:51:59 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_class_list()
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get list of cities
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {1}
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(1)
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get list of class
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_class_list()
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get raw list of teaching classes
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_list_of_teaching_classes()
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get list of faculties
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_faculty_list()
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get list of cities
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {1}
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(1)
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get list of faculties
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_faculty_list()
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get list of degrees
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_degree_list()
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get raw list of teaching classes
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_list_of_teaching_classes()
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get courses list
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_courses_list()
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get list of all lecturers
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_all_lecturers()
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get list of rooms
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_list()
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get list of cities
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Dec 14, 2012 1:52:00 PM org.hsm.control.Control logStart
+INFO: Get list of rooms
+Dec 14, 2012 1:52:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_list()
+Dec 14, 2012 1:52:01 PM org.hsm.control.Control logStart
+INFO: Get courses list
+Dec 14, 2012 1:52:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_courses_list()
+Dec 14, 2012 1:52:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_table_info()
+Dec 14, 2012 1:52:01 PM org.hsm.control.Control logStart
+INFO: Get login information{host}
+Dec 14, 2012 1:52:01 PM org.hsm.control.Control logStart
+INFO: Get login information{port}
+Dec 14, 2012 1:52:01 PM org.hsm.control.Control logStart
+INFO: Get login information{database}
+Dec 14, 2012 1:52:01 PM org.hsm.control.Control logStart
+INFO: Get login information{username}
+Dec 14, 2012 1:52:01 PM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Dec 14, 2012 1:52:04 PM org.hsm.control.Control logStart
+INFO: Get raw list of students in {BK1.05} class
+Dec 14, 2012 1:52:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(687)
+Dec 14, 2012 1:52:04 PM org.hsm.control.Control logStart
+INFO: Get raw list of students in {BK1.05} class
+Dec 14, 2012 1:52:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(687)
+Dec 14, 2012 1:52:05 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Lê Văn Đảng}
+Dec 14, 2012 1:52:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38459)
+Dec 14, 2012 1:52:05 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation study
+  Where: SQL statement "LOCK TABLE study, teach IN SHARE MODE"
+PL/pgSQL function "get_single_student_statistic8" line 5 at SQL statement
+Dec 14, 2012 1:52:33 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Lê Văn Đảng}
+Dec 14, 2012 1:52:33 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38459)
+Dec 14, 2012 1:52:33 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {233}
+Dec 14, 2012 1:52:33 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(233)
+Dec 14, 2012 1:52:33 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation district
+  Where: SQL function "get_city_of_district" statement 1
+Dec 14, 2012 1:52:33 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Lê Văn Đảng}
+Dec 14, 2012 1:52:34 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38459)
+Dec 14, 2012 1:52:34 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation study
+  Where: SQL statement "LOCK study, teach IN SHARE MODE"
+PL/pgSQL function "get_academic_info" line 5 at SQL statement
+Dec 14, 2012 1:52:39 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Vũ Văn Đạt}
+Dec 14, 2012 1:52:39 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38461)
+Dec 14, 2012 1:52:39 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation study
+  Where: SQL statement "LOCK TABLE study, teach IN SHARE MODE"
+PL/pgSQL function "get_single_student_statistic8" line 5 at SQL statement
+Dec 14, 2012 1:52:44 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Vũ Văn Đạt}
+Dec 14, 2012 1:52:44 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38461)
+Dec 14, 2012 1:52:44 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {621}
+Dec 14, 2012 1:52:44 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(621)
+Dec 14, 2012 1:52:44 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation district
+  Where: SQL function "get_city_of_district" statement 1
+Dec 14, 2012 1:52:44 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Vũ Văn Đạt}
+Dec 14, 2012 1:52:44 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38461)
+Dec 14, 2012 1:52:44 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation study
+  Where: SQL statement "LOCK study, teach IN SHARE MODE"
+PL/pgSQL function "get_academic_info" line 5 at SQL statement
+Dec 14, 2012 1:54:13 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Đinh Công Hoan}
+Dec 14, 2012 1:54:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38466)
+Dec 14, 2012 1:54:13 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation study
+  Where: SQL statement "LOCK TABLE study, teach IN SHARE MODE"
+PL/pgSQL function "get_single_student_statistic8" line 5 at SQL statement
+Dec 14, 2012 1:54:20 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Đinh Công Hoan}
+Dec 14, 2012 1:54:20 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38466)
+Dec 14, 2012 1:54:20 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {457}
+Dec 14, 2012 1:54:20 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(457)
+Dec 14, 2012 1:54:20 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation district
+  Where: SQL function "get_city_of_district" statement 1
+Dec 14, 2012 1:54:20 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Đinh Công Hoan}
+Dec 14, 2012 1:54:20 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38466)
+Dec 14, 2012 1:54:20 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation study
+  Where: SQL statement "LOCK study, teach IN SHARE MODE"
+PL/pgSQL function "get_academic_info" line 5 at SQL statement
+Dec 14, 2012 1:54:26 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Ngô Văn Duy}
+Dec 14, 2012 1:54:26 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38464)
+Dec 14, 2012 1:54:26 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation study
+  Where: SQL statement "LOCK TABLE study, teach IN SHARE MODE"
+PL/pgSQL function "get_single_student_statistic8" line 5 at SQL statement
+Dec 14, 2012 1:54:32 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Ngô Văn Duy}
+Dec 14, 2012 1:54:32 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38464)
+Dec 14, 2012 1:54:32 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {347}
+Dec 14, 2012 1:54:32 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(347)
+Dec 14, 2012 1:54:32 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation district
+  Where: SQL function "get_city_of_district" statement 1
+Dec 14, 2012 1:54:32 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Ngô Văn Duy}
+Dec 14, 2012 1:54:32 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38464)
+Dec 14, 2012 1:54:32 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation study
+  Where: SQL statement "LOCK study, teach IN SHARE MODE"
+PL/pgSQL function "get_academic_info" line 5 at SQL statement
+Dec 14, 2012 1:54:53 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Đặng Xuân Chinh}
+Dec 14, 2012 1:54:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38456)
+Dec 14, 2012 1:54:53 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation teach
+  Where: SQL statement "LOCK TABLE study, teach IN SHARE MODE"
+PL/pgSQL function "get_single_student_statistic8" line 5 at SQL statement
+Dec 14, 2012 1:54:56 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Đặng Xuân Chinh}
+Dec 14, 2012 1:54:56 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38456)
+Dec 14, 2012 1:54:56 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {421}
+Dec 14, 2012 1:54:56 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(421)
+Dec 14, 2012 1:54:56 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation district
+  Where: SQL function "get_city_of_district" statement 1
+Dec 14, 2012 1:54:56 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Đặng Xuân Chinh}
+Dec 14, 2012 1:54:56 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38456)
+Dec 14, 2012 1:54:56 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation teach
+  Where: SQL statement "LOCK study, teach IN SHARE MODE"
+PL/pgSQL function "get_academic_info" line 5 at SQL statement
+Dec 14, 2012 1:54:58 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Nguyễn Trung Kiên}
+Dec 14, 2012 1:54:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38469)
+Dec 14, 2012 1:54:58 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation teach
+  Where: SQL statement "LOCK TABLE study, teach IN SHARE MODE"
+PL/pgSQL function "get_single_student_statistic8" line 5 at SQL statement
+Dec 14, 2012 1:55:00 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Nguyễn Trung Kiên}
+Dec 14, 2012 1:55:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38469)
+Dec 14, 2012 1:55:00 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {420}
+Dec 14, 2012 1:55:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(420)
+Dec 14, 2012 1:55:00 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation district
+  Where: SQL function "get_city_of_district" statement 1
+Dec 14, 2012 1:55:00 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Nguyễn Trung Kiên}
+Dec 14, 2012 1:55:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38469)
+Dec 14, 2012 1:55:00 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation teach
+  Where: SQL statement "LOCK study, teach IN SHARE MODE"
+PL/pgSQL function "get_academic_info" line 5 at SQL statement
+Dec 14, 2012 1:55:19 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Nguyễn Văn Đại}
+Dec 14, 2012 1:55:19 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38458)
+Dec 14, 2012 1:55:19 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation teach
+  Where: SQL statement "LOCK TABLE study, teach IN SHARE MODE"
+PL/pgSQL function "get_single_student_statistic8" line 5 at SQL statement
+Dec 14, 2012 1:55:31 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Nguyễn Văn Đại}
+Dec 14, 2012 1:55:31 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38458)
+Dec 14, 2012 1:55:31 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {563}
+Dec 14, 2012 1:55:31 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(563)
+Dec 14, 2012 1:55:31 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation district
+  Where: SQL function "get_city_of_district" statement 1
+Dec 14, 2012 1:55:31 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Nguyễn Văn Đại}
+Dec 14, 2012 1:55:31 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38458)
+Dec 14, 2012 1:55:31 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation teach
+  Where: SQL statement "LOCK study, teach IN SHARE MODE"
+PL/pgSQL function "get_academic_info" line 5 at SQL statement
+Dec 14, 2012 2:01:53 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Ngô Văn Duy}
+Dec 14, 2012 2:01:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38464)
+Dec 14, 2012 2:01:53 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation teach
+  Where: SQL statement "LOCK TABLE study, teach IN SHARE MODE"
+PL/pgSQL function "get_single_student_statistic8" line 5 at SQL statement
+Dec 14, 2012 2:02:00 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Ngô Văn Duy}
+Dec 14, 2012 2:02:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38464)
+Dec 14, 2012 2:02:00 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {347}
+Dec 14, 2012 2:02:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(347)
+Dec 14, 2012 2:02:00 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {47}
+Dec 14, 2012 2:02:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(47)
+Dec 14, 2012 2:02:00 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {47}
+Dec 14, 2012 2:02:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(47)
+Dec 14, 2012 2:02:00 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Ngô Văn Duy}
+Dec 14, 2012 2:02:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38464)
+Dec 14, 2012 2:02:22 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Trần Đình Đại}
+Dec 14, 2012 2:02:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38457)
+Dec 14, 2012 2:02:22 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Trần Đình Đại}
+Dec 14, 2012 2:02:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38457)
+Dec 14, 2012 2:02:22 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {154}
+Dec 14, 2012 2:02:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(154)
+Dec 14, 2012 2:02:22 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {54}
+Dec 14, 2012 2:02:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(54)
+Dec 14, 2012 2:02:22 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {54}
+Dec 14, 2012 2:02:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(54)
+Dec 14, 2012 2:02:22 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Trần Đình Đại}
+Dec 14, 2012 2:02:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38457)
+Dec 14, 2012 2:02:22 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Trần Đình Đại}
+Dec 14, 2012 2:02:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38457)
+Dec 14, 2012 2:02:22 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Trần Đình Đại}
+Dec 14, 2012 2:02:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38457)
+Dec 14, 2012 2:02:22 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {154}
+Dec 14, 2012 2:02:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(154)
+Dec 14, 2012 2:02:22 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Trần Đình Đại}
+Dec 14, 2012 2:02:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38457)
+Dec 14, 2012 2:02:23 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Đặng Việt Bắc}
+Dec 14, 2012 2:02:23 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38455)
+Dec 14, 2012 2:02:23 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Đặng Việt Bắc}
+Dec 14, 2012 2:02:23 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38455)
+Dec 14, 2012 2:02:23 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {399}
+Dec 14, 2012 2:02:23 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(399)
+Dec 14, 2012 2:02:23 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {33}
+Dec 14, 2012 2:02:23 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(33)
+Dec 14, 2012 2:02:23 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {33}
+Dec 14, 2012 2:02:23 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(33)
+Dec 14, 2012 2:02:23 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Đặng Việt Bắc}
+Dec 14, 2012 2:02:23 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38455)
+Dec 14, 2012 2:02:23 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Đặng Việt Bắc}
+Dec 14, 2012 2:02:23 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38455)
+Dec 14, 2012 2:02:23 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Đặng Việt Bắc}
+Dec 14, 2012 2:02:23 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38455)
+Dec 14, 2012 2:02:23 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {399}
+Dec 14, 2012 2:02:23 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(399)
+Dec 14, 2012 2:02:23 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Đặng Việt Bắc}
+Dec 14, 2012 2:02:23 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38455)
+Dec 14, 2012 2:02:24 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Phạm Đình Hậu}
+Dec 14, 2012 2:02:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38465)
+Dec 14, 2012 2:02:24 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Phạm Đình Hậu}
+Dec 14, 2012 2:02:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38465)
+Dec 14, 2012 2:02:24 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {545}
+Dec 14, 2012 2:02:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(545)
+Dec 14, 2012 2:02:24 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {46}
+Dec 14, 2012 2:02:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(46)
+Dec 14, 2012 2:02:24 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {46}
+Dec 14, 2012 2:02:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(46)
+Dec 14, 2012 2:02:24 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Phạm Đình Hậu}
+Dec 14, 2012 2:02:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38465)
+Dec 14, 2012 2:02:24 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Phạm Đình Hậu}
+Dec 14, 2012 2:02:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38465)
+Dec 14, 2012 2:02:24 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Phạm Đình Hậu}
+Dec 14, 2012 2:02:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38465)
+Dec 14, 2012 2:02:24 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {545}
+Dec 14, 2012 2:02:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(545)
+Dec 14, 2012 2:02:24 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Phạm Đình Hậu}
+Dec 14, 2012 2:02:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38465)
+Dec 14, 2012 2:02:27 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Hoàng Thị Nhài}
+Dec 14, 2012 2:02:27 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38472)
+Dec 14, 2012 2:02:27 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Hoàng Thị Nhài}
+Dec 14, 2012 2:02:27 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38472)
+Dec 14, 2012 2:02:27 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {646}
+Dec 14, 2012 2:02:27 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(646)
+Dec 14, 2012 2:02:27 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {30}
+Dec 14, 2012 2:02:27 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(30)
+Dec 14, 2012 2:02:27 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {30}
+Dec 14, 2012 2:02:27 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(30)
+Dec 14, 2012 2:02:27 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Hoàng Thị Nhài}
+Dec 14, 2012 2:02:27 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38472)
+Dec 14, 2012 2:02:28 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Hoàng Thị Nhài}
+Dec 14, 2012 2:02:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38472)
+Dec 14, 2012 2:02:28 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Hoàng Thị Nhài}
+Dec 14, 2012 2:02:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38472)
+Dec 14, 2012 2:02:28 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {646}
+Dec 14, 2012 2:02:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(646)
+Dec 14, 2012 2:02:28 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Hoàng Thị Nhài}
+Dec 14, 2012 2:02:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38472)
+Dec 14, 2012 2:02:28 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Nguyễn Xuân Quí}
+Dec 14, 2012 2:02:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38477)
+Dec 14, 2012 2:02:28 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Nguyễn Xuân Quí}
+Dec 14, 2012 2:02:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38477)
+Dec 14, 2012 2:02:28 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {340}
+Dec 14, 2012 2:02:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(340)
+Dec 14, 2012 2:02:28 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {10}
+Dec 14, 2012 2:02:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(10)
+Dec 14, 2012 2:02:28 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {10}
+Dec 14, 2012 2:02:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(10)
+Dec 14, 2012 2:02:28 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Nguyễn Xuân Quí}
+Dec 14, 2012 2:02:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38477)
+Dec 14, 2012 2:02:28 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Nguyễn Xuân Quí}
+Dec 14, 2012 2:02:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38477)
+Dec 14, 2012 2:02:28 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Nguyễn Xuân Quí}
+Dec 14, 2012 2:02:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38477)
+Dec 14, 2012 2:02:28 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {340}
+Dec 14, 2012 2:02:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(340)
+Dec 14, 2012 2:02:28 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Nguyễn Xuân Quí}
+Dec 14, 2012 2:02:28 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38477)
+Dec 14, 2012 2:02:29 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Dương Hữu Tâm}
+Dec 14, 2012 2:02:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38479)
+Dec 14, 2012 2:02:29 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Dương Hữu Tâm}
+Dec 14, 2012 2:02:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38479)
+Dec 14, 2012 2:02:29 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {481}
+Dec 14, 2012 2:02:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(481)
+Dec 14, 2012 2:02:29 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {40}
+Dec 14, 2012 2:02:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(40)
+Dec 14, 2012 2:02:29 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {40}
+Dec 14, 2012 2:02:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(40)
+Dec 14, 2012 2:02:29 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Dương Hữu Tâm}
+Dec 14, 2012 2:02:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38479)
+Dec 14, 2012 2:02:29 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Dương Hữu Tâm}
+Dec 14, 2012 2:02:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38479)
+Dec 14, 2012 2:02:29 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Dương Hữu Tâm}
+Dec 14, 2012 2:02:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38479)
+Dec 14, 2012 2:02:29 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {481}
+Dec 14, 2012 2:02:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(481)
+Dec 14, 2012 2:02:29 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Dương Hữu Tâm}
+Dec 14, 2012 2:02:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38479)
+Dec 14, 2012 2:02:30 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Trần Thế Anh}
+Dec 14, 2012 2:02:30 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38454)
+Dec 14, 2012 2:02:30 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Trần Thế Anh}
+Dec 14, 2012 2:02:30 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38454)
+Dec 14, 2012 2:02:30 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {520}
+Dec 14, 2012 2:02:30 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(520)
+Dec 14, 2012 2:02:30 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {46}
+Dec 14, 2012 2:02:30 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(46)
+Dec 14, 2012 2:02:30 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {46}
+Dec 14, 2012 2:02:30 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(46)
+Dec 14, 2012 2:02:30 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Trần Thế Anh}
+Dec 14, 2012 2:02:30 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38454)
+Dec 14, 2012 2:02:30 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Trần Thế Anh}
+Dec 14, 2012 2:02:30 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38454)
+Dec 14, 2012 2:02:30 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Trần Thế Anh}
+Dec 14, 2012 2:02:30 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38454)
+Dec 14, 2012 2:02:30 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {520}
+Dec 14, 2012 2:02:30 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(520)
+Dec 14, 2012 2:02:30 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Trần Thế Anh}
+Dec 14, 2012 2:02:30 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38454)
+Dec 14, 2012 2:02:31 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Nguyễn Như Ngọc}
+Dec 14, 2012 2:02:31 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38471)
+Dec 14, 2012 2:02:31 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Nguyễn Như Ngọc}
+Dec 14, 2012 2:02:31 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38471)
+Dec 14, 2012 2:02:31 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {448}
+Dec 14, 2012 2:02:31 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(448)
+Dec 14, 2012 2:02:31 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {23}
+Dec 14, 2012 2:02:31 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(23)
+Dec 14, 2012 2:02:31 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {23}
+Dec 14, 2012 2:02:31 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(23)
+Dec 14, 2012 2:02:31 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Nguyễn Như Ngọc}
+Dec 14, 2012 2:02:31 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38471)
+Dec 14, 2012 2:02:31 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Nguyễn Như Ngọc}
+Dec 14, 2012 2:02:31 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38471)
+Dec 14, 2012 2:02:32 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Nguyễn Như Ngọc}
+Dec 14, 2012 2:02:32 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38471)
+Dec 14, 2012 2:02:32 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {448}
+Dec 14, 2012 2:02:32 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(448)
+Dec 14, 2012 2:02:32 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Nguyễn Như Ngọc}
+Dec 14, 2012 2:02:32 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38471)
+Dec 14, 2012 2:02:38 PM org.hsm.control.Control logStart
+INFO: Get lecturers in faculty {Centre for High Performance Computing (HPC)}
+Dec 14, 2012 2:02:38 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_lecturers_list_in_faculty(9)
+Dec 14, 2012 2:02:38 PM org.hsm.control.Control logStart
+INFO: Get lecturers in faculty {Centre for High Performance Computing (HPC)}
+Dec 14, 2012 2:02:38 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_lecturers_list_in_faculty(9)
+Dec 14, 2012 2:02:39 PM org.hsm.control.Control logStart
+INFO: Get lecturers in faculty {Computer Engineering}
+Dec 14, 2012 2:02:39 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_lecturers_list_in_faculty(38)
+Dec 14, 2012 2:02:39 PM org.hsm.control.Control logStart
+INFO: Get lecturers in faculty {Computer Engineering}
+Dec 14, 2012 2:02:39 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_lecturers_list_in_faculty(38)
+Dec 14, 2012 2:02:41 PM org.hsm.control.Control logStart
+INFO: Get statistic information of lecturer {Phạm Quang Dũng}
+Dec 14, 2012 2:02:41 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_lecturer_statistic5(60)
+Dec 14, 2012 2:02:41 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Phạm Quang Dũng}
+Dec 14, 2012 2:02:41 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_lecturer_in_faculty(60)
+Dec 14, 2012 2:02:41 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {255}
+Dec 14, 2012 2:02:41 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(255)
+Dec 14, 2012 2:02:41 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {24}
+Dec 14, 2012 2:02:41 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(24)
+Dec 14, 2012 2:02:41 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {24}
+Dec 14, 2012 2:02:41 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(24)
+Dec 14, 2012 2:02:41 PM org.hsm.control.Control logStart
+INFO: Get teaching information of lecturer {Phạm Quang Dũng}
+Dec 14, 2012 2:02:41 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_teach_info_lecturer(60)
+Dec 14, 2012 2:02:41 PM org.hsm.control.Control logStart
+INFO: Get statistic information of lecturer {Phạm Quang Dũng}
+Dec 14, 2012 2:02:41 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_lecturer_statistic5(60)
+Dec 14, 2012 2:02:41 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Phạm Quang Dũng}
+Dec 14, 2012 2:02:41 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_lecturer_in_faculty(60)
+Dec 14, 2012 2:02:41 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {255}
+Dec 14, 2012 2:02:41 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(255)
+Dec 14, 2012 2:02:41 PM org.hsm.control.Control logStart
+INFO: Get teaching information of lecturer {Phạm Quang Dũng}
+Dec 14, 2012 2:02:41 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_teach_info_lecturer(60)
+Dec 14, 2012 2:02:42 PM org.hsm.control.Control logStart
+INFO: Get statistic information of lecturer {Nguyễn Thị Thu Hương}
+Dec 14, 2012 2:02:42 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_lecturer_statistic5(62)
+Dec 14, 2012 2:02:42 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Nguyễn Thị Thu Hương}
+Dec 14, 2012 2:02:42 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_lecturer_in_faculty(62)
+Dec 14, 2012 2:02:42 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {105}
+Dec 14, 2012 2:02:42 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(105)
+Dec 14, 2012 2:02:42 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {28}
+Dec 14, 2012 2:02:42 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(28)
+Dec 14, 2012 2:02:42 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {28}
+Dec 14, 2012 2:02:42 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(28)
+Dec 14, 2012 2:02:42 PM org.hsm.control.Control logStart
+INFO: Get teaching information of lecturer {Nguyễn Thị Thu Hương}
+Dec 14, 2012 2:02:42 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_teach_info_lecturer(62)
+Dec 14, 2012 2:02:43 PM org.hsm.control.Control logStart
+INFO: Get statistic information of lecturer {Nguyễn Thị Thu Hương}
+Dec 14, 2012 2:02:43 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_lecturer_statistic5(62)
+Dec 14, 2012 2:02:43 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Nguyễn Thị Thu Hương}
+Dec 14, 2012 2:02:43 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_lecturer_in_faculty(62)
+Dec 14, 2012 2:02:43 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {105}
+Dec 14, 2012 2:02:43 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(105)
+Dec 14, 2012 2:02:43 PM org.hsm.control.Control logStart
+INFO: Get teaching information of lecturer {Nguyễn Thị Thu Hương}
+Dec 14, 2012 2:02:43 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_teach_info_lecturer(62)
+Dec 14, 2012 2:02:51 PM org.hsm.control.Control logStart
+INFO: Get new teaching class
+Dec 14, 2012 2:02:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_new_teaching_class()
+Dec 14, 2012 2:02:51 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation teach
+  Where: SQL function "get_new_teaching_class" statement 1
+Dec 14, 2012 2:02:58 PM org.hsm.control.Control logStart
+INFO: Get new city
+Dec 14, 2012 2:02:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_new_city()
+Dec 14, 2012 2:02:58 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation city
+  Where: SQL function "get_new_city" statement 1
+Dec 14, 2012 2:03:01 PM org.hsm.control.Control logStart
+INFO: Get new district in city {Đăk Lăk}
+Dec 14, 2012 2:03:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(16)
+Dec 14, 2012 2:03:01 PM org.hsm.control.Control logStart
+INFO: Get new district in city {Đăk Lăk}
+Dec 14, 2012 2:03:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(16)
+Dec 14, 2012 2:03:01 PM org.hsm.control.Control logStart
+INFO: Get statistic information of district {Ea Súp}
+Dec 14, 2012 2:03:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_district_statistic(204)
+Dec 14, 2012 2:03:02 PM org.hsm.control.Control logStart
+INFO: Get statistic information of district {Ea Súp}
+Dec 14, 2012 2:03:02 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_district_statistic(204)
+Dec 14, 2012 2:03:05 PM org.hsm.control.Control logStart
+INFO: Reload name of room {C7-202}
+Dec 14, 2012 2:03:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(161)
+Dec 14, 2012 2:03:05 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {C7-202}
+Dec 14, 2012 2:03:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(161)
+Dec 14, 2012 2:03:05 PM org.hsm.control.Control logStart
+INFO: Reload name of room {C7-202}
+Dec 14, 2012 2:03:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(161)
+Dec 14, 2012 2:03:05 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {C7-202}
+Dec 14, 2012 2:03:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(161)
+Dec 14, 2012 2:03:07 PM org.hsm.control.Control logStart
+INFO: Get new room
+Dec 14, 2012 2:03:07 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_new_room()
+Dec 14, 2012 2:03:07 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation room
+  Where: SQL function "get_new_room" statement 1
+Dec 14, 2012 2:03:11 PM org.hsm.control.Control logStart
+INFO: Get full data of course {Chương trình dịch}
+Dec 14, 2012 2:03:11 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_course_data(84)
+Dec 14, 2012 2:03:11 PM org.hsm.control.Control getData
+INFO: Get background courses of course {Chương trình dịch}
+Dec 14, 2012 2:03:11 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_background_courses(84)
+Dec 14, 2012 2:03:11 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL function "get_background_courses" statement 1
+Dec 14, 2012 2:03:11 PM org.hsm.control.Control logStart
+INFO: Get addable background courses of course {Chương trình dịch}
+Dec 14, 2012 2:03:11 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_addable_background(84)
+Dec 14, 2012 2:03:11 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {Chương trình dịch}
+Dec 14, 2012 2:03:11 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(84)
+Dec 14, 2012 2:03:11 PM org.hsm.control.Control logStart
+INFO: Get classes list teaching course {Chương trình dịch}
+Dec 14, 2012 2:03:11 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classes_teaching_course(84)
+Dec 14, 2012 2:03:11 PM org.hsm.control.Control logStart
+INFO: Get full data of course {Chương trình dịch}
+Dec 14, 2012 2:03:12 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_course_data(84)
+Dec 14, 2012 2:03:12 PM org.hsm.control.Control getData
+INFO: Get background courses of course {Chương trình dịch}
+Dec 14, 2012 2:03:12 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_background_courses(84)
+Dec 14, 2012 2:03:12 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL function "get_background_courses" statement 1
+Dec 14, 2012 2:03:12 PM org.hsm.control.Control logStart
+INFO: Get addable background courses of course {Chương trình dịch}
+Dec 14, 2012 2:03:12 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_addable_background(84)
+Dec 14, 2012 2:03:12 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {Chương trình dịch}
+Dec 14, 2012 2:03:12 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(84)
+Dec 14, 2012 2:03:12 PM org.hsm.control.Control logStart
+INFO: Get classes list teaching course {Chương trình dịch}
+Dec 14, 2012 2:03:12 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classes_teaching_course(84)
+Dec 14, 2012 2:03:12 PM org.hsm.control.Control logStart
+INFO: Get full data of course {Định hướng và đạo đức nghề nghiệp}
+Dec 14, 2012 2:03:12 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_course_data(33)
+Dec 14, 2012 2:03:12 PM org.hsm.control.Control getData
+INFO: Get background courses of course {Định hướng và đạo đức nghề nghiệp}
+Dec 14, 2012 2:03:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_background_courses(33)
+Dec 14, 2012 2:03:13 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL function "get_background_courses" statement 1
+Dec 14, 2012 2:03:13 PM org.hsm.control.Control logStart
+INFO: Get addable background courses of course {Định hướng và đạo đức nghề nghiệp}
+Dec 14, 2012 2:03:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_addable_background(33)
+Dec 14, 2012 2:03:13 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {Định hướng và đạo đức nghề nghiệp}
+Dec 14, 2012 2:03:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(33)
+Dec 14, 2012 2:03:13 PM org.hsm.control.Control logStart
+INFO: Get classes list teaching course {Định hướng và đạo đức nghề nghiệp}
+Dec 14, 2012 2:03:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classes_teaching_course(33)
+Dec 14, 2012 2:03:13 PM org.hsm.control.Control logStart
+INFO: Get full data of course {Định hướng và đạo đức nghề nghiệp}
+Dec 14, 2012 2:03:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_course_data(33)
+Dec 14, 2012 2:03:13 PM org.hsm.control.Control getData
+INFO: Get background courses of course {Định hướng và đạo đức nghề nghiệp}
+Dec 14, 2012 2:03:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_background_courses(33)
+Dec 14, 2012 2:03:13 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL function "get_background_courses" statement 1
+Dec 14, 2012 2:03:13 PM org.hsm.control.Control logStart
+INFO: Get addable background courses of course {Định hướng và đạo đức nghề nghiệp}
+Dec 14, 2012 2:03:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_addable_background(33)
+Dec 14, 2012 2:03:13 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {Định hướng và đạo đức nghề nghiệp}
+Dec 14, 2012 2:03:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(33)
+Dec 14, 2012 2:03:13 PM org.hsm.control.Control logStart
+INFO: Get classes list teaching course {Định hướng và đạo đức nghề nghiệp}
+Dec 14, 2012 2:03:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classes_teaching_course(33)
+Dec 14, 2012 2:03:14 PM org.hsm.control.Control logStart
+INFO: Get full data of course {Các vấn đề hiện đại của Công nghệ thông tin}
+Dec 14, 2012 2:03:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_course_data(104)
+Dec 14, 2012 2:03:14 PM org.hsm.control.Control getData
+INFO: Get background courses of course {Các vấn đề hiện đại của Công nghệ thông tin}
+Dec 14, 2012 2:03:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_background_courses(104)
+Dec 14, 2012 2:03:14 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL function "get_background_courses" statement 1
+Dec 14, 2012 2:03:14 PM org.hsm.control.Control logStart
+INFO: Get addable background courses of course {Các vấn đề hiện đại của Công nghệ thông tin}
+Dec 14, 2012 2:03:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_addable_background(104)
+Dec 14, 2012 2:03:14 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {Các vấn đề hiện đại của Công nghệ thông tin}
+Dec 14, 2012 2:03:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(104)
+Dec 14, 2012 2:03:14 PM org.hsm.control.Control logStart
+INFO: Get classes list teaching course {Các vấn đề hiện đại của Công nghệ thông tin}
+Dec 14, 2012 2:03:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classes_teaching_course(104)
+Dec 14, 2012 2:03:14 PM org.hsm.control.Control logStart
+INFO: Get full data of course {Các vấn đề hiện đại của Công nghệ thông tin}
+Dec 14, 2012 2:03:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_course_data(104)
+Dec 14, 2012 2:03:14 PM org.hsm.control.Control getData
+INFO: Get background courses of course {Các vấn đề hiện đại của Công nghệ thông tin}
+Dec 14, 2012 2:03:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_background_courses(104)
+Dec 14, 2012 2:03:14 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL function "get_background_courses" statement 1
+Dec 14, 2012 2:03:14 PM org.hsm.control.Control logStart
+INFO: Get addable background courses of course {Các vấn đề hiện đại của Công nghệ thông tin}
+Dec 14, 2012 2:03:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_addable_background(104)
+Dec 14, 2012 2:03:14 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {Các vấn đề hiện đại của Công nghệ thông tin}
+Dec 14, 2012 2:03:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(104)
+Dec 14, 2012 2:03:14 PM org.hsm.control.Control logStart
+INFO: Get classes list teaching course {Các vấn đề hiện đại của Công nghệ thông tin}
+Dec 14, 2012 2:03:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classes_teaching_course(104)
+Dec 14, 2012 2:03:18 PM org.hsm.control.Control logStart
+INFO: Get background constrains related with course{Các vấn đề hiện đại của Công nghệ thông tin}
+Dec 14, 2012 2:03:18 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_related_backgrounds(104)
+Dec 14, 2012 2:03:21 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {Các vấn đề hiện đại của Công nghệ thông tin}
+Dec 14, 2012 2:03:21 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(104)
+Dec 14, 2012 2:03:30 PM org.hsm.control.Control logStart
+INFO: Execute query {SELECT * FROM room;}
+Dec 14, 2012 2:03:30 PM org.hsm.service.CoreService executeQuery
+INFO: Execute update or query {SELECT * FROM room;}
+Dec 14, 2012 2:04:31 PM org.hsm.control.Control logStart
+INFO: Get lecturers in faculty {International Training Institute for Materials Science (ITIMS)}
+Dec 14, 2012 2:04:31 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_lecturers_list_in_faculty(19)
+Dec 14, 2012 2:04:31 PM org.hsm.control.Control logStart
+INFO: Get lecturers in faculty {International Training Institute for Materials Science (ITIMS)}
+Dec 14, 2012 2:04:31 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_lecturers_list_in_faculty(19)
+Dec 14, 2012 2:04:32 PM org.hsm.control.Control logStart
+INFO: Get lecturers in faculty {Information system}
+Dec 14, 2012 2:04:32 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_lecturers_list_in_faculty(37)
+Dec 14, 2012 2:04:32 PM org.hsm.control.Control logStart
+INFO: Get lecturers in faculty {Information system}
+Dec 14, 2012 2:04:32 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_lecturers_list_in_faculty(37)
+Dec 14, 2012 2:04:33 PM org.hsm.control.Control logStart
+INFO: Get statistic information of lecturer {Nguyễn Thị Oanh}
+Dec 14, 2012 2:04:33 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_lecturer_statistic5(72)
+Dec 14, 2012 2:04:33 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Nguyễn Thị Oanh}
+Dec 14, 2012 2:04:33 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_lecturer_in_faculty(72)
+Dec 14, 2012 2:04:33 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {314}
+Dec 14, 2012 2:04:34 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(314)
+Dec 14, 2012 2:04:34 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {29}
+Dec 14, 2012 2:04:34 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(29)
+Dec 14, 2012 2:04:34 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {29}
+Dec 14, 2012 2:04:34 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(29)
+Dec 14, 2012 2:04:34 PM org.hsm.control.Control logStart
+INFO: Get teaching information of lecturer {Nguyễn Thị Oanh}
+Dec 14, 2012 2:04:34 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_teach_info_lecturer(72)
+Dec 14, 2012 2:04:34 PM org.hsm.control.Control logStart
+INFO: Get statistic information of lecturer {Nguyễn Thị Oanh}
+Dec 14, 2012 2:04:34 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_lecturer_statistic5(72)
+Dec 14, 2012 2:04:34 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Nguyễn Thị Oanh}
+Dec 14, 2012 2:04:34 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_lecturer_in_faculty(72)
+Dec 14, 2012 2:04:34 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {314}
+Dec 14, 2012 2:04:34 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(314)
+Dec 14, 2012 2:04:34 PM org.hsm.control.Control logStart
+INFO: Get teaching information of lecturer {Nguyễn Thị Oanh}
+Dec 14, 2012 2:04:34 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_teach_info_lecturer(72)
+Dec 14, 2012 2:04:43 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {24}
+Dec 14, 2012 2:04:43 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(24)
+Dec 14, 2012 2:04:43 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {24}
+Dec 14, 2012 2:04:43 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(24)
+Dec 14, 2012 2:05:24 PM org.hsm.control.Control getData
+INFO: Save information of lecturer {Nguyễn Thị Oanh}
+Dec 14, 2012 2:05:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT update_lecturer('Nguyễn Thị'::text, 'Oanh'::text, true, 'Sat Jan 06 00:00:00 ICT 1979'::text, '
+'::text, '
+'::text, 'Giảng viên'::text, 'Ngọc Hà'::text, 193, 37, 1, 72)
+Dec 14, 2012 2:05:24 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation district
+  Where: SQL statement "LOCK TABLE district IN SHARE MODE"
+PL/pgSQL function "update_lecturer" line 7 at SQL statement
+Dec 14, 2012 2:05:35 PM org.hsm.control.Control logStart
+INFO: Create new class
+Dec 14, 2012 2:05:35 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_new_class()
+Dec 14, 2012 2:05:35 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation class
+  Where: SQL function "get_new_class" statement 1
+Dec 14, 2012 2:05:40 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Phạm Thừa Quyết}
+Dec 14, 2012 2:05:40 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38478)
+Dec 14, 2012 2:05:40 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Phạm Thừa Quyết}
+Dec 14, 2012 2:05:40 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38478)
+Dec 14, 2012 2:05:40 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {635}
+Dec 14, 2012 2:05:40 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(635)
+Dec 14, 2012 2:05:40 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {26}
+Dec 14, 2012 2:05:40 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(26)
+Dec 14, 2012 2:05:40 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {26}
+Dec 14, 2012 2:05:40 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(26)
+Dec 14, 2012 2:05:40 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Phạm Thừa Quyết}
+Dec 14, 2012 2:05:40 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38478)
+Dec 14, 2012 2:05:40 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Phạm Thừa Quyết}
+Dec 14, 2012 2:05:40 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38478)
+Dec 14, 2012 2:05:40 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Phạm Thừa Quyết}
+Dec 14, 2012 2:05:40 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38478)
+Dec 14, 2012 2:05:40 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {635}
+Dec 14, 2012 2:05:40 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(635)
+Dec 14, 2012 2:05:40 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Phạm Thừa Quyết}
+Dec 14, 2012 2:05:40 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38478)
+Dec 14, 2012 2:05:43 PM org.hsm.control.Control logStart
+INFO: Insert new student in class {BK1.05}
+Dec 14, 2012 2:05:43 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM insert_student_into_class(687)
+Dec 14, 2012 2:05:43 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation class
+  Where: SQL function "insert_student_into_class" statement 1
+Dec 14, 2012 2:05:48 PM org.hsm.control.Control logStart
+INFO: Insert new student in class {BK1.05}
+Dec 14, 2012 2:05:48 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM insert_student_into_class(687)
+Dec 14, 2012 2:05:48 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation class
+  Where: SQL function "insert_student_into_class" statement 1
+Dec 14, 2012 2:05:56 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Phạm Đắc Tiến}
+Dec 14, 2012 2:05:56 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38489)
+Dec 14, 2012 2:05:56 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Phạm Đắc Tiến}
+Dec 14, 2012 2:05:56 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38489)
+Dec 14, 2012 2:05:56 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {576}
+Dec 14, 2012 2:05:56 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(576)
+Dec 14, 2012 2:05:56 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {20}
+Dec 14, 2012 2:05:56 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(20)
+Dec 14, 2012 2:05:56 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {20}
+Dec 14, 2012 2:05:56 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(20)
+Dec 14, 2012 2:05:56 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Phạm Đắc Tiến}
+Dec 14, 2012 2:05:56 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38489)
+Dec 14, 2012 2:05:57 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Phạm Đắc Tiến}
+Dec 14, 2012 2:05:57 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38489)
+Dec 14, 2012 2:05:57 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Phạm Đắc Tiến}
+Dec 14, 2012 2:05:57 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38489)
+Dec 14, 2012 2:05:57 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {576}
+Dec 14, 2012 2:05:57 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(576)
+Dec 14, 2012 2:05:57 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Phạm Đắc Tiến}
+Dec 14, 2012 2:05:57 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38489)
+Dec 14, 2012 2:05:58 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Hoàng Thị Nhài}
+Dec 14, 2012 2:05:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38472)
+Dec 14, 2012 2:05:58 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Hoàng Thị Nhài}
+Dec 14, 2012 2:05:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38472)
+Dec 14, 2012 2:05:58 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {646}
+Dec 14, 2012 2:05:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(646)
+Dec 14, 2012 2:05:58 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {30}
+Dec 14, 2012 2:05:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(30)
+Dec 14, 2012 2:05:58 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {30}
+Dec 14, 2012 2:05:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(30)
+Dec 14, 2012 2:05:58 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Hoàng Thị Nhài}
+Dec 14, 2012 2:05:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38472)
+Dec 14, 2012 2:05:58 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Hoàng Thị Nhài}
+Dec 14, 2012 2:05:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(38472)
+Dec 14, 2012 2:05:58 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Hoàng Thị Nhài}
+Dec 14, 2012 2:05:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(38472)
+Dec 14, 2012 2:05:59 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {646}
+Dec 14, 2012 2:05:59 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(646)
+Dec 14, 2012 2:05:59 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Hoàng Thị Nhài}
+Dec 14, 2012 2:05:59 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(38472)
+Dec 14, 2012 2:06:03 PM org.hsm.control.Control logStart
+INFO: Get raw list of students in {BK02} class
+Dec 14, 2012 2:06:03 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(10)
+Dec 14, 2012 2:06:03 PM org.hsm.control.Control logStart
+INFO: Get raw list of students in {BK02} class
+Dec 14, 2012 2:06:03 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(10)
+Dec 14, 2012 2:06:04 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Tran Van Sang}
+Dec 14, 2012 2:06:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(46584)
+Dec 14, 2012 2:06:04 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Tran Van Sang}
+Dec 14, 2012 2:06:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(46584)
+Dec 14, 2012 2:06:04 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {597}
+Dec 14, 2012 2:06:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(597)
+Dec 14, 2012 2:06:04 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {6}
+Dec 14, 2012 2:06:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(6)
+Dec 14, 2012 2:06:04 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {6}
+Dec 14, 2012 2:06:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(6)
+Dec 14, 2012 2:06:04 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Tran Van Sang}
+Dec 14, 2012 2:06:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(46584)
+Dec 14, 2012 2:06:04 PM org.hsm.control.Control logStart
+INFO: Get statistic information of student {Tran Van Sang}
+Dec 14, 2012 2:06:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_student_statistic8(46584)
+Dec 14, 2012 2:06:05 PM org.hsm.control.Control logStart
+INFO: Get full data of student {Tran Van Sang}
+Dec 14, 2012 2:06:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_student(46584)
+Dec 14, 2012 2:06:05 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {597}
+Dec 14, 2012 2:06:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(597)
+Dec 14, 2012 2:06:05 PM org.hsm.control.Control logStart
+INFO: Get academic information of student {Tran Van Sang}
+Dec 14, 2012 2:06:05 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_academic_info(46584)
+Dec 14, 2012 2:06:14 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {11}
+Dec 14, 2012 2:06:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(11)
+Dec 14, 2012 2:06:14 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {11}
+Dec 14, 2012 2:06:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(11)
+Dec 14, 2012 2:06:16 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {11}
+Dec 14, 2012 2:06:16 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(11)
+Dec 14, 2012 2:06:53 PM org.hsm.control.Control logStart
+INFO: Update information of student {Tran Van Sang}
+Dec 14, 2012 2:06:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT update_full_student('Trần'::text, 'Van Sang'::text, true, 'Wed Nov 21 00:00:00 ICT 2012'::text, 'Trần văn sáng
+'::text, ''::text, ''::text, 'Hòa Lộc'::text, 435, 0.0::double precision, 10, '20152222'::text, 2012, 46584)
+Dec 14, 2012 2:06:53 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation district
+  Where: SQL statement "LOCK TABLE district IN SHARE MODE"
+PL/pgSQL function "update_full_student" line 5 at SQL statement
+Dec 14, 2012 2:07:08 PM org.hsm.control.Control logStart
+INFO: Update information of student {Tran Van Sang}
+Dec 14, 2012 2:07:08 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT update_full_student('Trần'::text, 'Van Sang'::text, true, 'Wed Nov 21 00:00:00 ICT 2012'::text, 'Trần văn sáng
+'::text, ''::text, ''::text, 'Hòa Lộc'::text, 435, 0.0::double precision, 10, '20152222'::text, 2012, 46584)
+Dec 14, 2012 2:07:08 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation district
+  Where: SQL statement "LOCK TABLE district IN SHARE MODE"
+PL/pgSQL function "update_full_student" line 5 at SQL statement
+Dec 14, 2012 2:07:42 PM org.hsm.control.Control logStart
+INFO: Update information of student {Tran Van Sang}
+Dec 14, 2012 2:07:42 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT update_full_student('Trần'::text, 'Van Sang'::text, true, 'Wed Nov 21 00:00:00 ICT 2012'::text, 'Trần văn sáng
+'::text, ''::text, ''::text, 'Hòa Lộc'::text, 435, 0.0::double precision, 10, '20152222'::text, 2012, 46584)
+Dec 14, 2012 2:07:50 PM org.hsm.control.Control logStart
+INFO: Update information of student {Trần Van Sang}
+Dec 14, 2012 2:07:50 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT update_full_student('Trần'::text, 'Van Sang'::text, true, 'Wed Nov 21 00:00:00 ICT 2012'::text, 'Trần văn sáng
+'::text, ''::text, ''::text, 'Hòa Lộc'::text, 435, 0.0::double precision, 683, '20152222'::text, 2012, 46584)
+Dec 14, 2012 2:07:56 PM org.hsm.control.Control logStart
+INFO: Update information of student {Trần Van Sang}
+Dec 14, 2012 2:07:56 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT update_full_student('Trần'::text, 'Van Sang'::text, true, 'Wed Nov 21 00:00:00 ICT 2012'::text, 'Trần văn sáng
+'::text, ''::text, ''::text, 'Hòa Lộc'::text, 435, 0.0::double precision, 10, '20152222'::text, 2012, 46584)
+Dec 14, 2012 2:08:06 PM org.hsm.control.Control logStart
+INFO: Save academic information of student {Trần Van Sang}
+Dec 14, 2012 2:08:06 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT update_academic_info(46584, -1::double precision)
+Dec 14, 2012 2:08:06 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation teach
+  Where: SQL statement "LOCK TABLE teach IN SHARE MODE"
+PL/pgSQL function "update_academic_info" line 7 at SQL statement
+Dec 14, 2012 2:09:27 PM org.hsm.control.Control logStart
+INFO: Save academic information of student {Trần Van Sang}
+Dec 14, 2012 2:09:27 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT update_academic_info(46584, -1::double precision)
+Dec 14, 2012 2:09:27 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL statement "LOCK TABLE background, course, study IN SHARE MODE"
+PL/pgSQL function "check_student" line 9 at SQL statement
+SQL statement "SELECT check_student($1)"
+PL/pgSQL function "update_academic_info" line 21 at PERFORM
+Dec 14, 2012 2:12:48 PM org.hsm.control.Control logStart
+INFO: Get lecturers in faculty {Computer science}
+Dec 14, 2012 2:12:48 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_lecturers_list_in_faculty(39)
+Dec 14, 2012 2:12:49 PM org.hsm.control.Control logStart
+INFO: Get lecturers in faculty {Computer science}
+Dec 14, 2012 2:12:49 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_lecturers_list_in_faculty(39)
+Dec 14, 2012 2:12:49 PM org.hsm.control.Control logStart
+INFO: Get statistic information of lecturer {Lương Ánh Hoàng}
+Dec 14, 2012 2:12:49 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_lecturer_statistic5(44)
+Dec 14, 2012 2:12:49 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Lương Ánh Hoàng}
+Dec 14, 2012 2:12:49 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_lecturer_in_faculty(44)
+Dec 14, 2012 2:12:49 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {615}
+Dec 14, 2012 2:12:49 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(615)
+Dec 14, 2012 2:12:49 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {63}
+Dec 14, 2012 2:12:49 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(63)
+Dec 14, 2012 2:12:49 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {63}
+Dec 14, 2012 2:12:49 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(63)
+Dec 14, 2012 2:12:49 PM org.hsm.control.Control logStart
+INFO: Get teaching information of lecturer {Lương Ánh Hoàng}
+Dec 14, 2012 2:12:49 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_teach_info_lecturer(44)
+Dec 14, 2012 2:12:49 PM org.hsm.control.Control logStart
+INFO: Get statistic information of lecturer {Lương Ánh Hoàng}
+Dec 14, 2012 2:12:49 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_lecturer_statistic5(44)
+Dec 14, 2012 2:12:49 PM org.hsm.control.Control getData
+INFO: Get full data of lecturer {Lương Ánh Hoàng}
+Dec 14, 2012 2:12:49 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_data_lecturer_in_faculty(44)
+Dec 14, 2012 2:12:49 PM org.hsm.control.Control logStart
+INFO: Get city of district with id {615}
+Dec 14, 2012 2:12:49 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_of_district(615)
+Dec 14, 2012 2:12:50 PM org.hsm.control.Control logStart
+INFO: Get teaching information of lecturer {Lương Ánh Hoàng}
+Dec 14, 2012 2:12:50 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_teach_info_lecturer(44)
+Dec 14, 2012 2:12:53 PM org.hsm.control.Control getData
+INFO: Save information of lecturer {Lương Ánh Hoàng}
+Dec 14, 2012 2:12:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT update_lecturer('Lương Ánh'::text, 'Hoàng'::text, true, 'Mon Sep 07 00:00:00 ICT 1981'::text, '
+'::text, '
+'::text, 'Giảng viên'::text, ''::text, 615, 39, 2, 44)
+Dec 14, 2012 2:12:53 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation district
+  Where: SQL statement "LOCK TABLE district IN SHARE MODE"
+PL/pgSQL function "update_lecturer" line 7 at SQL statement
+Dec 14, 2012 2:13:40 PM org.hsm.control.Control getData
+INFO: Save information of lecturer {Lương Ánh Hoàng}
+Dec 14, 2012 2:13:40 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT update_lecturer('Lương Ánh'::text, 'Hoàng'::text, true, 'Mon Sep 07 00:00:00 ICT 1981'::text, '
+'::text, '
+'::text, 'Giảng viên'::text, ''::text, 615, 39, 2, 44)
+Dec 14, 2012 2:13:40 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation lecturer
+  Where: SQL statement "UPDATE lecturer
+	SET
+		first = $1
+		, last = $2
+		, sex = $3
+		, dob = $4::date
+		, emails = $5
+		, phones = $6
+		, note = $7
+		, home = $8
+		, dt = $9
+		, fc = $10
+		, dg = $11
+	WHERE ct = $12"
+PL/pgSQL function "update_lecturer" line 32 at SQL statement
+Dec 14, 2012 2:13:58 PM org.hsm.control.Control logStart
+INFO: Reload name of room {C7-106}
+Dec 14, 2012 2:13:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(158)
+Dec 14, 2012 2:13:58 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {C7-106}
+Dec 14, 2012 2:13:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(158)
+Dec 14, 2012 2:13:58 PM org.hsm.control.Control logStart
+INFO: Reload name of room {C7-106}
+Dec 14, 2012 2:13:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(158)
+Dec 14, 2012 2:13:58 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {C7-106}
+Dec 14, 2012 2:13:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(158)
+Dec 14, 2012 2:14:00 PM org.hsm.control.Control logStart
+INFO: Get full data of course {Các hệ thống lưu trữ lớn}
+Dec 14, 2012 2:14:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_course_data(64)
+Dec 14, 2012 2:14:00 PM org.hsm.control.Control getData
+INFO: Get background courses of course {Các hệ thống lưu trữ lớn}
+Dec 14, 2012 2:14:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_background_courses(64)
+Dec 14, 2012 2:14:00 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL function "get_background_courses" statement 1
+Dec 14, 2012 2:14:00 PM org.hsm.control.Control logStart
+INFO: Get addable background courses of course {Các hệ thống lưu trữ lớn}
+Dec 14, 2012 2:14:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_addable_background(64)
+Dec 14, 2012 2:14:00 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {Các hệ thống lưu trữ lớn}
+Dec 14, 2012 2:14:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(64)
+Dec 14, 2012 2:14:00 PM org.hsm.control.Control logStart
+INFO: Get classes list teaching course {Các hệ thống lưu trữ lớn}
+Dec 14, 2012 2:14:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classes_teaching_course(64)
+Dec 14, 2012 2:14:00 PM org.hsm.control.Control logStart
+INFO: Get full data of course {Các hệ thống lưu trữ lớn}
+Dec 14, 2012 2:14:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_course_data(64)
+Dec 14, 2012 2:14:00 PM org.hsm.control.Control getData
+INFO: Get background courses of course {Các hệ thống lưu trữ lớn}
+Dec 14, 2012 2:14:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_background_courses(64)
+Dec 14, 2012 2:14:00 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL function "get_background_courses" statement 1
+Dec 14, 2012 2:14:00 PM org.hsm.control.Control logStart
+INFO: Get addable background courses of course {Các hệ thống lưu trữ lớn}
+Dec 14, 2012 2:14:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_addable_background(64)
+Dec 14, 2012 2:14:00 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {Các hệ thống lưu trữ lớn}
+Dec 14, 2012 2:14:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(64)
+Dec 14, 2012 2:14:00 PM org.hsm.control.Control logStart
+INFO: Get classes list teaching course {Các hệ thống lưu trữ lớn}
+Dec 14, 2012 2:14:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classes_teaching_course(64)
+Dec 14, 2012 2:14:01 PM org.hsm.control.Control logStart
+INFO: Get full data of course {2}
+Dec 14, 2012 2:14:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_course_data(111)
+Dec 14, 2012 2:14:01 PM org.hsm.control.Control getData
+INFO: Get background courses of course {2}
+Dec 14, 2012 2:14:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_background_courses(111)
+Dec 14, 2012 2:14:01 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL function "get_background_courses" statement 1
+Dec 14, 2012 2:14:01 PM org.hsm.control.Control logStart
+INFO: Get addable background courses of course {2}
+Dec 14, 2012 2:14:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_addable_background(111)
+Dec 14, 2012 2:14:01 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {2}
+Dec 14, 2012 2:14:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(111)
+Dec 14, 2012 2:14:01 PM org.hsm.control.Control logStart
+INFO: Get classes list teaching course {2}
+Dec 14, 2012 2:14:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classes_teaching_course(111)
+Dec 14, 2012 2:14:01 PM org.hsm.control.Control logStart
+INFO: Get full data of course {2}
+Dec 14, 2012 2:14:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_course_data(111)
+Dec 14, 2012 2:14:01 PM org.hsm.control.Control getData
+INFO: Get background courses of course {2}
+Dec 14, 2012 2:14:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_background_courses(111)
+Dec 14, 2012 2:14:01 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL function "get_background_courses" statement 1
+Dec 14, 2012 2:14:01 PM org.hsm.control.Control logStart
+INFO: Get addable background courses of course {2}
+Dec 14, 2012 2:14:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_addable_background(111)
+Dec 14, 2012 2:14:01 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {2}
+Dec 14, 2012 2:14:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(111)
+Dec 14, 2012 2:14:01 PM org.hsm.control.Control logStart
+INFO: Get classes list teaching course {2}
+Dec 14, 2012 2:14:01 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classes_teaching_course(111)
+Dec 14, 2012 2:14:02 PM org.hsm.control.Control logStart
+INFO: Get full data of course {3}
+Dec 14, 2012 2:14:02 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_course_data(113)
+Dec 14, 2012 2:14:03 PM org.hsm.control.Control getData
+INFO: Get background courses of course {3}
+Dec 14, 2012 2:14:03 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_background_courses(113)
+Dec 14, 2012 2:14:03 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL function "get_background_courses" statement 1
+Dec 14, 2012 2:14:03 PM org.hsm.control.Control logStart
+INFO: Get addable background courses of course {3}
+Dec 14, 2012 2:14:03 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_addable_background(113)
+Dec 14, 2012 2:14:03 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {3}
+Dec 14, 2012 2:14:03 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(113)
+Dec 14, 2012 2:14:03 PM org.hsm.control.Control logStart
+INFO: Get classes list teaching course {3}
+Dec 14, 2012 2:14:03 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classes_teaching_course(113)
+Dec 14, 2012 2:14:03 PM org.hsm.control.Control logStart
+INFO: Get full data of course {3}
+Dec 14, 2012 2:14:03 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_course_data(113)
+Dec 14, 2012 2:14:03 PM org.hsm.control.Control getData
+INFO: Get background courses of course {3}
+Dec 14, 2012 2:14:03 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_background_courses(113)
+Dec 14, 2012 2:14:03 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL function "get_background_courses" statement 1
+Dec 14, 2012 2:14:03 PM org.hsm.control.Control logStart
+INFO: Get addable background courses of course {3}
+Dec 14, 2012 2:14:03 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_addable_background(113)
+Dec 14, 2012 2:14:03 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {3}
+Dec 14, 2012 2:14:03 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(113)
+Dec 14, 2012 2:14:03 PM org.hsm.control.Control logStart
+INFO: Get classes list teaching course {3}
+Dec 14, 2012 2:14:03 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classes_teaching_course(113)
+Dec 14, 2012 2:14:03 PM org.hsm.control.Control logStart
+INFO: Get full data of course {1}
+Dec 14, 2012 2:14:03 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_course_data(110)
+Dec 14, 2012 2:14:04 PM org.hsm.control.Control getData
+INFO: Get background courses of course {1}
+Dec 14, 2012 2:14:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_background_courses(110)
+Dec 14, 2012 2:14:04 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL function "get_background_courses" statement 1
+Dec 14, 2012 2:14:04 PM org.hsm.control.Control logStart
+INFO: Get addable background courses of course {1}
+Dec 14, 2012 2:14:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_addable_background(110)
+Dec 14, 2012 2:14:04 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {1}
+Dec 14, 2012 2:14:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(110)
+Dec 14, 2012 2:14:04 PM org.hsm.control.Control logStart
+INFO: Get classes list teaching course {1}
+Dec 14, 2012 2:14:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classes_teaching_course(110)
+Dec 14, 2012 2:14:04 PM org.hsm.control.Control logStart
+INFO: Get full data of course {1}
+Dec 14, 2012 2:14:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_course_data(110)
+Dec 14, 2012 2:14:04 PM org.hsm.control.Control getData
+INFO: Get background courses of course {1}
+Dec 14, 2012 2:14:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_background_courses(110)
+Dec 14, 2012 2:14:04 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: permission denied for relation background
+  Where: SQL function "get_background_courses" statement 1
+Dec 14, 2012 2:14:04 PM org.hsm.control.Control logStart
+INFO: Get addable background courses of course {1}
+Dec 14, 2012 2:14:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_addable_background(110)
+Dec 14, 2012 2:14:04 PM org.hsm.control.Control logStart
+INFO: Get statistic of single course {1}
+Dec 14, 2012 2:14:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_single_courses_statistic(110)
+Dec 14, 2012 2:14:04 PM org.hsm.control.Control logStart
+INFO: Get classes list teaching course {1}
+Dec 14, 2012 2:14:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classes_teaching_course(110)
+Dec 14, 2012 2:14:10 PM org.hsm.control.Control fire
+INFO: System exits

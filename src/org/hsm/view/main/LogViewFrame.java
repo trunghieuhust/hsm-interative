@@ -52,23 +52,23 @@ public class LogViewFrame extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new FormLayout(
-				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
-						ColumnSpec.decode("default:grow"),
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] {
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.DEFAULT_ROWSPEC,
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.DEFAULT_ROWSPEC,
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.DEFAULT_ROWSPEC,
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.DEFAULT_ROWSPEC,
-						FormFactory.RELATED_GAP_ROWSPEC,
-						RowSpec.decode("default:grow"), }));
+		contentPane.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),}));
 
 		chckbxAlwayOnTop = new JCheckBox("Alway on top");
+		chckbxAlwayOnTop.setMnemonic('a');
 		chckbxAlwayOnTop.setSelected(true);
 		chckbxAlwayOnTop.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
@@ -78,6 +78,7 @@ public class LogViewFrame extends JFrame {
 		contentPane.add(chckbxAlwayOnTop, "2, 2");
 
 		JButton btnClear = new JButton("Clear");
+		btnClear.setMnemonic('c');
 		btnClear.setToolTipText("Clear log view not affecting log file");
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -87,6 +88,7 @@ public class LogViewFrame extends JFrame {
 		contentPane.add(btnClear, "2, 4");
 
 		btnClose = new JButton("Close");
+		btnClose.setMnemonic('s');
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Control.getInstance().fire("setLogViewVisible", false);

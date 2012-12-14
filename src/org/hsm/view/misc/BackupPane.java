@@ -34,17 +34,25 @@ public class BackupPane extends JPanel {
 	public BackupPane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"), }));
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),}));
 		JLabel selectlb = DefaultComponentFactory.getInstance().createLabel(
 				"Select table");
-		add(selectlb, "2,2");
+		add(selectlb, "2, 2, 3, 1");
 
 		JRadioButton ckbcsv = new JRadioButton("CSV");
 		ckbcsv.setToolTipText("Back up to CSV file");
@@ -81,53 +89,47 @@ public class BackupPane extends JPanel {
 		SelectTablePane selecttable = new SelectTablePane();
 		selecttable.jtable.setBorder(new BevelBorder(BevelBorder.LOWERED, null,
 				null, null, null));
-		add(selecttable, "2, 4, fill, fill");
+		add(selecttable, "2, 4, 3, 1, fill, fill");
 
 		JLabel backuplb = DefaultComponentFactory.getInstance().createLabel(
 				"Backup to");
 		add(backuplb, "2, 6");
-		JPanel btnpanel = new JPanel();
-		btnpanel.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC, },
-				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
+		
+				JButton btnclient = new JButton("Client backup");
+				add(btnclient, "2, 8, left, default");
+				btnclient.setToolTipText("Backup to client");
+				btnclient.addActionListener(new ActionListener() {
 
-		JButton btnclient = new JButton("Client backup");
-		btnclient.setToolTipText("Backup to client");
-		btnclient.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String url = getOutputFolder();
-				output.append("Running....");
-				try {
-					total_rows = BackupService.get_instance().client_copyout(
-							url);
-				} catch (IOException e1) {
-					output.append("Backup failed.See log for details\n");
-					e1.printStackTrace();
-				}
-				output.append("Done.\nTotal rows:" + total_rows + "\n");
-			}
-		});
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						String url = getOutputFolder();
+						output.append("Running....");
+						try {
+							total_rows = BackupService.get_instance().client_copyout(
+									url);
+						} catch (IOException e1) {
+							output.append("Backup failed.See log for details\n");
+							e1.printStackTrace();
+						}
+						output.append("Done.\nTotal rows:" + total_rows + "\n");
+					}
+				});
 		JButton btnserver = new JButton("Server backup");
+		add(btnserver, "4, 8, left, default");
 		btnserver.setToolTipText("Backup to server");
-
-		btnserver.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-		btnpanel.add(btnclient, "1,1");
-		btnpanel.add(btnserver, "3,1");
-		add(btnpanel, "2, 8, fill, fill");
+		
+				btnserver.addActionListener(new ActionListener() {
+		
+					@Override
+					public void actionPerformed(ActionEvent e) {
+		
+					}
+				});
 		JLabel resultlb = DefaultComponentFactory.getInstance().createLabel(
 				"Console");
-		add(resultlb, "2, 10");
+		add(resultlb, "2, 10, 3, 1");
 		output = new JTextArea();
-		add(output, "2, 12,fill,fill");
+		add(output, "2, 12, 3, 1, fill, fill");
 		output.setAutoscrolls(true);
 		output.setEditable(false);
 		output.setToolTipText("Display result.");

@@ -1,0 +1,549 @@
+Dec 14, 2012 1:27:10 PM org.hsm.control.Control start
+INFO: System starts
+Dec 14, 2012 1:27:13 PM org.hsm.control.Control start
+INFO: Open login window
+Dec 14, 2012 1:27:20 PM org.hsm.control.Control tryLogin
+INFO: Try login
+Dec 14, 2012 1:27:21 PM org.hsm.control.Control tryLogin
+INFO: Login success
+Dec 14, 2012 1:27:21 PM org.hsm.control.Control logStart
+INFO: Fetch class list
+Dec 14, 2012 1:27:21 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_class_list()
+Dec 14, 2012 1:27:22 PM org.hsm.control.Control logStart
+INFO: Get list of cities
+Dec 14, 2012 1:27:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Dec 14, 2012 1:27:23 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {1}
+Dec 14, 2012 1:27:23 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(1)
+Dec 14, 2012 1:27:23 PM org.hsm.control.Control logStart
+INFO: Get list of class
+Dec 14, 2012 1:27:23 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_class_list()
+Dec 14, 2012 1:27:23 PM org.hsm.control.Control logStart
+INFO: Get raw list of teaching classes
+Dec 14, 2012 1:27:23 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_list_of_teaching_classes()
+Dec 14, 2012 1:27:23 PM org.hsm.control.Control logStart
+INFO: Get list of faculties
+Dec 14, 2012 1:27:23 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_faculty_list()
+Dec 14, 2012 1:27:24 PM org.hsm.control.Control logStart
+INFO: Get list of cities
+Dec 14, 2012 1:27:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Dec 14, 2012 1:27:24 PM org.hsm.control.Control logStart
+INFO: Get list of districts in city having id {1}
+Dec 14, 2012 1:27:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_districts_in_city(1)
+Dec 14, 2012 1:27:24 PM org.hsm.control.Control logStart
+INFO: Get list of faculties
+Dec 14, 2012 1:27:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_faculty_list()
+Dec 14, 2012 1:27:24 PM org.hsm.control.Control logStart
+INFO: Get list of degrees
+Dec 14, 2012 1:27:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_degree_list()
+Dec 14, 2012 1:27:25 PM org.hsm.control.Control logStart
+INFO: Get raw list of teaching classes
+Dec 14, 2012 1:27:25 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_list_of_teaching_classes()
+Dec 14, 2012 1:27:25 PM org.hsm.control.Control logStart
+INFO: Get courses list
+Dec 14, 2012 1:27:25 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_courses_list()
+Dec 14, 2012 1:27:25 PM org.hsm.control.Control logStart
+INFO: Get list of all lecturers
+Dec 14, 2012 1:27:25 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_all_lecturers()
+Dec 14, 2012 1:27:25 PM org.hsm.control.Control logStart
+INFO: Get list of rooms
+Dec 14, 2012 1:27:25 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_list()
+Dec 14, 2012 1:27:25 PM org.hsm.control.Control logStart
+INFO: Get list of cities
+Dec 14, 2012 1:27:25 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_city_list()
+Dec 14, 2012 1:27:26 PM org.hsm.control.Control logStart
+INFO: Get list of rooms
+Dec 14, 2012 1:27:26 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_list()
+Dec 14, 2012 1:27:26 PM org.hsm.control.Control logStart
+INFO: Get courses list
+Dec 14, 2012 1:27:26 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_courses_list()
+Dec 14, 2012 1:27:27 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_table_info()
+Dec 14, 2012 1:27:27 PM org.hsm.control.Control logStart
+INFO: Get login information{host}
+Dec 14, 2012 1:27:27 PM org.hsm.control.Control logStart
+INFO: Get login information{port}
+Dec 14, 2012 1:27:27 PM org.hsm.control.Control logStart
+INFO: Get login information{database}
+Dec 14, 2012 1:27:27 PM org.hsm.control.Control logStart
+INFO: Get login information{username}
+Dec 14, 2012 1:27:27 PM org.hsm.control.Control tryLogin
+INFO: Show main function window
+Dec 14, 2012 1:28:19 PM org.hsm.control.Control logStart
+INFO: Reload name of room {401xxxxx}
+Dec 14, 2012 1:28:19 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(1)
+Dec 14, 2012 1:28:19 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {401xxxxx}
+Dec 14, 2012 1:28:19 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(1)
+Dec 14, 2012 1:28:19 PM org.hsm.control.Control logStart
+INFO: Reload name of room {401xxxxx}
+Dec 14, 2012 1:28:19 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(1)
+Dec 14, 2012 1:28:19 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {401xxxxx}
+Dec 14, 2012 1:28:19 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(1)
+Dec 14, 2012 1:28:24 PM org.hsm.control.Control logStart
+INFO: Change name of room {401xxxxx} into {401}
+Dec 14, 2012 1:28:24 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT update_room(1, '401'::text)
+Dec 14, 2012 1:28:29 PM org.hsm.control.Control logStart
+INFO: Get new room
+Dec 14, 2012 1:28:29 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_new_room()
+Dec 14, 2012 1:28:29 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: duplicate key value violates unique constraint "uq_room_name"
+  Detail: Key (name)=(New room) already exists.
+  Where: SQL function "get_new_room" statement 1
+Dec 14, 2012 1:28:32 PM org.hsm.control.Control logStart
+INFO: Reload name of room {New room}
+Dec 14, 2012 1:28:32 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(8)
+Dec 14, 2012 1:28:32 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {New room}
+Dec 14, 2012 1:28:32 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(8)
+Dec 14, 2012 1:28:32 PM org.hsm.control.Control logStart
+INFO: Reload name of room {New room}
+Dec 14, 2012 1:28:32 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(8)
+Dec 14, 2012 1:28:32 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {New room}
+Dec 14, 2012 1:28:32 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(8)
+Dec 14, 2012 1:28:37 PM org.hsm.control.Control logStart
+INFO: Change name of room {New room} into {402}
+Dec 14, 2012 1:28:37 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT update_room(8, '402'::text)
+Dec 14, 2012 1:28:41 PM org.hsm.control.Control logStart
+INFO: Reload name of room {Giaos dục thể chất}
+Dec 14, 2012 1:28:41 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(2)
+Dec 14, 2012 1:28:41 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {Giaos dục thể chất}
+Dec 14, 2012 1:28:41 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(2)
+Dec 14, 2012 1:28:41 PM org.hsm.control.Control logStart
+INFO: Reload name of room {Giaos dục thể chất}
+Dec 14, 2012 1:28:41 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(2)
+Dec 14, 2012 1:28:41 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {Giaos dục thể chất}
+Dec 14, 2012 1:28:41 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(2)
+Dec 14, 2012 1:39:07 PM org.hsm.control.Control logStart
+INFO: Get list of rooms
+Dec 14, 2012 1:39:07 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_list()
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Reload name of room {D6-407}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(152)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {D6-407}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(152)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Reload name of room {D9-201}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(18)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {D9-201}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(18)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Reload name of room {D9-206}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(23)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {D9-206}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(23)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Reload name of room {D9-303}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(27)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {D9-303}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(27)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Reload name of room {D9-305}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(29)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {D9-305}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(29)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Reload name of room {D9-307}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(31)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {D9-307}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(31)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Reload name of room {D9-402}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(32)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {D9-402}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(32)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Reload name of room {D9-402}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(32)
+Dec 14, 2012 1:39:13 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {D9-402}
+Dec 14, 2012 1:39:13 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(32)
+Dec 14, 2012 1:39:14 PM org.hsm.control.Control logStart
+INFO: Reload name of room {New roomxx}
+Dec 14, 2012 1:39:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(6)
+Dec 14, 2012 1:39:14 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {New roomxx}
+Dec 14, 2012 1:39:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(6)
+Dec 14, 2012 1:39:14 PM org.hsm.control.Control logStart
+INFO: Reload name of room {New roomxx}
+Dec 14, 2012 1:39:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(6)
+Dec 14, 2012 1:39:14 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {New roomxx}
+Dec 14, 2012 1:39:14 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(6)
+Dec 14, 2012 1:39:22 PM org.hsm.control.Control logStart
+INFO: Reload name of room {Giaos dục thể chất}
+Dec 14, 2012 1:39:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(2)
+Dec 14, 2012 1:39:22 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {Giaos dục thể chất}
+Dec 14, 2012 1:39:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(2)
+Dec 14, 2012 1:39:22 PM org.hsm.control.Control logStart
+INFO: Reload name of room {Giaos dục thể chất}
+Dec 14, 2012 1:39:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(2)
+Dec 14, 2012 1:39:22 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {Giaos dục thể chất}
+Dec 14, 2012 1:39:22 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(2)
+Dec 14, 2012 1:39:38 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {1}
+Dec 14, 2012 1:39:38 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(3)
+Dec 14, 2012 1:39:38 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {1}
+Dec 14, 2012 1:39:38 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(3)
+Dec 14, 2012 1:39:38 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {1}
+Dec 14, 2012 1:39:38 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(3)
+Dec 14, 2012 1:39:38 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {1}
+Dec 14, 2012 1:39:38 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(3)
+Dec 14, 2012 1:39:42 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {3}
+Dec 14, 2012 1:39:42 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(5)
+Dec 14, 2012 1:39:42 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {3}
+Dec 14, 2012 1:39:42 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(5)
+Dec 14, 2012 1:39:43 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {3}
+Dec 14, 2012 1:39:43 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(5)
+Dec 14, 2012 1:39:43 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {3}
+Dec 14, 2012 1:39:43 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(5)
+Dec 14, 2012 1:39:44 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {2}
+Dec 14, 2012 1:39:44 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(4)
+Dec 14, 2012 1:39:44 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {2}
+Dec 14, 2012 1:39:44 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(4)
+Dec 14, 2012 1:39:44 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {2}
+Dec 14, 2012 1:39:44 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(4)
+Dec 14, 2012 1:39:44 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {2}
+Dec 14, 2012 1:39:44 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(4)
+Dec 14, 2012 1:39:45 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {GIoi thieu cntt}
+Dec 14, 2012 1:39:45 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(7)
+Dec 14, 2012 1:39:45 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {GIoi thieu cntt}
+Dec 14, 2012 1:39:45 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(7)
+Dec 14, 2012 1:39:45 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {GIoi thieu cntt}
+Dec 14, 2012 1:39:45 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(7)
+Dec 14, 2012 1:39:45 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {GIoi thieu cntt}
+Dec 14, 2012 1:39:45 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(7)
+Dec 14, 2012 1:39:49 PM org.hsm.control.Control logStart
+INFO: Remove teaching class {GIoi thieu cntt}
+Dec 14, 2012 1:39:49 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT delete_teaching_class(7)
+Dec 14, 2012 1:39:51 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {2}
+Dec 14, 2012 1:39:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(4)
+Dec 14, 2012 1:39:51 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {2}
+Dec 14, 2012 1:39:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(4)
+Dec 14, 2012 1:39:51 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {2}
+Dec 14, 2012 1:39:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(4)
+Dec 14, 2012 1:39:51 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {2}
+Dec 14, 2012 1:39:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(4)
+Dec 14, 2012 1:39:53 PM org.hsm.control.Control logStart
+INFO: Remove teaching class {2}
+Dec 14, 2012 1:39:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT delete_teaching_class(4)
+Dec 14, 2012 1:39:54 PM org.hsm.service.CoreService queryFull
+WARNING: ERROR: update or delete on table "teach" violates foreign key constraint "fk_teach" on table "study"
+  Detail: Key (tc)=(4) is still referenced from table "study".
+  Where: SQL statement "DELETE FROM teach WHERE tc = $1"
+PL/pgSQL function "delete_teaching_class" line 11 at SQL statement
+Dec 14, 2012 1:39:58 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {1}
+Dec 14, 2012 1:39:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(3)
+Dec 14, 2012 1:39:58 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {1}
+Dec 14, 2012 1:39:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(3)
+Dec 14, 2012 1:39:58 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {1}
+Dec 14, 2012 1:39:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(3)
+Dec 14, 2012 1:39:58 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {1}
+Dec 14, 2012 1:39:58 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(3)
+Dec 14, 2012 1:40:00 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {3}
+Dec 14, 2012 1:40:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(5)
+Dec 14, 2012 1:40:00 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {3}
+Dec 14, 2012 1:40:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(5)
+Dec 14, 2012 1:40:00 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {3}
+Dec 14, 2012 1:40:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(5)
+Dec 14, 2012 1:40:00 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {3}
+Dec 14, 2012 1:40:00 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(5)
+Dec 14, 2012 1:40:02 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {1}
+Dec 14, 2012 1:40:02 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(3)
+Dec 14, 2012 1:40:02 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {1}
+Dec 14, 2012 1:40:02 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(3)
+Dec 14, 2012 1:40:02 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {1}
+Dec 14, 2012 1:40:02 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(3)
+Dec 14, 2012 1:40:02 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {1}
+Dec 14, 2012 1:40:02 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(3)
+Dec 14, 2012 1:40:16 PM org.hsm.control.Control logStart
+INFO: Get raw list of students in {BK1.08} class
+Dec 14, 2012 1:40:16 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(690)
+Dec 14, 2012 1:40:17 PM org.hsm.control.Control logStart
+INFO: Get raw list of students in {BK1.08} class
+Dec 14, 2012 1:40:17 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_students_list_in_class(690)
+Dec 14, 2012 1:40:31 PM org.hsm.control.Control logStart
+INFO: Execute query {SELECT * FROM student
+	WHERE name_no_hat = 'tran van sang'
+	ORDER BY name_no_hat
+	LIMIT 10}
+Dec 14, 2012 1:40:32 PM org.hsm.service.CoreService executeQuery
+INFO: Execute update or query {SELECT * FROM student
+	WHERE name_no_hat = 'tran van sang'
+	ORDER BY name_no_hat
+	LIMIT 10}
+Dec 14, 2012 1:42:33 PM org.hsm.control.Control logStart
+INFO: Remove room {Giaos dục thể chất}
+Dec 14, 2012 1:42:33 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT delete_room(2)
+Dec 14, 2012 1:42:35 PM org.hsm.control.Control logStart
+INFO: Reload name of room {New roomxx}
+Dec 14, 2012 1:42:35 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(6)
+Dec 14, 2012 1:42:35 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {New roomxx}
+Dec 14, 2012 1:42:35 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(6)
+Dec 14, 2012 1:42:35 PM org.hsm.control.Control logStart
+INFO: Reload name of room {New roomxx}
+Dec 14, 2012 1:42:35 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(6)
+Dec 14, 2012 1:42:35 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {New roomxx}
+Dec 14, 2012 1:42:35 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(6)
+Dec 14, 2012 1:42:36 PM org.hsm.control.Control logStart
+INFO: Remove room {New roomxx}
+Dec 14, 2012 1:42:36 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT delete_room(6)
+Dec 14, 2012 1:42:38 PM org.hsm.control.Control logStart
+INFO: Get new room
+Dec 14, 2012 1:42:38 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_new_room()
+Dec 14, 2012 1:42:38 PM org.hsm.control.Control logStart
+INFO: Reload name of room {New room}
+Dec 14, 2012 1:42:38 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(195)
+Dec 14, 2012 1:42:38 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {New room}
+Dec 14, 2012 1:42:38 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(195)
+Dec 14, 2012 1:42:47 PM org.hsm.control.Control logStart
+INFO: Change name of room {New room} into {Sân vận động}
+Dec 14, 2012 1:42:47 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT update_room(195, 'Sân vận động'::text)
+Dec 14, 2012 1:42:51 PM org.hsm.control.Control logStart
+INFO: Reload name of room {Phòng tập đa năng.}
+Dec 14, 2012 1:42:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(4)
+Dec 14, 2012 1:42:51 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {Phòng tập đa năng.}
+Dec 14, 2012 1:42:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(4)
+Dec 14, 2012 1:42:51 PM org.hsm.control.Control logStart
+INFO: Reload name of room {Phòng tập đa năng.}
+Dec 14, 2012 1:42:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(4)
+Dec 14, 2012 1:42:51 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {Phòng tập đa năng.}
+Dec 14, 2012 1:42:51 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(4)
+Dec 14, 2012 1:42:52 PM org.hsm.control.Control logStart
+INFO: Reload name of room {Sân vận động}
+Dec 14, 2012 1:42:52 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(195)
+Dec 14, 2012 1:42:52 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {Sân vận động}
+Dec 14, 2012 1:42:52 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(195)
+Dec 14, 2012 1:42:52 PM org.hsm.control.Control logStart
+INFO: Reload name of room {Sân vận động}
+Dec 14, 2012 1:42:52 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(195)
+Dec 14, 2012 1:42:52 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {Sân vận động}
+Dec 14, 2012 1:42:52 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(195)
+Dec 14, 2012 1:43:03 PM org.hsm.control.Control logStart
+INFO: Reload name of room {401}
+Dec 14, 2012 1:43:03 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(1)
+Dec 14, 2012 1:43:03 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {401}
+Dec 14, 2012 1:43:03 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(1)
+Dec 14, 2012 1:43:04 PM org.hsm.control.Control logStart
+INFO: Reload name of room {401}
+Dec 14, 2012 1:43:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(1)
+Dec 14, 2012 1:43:04 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {401}
+Dec 14, 2012 1:43:04 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(1)
+Dec 14, 2012 1:43:07 PM org.hsm.control.Control logStart
+INFO: Remove room {401}
+Dec 14, 2012 1:43:07 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT delete_room(1)
+Dec 14, 2012 1:43:53 PM org.hsm.control.Control logStart
+INFO: Reload name of room {D9-407}
+Dec 14, 2012 1:43:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(37)
+Dec 14, 2012 1:43:53 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {D9-407}
+Dec 14, 2012 1:43:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(37)
+Dec 14, 2012 1:43:53 PM org.hsm.control.Control logStart
+INFO: Reload name of room {D9-407}
+Dec 14, 2012 1:43:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(37)
+Dec 14, 2012 1:43:53 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {D9-407}
+Dec 14, 2012 1:43:53 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(37)
+Dec 14, 2012 1:43:54 PM org.hsm.control.Control logStart
+INFO: Reload name of room {Sân vận động}
+Dec 14, 2012 1:43:54 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(195)
+Dec 14, 2012 1:43:54 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {Sân vận động}
+Dec 14, 2012 1:43:54 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(195)
+Dec 14, 2012 1:43:54 PM org.hsm.control.Control logStart
+INFO: Reload name of room {Sân vận động}
+Dec 14, 2012 1:43:54 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_room_name(195)
+Dec 14, 2012 1:43:54 PM org.hsm.control.Control logStart
+INFO: Get teaching classes held in room {Sân vận động}
+Dec 14, 2012 1:43:54 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_classses_held_in_room(195)
+Dec 14, 2012 1:45:35 PM org.hsm.control.Control logStart
+INFO: Get full data of teaching class {2}
+Dec 14, 2012 1:45:35 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_full_teaching_class_info(4)
+Dec 14, 2012 1:45:37 PM org.hsm.control.Control logStart
+INFO: Get students list in teaching class {2}
+Dec 14, 2012 1:45:37 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_students_list_in_teaching_class(4)
+Dec 14, 2012 1:45:39 PM org.hsm.control.Control logStart
+INFO: Get raw list of teaching classes
+Dec 14, 2012 1:45:39 PM org.hsm.service.CoreService queryFull
+INFO: Execute query SELECT * FROM get_raw_list_of_teaching_classes()
+Dec 14, 2012 1:48:20 PM org.hsm.control.Control fire
+INFO: System exits

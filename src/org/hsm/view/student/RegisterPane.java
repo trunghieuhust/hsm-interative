@@ -41,129 +41,121 @@ public abstract class RegisterPane extends JPanel {
 	public RegisterPane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"), }));
-
-		JPanel panel_1 = new JPanel();
-		add(panel_1, "2, 2, fill, fill");
-		panel_1.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("max(17dlu;default):grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
-
-		comboboxClassList = new HedspiComboBox() {
-
-			/**
-									 * 
-									 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public HedspiObject[] getValues() {
-				return (HedspiObject[]) Control.getInstance().getData(
-						"getRawListOfTeachingClasses");
-			}
-		};
-		panel_1.add(comboboxClassList, "2, 2");
-		comboboxClassList.setEnabled(false);
-
-		JPanel panel = new JPanel();
-		add(panel, "2, 4, fill, fill");
-		panel.setLayout(new FormLayout(
-				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC,
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC,
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC,
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC,
-						FormFactory.RELATED_GAP_COLSPEC,
-						FormFactory.DEFAULT_COLSPEC, },
-				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
-
-		JButton btnSave = new JButton("Save");
-		btnSave.setToolTipText("Save register status of student to server");
-		btnSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (hedspiObject == null)
-					return;
-				ArrayList<AcademicInfo> arr = new ArrayList<>();
-				for (int i = 0; i < model.getRowCount(); i++) {
-					arr.add(new AcademicInfo((HedspiObject) model.getValueAt(i,
-							0), (Boolean) model.getValueAt(i, 1),
-							(Double) model.getValueAt(i, 2)));
-				}
-				String message = (String) Control.getInstance().getData(
-						"saveAcademicInfo", hedspiObject,
-						arr.toArray(new AcademicInfo[arr.size()]));
-				if (message == null)
-					JOptionPane.showMessageDialog(Control.getInstance()
-							.getMainWindow(),
-							"Update student academic's information success",
-							"Update success", JOptionPane.INFORMATION_MESSAGE);
-				else
-					JOptionPane.showMessageDialog(Control.getInstance()
-							.getMainWindow(),
-							"Update student academic's information failed.\nMessage: "
-									+ message, "Update failed",
-							JOptionPane.ERROR_MESSAGE);
-			}
-		});
-
-		JButton button = new JButton("+");
-		button.setToolTipText("Add course");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				HedspiObject teach = comboboxClassList.getSelectedObject();
-				if (teach == null)
-					return;
-				model.addRow(new Object[] { teach, false, new Double(0) });
-			}
-		});
-		panel.add(button, "2, 1");
-
-		JButton button_1 = new JButton("-");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				deleteSelected();
-			}
-		});
-		panel.add(button_1, "4, 1");
-		panel.add(btnSave, "6, 1");
-
-		JButton btnExportToHtml = new JButton("Export");
-		panel.add(btnExportToHtml, "8, 1");
-		btnExportToHtml
-				.setToolTipText("Export student's register status to html file");
-
-		chckbxIncludeContactInfo = new JCheckBox("Include contact info");
-		chckbxIncludeContactInfo
-				.setToolTipText("Check whether to include contact information in export form");
-		chckbxIncludeContactInfo.setSelected(true);
-		panel.add(chckbxIncludeContactInfo, "10, 1");
-		btnExportToHtml.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (hedspiObject == null)
-					return;
-				HedspiTable hedspiTable = new HedspiTable(
-						"Academic status of student { "
-								+ hedspiObject.getName() + "}", model);
-				if (chckbxIncludeContactInfo.isSelected()) {
-					HedspiTable infoTable = getStudentViewPane()
-							.getHedspiTable();
-					if (infoTable == null)
-						hedspiTable.writeToHtmlWithMessageDialog();
-					else
-						infoTable.writeToHtmlWithMessageDialog(hedspiTable);
-				} else {
-					hedspiTable.writeToHtmlWithMessageDialog();
-				}
-			}
-		});
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),}));
+		
+				comboboxClassList = new HedspiComboBox() {
+		
+					/**
+											 * 
+											 */
+					private static final long serialVersionUID = 1L;
+		
+					@Override
+					public HedspiObject[] getValues() {
+						return (HedspiObject[]) Control.getInstance().getData(
+								"getRawListOfTeachingClasses");
+					}
+				};
+				add(comboboxClassList, "2, 2, 5, 1");
+				comboboxClassList.setEnabled(false);
+		
+				JButton button = new JButton("+");
+				button.setMnemonic('a');
+				add(button, "2, 4, right, default");
+				button.setToolTipText("Add course");
+				button.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						HedspiObject teach = comboboxClassList.getSelectedObject();
+						if (teach == null)
+							return;
+						model.addRow(new Object[] { teach, false, new Double(0) });
+					}
+				});
+		
+				JButton button_1 = new JButton("-");
+				button_1.setMnemonic('r');
+				add(button_1, "4, 4, left, default");
+				button_1.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						deleteSelected();
+					}
+				});
+		
+				JButton btnSave = new JButton("Save");
+				btnSave.setMnemonic('s');
+				add(btnSave, "6, 4, left, default");
+				btnSave.setToolTipText("Save register status of student to server");
+				btnSave.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if (hedspiObject == null)
+							return;
+						ArrayList<AcademicInfo> arr = new ArrayList<>();
+						for (int i = 0; i < model.getRowCount(); i++) {
+							arr.add(new AcademicInfo((HedspiObject) model.getValueAt(i,
+									0), (Boolean) model.getValueAt(i, 1),
+									(Double) model.getValueAt(i, 2)));
+						}
+						String message = (String) Control.getInstance().getData(
+								"saveAcademicInfo", hedspiObject,
+								arr.toArray(new AcademicInfo[arr.size()]));
+						if (message == null)
+							JOptionPane.showMessageDialog(Control.getInstance()
+									.getMainWindow(),
+									"Update student academic's information success",
+									"Update success", JOptionPane.INFORMATION_MESSAGE);
+						else
+							JOptionPane.showMessageDialog(Control.getInstance()
+									.getMainWindow(),
+									"Update student academic's information failed.\nMessage: "
+											+ message, "Update failed",
+									JOptionPane.ERROR_MESSAGE);
+					}
+				});
+				
+						JButton btnExportToHtml = new JButton("Export");
+						btnExportToHtml.setMnemonic('x');
+						add(btnExportToHtml, "2, 6, left, default");
+						btnExportToHtml
+								.setToolTipText("Export student's register status to html file");
+						btnExportToHtml.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								if (hedspiObject == null)
+									return;
+								HedspiTable hedspiTable = new HedspiTable(
+										"Academic status of student { "
+												+ hedspiObject.getName() + "}", model);
+								if (chckbxIncludeContactInfo.isSelected()) {
+									HedspiTable infoTable = getStudentViewPane()
+											.getHedspiTable();
+									if (infoTable == null)
+										hedspiTable.writeToHtmlWithMessageDialog();
+									else
+										infoTable.writeToHtmlWithMessageDialog(hedspiTable);
+								} else {
+									hedspiTable.writeToHtmlWithMessageDialog();
+								}
+							}
+						});
+		
+				chckbxIncludeContactInfo = new JCheckBox("Include contact info");
+				chckbxIncludeContactInfo.setMnemonic('i');
+				add(chckbxIncludeContactInfo, "4, 6, 3, 1");
+				chckbxIncludeContactInfo
+						.setToolTipText("Check whether to include contact information in export form");
+				chckbxIncludeContactInfo.setSelected(true);
 		model = new DefaultTableModel(new Object[][] {}, new String[] {
 				"Class", "Is passed", "Result" }) {
 			/**
@@ -181,7 +173,7 @@ public abstract class RegisterPane extends JPanel {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane
 				.setToolTipText("Current student's register status. Right click for more options");
-		add(scrollPane, "2, 6, fill, fill");
+		add(scrollPane, "2, 8, 5, 1, fill, fill");
 
 		table = new JTable();
 		table.setToolTipText("Current student's register status. Right click for more options");

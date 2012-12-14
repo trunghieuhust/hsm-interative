@@ -68,6 +68,7 @@ public class StudentStatisticPane extends JPanel {
 						FormFactory.DEFAULT_ROWSPEC, }));
 
 		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.setMnemonic('r');
 		btnRefresh.setToolTipText("Refresh student's statistic information");
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
