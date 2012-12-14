@@ -33,23 +33,17 @@ public class BackupPane extends JPanel {
 
 	public BackupPane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
+				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),}));
+				RowSpec.decode("default:grow"), }));
 		JLabel selectlb = DefaultComponentFactory.getInstance().createLabel(
 				"Select table");
 		add(selectlb, "2, 2, 3, 1");
@@ -94,37 +88,37 @@ public class BackupPane extends JPanel {
 		JLabel backuplb = DefaultComponentFactory.getInstance().createLabel(
 				"Backup to");
 		add(backuplb, "2, 6");
-		
-				JButton btnclient = new JButton("Client backup");
-				add(btnclient, "2, 8, left, default");
-				btnclient.setToolTipText("Backup to client");
-				btnclient.addActionListener(new ActionListener() {
 
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						String url = getOutputFolder();
-						output.append("Running....");
-						try {
-							total_rows = BackupService.get_instance().client_copyout(
-									url);
-						} catch (IOException e1) {
-							output.append("Backup failed.See log for details\n");
-							e1.printStackTrace();
-						}
-						output.append("Done.\nTotal rows:" + total_rows + "\n");
-					}
-				});
+		JButton btnclient = new JButton("Client backup");
+		add(btnclient, "2, 8, left, default");
+		btnclient.setToolTipText("Backup to client");
+		btnclient.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String url = getOutputFolder();
+				output.append("Running....");
+				try {
+					total_rows = BackupService.get_instance().client_copyout(
+							url);
+				} catch (IOException e1) {
+					output.append("Backup failed.See log for details\n");
+					e1.printStackTrace();
+				}
+				output.append("Done.\nTotal rows:" + total_rows + "\n");
+			}
+		});
 		JButton btnserver = new JButton("Server backup");
 		add(btnserver, "4, 8, left, default");
 		btnserver.setToolTipText("Backup to server");
-		
-				btnserver.addActionListener(new ActionListener() {
-		
-					@Override
-					public void actionPerformed(ActionEvent e) {
-		
-					}
-				});
+
+		btnserver.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
 		JLabel resultlb = DefaultComponentFactory.getInstance().createLabel(
 				"Console");
 		add(resultlb, "2, 10, 3, 1");

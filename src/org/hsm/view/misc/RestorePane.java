@@ -47,57 +47,50 @@ public class RestorePane extends JPanel {
 
 	public RestorePane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
+				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),}));
+				RowSpec.decode("default:grow"), }));
 		JLabel selectlb = DefaultComponentFactory.getInstance().createLabel(
 				"Choose backup file to restore");
 		add(selectlb, "2, 2, 3, 1");
-		
-				JButton btnclient = new JButton("From client");
-				btnclient.setMnemonic('c');
-				add(btnclient, "2, 4, left, default");
-				btnclient.setToolTipText("Using backup file on client");
-				
-						btnclient.addActionListener(new ActionListener() {
-				
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								File[] list_file = get_list_file();
-				
-								if (list_file == null) {
-									output.append("Restore cancel by user.\n");
-								} else {
-									viewFileInfo(list_file);
-									output.append("Running....");
-									try {
-										total_rows = RestoreService.get_instance()
-												.client_copyin(list_file);
-									} catch (IOException e1) {
-										e1.printStackTrace();
-									}
-									if (total_rows == -1) {
-										output.append("Failed.\nDatabase restore did not complete successfully.See log for details.\n");
-									} else {
-										output.append("Done.\nTotal rows:" + total_rows + "\n");
-									}
-								}
-							}
-						});
+
+		JButton btnclient = new JButton("From client");
+		btnclient.setMnemonic('c');
+		add(btnclient, "2, 4, left, default");
+		btnclient.setToolTipText("Using backup file on client");
+
+		btnclient.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				File[] list_file = get_list_file();
+
+				if (list_file == null) {
+					output.append("Restore cancel by user.\n");
+				} else {
+					viewFileInfo(list_file);
+					output.append("Running....");
+					try {
+						total_rows = RestoreService.get_instance()
+								.client_copyin(list_file);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					if (total_rows == -1) {
+						output.append("Failed.\nDatabase restore did not complete successfully.See log for details.\n");
+					} else {
+						output.append("Done.\nTotal rows:" + total_rows + "\n");
+					}
+				}
+			}
+		});
 		JButton btnserver = new JButton("From server");
 		btnserver.setMnemonic('r');
 		add(btnserver, "4, 4, left, default");

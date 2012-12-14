@@ -1,5 +1,6 @@
 package org.hsm.view.course;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -21,7 +22,6 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
-import java.awt.Dimension;
 
 public class DependencesListEditor extends JPanel {
 
@@ -42,14 +42,11 @@ public class DependencesListEditor extends JPanel {
 		setLayout(new FormLayout(new ColumnSpec[] {
 				ColumnSpec.decode("default:grow"),
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("left:default"),},
-			new RowSpec[] {
+				ColumnSpec.decode("left:default"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),}));
+				RowSpec.decode("default:grow"), }));
 
 		coursesModel = new DefaultListModel<HedspiObject>();
 		comboBoxChooseCourse = new HedspiComboBox() {
@@ -103,24 +100,24 @@ public class DependencesListEditor extends JPanel {
 		listCurrentCourses = new JList<>(coursesModel);
 		listCurrentCourses.setToolTipText("List of base courses");
 		scrollPane.setViewportView(listCurrentCourses);
-				
-						JButton buttonRemove = new JButton("-");
-						add(buttonRemove, "3, 4");
-						buttonRemove.setToolTipText("Remove selected base courses");
-						buttonRemove.addActionListener(new ActionListener() {
-							public void actionPerformed(ActionEvent e) {
-								List<HedspiObject> indices = listCurrentCourses
-										.getSelectedValuesList();
-								for (HedspiObject it : indices) {
-									coursesModel.removeElement(it);
-									comboBoxChooseCourse.addObject(it);
-								}
-							}
-						});
-		
-				buttonReload = new JButton("R");
-				add(buttonReload, "3, 6, default, top");
-				buttonReload.setToolTipText("Reload list");
+
+		JButton buttonRemove = new JButton("-");
+		add(buttonRemove, "3, 4");
+		buttonRemove.setToolTipText("Remove selected base courses");
+		buttonRemove.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				List<HedspiObject> indices = listCurrentCourses
+						.getSelectedValuesList();
+				for (HedspiObject it : indices) {
+					coursesModel.removeElement(it);
+					comboBoxChooseCourse.addObject(it);
+				}
+			}
+		});
+
+		buttonReload = new JButton("R");
+		add(buttonReload, "3, 6, default, top");
+		buttonReload.setToolTipText("Reload list");
 		buttonReload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (course == null)

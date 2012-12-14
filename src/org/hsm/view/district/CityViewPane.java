@@ -41,45 +41,42 @@ public class CityViewPane extends JSplitPane {
 		JPanel panel = new JPanel();
 		scrollPane.setViewportView(panel);
 		panel.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
+				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),}));
-		
-				JButton btnSave = new JButton("Save");
-				btnSave.setMnemonic('v');
-				panel.add(btnSave, "2, 2");
-				btnSave.setToolTipText("Save city name");
-				btnSave.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						if (city == null)
-							return;
-						String name = textField.getText();
-						String message = (String) Control.getInstance().getData(
-								"saveCityName", city, name);
-						if (message == null) {
-							city.setName(name);
-							JOptionPane.showMessageDialog(Control.getInstance()
-									.getMainWindow(), "Save city's name success",
-									"Save name success",
-									JOptionPane.INFORMATION_MESSAGE);
-						} else
-							JOptionPane.showMessageDialog(Control.getInstance()
-									.getMainWindow(),
-									"Save city's name failed\nMessage: " + message,
-									"Save name failed", JOptionPane.ERROR_MESSAGE);
-					}
-				});
-		
-				textField = new JTextField();
-				panel.add(textField, "4, 2");
-				textField.setToolTipText("City name");
-				textField.setColumns(10);
+				RowSpec.decode("default:grow"), }));
+
+		JButton btnSave = new JButton("Save");
+		btnSave.setMnemonic('v');
+		panel.add(btnSave, "2, 2");
+		btnSave.setToolTipText("Save city name");
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (city == null)
+					return;
+				String name = textField.getText();
+				String message = (String) Control.getInstance().getData(
+						"saveCityName", city, name);
+				if (message == null) {
+					city.setName(name);
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(), "Save city's name success",
+							"Save name success",
+							JOptionPane.INFORMATION_MESSAGE);
+				} else
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(),
+							"Save city's name failed\nMessage: " + message,
+							"Save name failed", JOptionPane.ERROR_MESSAGE);
+			}
+		});
+
+		textField = new JTextField();
+		panel.add(textField, "4, 2");
+		textField.setToolTipText("City name");
+		textField.setColumns(10);
 
 		districtListPane = new ObjectListPane() {
 

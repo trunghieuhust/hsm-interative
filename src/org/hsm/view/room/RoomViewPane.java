@@ -37,78 +37,72 @@ public class RoomViewPane extends JPanel {
 	 */
 	public RoomViewPane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,}));
-		
-				JLabel lblName = DefaultComponentFactory.getInstance().createLabel(
-						"Name");
-				add(lblName, "2, 2");
-				lblName.setLabelFor(txtNameOfRoom);
-				
-						txtNameOfRoom = new JTextField();
-						add(txtNameOfRoom, "4, 2, 3, 1");
-						txtNameOfRoom.setToolTipText("Name of hedspiObject");
-						txtNameOfRoom.setColumns(10);
-		
-				JButton btnSave = new JButton("Save");
-				add(btnSave, "2, 4, left, default");
-				btnSave.setToolTipText("Save hedspiObject's information");
-				btnSave.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						if (hedspiObject == null)
-							return;
-						String name = txtNameOfRoom.getText();
-						String message = (String) Control.getInstance().getData(
-								"saveRoomName", hedspiObject, name);
-						if (message == null) {
-							JOptionPane.showMessageDialog(Control.getInstance()
-									.getMainWindow(),
-									"Save hedspiObject's name success", "Save success",
-									JOptionPane.INFORMATION_MESSAGE);
-							hedspiObject.setName(name);
-						} else
-							JOptionPane.showMessageDialog(Control.getInstance()
-									.getMainWindow(),
-									"Save hedspiObject's name failed\nMessage: "
-											+ message, "Save failed",
-									JOptionPane.WARNING_MESSAGE);
-					}
-				});
-		
-				JButton btnReload = new JButton("Reload");
-				add(btnReload, "4, 4, left, default");
-				btnReload.setToolTipText("Reload information from server");
-				btnReload.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						refresh();
-					}
-				});
-		
-				JButton btnExport = new JButton("Export");
-				add(btnExport, "6, 4, left, default");
-				btnExport
-						.setToolTipText("Export hedspiObject's information to html file");
-				btnExport.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						if (hedspiObject == null)
-							return;
-						HedspiTable hedspiTable = new HedspiTable(
-								"Information of hedspiObject {"
-										+ hedspiObject.getName() + "}", dataModel);
-						hedspiTable.writeToHtmlWithMessageDialog();
-					}
-				});
+				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
+
+		JLabel lblName = DefaultComponentFactory.getInstance().createLabel(
+				"Name");
+		add(lblName, "2, 2");
+		lblName.setLabelFor(txtNameOfRoom);
+
+		txtNameOfRoom = new JTextField();
+		add(txtNameOfRoom, "4, 2, 3, 1");
+		txtNameOfRoom.setToolTipText("Name of hedspiObject");
+		txtNameOfRoom.setColumns(10);
+
+		JButton btnSave = new JButton("Save");
+		add(btnSave, "2, 4, left, default");
+		btnSave.setToolTipText("Save hedspiObject's information");
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (hedspiObject == null)
+					return;
+				String name = txtNameOfRoom.getText();
+				String message = (String) Control.getInstance().getData(
+						"saveRoomName", hedspiObject, name);
+				if (message == null) {
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(),
+							"Save hedspiObject's name success", "Save success",
+							JOptionPane.INFORMATION_MESSAGE);
+					hedspiObject.setName(name);
+				} else
+					JOptionPane.showMessageDialog(Control.getInstance()
+							.getMainWindow(),
+							"Save hedspiObject's name failed\nMessage: "
+									+ message, "Save failed",
+							JOptionPane.WARNING_MESSAGE);
+			}
+		});
+
+		JButton btnReload = new JButton("Reload");
+		add(btnReload, "4, 4, left, default");
+		btnReload.setToolTipText("Reload information from server");
+		btnReload.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				refresh();
+			}
+		});
+
+		JButton btnExport = new JButton("Export");
+		add(btnExport, "6, 4, left, default");
+		btnExport
+				.setToolTipText("Export hedspiObject's information to html file");
+		btnExport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (hedspiObject == null)
+					return;
+				HedspiTable hedspiTable = new HedspiTable(
+						"Information of hedspiObject {"
+								+ hedspiObject.getName() + "}", dataModel);
+				hedspiTable.writeToHtmlWithMessageDialog();
+			}
+		});
 		dataModel = new DefaultTableModel(new Object[][] {}, new String[] {
 				"ID", "Course", "Lecturer" }) {
 			/**
@@ -128,15 +122,15 @@ public class RoomViewPane extends JPanel {
 				return columnEditables[column];
 			}
 		};
-		
-				JScrollPane scrollPane = new JScrollPane();
-				
-						JTable table = new JTable();
-						table.setModel(dataModel);
-						table.setToolTipText("List of classes held in hedspiObject");
-						scrollPane.setViewportView(table);
-						
-								add(scrollPane, "2, 6, 5, 1, fill, fill");
+
+		JScrollPane scrollPane = new JScrollPane();
+
+		JTable table = new JTable();
+		table.setModel(dataModel);
+		table.setToolTipText("List of classes held in hedspiObject");
+		scrollPane.setViewportView(table);
+
+		add(scrollPane, "2, 6, 5, 1, fill, fill");
 	}
 
 	protected void refresh() {

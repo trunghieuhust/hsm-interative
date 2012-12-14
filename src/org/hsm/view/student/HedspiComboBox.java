@@ -1,5 +1,6 @@
 package org.hsm.view.student;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,7 +17,6 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
-import java.awt.Dimension;
 
 /**
  * @author haidang-ubuntu
@@ -36,11 +36,10 @@ public abstract class HedspiComboBox extends JPanel {
 	 * Create the panel.
 	 */
 	public HedspiComboBox() {
-		setLayout(new FormLayout(new ColumnSpec[] {
-				ColumnSpec.decode("default:grow"),
-				ColumnSpec.decode("19dlu"),},
-			new RowSpec[] {
-				FormFactory.DEFAULT_ROWSPEC,}));
+		setLayout(new FormLayout(
+				new ColumnSpec[] { ColumnSpec.decode("default:grow"),
+						ColumnSpec.decode("19dlu"), },
+				new RowSpec[] { FormFactory.DEFAULT_ROWSPEC, }));
 
 		comboBoxModel = new DefaultComboBoxModel<>();
 		comboBox = new JComboBox<>(comboBoxModel);

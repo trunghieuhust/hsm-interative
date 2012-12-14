@@ -38,21 +38,16 @@ public class QueryPane extends JPanel implements ActionListener {
 	 */
 	public QueryPane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
+				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("max(41dlu;default):grow"),
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),}));
+				RowSpec.decode("default:grow"), }));
 
 		JLabel lblQuery = DefaultComponentFactory.getInstance().createLabel(
 				"Query");
@@ -63,27 +58,27 @@ public class QueryPane extends JPanel implements ActionListener {
 		lblQuery.setLabelFor(queryInputEntry);
 		queryInputEntry.setText("SELECT * FROM room;");
 		add(queryInputEntry, "2, 4, 3, 1, fill, fill");
-		
-				JButton btnSubmit = new JButton("Submit");
-				add(btnSubmit, "2, 6, left, default");
-				btnSubmit.setMnemonic('s');
-				btnSubmit.setToolTipText("Sumit query");
-				btnSubmit.addActionListener(this);
-		
-				JButton btnExport = new JButton("Export");
-				add(btnExport, "4, 6, left, default");
-				btnExport.setMnemonic('x');
-				btnExport
-						.setToolTipText("Export only values on below table to html file");
-				btnExport.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						if (model == null)
-							return;
-						HedspiTable hedspiTable = new HedspiTable("Result of query {"
-								+ lastQuery + "}", model);
-						hedspiTable.writeToHtmlWithMessageDialog();
-					}
-				});
+
+		JButton btnSubmit = new JButton("Submit");
+		add(btnSubmit, "2, 6, left, default");
+		btnSubmit.setMnemonic('s');
+		btnSubmit.setToolTipText("Sumit query");
+		btnSubmit.addActionListener(this);
+
+		JButton btnExport = new JButton("Export");
+		add(btnExport, "4, 6, left, default");
+		btnExport.setMnemonic('x');
+		btnExport
+				.setToolTipText("Export only values on below table to html file");
+		btnExport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (model == null)
+					return;
+				HedspiTable hedspiTable = new HedspiTable("Result of query {"
+						+ lastQuery + "}", model);
+				hedspiTable.writeToHtmlWithMessageDialog();
+			}
+		});
 
 		JLabel lblResult = DefaultComponentFactory.getInstance().createLabel(
 				"Result");

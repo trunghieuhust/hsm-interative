@@ -50,70 +50,66 @@ public class OptionPane extends JPanel {
 	public OptionPane() {
 		prop = new Properties();
 		setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,}));
-		
-				JLabel lblUi = new JLabel("UI");
-				add(lblUi, "2, 2");
-				lblUi.setLabelFor(comboBoxUI);
-				comboBoxUI = new JComboBox<>();
-				add(comboBoxUI, "4, 2");
-				comboBoxUI.setModel(modelUI);
-				comboBoxUI.setSelectedIndex(0);
-				comboBoxUI.setToolTipText("Set UI for application");
-				comboBoxUI.addItemListener(new ItemListener() {
-					public void itemStateChanged(ItemEvent e) {
-						UI_TYPE uitype = (UI_TYPE) comboBoxUI.getSelectedItem();
-						switch (uitype) {
-						case DEFAULT:
-							prop.setProperty(UI_KEY, "DEFAULT");
-							break;
-						case CROSS_PLATFORM:
-							prop.setProperty(UI_KEY, "CROSS_PLATFORM");
-							break;
-						case SYSTEM:
-							prop.setProperty(UI_KEY, "SYSTEM");
-							break;
-						default:
-							break;
-						}
-					}
-				});
-		
-				JButton btnApply = new JButton("Apply");
-				add(btnApply, "2, 4, 3, 1, left, default");
-				btnApply.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						try {
-							prop.store(new FileOutputStream(PROP_FILE),
-									"Property file for Hedspi Student Manager client application");
-						} catch (IOException e1) {
-							JOptionPane.showMessageDialog((JFrame) Control
-									.getInstance().getData("getOptionFrame"),
-									"Apply failed\nMessage: " + e1.getMessage(),
-									"Apply failed", JOptionPane.WARNING_MESSAGE);
-							Control.getInstance()
-									.getLogger()
-									.log(Level.WARNING,
-											"Write option file failed. Message: "
-													+ e1.getMessage());
-							return;
-						}
-						JOptionPane.showMessageDialog((JFrame) Control.getInstance()
-								.getData("getOptionFrame"),
-								"Apply ok. Refresh for view UI change", "Set UI ok",
-								JOptionPane.INFORMATION_MESSAGE);
-					}
-				});
-				btnApply.setToolTipText("Apply and save options");
-				btnApply.setMnemonic('a');
+				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
+
+		JLabel lblUi = new JLabel("UI");
+		add(lblUi, "2, 2");
+		lblUi.setLabelFor(comboBoxUI);
+		comboBoxUI = new JComboBox<>();
+		add(comboBoxUI, "4, 2");
+		comboBoxUI.setModel(modelUI);
+		comboBoxUI.setSelectedIndex(0);
+		comboBoxUI.setToolTipText("Set UI for application");
+		comboBoxUI.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				UI_TYPE uitype = (UI_TYPE) comboBoxUI.getSelectedItem();
+				switch (uitype) {
+				case DEFAULT:
+					prop.setProperty(UI_KEY, "DEFAULT");
+					break;
+				case CROSS_PLATFORM:
+					prop.setProperty(UI_KEY, "CROSS_PLATFORM");
+					break;
+				case SYSTEM:
+					prop.setProperty(UI_KEY, "SYSTEM");
+					break;
+				default:
+					break;
+				}
+			}
+		});
+
+		JButton btnApply = new JButton("Apply");
+		add(btnApply, "2, 4, 3, 1, left, default");
+		btnApply.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					prop.store(new FileOutputStream(PROP_FILE),
+							"Property file for Hedspi Student Manager client application");
+				} catch (IOException e1) {
+					JOptionPane.showMessageDialog((JFrame) Control
+							.getInstance().getData("getOptionFrame"),
+							"Apply failed\nMessage: " + e1.getMessage(),
+							"Apply failed", JOptionPane.WARNING_MESSAGE);
+					Control.getInstance()
+							.getLogger()
+							.log(Level.WARNING,
+									"Write option file failed. Message: "
+											+ e1.getMessage());
+					return;
+				}
+				JOptionPane.showMessageDialog((JFrame) Control.getInstance()
+						.getData("getOptionFrame"),
+						"Apply ok. Refresh for view UI change", "Set UI ok",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		btnApply.setToolTipText("Apply and save options");
+		btnApply.setMnemonic('a');
 		modelUI = new DefaultComboBoxModel<UI_TYPE>(UI_TYPE.values());
 		modelUI = new DefaultComboBoxModel<UI_TYPE>(UI_TYPE.values());
 	}
