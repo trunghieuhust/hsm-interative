@@ -115,6 +115,7 @@ public class MainWindow extends JFrame {
 
 	public void setStatus(String status) {
 		contentPane.setStatus(status);
+		contentPane.repaint();
 	}
 
 	public void setLogViewSelected(boolean bool) {

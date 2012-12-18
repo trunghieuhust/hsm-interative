@@ -22,8 +22,6 @@ import javax.swing.JTextField;
 import net.miginfocom.swing.MigLayout;
 
 import org.hsm.control.Control;
-import org.hsm.model.Model;
-import org.hsm.service.CoreService;
 
 public class ExportPane extends JPanel {
 	/**
@@ -70,18 +68,23 @@ public class ExportPane extends JPanel {
 
 		final JCheckBox chckbxPersonalDetails = new JCheckBox(
 				"Personal details");
+		chckbxPersonalDetails
+				.setToolTipText("Select personal information to be exported or not");
 		chckbxPersonalDetails.setMnemonic('p');
 		add(chckbxPersonalDetails, "cell 1 2");
 
 		final JCheckBox chckbxInfo = new JCheckBox("Academic Information");
+		chckbxInfo.setToolTipText("Include academic's information");
 		chckbxInfo.setMnemonic('f');
 		add(chckbxInfo, "cell 2 2");
 
 		final JCheckBox chckbxContact = new JCheckBox("Contact");
+		chckbxContact.setToolTipText("Contact's information");
 		chckbxContact.setMnemonic('o');
 		add(chckbxContact, "cell 1 3");
 
 		final JCheckBox chckbxNote = new JCheckBox("Note");
+		chckbxNote.setToolTipText("Include note's field");
 		chckbxNote.setMnemonic('n');
 		add(chckbxNote, "cell 2 3");
 
@@ -89,11 +92,14 @@ public class ExportPane extends JPanel {
 		add(lblExportList, "cell 0 4");
 
 		textField_exportList = new JTextField();
+		textField_exportList
+				.setToolTipText("<html>\n<ul>\nMulti values should be seperated by semicolon (;)\n<li>Student: enter MSSVs</li>\n<li>Lecturer: full name</li>\n<li>Course: course's code</li>\n<li>All: this field should be ignored</li>\n</ul>\n</html>");
 		lblExportList.setLabelFor(textField_exportList);
 		add(textField_exportList, "cell 1 4 2 1,growx");
 		textField_exportList.setColumns(10);
 
 		final JCheckBox chckbxAll = new JCheckBox("All");
+		chckbxAll.setToolTipText("Export all objects");
 		chckbxAll.setMnemonic('a');
 		add(chckbxAll, "cell 1 5 2 1");
 
@@ -101,6 +107,8 @@ public class ExportPane extends JPanel {
 		btnExport.setMnemonic('x');
 		btnExport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if (path == null)
+					return;
 				/* Export students */
 				// html_content is whole content to write to .html
 				if (comboBox_exportObj.getSelectedIndex() == 0) {
@@ -135,8 +143,10 @@ public class ExportPane extends JPanel {
 						String[] parts = raw_list.split(";");
 						// Search for all student code in list
 						for (int i = 0; i < parts.length; i++) {
-							ArrayList<HashMap<String, Object>> rs = CoreService
-									.getInstance().doQueryFunction(
+							@SuppressWarnings("unchecked")
+							ArrayList<HashMap<String, Object>> rs = (ArrayList<HashMap<String, Object>>) Control
+									.getInstance().getData(
+											"executeQueryFunction",
 											"get_student_by_mssv", parts[i]);
 							HashMap<String, Object> ret = rs.get(0);
 							html_content += "<tr>";
@@ -231,13 +241,12 @@ public class ExportPane extends JPanel {
 									dt = -1;
 								else
 									dt = (int) ret.get("dt");
-								// System.out.print((String)
-								// Model.getInstance().getData("getDistrictName",
-								// dt));
 								html_content += "<td>"
-										+ (String) Model.getInstance().getData(
-												"getDistrictName", dt)
-										+ "</td>";
+										+ (String) Control
+												.getInstance()
+												.getData(
+														"getDistrictNameFromID",
+														dt) + "</td>";
 								// home
 								String home = (String) ret.get("home");
 								if (home == null)
@@ -253,8 +262,9 @@ public class ExportPane extends JPanel {
 						}
 					} else {
 						// If "Export all" checked, export list of all student
-						ArrayList<HashMap<String, Object>> rs = CoreService
-								.getInstance().doQueryFunction(
+						@SuppressWarnings("unchecked")
+						ArrayList<HashMap<String, Object>> rs = (ArrayList<HashMap<String, Object>>) Control
+								.getInstance().getData("executeQueryFunction",
 										"get_all_students");
 						for (int i = 0; i < rs.size(); i++) {
 							HashMap<String, Object> ret = rs.get(i);
@@ -353,8 +363,8 @@ public class ExportPane extends JPanel {
 								else
 									dt = (int) ret.get("dt");
 								html_content += "<td>"
-										+ Model.getInstance().getData(
-												"getDistrictName", dt)
+										+ Control.getInstance().getData(
+												"getDistrictNameFromID", dt)
 										+ "</td>";
 								// home
 								String home = (String) ret.get("home");
@@ -424,8 +434,10 @@ public class ExportPane extends JPanel {
 						String[] parts = raw_list.split(";");
 						// Search for all student code in list
 						for (int i = 0; i < parts.length; i++) {
-							ArrayList<HashMap<String, Object>> rs = CoreService
-									.getInstance().doQueryFunction(
+							@SuppressWarnings("unchecked")
+							ArrayList<HashMap<String, Object>> rs = (ArrayList<HashMap<String, Object>>) Control
+									.getInstance().getData(
+											"executeQueryFunction",
 											"get_lecturer_by_fullname",
 											parts[i]);
 							HashMap<String, Object> ret = rs.get(0);
@@ -503,8 +515,8 @@ public class ExportPane extends JPanel {
 								else
 									dt = (int) ret.get("dt");
 								html_content += "<td>"
-										+ Model.getInstance().getData(
-												"getDistrictName", dt)
+										+ Control.getInstance().getData(
+												"getDistrictNameFromID", dt)
 										+ "</td>";
 								// home
 								String home = (String) ret.get("home");
@@ -522,8 +534,9 @@ public class ExportPane extends JPanel {
 						}
 					} else {
 						// If "Export all" checked, export list of all student
-						ArrayList<HashMap<String, Object>> rs = CoreService
-								.getInstance().doQueryFunction(
+						@SuppressWarnings("unchecked")
+						ArrayList<HashMap<String, Object>> rs = (ArrayList<HashMap<String, Object>>) Control
+								.getInstance().getData("executeQueryFunction",
 										"get_all_lecturers_");
 						for (int i = 0; i < rs.size(); i++) {
 							HashMap<String, Object> ret = rs.get(i);
@@ -601,8 +614,8 @@ public class ExportPane extends JPanel {
 								else
 									dt = (int) ret.get("dt");
 								html_content += "<td>"
-										+ Model.getInstance().getData(
-												"getDistrictName", dt)
+										+ Control.getInstance().getData(
+												"getDistrictNameFromID", dt)
 										+ "</td>";
 								// home
 								String home = (String) ret.get("home");
@@ -658,12 +671,13 @@ public class ExportPane extends JPanel {
 					html_content += "</tr>\n";
 					if (!chckbxAll.isSelected()) {
 						String raw_list = textField_exportList.getText();
-						System.out.print(raw_list);
 						// break all ";"
 						String[] parts = raw_list.split(";");
 						for (int i = 0; i < parts.length; i++) {
-							ArrayList<HashMap<String, Object>> rs = CoreService
-									.getInstance().doQueryFunction(
+							@SuppressWarnings("unchecked")
+							ArrayList<HashMap<String, Object>> rs = (ArrayList<HashMap<String, Object>>) Control
+									.getInstance().getData(
+											"executeQueryFunction",
 											"get_course_by_code", parts[i]);
 							HashMap<String, Object> ret = rs.get(0);
 							html_content += "<tr>";
@@ -717,8 +731,9 @@ public class ExportPane extends JPanel {
 							html_content += "<td>" + notes + "</td>\n";
 						}
 					} else {
-						ArrayList<HashMap<String, Object>> rs = CoreService
-								.getInstance().doQueryFunction(
+						@SuppressWarnings("unchecked")
+						ArrayList<HashMap<String, Object>> rs = (ArrayList<HashMap<String, Object>>) Control
+								.getInstance().getData("executeQueryFunction",
 										"get_all_courses");
 						for (int i = 0; i < rs.size(); i++) {
 							HashMap<String, Object> ret = rs.get(i);
@@ -788,7 +803,11 @@ public class ExportPane extends JPanel {
 						// Close the output stream
 						ow.close();
 					} catch (Exception e) {// Catch exception if any
-						System.err.println("Error: " + e.getMessage());
+						Control.getInstance()
+								.getLogger()
+								.log(Level.WARNING,
+										"Export error. Message: "
+												+ e.getMessage());
 					}
 				}
 			}
@@ -798,11 +817,15 @@ public class ExportPane extends JPanel {
 		add(lblExportPath, "cell 0 6");
 
 		textField_exportPath = new JTextField();
+		textField_exportPath.setEditable(false);
+		textField_exportPath.setToolTipText("Press browser to brower file");
 		lblExportPath.setLabelFor(textField_exportPath);
-		add(textField_exportPath, "cell 1 6 2 1,growx");
+		add(textField_exportPath, "cell 1 6,growx");
 		textField_exportPath.setColumns(10);
 
 		JButton btnBrowse = new JButton("Browse");
+		btnBrowse.setMnemonic('w');
+		btnBrowse.setToolTipText("Open file browser");
 		btnBrowse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				path = get_csv_file();
@@ -810,10 +833,9 @@ public class ExportPane extends JPanel {
 			}
 		});
 
-		add(btnBrowse, "cell 4 6");
+		add(btnBrowse, "cell 2 6");
 
 		add(btnExport, "cell 0 7 3 1,alignx left");
 
 	}
-
 }

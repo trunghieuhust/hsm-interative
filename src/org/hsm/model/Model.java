@@ -40,7 +40,39 @@ public class Model implements IModel {
 
 	@Override
 	public Object getData(String command, Object... data) {
+		Object[] objs;
+
 		switch (command) {
+		case "executeQueryFunction":
+			objs = new Object[data.length - 1];
+			for (int i = 1; i < data.length; i++)
+				objs[i - 1] = data[i];
+			return CoreService.getInstance().doQueryFunction((String) data[0],
+					objs);
+
+		case "insertCourse":
+			return CoreService.getInstance().doUpdateFunction("insert_course_",
+					data[0], data[1], data[2], data[3], data[4], data[5],
+					data[6]);
+			// "insert_course_", nfees, ncredits,
+			// topic, ctime, name, note, code);
+
+		case "insertLecturer":
+			return CoreService.getInstance().doUpdateFunction(
+					"insert_lecturer", data[0], data[1], data[2], data[3],
+					data[4], data[5], data[6], data[7], data[8], data[9],
+					data[10]);
+			// first, last, sex, dob, emails,
+			// phones, note, home, dt, fc, dg
+
+		case "insertStudent":
+			return CoreService.getInstance().doUpdateFunction("insert_student",
+					data[0], data[1], data[2], data[3], data[4], data[5],
+					data[6], data[7], data[8], data[9], data[10], data[11],
+					data[12], data[13]);
+			// first, last, sex, dob, emails, phones, note, home, dt,
+			// point, cl, mssv, year, k);
+
 		case "restoreDatabase":
 			return RestoreService.get_instance().client_copyin((File[]) data);
 

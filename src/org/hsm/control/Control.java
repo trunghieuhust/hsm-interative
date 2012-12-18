@@ -270,6 +270,27 @@ public class Control implements IControl {
 		File[] files;
 
 		switch (command) {
+		case "executeQueryFunction":
+			str = (String) data[0];
+			logStart("Execute query function {" + str + "} with "
+					+ (data.length - 1) + " parameter(s)");
+			return logEnd(Model.getInstance().getData("executeQueryFunction",
+					data));
+
+		case "insertCourse":
+			return Model.getInstance().getData("insertCourse", data);
+
+		case "insertLecturer":
+			return Model.getInstance().getData("insertLecturer", data);
+
+		case "insertStudent":
+			return Model.getInstance().getData("insertStudent", data);
+
+		case "getDistrictNameFromID":
+			id = (int) data[0];
+			logStart("Get district's name from id {" + id + "}");
+			return logEnd(Model.getInstance().getData("getDistrictName", id));
+
 		case "restoreDatabase":
 			files = (File[]) data;
 			logStart("Restore database from " + files.length + " file(s)");
