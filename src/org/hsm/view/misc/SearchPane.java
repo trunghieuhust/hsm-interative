@@ -161,23 +161,49 @@ public class SearchPane extends JPanel {
 				// Relation name
 				SEARCH_TYPE searchType = (SEARCH_TYPE) comboBox
 						.getSelectedItem();
+				String fields;
+				String queryField;
+				String contactFields = "\n\tfirst AS \"First name\",\n"
+						+ "\tlast AS \"Last name\",\n"
+						+ "\tsex AS \"Is man?\",\n"
+						+ "\tdob AS \"Date of birth\",\n"
+						+ "\temails AS \"Emails\",\n"
+						+ "\tphones AS \"Phones\",\n" + "\thome AS \"Home\",\n"
+						+ "\tdistrict.name AS \"District\",\n"
+						+ "\tcity.name AS \"City\",\n"
+						+ "\tnote AS \"Note\",\n";
+				String contactJoin = "\tJOIN district USING (dt)\n"
+						+ "\tJOIN city USING (cy)";
 				switch (searchType) {
 				case STUDENT:
-					relname = "student";
+					relname = "student\n" + "\tJOIN class USING (cl)\n"
+							+ contactJoin;
+					fields = contactFields;
+					fields += "\tpoint AS \"Enroll point\",\n"
+							+ "\tclass.name AS \"Class\",\n"
+							+ "\tmssv AS \"MSSV\",\n"
+							+ "\tyear AS \"Enroll year\",\n"
+							+ "\tk AS \"Student year\"";
+					queryField = "student.name_no_hat";
 					break;
 				case LECTURER:
-					relname = "lecturer";
+					relname = "lecturer\n" + contactJoin + "\n"
+							+ "\tJOIN degree USING (dg)\n"
+							+ "\tJOIN faculty USING (fc)";
+					fields = contactFields;
+					fields += "\tfaculty.name AS \"Faculty\",\n"
+							+ "\tdegree.name AS \"Degree\"";
+					queryField = "lecturer.name_no_hat";
 					break;
 				case DISTRICT:
-					relname = "district";
+					relname = "district JOIN city USING (cy)";
+					fields = "\n\tdistrict.name AS \"Name\",\n"
+							+ "\tcity.name AS \"City\"";
+					queryField = "district.name_no_hat";
 					break;
 				default:
-					relname = null;
-					break;
-				}
-
-				if (relname == null)
 					return;
+				}
 
 				// Search method
 				SEARCH_METHOD method = (SEARCH_METHOD) comboBox_1
@@ -186,33 +212,34 @@ public class SearchPane extends JPanel {
 				text = text.replace("'", "''");
 
 				String query;
-				query = "SELECT * FROM " + relname;
-				query += "\n\t";
+				query = "SELECT " + fields + "\nFROM " + relname;
 
+				query += "\n";
 				switch (method) {
 				case EXACT:
-					query += "WHERE name_no_hat = '" + text + "'";
-					query += "\n\tORDER BY name_no_hat";
+					query += "WHERE " + queryField + " = '" + text + "'";
+					query += "\nORDER BY " + queryField;
 					break;
 				case CONTAIN:
-					query += "WHERE name_no_hat LIKE '%" + text + "%'";
-					query += "\n\tORDER BY name_no_hat";
+					query += "WHERE " + queryField + " LIKE '%" + text + "%'";
+					query += "\nORDER BY " + queryField;
 					break;
 				case LEVENSTEIN:
-					query += "ORDER BY levenshtein(name_no_hat, '" + text
-							+ "', name_no_hat, " + modelAdd.getValue() + ", "
+					query += "ORDER BY levenshtein(" + queryField + ", '"
+							+ text + "', " + queryField + ", "
+							+ modelAdd.getValue() + ", "
 							+ modelRemove.getValue() + ","
-							+ modelChange.getValue() + "), name_no_hat";
+							+ modelChange.getValue() + "), " + queryField;
 					break;
 				case SOUNDEX:
-					query += "ORDER BY difference(name_no_hat, '" + text
-							+ "') DESC, name_no_hat";
+					query += "ORDER BY difference(" + queryField + ", '" + text
+							+ "') DESC, " + queryField;
 					break;
 				default:
 					return;
 				}
 
-				query += "\n\tLIMIT " + modelLimit.getValue();
+				query += "\nLIMIT " + modelLimit.getValue();
 
 				queryPane.setQuery(query);
 			}

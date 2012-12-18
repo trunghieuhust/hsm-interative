@@ -38,26 +38,34 @@ public class QueryPane extends JPanel implements ActionListener {
 	 */
 	public QueryPane() {
 		setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("max(41dlu;default):grow"),
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"), }));
+				RowSpec.decode("max(75dlu;default)"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),}));
 
 		JLabel lblQuery = DefaultComponentFactory.getInstance().createLabel(
 				"Query");
 		add(lblQuery, "2, 2, 3, 1");
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		add(scrollPane_1, "2, 4, 3, 1, fill, fill");
 
 		queryInputEntry = new JEditorPane();
+		scrollPane_1.setViewportView(queryInputEntry);
 		queryInputEntry.setToolTipText("Input query to execute");
 		lblQuery.setLabelFor(queryInputEntry);
 		queryInputEntry.setText("SELECT * FROM room;");
-		add(queryInputEntry, "2, 4, 3, 1, fill, fill");
 
 		JButton btnSubmit = new JButton("Submit");
 		add(btnSubmit, "2, 6, left, default");
