@@ -2,9 +2,10 @@ package org.hsm.view.misc;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -13,6 +14,7 @@ import java.util.logging.Level;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -30,10 +32,24 @@ public class ExportPane extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JTextField textField_exportList;
 	private JTextField textField_exportPath;
+	private String path;
 
 	/**
 	 * Create the panel.
 	 */
+	public String get_csv_file() {
+		File list_file;
+		list_file = null;
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setDialogTitle("Choose backup file");
+		fileChooser.setMultiSelectionEnabled(false);
+		fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		if (fileChooser.showSaveDialog(null) == JFileChooser.CANCEL_OPTION)
+			return null;
+		list_file = fileChooser.getSelectedFile();
+		return list_file.getPath();
+	}
+
 	public ExportPane() {
 		setLayout(new MigLayout("", "[][157.00][grow]", "[][][][][][][][]"));
 
@@ -360,13 +376,12 @@ public class ExportPane extends JPanel {
 
 					try {
 						// Write html_content to file
-						String file_path = textField_exportPath.getText();
-						// Create file
-						FileWriter fstream = new FileWriter(file_path);
-						BufferedWriter out = new BufferedWriter(fstream);
-						out.write(html_content);
+						FileOutputStream fout = new FileOutputStream(path);
+						OutputStreamWriter ow = new OutputStreamWriter(fout,
+								"utf-8");
+						ow.write(html_content);
 						// Close the output stream
-						out.close();
+						ow.close();
 					} catch (IOException e) {
 						Control.getInstance()
 								.getLogger()
@@ -427,8 +442,12 @@ public class ExportPane extends JPanel {
 										+ "</td>\n";
 								// Gender
 								String gender = "";
-								int _gender = (int) ret.get("sex");
-								if (_gender == 1)
+								boolean isMale;
+								if (ret.get("sex") == null)
+									isMale = true;
+								else
+									isMale = (boolean) ret.get("sex");
+								if (isMale)
 									gender = "Male";
 								else
 									gender = "Female";
@@ -505,7 +524,7 @@ public class ExportPane extends JPanel {
 						// If "Export all" checked, export list of all student
 						ArrayList<HashMap<String, Object>> rs = CoreService
 								.getInstance().doQueryFunction(
-										"get_all_lecturers");
+										"get_all_lecturers_");
 						for (int i = 0; i < rs.size(); i++) {
 							HashMap<String, Object> ret = rs.get(i);
 							html_content += "<tr>";
@@ -521,8 +540,12 @@ public class ExportPane extends JPanel {
 										+ "</td>\n";
 								// Gender
 								String gender = "";
-								int _gender = (int) ret.get("sex");
-								if (_gender == 1)
+								boolean isMale;
+								if (ret.get("sex") == null)
+									isMale = true;
+								else
+									isMale = (boolean) ret.get("sex");
+								if (isMale)
 									gender = "Male";
 								else
 									gender = "Female";
@@ -601,13 +624,13 @@ public class ExportPane extends JPanel {
 
 					// Write html_content to file
 					try {
-						String file_path = textField_exportPath.getText();
 						// Create file
-						FileWriter fstream = new FileWriter(file_path);
-						BufferedWriter out = new BufferedWriter(fstream);
-						out.write(html_content);
+						FileOutputStream fout = new FileOutputStream(path);
+						OutputStreamWriter ow = new OutputStreamWriter(fout,
+								"utf-8");
+						ow.write(html_content);
 						// Close the output stream
-						out.close();
+						ow.close();
 					} catch (IOException e) {// Catch exception if any
 						Control.getInstance()
 								.getLogger()
@@ -681,9 +704,11 @@ public class ExportPane extends JPanel {
 								fees = (double) ret.get("fees");
 							html_content += "<td>" + fees + "</td>\n";
 							// ce
-							String ce = (String) ret.get("ce");
-							if (ce == null)
-								ce = "";
+							int ce;
+							if (ret.get("ce") == null)
+								ce = 0;
+							else
+								ce = (int) ret.get("ce");
 							html_content += "<td>" + ce + "</td>\n";
 							// notes
 							String notes = (String) ret.get("notes");
@@ -735,9 +760,11 @@ public class ExportPane extends JPanel {
 								fees = (double) ret.get("fees");
 							html_content += "<td>" + fees + "</td>\n";
 							// ce
-							String ce = (String) ret.get("ce");
-							if (ce == null)
-								ce = "";
+							int ce;
+							if (ret.get("ce") == null)
+								ce = 0;
+							else
+								ce = (int) ret.get("ce");
 							html_content += "<td>" + ce + "</td>\n";
 							// notes
 							String notes = (String) ret.get("notes");
@@ -753,13 +780,13 @@ public class ExportPane extends JPanel {
 
 					// Write html_content to file
 					try {
-						String file_path = textField_exportPath.getText();
 						// Create file
-						FileWriter fstream = new FileWriter(file_path);
-						BufferedWriter out = new BufferedWriter(fstream);
-						out.write(html_content);
+						FileOutputStream fout = new FileOutputStream(path);
+						OutputStreamWriter ow = new OutputStreamWriter(fout,
+								"utf-8");
+						ow.write(html_content);
 						// Close the output stream
-						out.close();
+						ow.close();
 					} catch (Exception e) {// Catch exception if any
 						System.err.println("Error: " + e.getMessage());
 					}
@@ -774,6 +801,16 @@ public class ExportPane extends JPanel {
 		lblExportPath.setLabelFor(textField_exportPath);
 		add(textField_exportPath, "cell 1 6 2 1,growx");
 		textField_exportPath.setColumns(10);
+
+		JButton btnBrowse = new JButton("Browse");
+		btnBrowse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				path = get_csv_file();
+				textField_exportPath.setText(path);
+			}
+		});
+
+		add(btnBrowse, "cell 4 6");
 
 		add(btnExport, "cell 0 7 3 1,alignx left");
 

@@ -2,6 +2,7 @@ package org.hsm.view.misc;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,6 +10,7 @@ import java.util.logging.Level;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -30,20 +32,38 @@ public class ImportPane extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField CSVpath;
+	private String path;
 
 	/**
 	 * Create the panel.
 	 */
+	public String get_csv_file() {
+		File list_file;
+		list_file = null;
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setDialogTitle("Choose backup file");
+		fileChooser.setMultiSelectionEnabled(false);
+		fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		if (fileChooser.showSaveDialog(null) == JFileChooser.CANCEL_OPTION)
+			return null;
+		list_file = fileChooser.getSelectedFile();
+		return list_file.getPath();
+	}
+
 	public ImportPane() {
 
 		String[] importObject = { "Students", "Lecturers", "Courses" };
-		setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.UNRELATED_GAP_COLSPEC, ColumnSpec.decode("94px"),
-				FormFactory.LABEL_COMPONENT_GAP_COLSPEC,
-				ColumnSpec.decode("96px:grow"), }, new RowSpec[] {
-				FormFactory.LINE_GAP_ROWSPEC, RowSpec.decode("24px"),
-				FormFactory.LINE_GAP_ROWSPEC, RowSpec.decode("25px"),
-				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
+		setLayout(new FormLayout(
+				new ColumnSpec[] { FormFactory.UNRELATED_GAP_COLSPEC,
+						ColumnSpec.decode("94px"),
+						FormFactory.LABEL_COMPONENT_GAP_COLSPEC,
+						ColumnSpec.decode("96px:grow"),
+						FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] {
+						FormFactory.LINE_GAP_ROWSPEC, RowSpec.decode("24px"),
+						FormFactory.LINE_GAP_ROWSPEC, RowSpec.decode("25px"),
+						FormFactory.RELATED_GAP_ROWSPEC,
+						FormFactory.DEFAULT_ROWSPEC, }));
 
 		JLabel lblNewLabel = new JLabel("Import object");
 		add(lblNewLabel, "2, 2, left, center");
@@ -155,6 +175,16 @@ public class ImportPane extends JPanel {
 		lblCsvFilePath.setLabelFor(CSVpath);
 		add(CSVpath, "4, 4, fill, center");
 		CSVpath.setColumns(10);
+
+		JButton btnBrowse = new JButton("Browse");
+		btnBrowse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				path = get_csv_file();
+				CSVpath.setText(path);
+			}
+		});
+		add(btnBrowse, "6, 4");
+
 		add(btnImport, "2, 6, 3, 1, left, top");
 	}
 
