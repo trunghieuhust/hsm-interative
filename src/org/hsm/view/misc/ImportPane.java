@@ -72,6 +72,8 @@ public class ImportPane extends JPanel {
 		add(comboBox_importObj, "4, 2, 3, 1, fill, top");
 
 		JButton btnImport = new JButton("Import");
+		btnImport
+				.setToolTipText("<html>\nImport file format\n<ul>\n\t<li>Fields are seperated by comma (,)</li>\n\t<li>Course\n\t\t<ul>\n\t\t\t<li>Number of fees</li>\n\t\t\t<li>Number of credits</li>\n\t\t\t<li>Topic</li>\n\t\t\t<li>Number of lessons</li>\n\t\t\t<li>Course's name</li>\n\t\t\t<li>Note</li>\n\t\t\t<li>Code</li>\n\t\t</ul>\n\t</li>\n\t<li>Lecturer\n\t\t<ul>\n\t\t\t<li>First name</li>\n\t\t\t<li>Last name</li>\n\t\t\t<li>Gender: \"t\" if male and \"f\" if female</li>\n\t\t\t<li>Date of birth: yyyy-mm-dd</li>\n\t\t\t<li>Email</li>\n\t\t\t<li>Phone</li>\n\t\t\t<li>Note</li>\n\t\t\t<li>Home</li>\n\t\t\t<li>District's id</li>\n\t\t\t<li>Faculty's id</li>\n\t\t\t<li>Degree's id</li>\n\t\t</ul>\n\t</li>\n\t<li>Student\n\t\t<ul>\n\t\t\t<li>First name</li>\n\t\t\t<li>Last name</li>\n\t\t\t<li>Gender: \"t\" if male and \"f\" if female</li>\n\t\t\t<li>Date of birth: yyyy-mm-dd</li>\n\t\t\t<li>Email</li>\n\t\t\t<li>Phone</li>\n\t\t\t<li>Note</li>\n\t\t\t<li>Home</li>\n\t\t\t<li>District's id</li>\n\t\t\t<li>University's entrance exam's point</li>\n\t\t\t<li>Class's id</li>\n\t\t\t<li>MSSV</li>\n\t\t\t<li>Entrance year</li>\n\t\t\t<li>Student year</li>\n\t\t</ul>\n\t</li>\n</ul>\n</html>");
 		btnImport.setMnemonic('i');
 		btnImport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -96,7 +98,7 @@ public class ImportPane extends JPanel {
 				try {
 					if (comboBox_importObj.getSelectedIndex() == 0)
 						while ((nextLine = reader.readNext()) != null) {
-							// _insert_student(ct, first, last, sex, dob,
+							// _insert_student(first, last, sex, dob,
 							// emails, phones, note, home, dt, point, cl, mssv,
 							// year, k)
 							String first = nextLine[0];
