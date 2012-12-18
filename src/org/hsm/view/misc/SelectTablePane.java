@@ -95,7 +95,6 @@ public class SelectTablePane extends JPanel {
 						for (int i = 0; i < isbackup.length; i++) {
 							if (jtable.getValueAt(i, 2).equals(true)) {
 								isbackup[i] = 1;
-								System.out.println(jtable.getValueAt(i, 0));
 							} else
 								isbackup[i] = 0;
 						}

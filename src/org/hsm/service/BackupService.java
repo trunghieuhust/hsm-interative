@@ -19,9 +19,12 @@ public class BackupService {
 		try {
 			cpmanager = CoreService.getInstance().getCopyManager();
 		} catch (Exception e) {
-			System.out.println(e.toString());
-			org.hsm.control.Control.getInstance().getLogger()
-					.log(Level.SEVERE, "Cannot get connection.\n");
+			org.hsm.control.Control
+					.getInstance()
+					.getLogger()
+					.log(Level.SEVERE,
+							"Cannot get connection.\nMessage: "
+									+ e.getMessage());
 		}
 
 	}
@@ -84,7 +87,6 @@ public class BackupService {
 			File backup_dir = new File(folder_name);
 			backup_dir.mkdir();
 		} catch (Exception e) {
-			System.out.println(e.toString());
 			org.hsm.control.Control.getInstance().getLogger()
 					.log(Level.SEVERE, "Cannot make folder" + folder_name);
 		}

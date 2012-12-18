@@ -27,9 +27,12 @@ public class RestoreService {
 		try {
 			cpmanager = CoreService.getInstance().getCopyManager();
 		} catch (Exception e) {
-			System.out.println(e.toString());
-			org.hsm.control.Control.getInstance().getLogger()
-					.log(Level.SEVERE, "Cannot get connection.\n");
+			org.hsm.control.Control
+					.getInstance()
+					.getLogger()
+					.log(Level.SEVERE,
+							"Cannot get connection.\nMessage: "
+									+ e.getMessage());
 		}
 
 	}
@@ -122,13 +125,9 @@ public class RestoreService {
 				for (int i = 0; i < PR.length; i++)
 					if (PR[i].equals(tb1))
 						return i;
-				System.err.println("failed");
-				return -1;
+				return PR.length;
 			}
 		});
-		for (File file : list) {
-			System.err.println(file.getName());
-		}
 		return list.toArray(new File[list.size()]);
 	}
 
@@ -157,9 +156,7 @@ public class RestoreService {
 
 		String file_name = list_file.getName().substring(0,
 				list_file.getName().lastIndexOf("."));
-		System.out.println(file_name);
 		String state = "COPY " + file_name + " FROM STDIN";
-		System.out.println(state);
 		return state;
 	}
 

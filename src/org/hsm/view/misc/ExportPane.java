@@ -4,9 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.logging.Level;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -17,6 +19,7 @@ import javax.swing.JTextField;
 
 import net.miginfocom.swing.MigLayout;
 
+import org.hsm.control.Control;
 import org.hsm.model.Model;
 import org.hsm.service.CoreService;
 
@@ -355,8 +358,8 @@ public class ExportPane extends JPanel {
 					html_content += "</tr>\n" + "</table>\n" + "</body>\n"
 							+ "</html>\n";
 
-					// Write html_content to file
 					try {
+						// Write html_content to file
 						String file_path = textField_exportPath.getText();
 						// Create file
 						FileWriter fstream = new FileWriter(file_path);
@@ -364,8 +367,12 @@ public class ExportPane extends JPanel {
 						out.write(html_content);
 						// Close the output stream
 						out.close();
-					} catch (Exception e) {// Catch exception if any
-						System.err.println("Error: " + e.getMessage());
+					} catch (IOException e) {
+						Control.getInstance()
+								.getLogger()
+								.log(Level.WARNING,
+										"Export error. Message: "
+												+ e.getMessage());
 					}
 				}
 				// --------------------------------------------------------------------
@@ -398,7 +405,6 @@ public class ExportPane extends JPanel {
 					// student
 					if (!chckbxAll.isSelected()) {
 						String raw_list = textField_exportList.getText();
-						System.out.print(raw_list);
 						// break all ";"
 						String[] parts = raw_list.split(";");
 						// Search for all student code in list
@@ -602,8 +608,11 @@ public class ExportPane extends JPanel {
 						out.write(html_content);
 						// Close the output stream
 						out.close();
-					} catch (Exception e) {// Catch exception if any
-						System.err.println("Error: " + e.getMessage());
+					} catch (IOException e) {// Catch exception if any
+						Control.getInstance()
+								.getLogger()
+								.log(Level.WARNING,
+										"IO Error: " + e.getMessage());
 					}
 				}
 				// --------------------------------------------------
