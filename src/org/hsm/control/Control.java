@@ -267,8 +267,15 @@ public class Control implements IControl {
 		AcademicInfo[] academicInfos;
 		String str;
 		Teach teach;
+		File[] files;
 
 		switch (command) {
+		case "restoreDatabase":
+			files = (File[]) data;
+			logStart("Restore database from " + files.length + " file(s)");
+			return logEnd(Model.getInstance().getData("restoreDatabase",
+					(Object[]) files));
+
 		case "getOptionFrame":
 			return getOptionFrame();
 

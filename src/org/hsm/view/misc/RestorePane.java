@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 import javax.swing.JButton;
@@ -19,7 +18,6 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.table.DefaultTableModel;
 
 import org.hsm.control.Control;
-import org.hsm.service.RestoreService;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import com.jgoodies.forms.factories.FormFactory;
@@ -77,12 +75,8 @@ public class RestorePane extends JPanel {
 				} else {
 					viewFileInfo(list_file);
 					output.append("Running....");
-					try {
-						total_rows = RestoreService.get_instance()
-								.client_copyin(list_file);
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
+					total_rows = (long) Control.getInstance().getData(
+							"restoreDatabase", (Object[]) list_file);
 					if (total_rows == -1) {
 						output.append("Failed.\nDatabase restore did not complete successfully.See log for details.\n");
 					} else {

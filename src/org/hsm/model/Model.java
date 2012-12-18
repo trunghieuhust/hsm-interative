@@ -1,5 +1,6 @@
 package org.hsm.model;
 
+import java.io.File;
 import java.util.Properties;
 import java.util.logging.Level;
 
@@ -18,6 +19,7 @@ import org.hsm.service.DegreeService;
 import org.hsm.service.DistrictService;
 import org.hsm.service.FacultyService;
 import org.hsm.service.LecturerService;
+import org.hsm.service.RestoreService;
 import org.hsm.service.RoomService;
 import org.hsm.service.StudentService;
 import org.hsm.service.TeachService;
@@ -39,6 +41,9 @@ public class Model implements IModel {
 	@Override
 	public Object getData(String command, Object... data) {
 		switch (command) {
+		case "restoreDatabase":
+			return RestoreService.get_instance().client_copyin((File[]) data);
+
 		case "getClassesListOfCourse":
 			return CourseService.getClassesTeaching((int) data[0]);
 
