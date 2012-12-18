@@ -21,5 +21,4 @@ public class OptionFrame extends JFrame {
 	public static void setUI() {
 		OptionPane.setUI();
 	}
-
 }

@@ -55,11 +55,12 @@ public class OptionPane extends JPanel {
 				ColumnSpec.decode("default:grow"), }, new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC, FormFactory.DEFAULT_ROWSPEC, }));
+		modelUI = new DefaultComboBoxModel<UI_TYPE>(UI_TYPE.values());
 
 		JLabel lblUi = new JLabel("UI");
 		add(lblUi, "2, 2");
-		lblUi.setLabelFor(comboBoxUI);
 		comboBoxUI = new JComboBox<>();
+		lblUi.setLabelFor(comboBoxUI);
 		add(comboBoxUI, "4, 2");
 		comboBoxUI.setModel(modelUI);
 		comboBoxUI.setSelectedIndex(0);
@@ -110,8 +111,6 @@ public class OptionPane extends JPanel {
 		});
 		btnApply.setToolTipText("Apply and save options");
 		btnApply.setMnemonic('a');
-		modelUI = new DefaultComboBoxModel<UI_TYPE>(UI_TYPE.values());
-		modelUI = new DefaultComboBoxModel<UI_TYPE>(UI_TYPE.values());
 	}
 
 	public static void setUI() {
